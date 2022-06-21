@@ -10,51 +10,114 @@
     <link rel="stylesheet" href="shoestyles.css" />
     <div class="container">
       <div class="imgcontainer">
-        <img src="animatedshoe.gif" alt="shoes" />
+        <img src="./assets/animation/animatedshoe.gif" alt="shoes" />
       </div>
       <div class="login">
         <form>
-          <h1>SIGN IN</h1>
+          <h1>SIGN <span class="in-up">IN</span></h1>
           <h2>AND</h2>
-          <h1>Tie lace with us</h1>
-          <div class="infocontainer">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/7747/7747408.png"
-              alt="usernameicon"
-              class="usernameicon"/>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Username"
-              required
-              autocomplete="off"/><br>
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/7445/7445914.png"
-              alt=""
-              class="passwordicon"/>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-              autocomplete="off"/><br>
-            <img
-              src="https://cdn-icons.flaticon.com/png/128/562/premium/562688.png?token=exp=1655731354~hmac=5513d6019fce3450775ceec45b5b2bb4"
-              alt="emailicon"
-              class="emailicon"/>
-            <input type="email" name="email" id="email" placeholder="Email" />
-            <br ><br >
+          <h1><span class="slogan">Explore shoes</span> with us</h1>
+
+          <div class="signIn">
+            <div class="infocontainer">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/7747/7747408.png"
+                alt="usernameicon"
+                class="usernameicon"
+              />
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Username"
+                required
+                autocomplete="off"
+                class="in-username"
+              /><br />
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/7445/7445914.png"
+                alt=""
+                class="passwordicon"
+              />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                autocomplete="off"
+                class="in-password"
+                required
+              />
+              <br />
+              <a class="forgot-password">forgot password?</a>
+              <br />
+            </div>
           </div>
+
+          <div class="signUp hide">
+            <div class="infocontainer">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Username"
+                required
+                autocomplete="off"
+                class="out-username"
+              />
+              <label for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                autocomplete="off"
+                required
+                class="out-password"
+              />
+              <label for="conf-password">Confirm Password</label>
+              <input
+                type="password"
+                name="conf-password"
+                id="password"
+                placeholder="Password"
+                autocomplete="off"
+                required
+                class="out-conf-password"
+              />
+              <label for="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                required
+                class="out-email"
+              />
+              <label for="securityQuestion">Which is Your favorite Shoe</label>
+              <input
+                type="text"
+                name="securityQuestion"
+                id="securityQuestion"
+                placeholder="E.g. Air Force 1"
+                required
+                autocomplete="off"
+                class="out-question"
+              />
+              <br /><br />
+            </div>
+          </div>
+
           <div class="twobutton">
-            <br>
-            <button class="frontshoe">
+            <br />
+            <button class="frontshoe" type="button">
               <img
                 src="https://as1.ftcdn.net/v2/jpg/03/62/15/22/1000_F_362152228_Of0mDOjO2Fn5TzqTruX6wqDDaF594mRJ.jpg"
                 alt="shoeicon"
               />SIGN IN
             </button>
-            <button class="backshoe">
+            <button class="backshoe" type="button">
               SIGN UP<img
                 src="https://as2.ftcdn.net/v2/jpg/03/08/32/01/1000_F_308320176_OgvIVJN8dF7YT7Aoe9h4W9w8r1NYHrUV.jpg"
                 alt=""
@@ -64,6 +127,6 @@
         </form>
       </div>
     </div>
-     <script src="SignUpLogin.js"></script>
+    <script src="SignUpLogin.js"></script>
   </body>
 </html>
