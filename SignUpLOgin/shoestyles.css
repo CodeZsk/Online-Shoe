@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+body {
+  background-color: black;
+  background-image: url("shoesbackground.jpg");
+  background-size: 600px;
+}
+.container {
+  margin: 30px;
+  display: flex;
+  gap: 20px;
+}
+.imgcontainer {
+  display: flex;
+  flex-direction: column;
+}
+.imgcontainer img {
+  box-shadow: 3px 2px 3px 4px grey;
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 3px 2px 3px 4px grey;
+  width: 180vh;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 20px;
+  /* animation: colorchange 10s ease-in-out infinite; */
+  background-image: url("oie_3dMREpXbNmML.gif");
+}
+h1,
+h2 {
+  font-family: "Rock 3D", cursive;
+  text-align: center;
+}
+.infocontainer {
+  display: flex;
+  flex-direction: column;
+}
+.infocontainer input {
+  font-family: "Rock 3D", cursive;
+  width: 200px;
+  height: 30px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+}
+.infocontainer input:hover {
+  box-shadow: 2px 2px 2px 3px black;
+}
+.usernameicon {
+  width: 50px;
+  height: 46px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+}
+.passwordicon {
+  width: 50px;
+  height: 50px;
+  margin-left: 3px;
+}
+.emailicon {
+  width: 50px;
+  height: 50px;
+  margin-left: 3px;
+}
+.twobutton {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.twobutton button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 160px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+}
+.twobutton img {
+  width: 30px;
+  height: 30px;
+  border-radius: 12px;
+}
+.twobutton button:hover {
+  box-shadow: 2px 2px 2px 3px black;
+}
+.twobutton .frontshoe img:hover {
+  animation: shoesmove 5s ease-in-out infinite;
+}
+
+@keyframes shoesmove {
+  10% {
+    transform: translateX(-40px);
+  }
+  20% {
+    transform: translateX(-30px);
+  }
+  30% {
+    transform: translateX(-20px);
+  }
+  40% {
+    transform: translateX(1px);
+  }
+}
+.twobutton .backshoe img:hover {
+  animation: shoesback 5s ease-in-out infinite;
+}
+
+@keyframes shoesback {
+  10% {
+    transform: translateX(36px);
+  }
+  20% {
+    transform: translateX(30px);
+  }
+  30% {
+    transform: translateX(20px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes colorchange {
+  10% {
+    background-color: #ff00ed;
+  }
+  20% {
+    background-color: #ff00ed;
+  }
+  30% {
+    background-color: #ff00ed;
+  }
+  40% {
+    background-color: #6cadff;
+  }
+  50% {
+    background-color: #6cadff;
+  }
+  60% {
+    background-color: #6cadff;
+  }
+  70% {
+    background-color: #ff5500;
+  }
+  80% {
+    background-color: #ff5500;
+  }
+  90% {
+    background-color: #ff5500;
+  }
+  100% {
+    background-color: #b8998d;
+  }
+  110% {
+    background-color: #b8998d;
+  }
+  120% {
+    background-color: #b8998d;
+  }
+  130% {
+    background-color: #b8998d;
+  }
+  140% {
+    background-color: #ffbd00;
+  }
+  150% {
+    background-color: #ffbd00;
+  }
+  160% {
+    background-color: #ffbd00;
+  }
+}
+
+/* #ffbd00 */
