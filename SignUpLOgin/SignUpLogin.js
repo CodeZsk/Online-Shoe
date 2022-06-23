@@ -152,3 +152,33 @@ checkSignUp = (username, password, confPassword, email, question) => {
   signInBtn.click();
   console.log(list);
 };
+
+
+
+
+// my code
+const openModalBtn = document.querySelector(".toggle");
+const modal = document.querySelector(".modal");
+
+openModalBtn.addEventListener("click", () => {
+  modal.style.display = "block";
+});
+
+cancelBtn = document.querySelector(".cancel");
+
+cancelBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+
+document.querySelector('.modal-back').addEventListener('click', () => {
+    modal.style.display = "none";
+})
+
+// const newElement = document.createElement('div')
+// newElement.innerHTML = '<p>Hello </p>'
+// document.body.appendChild(newElement)
+
+setTimeout(() => {
+    console.log("after 5 sec")
+}, 5000);
