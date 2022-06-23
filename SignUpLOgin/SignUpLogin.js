@@ -156,7 +156,7 @@ checkSignUp = (username, password, confPassword, email, question) => {
 
 
 
-// my code
+// my code of modal 
 const openModalBtn = document.querySelector(".toggle");
 const modal = document.querySelector(".modal");
 
