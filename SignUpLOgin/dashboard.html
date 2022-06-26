@@ -1,23 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard</title>
 </head>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="dashboard.css">
+
 <body>
-    <div class="navbar">
-    <span><img src="https://cdn-icons-png.flaticon.com/512/1483/1483660.png" alt="icon" class="brandimage"></a></span>
-        <ul>
-        <li><a href="#">  <img src="https://cdn-icons-png.flaticon.com/512/553/553416.png" alt="houseicon" class="baricon"></a></li>
-     <li><a href="#"> <img src="https://cdn-icons-png.flaticon.com/512/6453/6453357.png" alt="menshoes" class="baricon"></a></li>
-     <li><a href="#"> <img src="https://cdn-icons-png.flaticon.com/512/6453/6453290.png" alt="womenicon" class="baricon"></a></li>
-     <li><a href="#"> <img src="https://cdn-icons-png.flaticon.com/512/1940/1940912.png" alt="unisexicon" class="baricon"></a></li>
-     <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/7360/7360579.png" alt="search"class="baricon"></a></li>
-      </ul>
-      <div class="search"><input type="text"></div>
-    </div>
+	<section class="et-hero-tabs" id="tab-first">
+		<h1>Style Of The Month</h1>
+		<div class="container">
+			<div class="carousel">
+				<div class="carouselfrontface">
+					<span> now sale</span>
+				</div>
+				<div class="carouselfrontface"></div>
+				<div class="carouselfrontface"></div>
+				<div class="carouselfrontface"></div>
+				<div class="carouselfrontface"></div>
+				<div class="carouselfrontface"></div>
+				<div class="carouselfrontface"></div>
+				<div class="carouselfrontface"></div>
+				<div class="carouselfrontface"></div>
+			</div>
+		</div>
+
+		<div class="et-hero-tabs-container">
+			<span><img src="https://cdn-icons-png.flaticon.com/512/1483/1483660.png" alt="icon"
+					class="brandimage"></a></span>
+			<a class="et-hero-tab" href="#tab-Home">Home</a>
+			<a class="et-hero-tab" href="#tab-Men">Men</a>
+			<a class="et-hero-tab" href="#tab-Women">Women</a>
+			<a class="et-hero-tab" href="#tab-Unisex">Unisex</a>
+			<a class="et-hero-tab" href="#tab-Home"><img src="https://cdn-icons-png.flaticon.com/512/54/54481.png"
+					alt="search" class="searchicon"><input type="text" placeholder="search" class="search"></a>
+			<a class="et-hero-tab" href="#tab-first"><img
+					src="https://cdn-icons.flaticon.com/png/512/3239/premium/3239958.png?token=exp=1656050522~hmac=ec11b994949022a9d83e95c3ae7c9436"
+					alt="notification" class="notification"></a>
+			<button class="profile" onclick="k()"><img
+					src="https://cdn-icons-png.flaticon.com/512/456/456212.png"></button>
+			<span class="et-hero-tab-slider"></span>
+			<button></button>
+		</div>
+	</section>
+
+	<!-- Main -->
+	<main class="et-main">
+		<h2>Refresh your style with a new pair of men’s shoes .Our range has everything you need to rack up fashion
+			points – cool sneakers,Go on and look through to find the right fit for you! +
+			Men’s Casual Shoes</h2>
+		<section class="et-slidehome" id="tab-Home">
+			<!-- first product  -->
+			<div class="productcontainer">
+				<div class="productcard">
+					<div class="circle"></div>
+					<div class="imgcont"><img
+							src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
+							alt=""> </div>
+					<div class="shoesize">
+						<div class="ussize">us size </div>
+						<div class="ks">6</div>
+						<div class="ks">7</div>
+						<div class="ks">8</div>
+						<div class="ks">9</div>
+						<div class="ks">10</div>
+						<div class="ks">11</div>
+					</div>
+					<div class="shoename"> NIKE Pro Orange
+					</div>
+					<div class="addtocart">
+						<button> ADDCART</button>
+					</div>
+					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
+				</div>
+				<!-- second   product  -->
+				<div class="productcard">
+					<div class="circlegrey"> </div>
+					<div class="imgcont"> <img
+							src="https://images.unsplash.com/photo-1556306535-fc6684304af1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTZ8MzU0MTA5M3x8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60"
+							alt=""></div>
+					<div class="shoesize">
+						<div class="ussize">us size </div>
+						<div class="ks">6</div>
+						<div class="ks">7</div>
+						<div class="ks">8</div>
+						<div class="ks">9</div>
+						<div class="ks">10</div>
+						<div class="ks">11</div>
+					</div>
+					<div class="shoename"> NIKE PRO 180
+					</div>
+					<div class="addtocart">
+						<button> ADDCART</button>
+					</div>
+					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
+				</div>
+				<!-- third product  -->
+				<div class="productcard">
+					<div class="circlewhite"></div>
+					<div class="imgcont"><img
+							src="https://images.unsplash.com/photo-1621665421558-831f91fd0500?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzd8fHNuZWFrZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+							alt=""> </div>
+					<div class="shoesize">
+						<div class="ussize">us size </div>
+						<div class="ks">6</div>
+						<div class="ks">7</div>
+						<div class="ks">8</div>
+						<div class="ks">9</div>
+						<div class="ks">10</div>
+						<div class="ks">11</div>
+					</div>
+					<div class="shoename"> NIKE PRO 180
+					</div>
+					<div class="addtocart">
+						<button> ADDCART</button>
+					</div>
+					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
+				</div>
+			</div>
+			<div class="nextbtn">
+				<button title=" SEE MORE"><img src="https://cdn-icons-png.flaticon.com/512/709/709586.png"></button>
+			</div>
+		</section>
+
+		<h2>The range of men's shoes has got you covered, if you're striving to be the best or you just want the best
+			fit for your daily life. With iconic designs and high-performance technologies, you can be sure that your
+			shoes won't let you down.</h2>
+	
+	
+			<section class="et-slidemen" id="tab-Men">
+			<!-- first product  -->
+			<div class="productcontainermen">
+				<div class="productcard">
+					<div class="circle"></div>
+					<div class="imgcont"><img
+							src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
+							alt=""> </div>
+					<div class="shoesize">
+						<div class="ussize">us size </div>
+						<div class="ks">6</div>
+						<div class="ks">7</div>
+						<div class="ks">8</div>
+						<div class="ks">9</div>
+						<div class="ks">10</div>
+						<div class="ks">11</div>
+					</div>
+					<div class="shoename"> NIKE Pro Orange
+					</div>
+					<div class="addtocart">
+						<button> ADDCART</button>
+					</div>
+					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
+				</div>
+				<!-- second   product  -->
+				<div class="productcard">
+					<div class="circlegrey"> </div>
+					<div class="imgcont"> <img
+							src="https://images.unsplash.com/photo-1556306535-fc6684304af1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTZ8MzU0MTA5M3x8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60"
+							alt=""></div>
+					<div class="shoesize">
+						<div class="ussize">us size </div>
+						<div class="ks">6</div>
+						<div class="ks">7</div>
+						<div class="ks">8</div>
+						<div class="ks">9</div>
+						<div class="ks">10</div>
+						<div class="ks">11</div>
+					</div>
+					<div class="shoename"> NIKE PRO 180
+					</div>
+					<div class="addtocart">
+						<button> ADDCART</button>
+					</div>
+					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
+				</div>
+				<!-- third product  -->
+				<div class="productcard">
+					<div class="circlewhite"></div>
+					<div class="imgcont"><img
+							src="https://images.unsplash.com/photo-1621665421558-831f91fd0500?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzd8fHNuZWFrZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+							alt=""> </div>
+					<div class="shoesize">
+						<div class="ussize">us size </div>
+						<div class="ks">6</div>
+						<div class="ks">7</div>
+						<div class="ks">8</div>
+						<div class="ks">9</div>
+						<div class="ks">10</div>
+						<div class="ks">11</div>
+					</div>
+					<div class="shoename"> NIKE PRO 180
+					</div>
+					<div class="addtocart">
+						<button> ADDCART</button>
+					</div>
+					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
+				</div>
+			</div>
+			<div class="nextbtn">
+				<button title=" SEE MORE"><img src="https://cdn-icons-png.flaticon.com/512/709/709586.png"></button>
+			</div>
+		</section>
+		<h2>I like Cinderella, I really do. She has a good work ethic. And she likes shoes. The fairy tale is all about
+			the shoe at the end.</h2>
+		
+		
+			<section class="et-slidewomen" id="tab-Women">
+			<!-- first product  -->
+			<div class="productcontainerwomen">
+				<div class="productcard">
+					<div class="circle"></div>
+					<div class="imgcont"><img
+							src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
+							alt=""> </div>
+					<div class="shoesize">
+						<div class="ussize">us size </div>
+						<div class="ks">6</div>
+						<div class="ks">7</div>
+						<div class="ks">8</div>
+						<div class="ks">9</div>
+						<div class="ks">10</div>
+						<div class="ks">11</div>
+					</div>
+					<div class="shoename"> NIKE Pro Orange
+					</div>
+					<div class="addtocart">
+						<button> ADDCART</button>
+					</div>
+					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
+				</div>
+				<!-- second   product  -->
+				<div class="productcard">
+					<div class="circlegrey"> </div>
+					<div class="imgcont"> <img
+							src="https://images.unsplash.com/photo-1556306535-fc6684304af1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTZ8MzU0MTA5M3x8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60"
+							alt=""></div>
+					<div class="shoesize">
+						<div class="ussize">us size </div>
+						<div class="ks">6</div>
+						<div class="ks">7</div>
+						<div class="ks">8</div>
+						<div class="ks">9</div>
+						<div class="ks">10</div>
+						<div class="ks">11</div>
+					</div>
+					<div class="shoename"> NIKE PRO 180
+					</div>
+					<div class="addtocart">
+						<button> ADDCART</button>
+					</div>
+					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
+				</div>
+				<!-- third product  -->
+				<div class="productcard">
+					<div class="circlewhite"></div>
+					<div class="imgcont"><img
+							src="https://images.unsplash.com/photo-1621665421558-831f91fd0500?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzd8fHNuZWFrZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+							alt=""> </div>
+					<div class="shoesize">
+						<div class="ussize">us size </div>
+						<div class="ks">6</div>
+						<div class="ks">7</div>
+						<div class="ks">8</div>
+						<div class="ks">9</div>
+						<div class="ks">10</div>
+						<div class="ks">11</div>
+					</div>
+					<div class="shoename"> NIKE PRO 180
+					</div>
+					<div class="addtocart">
+						<button> ADDCART</button>
+					</div>
+					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
+				</div>
+			</div>
+			<div class="nextbtn">
+				<button title=" SEE MORE"><img src="https://cdn-icons-png.flaticon.com/512/709/709586.png"></button>
+			</div>
+		</section>	
+
+		<h2>“Until we as a gender refuse to wear any shoe that would be uncomfortable to walk a mile in, we're perfectly
+			screwed.”</h2>
+		<!-- <section class="et-slide1" id="tab-angular">
+          <h1>  write for better understanding</h1>
+          <h3> last row =and betweeen </h3>
+        </section> -->
+		<section class="et-slideunisex" id="tab-Unisex">
+			<!-- first product  -->
+			<div class="productcontainerunisex">
+				<div class="productcard">
+					<div class="circle"></div>
+					<div class="imgcont"><img
+							src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
+							alt=""> </div>
+					<div class="shoesize">
+						<div class="ussize">us size </div>
+						<div class="ks">6</div>
+						<div class="ks">7</div>
+						<div class="ks">8</div>
+						<div class="ks">9</div>
+						<div class="ks">10</div>
+						<div class="ks">11</div>
+					</div>
+					<div class="shoename"> NIKE Pro Orange
+					</div>
+					<div class="addtocart">
+						<button> ADDCART</button>
+					</div>
+					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
+				</div>
+				<!-- second   product  -->
+				<div class="productcard">
+					<div class="circlegrey"> </div>
+					<div class="imgcont"> <img
+							src="https://images.unsplash.com/photo-1556306535-fc6684304af1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTZ8MzU0MTA5M3x8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60"
+							alt=""></div>
+					<div class="shoesize">
+						<div class="ussize">us size </div>
+						<div class="ks">6</div>
+						<div class="ks">7</div>
+						<div class="ks">8</div>
+						<div class="ks">9</div>
+						<div class="ks">10</div>
+						<div class="ks">11</div>
+					</div>
+					<div class="shoename"> NIKE PRO 180
+					</div>
+					<div class="addtocart">
+						<button> ADDCART</button>
+					</div>
+					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
+				</div>
+				<!-- third product  -->
+				<div class="productcard">
+					<div class="circlewhite"></div>
+					<div class="imgcont"><img
+							src="https://images.unsplash.com/photo-1621665421558-831f91fd0500?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzd8fHNuZWFrZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+							alt=""> </div>
+					<div class="shoesize">
+						<div class="ussize">us size </div>
+						<div class="ks">6</div>
+						<div class="ks">7</div>
+						<div class="ks">8</div>
+						<div class="ks">9</div>
+						<div class="ks">10</div>
+						<div class="ks">11</div>
+					</div>
+					<div class="shoename"> NIKE PRO 180
+					</div>
+					<div class="addtocart">
+						<button> ADDCART</button>
+					</div>
+					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
+
+				</div>
+			</div>
+			<div class="nextbtn">
+				<button title=" SEE MORE"><img src="https://cdn-icons-png.flaticon.com/512/709/709586.png"></button>
+			</div>
+		</section>
+	</main>
+	<script>
+
+		class StickyNavigation {
+
+			constructor() {
+				this.currentId = null;
+				this.currentTab = null;
+				this.tabContainerHeight = 70;
+				let self = this;
+				$('.et-hero-tab').click(function () {
+					self.onTabClick(event, $(this));
+				});
+				$(window).scroll(() => { this.onScroll(); });
+				$(window).resize(() => { this.onResize(); });
+			}
+
+			onTabClick(event, element) {
+				event.preventDefault();
+				let scrollTop = $(element.attr('href')).offset().top - this.tabContainerHeight + 1;
+				$('html, body').animate({ scrollTop: scrollTop }, 600);
+			}
+
+			onScroll() {
+				this.checkTabContainerPosition();
+				this.findCurrentTabSelector();
+			}
+
+			onResize() {
+				if (this.currentId) {
+					this.setSliderCss();
+				}
+			}
+
+			checkTabContainerPosition() {
+				let offset = $('.et-hero-tabs').offset().top + $('.et-hero-tabs').height() - this.tabContainerHeight;
+				if ($(window).scrollTop() > offset) {
+					$('.et-hero-tabs-container').addClass('et-hero-tabs-container--top');
+				}
+				else {
+					$('.et-hero-tabs-container').removeClass('et-hero-tabs-container--top');
+				}
+			}
+
+			findCurrentTabSelector(element) {
+				let newCurrentId;
+				let newCurrentTab;
+				let self = this;
+				$('.et-hero-tab').each(function () {
+					let id = $(this).attr('href');
+					let offsetTop = $(id).offset().top - self.tabContainerHeight;
+					let offsetBottom = $(id).offset().top + $(id).height() - self.tabContainerHeight;
+					if ($(window).scrollTop() > offsetTop && $(window).scrollTop() < offsetBottom) {
+						newCurrentId = id;
+						newCurrentTab = $(this);
+					}
+				});
+				if (this.currentId != newCurrentId || this.currentId === null) {
+					this.currentId = newCurrentId;
+					this.currentTab = newCurrentTab;
+					this.setSliderCss();
+				}
+			}
+
+			setSliderCss() {
+				let width = 0;
+				let left = 0;
+				if (this.currentTab) {
+					width = this.currentTab.css('width');
+					left = this.currentTab.offset().left;
+				}
+				$('.et-hero-tab-slider').css('width', width);
+				$('.et-hero-tab-slider').css('left', left);
+			}
+
+		}
+
+		const krishna = document.querySelector(".lol")
+
+		function k() {
+			window.location.href = "SignUpLogin.html"
+			console.log("krishna")
+			console.log("working")
+		}
+
+		new StickyNavigation();
+	</script>
 </body>
+
 </html>
