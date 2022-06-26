@@ -2,6 +2,7 @@ from pymongo import MongoClient
 import os
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 MANGO_PASSWORD = os.getenv('MANGO_PASSWORD')
