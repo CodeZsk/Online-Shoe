@@ -1,4 +1,3 @@
-import sys
 import eel
 import datetime
 from connection import get_database

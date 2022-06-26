@@ -4,7 +4,7 @@ body {
   font-family: "Rock 3D",
   cursive;
   background-color: black;
-  background-image: url("../assets/image/shoesbackground.jpg");
+  background-image: url("../../assets/image/shoesbackground.jpg");
   background-size: 600px;
 }
 .hide{
@@ -32,7 +32,7 @@ body {
   align-items: center;
   gap: 20px;
   /* animation: colorchange 10s ease-in-out infinite; */
-  background-image: url("../assets/animation/oie_3dMREpXbNmML.gif");
+  background-image: url("../../assets/animation/oie_3dMREpXbNmML.gif");
 }
 h1,
 h2 {

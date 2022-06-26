@@ -8,4 +8,4 @@ from db.db_curd_function.update import update_user_password
 
 eel.init('/home/zaid/Desktop/softwareDevProject/Online-Shoe')
 
-eel.start('./SignUpLOgin/SignUpLogin.html',  size=(1000, 600))
+eel.start('./components/login-component/SignUpLogin.html',  size=(1000, 600))
