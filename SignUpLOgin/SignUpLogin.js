@@ -26,8 +26,6 @@ let list = [];
 signInBtn.addEventListener("click", () => {
   if (signUp.classList.contains("hide")) {
     checkSignIn(inUsername, inPassword);
-    inUsername.value = "";
-    inPassword.value = "";
     return;
   }
   if (signIn.classList.contains("hide")) {
@@ -68,117 +66,152 @@ forgotPassword.addEventListener("click", () => {
     alert("Please enter your username");
     return;
   }
+  eel.checkSignInDb(inUsername.value)((user) => {
+    if (!user) {
+      alert("user dose not exist");
+      return;
+    }
+    updatePassword(user.securityQuestion, inUsername.value);
+  });
 
-  value = prompt("Which is Your favorite Shoe");
-  console.log(value);
-
-  if (value) {
-    list.forEach((user) => {
-      if (user.username === inUsername.value) {
-        if (user.question === value) {
-          newPass = prompt("Enter New password");
-          user.password = newPass;
+  function updatePassword(question, username) {
+    let securityAnswer = prompt("Which is Your favorite Shoe");
+    console.log(securityAnswer);
+    if (!securityAnswer) {
+      return;
+    }
+    if (securityAnswer !== question) {
+      alert("Security Answer do not match");
+      return;
+    }
+    newPasswordValue = prompt("Enter New password");
+    if (!newPasswordValue) return;
+    if (newPasswordValue.length < 8) {
+      alert("Password must be grater than 8 characters");
+      return;
+    }
+    eel.update_user_password(username, newPasswordValue);
+    alert("Successfully Updated Password");
+  }
+});
+// checking user
+checkSignIn = async (username, password) => {
+  const signIn_username = username.value;
+  const sign_In_password = password.value;
+  if (!signIn_username.trim()) return;
+  if (!sign_In_password.trim()) return;
+  if (sign_In_password.length < 8) {
+    alert("Please enter a valid password");
+    password.value = "";
+    return;
+  }
+  await eel.checkSignInDb(signIn_username)((user) => {
+    if (!user) {
+      alert("Username dose not exists");
+      username.value = "";
+      password.value = "";
+      return;
+    } else {
+      if (user.username === signIn_username) {
+        if (user.password === sign_In_password) {
+          alert("Welcome Back");
+          username.value = "";
+          password.value = "";
           return;
         } else {
-          alert("Security Answer do not match");
+          alert("password do not match");
+          password.value = "";
           return;
         }
       }
-    });
-  }
-});
-
-checkSignIn = (username, password) => {
-  if (!username.value.trim) return;
-  if (!password.value.trim) return;
-  if (password.value.length < 8) {
-    alert("Please enter a valid password");
-    return;
-  }
-  let check = true;
-  list.forEach((user) => {
-    if (user.username === username.value) {
-      check = false;
-      if (user.password === password.value) {
-        alert("Welcome Back");
-        return;
-      } else {
-        alert("password do not match");
-        return;
-      }
     }
   });
-  if (check) {
-    console.log(check);
-    alert("Username dose not exists");
-    return;
-  }
 };
 
-checkSignUp = (username, password, confPassword, email, question) => {
+// creating user
+checkSignUp = async (username, password, confPassword, email, question) => {
   if (!username.value.trim()) return;
   if (!password.value.trim()) return;
   if (!confPassword.value.trim()) return;
   if (!email.value.trim()) return;
   if (!question.value.trim()) return;
+  const sign_UP_username = username.value;
+  const sign_UP_password = password.value;
+  const sign_Up_confPassword = confPassword.value;
+  const sign_UP_email = email.value;
+  const sign_UP_question = question.value;
+  console.log(sign_UP_password);
 
-  let Check = false;
-  list.forEach((user) => {
-    if (user.username === username.value) {
-      Check = true;
+  await eel.checkSignInDb(sign_UP_username)((user) => {
+    console.log(user);
+    if (user) {
+      alert("Username already exists");
+      return;
+    } else {
+      setNewUser(
+        sign_UP_username,
+        sign_UP_password,
+        sign_Up_confPassword,
+        sign_UP_email,
+        sign_UP_question
+      );
     }
   });
+  function setNewUser(username, password, confPassword, email, question) {
+    if (password.length < 8) {
+      console.log(password);
+      alert("Password must be grater than 8 characters");
+      return;
+    }
+    if (password !== confPassword) {
+      alert("Password do not match");
+      return;
+    }
 
-  if (Check) {
-    alert("Username already exists");
-    return;
+    eel.set_user(username, password, email, question);
+    eel.message("Successfully signUp in database");
+    alert("Successfully signUp");
+    signInBtn.click();
   }
-
-  if (password.value.length < 8) {
-    alert("Password must be grater than 8 characters");
-    return;
-  }
-  if (password.value !== confPassword.value) {
-    alert("Password do not match");
-    return;
-  }
-  list.push({
-    username: username.value,
-    password: password.value,
-    email: email.value,
-    question: question.value,
-  });
-  alert("Successfully signUp");
-  signInBtn.click();
-  console.log(list);
 };
 
-
-
-
-// my code of modal 
+// my code of modal
 const openModalBtn = document.querySelector(".toggle");
 const modal = document.querySelector(".modal");
+const cancelBtn = document.querySelector(".cancel");
+const adminUsername = document.querySelector(".admin-username");
+const adminPassword = document.querySelector(".admin-password");
 
 openModalBtn.addEventListener("click", () => {
   modal.style.display = "block";
 });
 
-cancelBtn = document.querySelector(".cancel");
-
 cancelBtn.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
+document.querySelector(".modal-back").addEventListener("click", () => {
+  modal.style.display = "none";
+});
 
-document.querySelector('.modal-back').addEventListener('click', () => {
-    modal.style.display = "none";
-})
-
-// const newElement = document.createElement('div')
-// newElement.innerHTML = '<p>Hello </p>'
-// document.body.appendChild(newElement)
-
-setTimeout(() => {
-    console.log("after 5 sec")
-}, 5000);
+document.querySelector(".admin-login").addEventListener("click", () => {
+  if (!adminUsername.value.trim()) return;
+  if (!adminPassword.value.trim()) return;
+  console.log(adminUsername.value);
+  eel.checkAdmin(adminUsername.value)((user) => {
+    if (!user) {
+      alert("Please enter admin username");
+      adminUsername.value = "";
+      adminPassword.value = "";
+      return;
+    }
+    if (adminPassword.value !== user.password) {
+      alert("Please enter admin password");
+      adminPassword.value = "";
+      return;
+    }
+    alert("wellcome sir");
+    adminUsername.value = "";
+    adminPassword.value = "";
+  });
+});
