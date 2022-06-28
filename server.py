@@ -9,14 +9,14 @@ from db.db_curd_function.update import update_user_password
 
 eel.init('/home/zaid/Desktop/softwareDevProject/Online-Shoe')
 
-data = []
+data = [None]
 
 
 @eel.expose
 def setPageData(prop):
     print(prop)
-    data.append(prop)
-    # return data
+    data[0] = (prop)
+    return data
 
 
 @eel.expose

@@ -3,6 +3,9 @@ const all = document.querySelector(".all");
 const men = document.querySelector(".men");
 const women = document.querySelector(".women");
 const unisex = document.querySelector(".unisex");
+const logOut = document.querySelector(".log-out");
+const home = document.querySelector(".brandimage");
+
 all.addEventListener("click", () => loadDoc("all"));
 men.addEventListener("click", () => loadDoc("Men"));
 women.addEventListener("click", () => loadDoc("Women"));
@@ -54,24 +57,6 @@ const getGenderProducts = (gender) => {
   eel.getGenderProducts(gender)((product) => renderAll(product));
 };
 
-{
-  /* <div class="card">
-  <img src="https://cdn.dribbble.com/users/2502549/screenshots/15513115/media/d91789a62ee7d71b15f990342410143f.png?compress=1&resize=1000x750&vertical=top"
-      alt="">
-  <div class="middle">
-      <div class="hide">3000 ₹</div>
-  </div>
-  <div class="desccard">
-      <h3>Air Jordan 1
-          <br>
-          Retro High
-      </h3>
-      <button> ADD TO CART </button>
-      heart
-  </div>
-</div> */
-}
-
 const renderAll = (product) => {
   for (let i = 0; i < product.length; i++) {
     const divCard = document.createElement("div");
@@ -105,3 +90,11 @@ const renderAll = (product) => {
   }
   return 0;
 };
+
+logOut.addEventListener("click", () => {
+  window.location.href = "../login-component/SignUpLogin.html";
+});
+
+home.addEventListener("click", () => {
+  window.location.href = "../home-component/dashboard.html";
+});
