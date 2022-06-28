@@ -117,6 +117,7 @@ checkSignIn = async (username, password) => {
           alert("Welcome Back");
           username.value = "";
           password.value = "";
+          window.location.href = "../home-component/dashboard.html";
           return;
         } else {
           alert("password do not match");

@@ -265,6 +265,7 @@ span{
   gap:68px;
   align-items: center;
   justify-content: center;
+
 }
 .productcard{
   display:flex;
@@ -274,6 +275,7 @@ span{
   border-radius: 10px;
   background-color: white;
   border: 1px solid black;
+  gap:10px;
   /* box-shadow: 1px 1px 1px 1px grey; */
 }
 .productcard .circle{
@@ -474,4 +476,10 @@ h1{
   font-size: 40px;
   color: black;
   text-shadow:2px 2px red;
+}
+
+#productcontainer, #productcontainermen, #productcontainerwomen, #productcontainerunisex{
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
 }

@@ -6,6 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Dashboard</title>
+	<script src="../../eel.js"></script>
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 	crossorigin="anonymous"></script>
@@ -43,9 +44,9 @@
 					src="https://cdn-icons.flaticon.com/png/512/3239/premium/3239958.png?token=exp=1656050522~hmac=ec11b994949022a9d83e95c3ae7c9436"
 					alt="notification" class="notification"></a>
 			<button class="profile" onclick="k()"><img
-					src="https://cdn-icons-png.flaticon.com/512/456/456212.png"></button>
+					src="../../assets/image/profile-img.png" alt="profile">
+			</button>
 			<span class="et-hero-tab-slider"></span>
-			<button></button>
 		</div>
 	</section>
 
@@ -56,74 +57,10 @@
 			Men’s Casual Shoes</h2>
 		<section class="et-slidehome" id="tab-Home">
 			<!-- first product  -->
-			<div class="productcontainer">
-				<div class="productcard">
-					<div class="circle"></div>
-					<div class="imgcont"><img
-							src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
-							alt=""> </div>
-					<div class="shoesize">
-						<div class="ussize">us size </div>
-						<div class="ks">6</div>
-						<div class="ks">7</div>
-						<div class="ks">8</div>
-						<div class="ks">9</div>
-						<div class="ks">10</div>
-						<div class="ks">11</div>
-					</div>
-					<div class="shoename"> NIKE Pro Orange
-					</div>
-					<div class="addtocart">
-						<button> ADDCART</button>
-					</div>
-					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
-				</div>
-				<!-- second   product  -->
-				<div class="productcard">
-					<div class="circlegrey"> </div>
-					<div class="imgcont"> <img
-							src="https://images.unsplash.com/photo-1556306535-fc6684304af1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTZ8MzU0MTA5M3x8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60"
-							alt=""></div>
-					<div class="shoesize">
-						<div class="ussize">us size </div>
-						<div class="ks">6</div>
-						<div class="ks">7</div>
-						<div class="ks">8</div>
-						<div class="ks">9</div>
-						<div class="ks">10</div>
-						<div class="ks">11</div>
-					</div>
-					<div class="shoename"> NIKE PRO 180
-					</div>
-					<div class="addtocart">
-						<button> ADDCART</button>
-					</div>
-					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
-				</div>
-				<!-- third product  -->
-				<div class="productcard">
-					<div class="circlewhite"></div>
-					<div class="imgcont"><img
-							src="https://images.unsplash.com/photo-1621665421558-831f91fd0500?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzd8fHNuZWFrZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-							alt=""> </div>
-					<div class="shoesize">
-						<div class="ussize">us size </div>
-						<div class="ks">6</div>
-						<div class="ks">7</div>
-						<div class="ks">8</div>
-						<div class="ks">9</div>
-						<div class="ks">10</div>
-						<div class="ks">11</div>
-					</div>
-					<div class="shoename"> NIKE PRO 180
-					</div>
-					<div class="addtocart">
-						<button> ADDCART</button>
-					</div>
-					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
-				</div>
+			<div id="productcontainer">
+				
 			</div>
-			<div class="nextbtn">
+			<div class="nextbtn allBtn">
 				<button title=" SEE MORE"><img src="https://cdn-icons-png.flaticon.com/512/709/709586.png"></button>
 			</div>
 		</section>
@@ -135,74 +72,12 @@
 	
 			<section class="et-slidemen" id="tab-Men">
 			<!-- first product  -->
-			<div class="productcontainermen">
-				<div class="productcard">
-					<div class="circle"></div>
-					<div class="imgcont"><img
-							src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
-							alt=""> </div>
-					<div class="shoesize">
-						<div class="ussize">us size </div>
-						<div class="ks">6</div>
-						<div class="ks">7</div>
-						<div class="ks">8</div>
-						<div class="ks">9</div>
-						<div class="ks">10</div>
-						<div class="ks">11</div>
-					</div>
-					<div class="shoename"> NIKE Pro Orange
-					</div>
-					<div class="addtocart">
-						<button> ADDCART</button>
-					</div>
-					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
-				</div>
-				<!-- second   product  -->
-				<div class="productcard">
-					<div class="circlegrey"> </div>
-					<div class="imgcont"> <img
-							src="https://images.unsplash.com/photo-1556306535-fc6684304af1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTZ8MzU0MTA5M3x8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60"
-							alt=""></div>
-					<div class="shoesize">
-						<div class="ussize">us size </div>
-						<div class="ks">6</div>
-						<div class="ks">7</div>
-						<div class="ks">8</div>
-						<div class="ks">9</div>
-						<div class="ks">10</div>
-						<div class="ks">11</div>
-					</div>
-					<div class="shoename"> NIKE PRO 180
-					</div>
-					<div class="addtocart">
-						<button> ADDCART</button>
-					</div>
-					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
-				</div>
-				<!-- third product  -->
-				<div class="productcard">
-					<div class="circlewhite"></div>
-					<div class="imgcont"><img
-							src="https://images.unsplash.com/photo-1621665421558-831f91fd0500?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzd8fHNuZWFrZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-							alt=""> </div>
-					<div class="shoesize">
-						<div class="ussize">us size </div>
-						<div class="ks">6</div>
-						<div class="ks">7</div>
-						<div class="ks">8</div>
-						<div class="ks">9</div>
-						<div class="ks">10</div>
-						<div class="ks">11</div>
-					</div>
-					<div class="shoename"> NIKE PRO 180
-					</div>
-					<div class="addtocart">
-						<button> ADDCART</button>
-					</div>
-					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
-				</div>
+			<div id="productcontainermen">
+				
+					
+				
 			</div>
-			<div class="nextbtn">
+			<div class="nextbtn menBtn">
 				<button title=" SEE MORE"><img src="https://cdn-icons-png.flaticon.com/512/709/709586.png"></button>
 			</div>
 		</section>
@@ -212,159 +87,28 @@
 		
 			<section class="et-slidewomen" id="tab-Women">
 			<!-- first product  -->
-			<div class="productcontainerwomen">
-				<div class="productcard">
-					<div class="circle"></div>
-					<div class="imgcont"><img
-							src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
-							alt=""> </div>
-					<div class="shoesize">
-						<div class="ussize">us size </div>
-						<div class="ks">6</div>
-						<div class="ks">7</div>
-						<div class="ks">8</div>
-						<div class="ks">9</div>
-						<div class="ks">10</div>
-						<div class="ks">11</div>
-					</div>
-					<div class="shoename"> NIKE Pro Orange
-					</div>
-					<div class="addtocart">
-						<button> ADDCART</button>
-					</div>
-					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
-				</div>
-				<!-- second   product  -->
-				<div class="productcard">
-					<div class="circlegrey"> </div>
-					<div class="imgcont"> <img
-							src="https://images.unsplash.com/photo-1556306535-fc6684304af1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTZ8MzU0MTA5M3x8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60"
-							alt=""></div>
-					<div class="shoesize">
-						<div class="ussize">us size </div>
-						<div class="ks">6</div>
-						<div class="ks">7</div>
-						<div class="ks">8</div>
-						<div class="ks">9</div>
-						<div class="ks">10</div>
-						<div class="ks">11</div>
-					</div>
-					<div class="shoename"> NIKE PRO 180
-					</div>
-					<div class="addtocart">
-						<button> ADDCART</button>
-					</div>
-					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
-				</div>
-				<!-- third product  -->
-				<div class="productcard">
-					<div class="circlewhite"></div>
-					<div class="imgcont"><img
-							src="https://images.unsplash.com/photo-1621665421558-831f91fd0500?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzd8fHNuZWFrZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-							alt=""> </div>
-					<div class="shoesize">
-						<div class="ussize">us size </div>
-						<div class="ks">6</div>
-						<div class="ks">7</div>
-						<div class="ks">8</div>
-						<div class="ks">9</div>
-						<div class="ks">10</div>
-						<div class="ks">11</div>
-					</div>
-					<div class="shoename"> NIKE PRO 180
-					</div>
-					<div class="addtocart">
-						<button> ADDCART</button>
-					</div>
-					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
-				</div>
+			<div id="productcontainerwomen">
+				
 			</div>
-			<div class="nextbtn">
+			<div class="nextbtn womenBtn" >
 				<button title=" SEE MORE"><img src="https://cdn-icons-png.flaticon.com/512/709/709586.png"></button>
 			</div>
 		</section>	
 
 		<h2>“Until we as a gender refuse to wear any shoe that would be uncomfortable to walk a mile in, we're perfectly
 			screwed.”</h2>
-		<!-- <section class="et-slide1" id="tab-angular">
-          <h1>  write for better understanding</h1>
-          <h3> last row =and betweeen </h3>
-        </section> -->
+		
 		<section class="et-slideunisex" id="tab-Unisex">
 			<!-- first product  -->
-			<div class="productcontainerunisex">
-				<div class="productcard">
-					<div class="circle"></div>
-					<div class="imgcont"><img
-							src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
-							alt=""> </div>
-					<div class="shoesize">
-						<div class="ussize">us size </div>
-						<div class="ks">6</div>
-						<div class="ks">7</div>
-						<div class="ks">8</div>
-						<div class="ks">9</div>
-						<div class="ks">10</div>
-						<div class="ks">11</div>
-					</div>
-					<div class="shoename"> NIKE Pro Orange
-					</div>
-					<div class="addtocart">
-						<button> ADDCART</button>
-					</div>
-					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
-				</div>
-				<!-- second   product  -->
-				<div class="productcard">
-					<div class="circlegrey"> </div>
-					<div class="imgcont"> <img
-							src="https://images.unsplash.com/photo-1556306535-fc6684304af1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTZ8MzU0MTA5M3x8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60"
-							alt=""></div>
-					<div class="shoesize">
-						<div class="ussize">us size </div>
-						<div class="ks">6</div>
-						<div class="ks">7</div>
-						<div class="ks">8</div>
-						<div class="ks">9</div>
-						<div class="ks">10</div>
-						<div class="ks">11</div>
-					</div>
-					<div class="shoename"> NIKE PRO 180
-					</div>
-					<div class="addtocart">
-						<button> ADDCART</button>
-					</div>
-					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
-				</div>
-				<!-- third product  -->
-				<div class="productcard">
-					<div class="circlewhite"></div>
-					<div class="imgcont"><img
-							src="https://images.unsplash.com/photo-1621665421558-831f91fd0500?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzd8fHNuZWFrZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-							alt=""> </div>
-					<div class="shoesize">
-						<div class="ussize">us size </div>
-						<div class="ks">6</div>
-						<div class="ks">7</div>
-						<div class="ks">8</div>
-						<div class="ks">9</div>
-						<div class="ks">10</div>
-						<div class="ks">11</div>
-					</div>
-					<div class="shoename"> NIKE PRO 180
-					</div>
-					<div class="addtocart">
-						<button> ADDCART</button>
-					</div>
-					<div class="seemore"><a href="https://www.compart.com/en/unicode/U+FF0B ">more&#xFF0B</a></div>
-
-				</div>
+			<div id="productcontainerunisex">
+				
 			</div>
-			<div class="nextbtn">
+			<div class="nextbtn unisexBtn">
 				<button title=" SEE MORE"><img src="https://cdn-icons-png.flaticon.com/512/709/709586.png"></button>
 			</div>
 		</section>
 	</main>
+	<script src="./home.js"></script>
 	<script>
 
 		class StickyNavigation {
@@ -444,7 +188,7 @@
 		const krishna = document.querySelector(".lol")
 
 		function k() {
-			window.location.href = "SignUpLogin.html"
+			window.location.href = "../login-component/SignUpLogin.html"
 			console.log("krishna")
 			console.log("working")
 		}
