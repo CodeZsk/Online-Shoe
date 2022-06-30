@@ -28,6 +28,7 @@ body {
   background-color: white;
   box-shadow: 3px 2px 3px 4px grey;
   width: 180vh;
+  height: 600px;
   /* justify-content: center; */
   align-items: center;
   gap: 20px;
@@ -201,7 +202,7 @@ h2 {
 }
 
 .modal-content {
-  width:300px;
+  width: 400px;
   font-size: medium;
   display: flex;
   flex-direction: column;
@@ -239,8 +240,20 @@ h2 {
 }
 
 .modalbody{
+  display: flex;
   background-image: url("https://wallpaperaccess.com/full/16668.jpg");
-
+  gap: 50px;
+}
+.holder1{
+  display: flex;
+  flex-direction: column;
+}
+.holder2{
+  display: flex;
+}
+.holder2 img{
+  width:100px;
+  height: auto;
 }
 .modalbody input{
   font-family: "Rock 3D", cursive;
@@ -271,4 +284,11 @@ height:22px;
   height: 40px;
   border-radius: 12px;
   border: none;
+}
+
+@media only screen and (max-width: 800px){
+     
+  .imgcontainer {
+    display: none;
+  }
 }

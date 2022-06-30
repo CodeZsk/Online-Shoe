@@ -2,12 +2,6 @@ from __future__ import unicode_literals
 import eel
 import sys
 
-
-
-
-
-# sys.path.append('c:\\Users\\user\\Desktop\\db')
-# print(sys.path)
 from util.utils import message
 from db.db_curd_function.insert import set_user
 from db.db_curd_function.find import checkSignInDb, checkAdmin, getAllProducts, getGenderProducts
@@ -30,4 +24,4 @@ def getPageData():
     return data
 
 
-eel.start('./components/home-component/dashboard.html',  size=(1000, 600))
+eel.start('./components/login-component/SignUpLogin.html',  size=(1500,1000))
