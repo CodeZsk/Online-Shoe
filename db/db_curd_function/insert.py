@@ -1,6 +1,6 @@
 import eel
 import datetime
-from connection import get_database
+from .connection import get_database
 
 dbname = get_database()
 user_info_db = dbname["user_info_db"]

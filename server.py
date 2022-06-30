@@ -1,12 +1,20 @@
 from __future__ import unicode_literals
 import eel
+import sys
+
+
+
+
+
+# sys.path.append('c:\\Users\\user\\Desktop\\db')
+# print(sys.path)
 from util.utils import message
 from db.db_curd_function.insert import set_user
 from db.db_curd_function.find import checkSignInDb, checkAdmin, getAllProducts, getGenderProducts
 from db.db_curd_function.update import update_user_password
 
 
-eel.init('/home/zaid/Desktop/softwareDevProject/Online-Shoe')
+eel.init('C:\\Users\\user\\Desktop\\Online-Shoe')
 
 data = [None]
 
