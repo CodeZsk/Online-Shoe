@@ -1,17 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
 @import url(https://fonts.googleapis.com/css?family=Roboto);
+
 body {
   font-family: "Rock 3D",
-  cursive;
+    cursive;
   margin: 0;
 }
 
 a {
   text-decoration: none;
 }
-.lol{
-    display: flex;
+
+.lol {
+  display: flex;
 }
+
 .et-hero-tabs,
 .et-slide {
   display: flex;
@@ -21,11 +24,12 @@ a {
   height: 100vh;
   position: relative;
   background-repeat: no-repeat;
-  background:whitesmoke;
+  background: whitesmoke;
   text-align: center;
   padding: 0 2em;
   border: 2px solid black;
 }
+
 .et-hero-tabs-container {
   display: flex;
   flex-direction: row;
@@ -33,40 +37,43 @@ a {
   position: absolute;
   top: 0;
   width: 100%;
-  height:70px;
+  height: 70px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   background: white;
   z-index: 10;
   border-bottom: 1px double black;
 }
+
 .et-hero-tabs-container--top {
   position: fixed;
   top: 0;
 }
 
-.et-hero-tab{
+.et-hero-tab {
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
   /* text color */
-  color:black;
+  color: black;
   font-weight: bold;
   letter-spacing: 0.1rem;
   transition: all 0.5s ease;
   font-size: 0.8rem;
 }
-.et-hero-tab.tooltiptext{
+
+.et-hero-tab.tooltiptext {
   visibility: hidden;
 }
+
 .et-hero-tab:hover {
-  color:black;
+  color: black;
   font-weight: bold;
   background: white;
   /* background: rgba(102, 177, 241, 0.8); */
 
   /* box-shadow: 2px 2px 2px 2px black; */
-  width:10px;
+  width: 10px;
   height: 40px;
   transition: all 0.5s ease;
 }
@@ -79,53 +86,165 @@ a {
   background: #86d6e8;
   transition: left 0.3s ease;
 }
-.brandimage{
+
+.brandimage {
   width: 60px;
   height: 60px;
-  margin:10px; }
+  margin: 10px;
+}
 
 
-.searchicon{
+.searchicon {
   border: 1px solid black;
   width: 20px;
   height: 20px;
   border-right-color: transparent;
 
 }
-.search{
+
+.search {
   border: 1px solid black;
   border-left-color: transparent;
   width: 200px;
   height: 18px;
 }
-.notification{
+
+.notification {
   width: 20px;
   height: 20px;
 }
-.profile{
+
+.profile {
   width: 30px;
   height: 30px;
   border: none;
   background-color: transparent;
 }
-.profile img{
+
+.profile img {
   width: 20px;
   height: 20px;
 }
 
-.displaypicturecont{
-    display: flex;
-    flex-direction: row;
-    background-color: black;
-    gap:20px;
-    margin-top: 120px;
+.displaypicturecont {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  gap: 10px;
+  margin-top: 120px;
+  margin-left: 2px;
 }
-.shoesallimages{
-    display: grid;
-    flex-direction: row;
-    align-items: center;
-    width: 1200px;
-    height: 550px;
-    margin-top:200px;
-    background-color: blue;
+
+.shoesallimages {
+  margin-left: 30px;
+  display: grid;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 1020px;
+  height: 550px;
+  background-color: white;
+  border: 3px solid black;
+  gap: 20px;
+  padding-left: 20px;
+}
+
+.shoesallimages img {
+  width: 500px;
+  height: auto;
+}
+
+.productinformation {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  width: 400px;
+  height: 550px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  gap: 30px;
+}
+
+.nameoftheshoe {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 50px;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 24px;
+}
+
+.price span {
+
+  font-size: 24px;
+}
+
+.coloroptions {
+  display: flex;
+  font-size: 20px;
+  gap: 10px;
+  align-items: center;
+  background-color: white;
+}
+
+.coloroptions div {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.coloroptions .orange {
+  background-color: #ff8d17;
+}
+
+.coloroptions .darkblue {
+  background-color: #294158;
+}
+
+
+.coloroptions div:hover {
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+.sizeofshoes {
+  display: flex;
+  margin-left: 2px;
+  align-items: center;
+  gap: 10px;
+}
+
+.boxofsizes {
+  border: 2px solid black;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.boxofsizes:hover {
+
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+
+}
+
+.shoedesc {
+  display: flex;
+  margin: 4px;
+}
+
+.addtocart {
+  margin-left: 80px;
+  width: 240px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: lightblue;
+  color: black;
 }

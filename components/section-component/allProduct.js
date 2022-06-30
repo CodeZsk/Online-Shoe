@@ -44,7 +44,7 @@ const getAllProducts = () => {
     return null;
   }
   return eel.getAllProducts()((product) => {
-    console.log(renderAll(product));
+    console.log(product);
     return renderAll(product);
   });
 };
@@ -54,13 +54,17 @@ const getGenderProducts = (gender) => {
   ) {
     return null;
   }
-  eel.getGenderProducts(gender)((product) => renderAll(product));
+  return eel.getGenderProducts(gender)((product) => {
+    console.log(product);
+    return renderAll(product);
+  });
 };
 
 const renderAll = (product) => {
   for (let i = 0; i < product.length; i++) {
     const divCard = document.createElement("div");
     divCard.classList.add("card");
+
     const img = document.createElement("img");
     img.setAttribute("src", product[i].img[0]);
     const divMiddle = document.createElement("div");
@@ -72,7 +76,11 @@ const renderAll = (product) => {
     const divDesCCard = document.createElement("div");
     divDesCCard.classList.add("desccard");
     const h3 = document.createElement("h3");
+    h3.setAttribute("data-id", product[i]._id);
     h3.textContent = product[i].name;
+    h3.addEventListener("click", () =>
+      singleProduct(h3.getAttribute("data-id"))
+    );
     const br = document.createElement("br");
     const cartBtn = document.createElement("button");
     cartBtn.textContent = "ADD TO CART";
@@ -88,7 +96,13 @@ const renderAll = (product) => {
     divDesCCard.appendChild(cartBtn);
     divDesCCard.appendChild(span);
   }
-  return 0;
+  // return 0;
+};
+
+const singleProduct = (id) => {
+  console.log(id);
+  eel.setPageData(id);
+  window.location.href = "../single-item-component/buynow.html";
 };
 
 logOut.addEventListener("click", () => {

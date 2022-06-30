@@ -1,5 +1,4 @@
 from __future__ import unicode_literals
-from curses import window
 import eel
 from util.utils import message
 from db.db_curd_function.insert import set_user
@@ -14,7 +13,6 @@ data = [None]
 
 @eel.expose
 def setPageData(prop):
-    print(prop)
     data[0] = (prop)
     return data
 
@@ -24,5 +22,4 @@ def getPageData():
     return data
 
 
-# eel.go_to('./components/home-component/dashboard.html')
 eel.start('./components/home-component/dashboard.html',  size=(1000, 600))
