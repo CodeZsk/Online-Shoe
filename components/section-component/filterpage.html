@@ -12,41 +12,59 @@
 <body>
     <link rel="stylesheet" href="filterpage.css">
     <div class="et-hero-tabs-container">
-        <span ><img src="https://cdn-icons-png.flaticon.com/512/1483/1483660.png" alt="icon"
+        <span><img src="https://cdn-icons-png.flaticon.com/512/1483/1483660.png" alt="icon"
                 class="brandimage"></a></span>
-        <a class="et-hero-tab all" href="#tab-Home">All</a>
-        <a class="et-hero-tab men" href="#tab-Men">Men</a>
-        <a class="et-hero-tab women" href="#tab-Women">Women</a>
-        <a class="et-hero-tab unisex" href="#tab-Unisex">Unisex</a>
+        <a class="et-hero-tab all" href="#tab-Home">
+            <h3>All</h3>
+        </a>
+        <a class="et-hero-tab men" href="#tab-Men">
+            <h3>Men</h3>
+        </a>
+        <a class="et-hero-tab women" href="#tab-Women">
+            <h3>Women</h3>
+        </a>
+        <a class="et-hero-tab unisex" href="#tab-Unisex">
+            <h3>Unisex</h3>
+        </a>
         <a class="et-hero-tab" href="#tab-Home"><img src="https://cdn-icons-png.flaticon.com/512/54/54481.png"
                 alt="search" class="searchicon"><input type="text" placeholder="search" class="search"></a>
         <a class="et-hero-tab" href="#tab-first"><img
-                src="https://cdn-icons.flaticon.com/png/512/3239/premium/3239958.png?token=exp=1656050522~hmac=ec11b994949022a9d83e95c3ae7c9436"
+                src="https://cdn-icons.flaticon.com/png/512/3239/premium/3239958.png?token=exp=1656620218~hmac=d9a23ffc9de0e2a8d99098a1141347ff"
                 alt="notification" class="notification"></a>
-        <button class="profile" onclick="k()"><img src="https://cdn-icons-png.flaticon.com/512/456/456212.png"></button>
+        <div class="cartandpro">
+            <button class="profile">
+                <img src="https://cdn-icons-png.flaticon.com/128/609/609496.png" alt="shoppincart">
+            </button>
+            <!-- profile -->
+            <button class="profile" onclick="k()"><img src="../../assets/image/profile-img.png" alt="profile">
+            </button>
+            <button class="log-out">Log-Out</button>
+        </div>
+
         <span class="et-hero-tab-slider"></span>
-        <button class="log-out">Log-Out</button>
     </div>
     <div class="parent">
         <div class="filtersearch">
-            <div class="headof"><h2>Filter Your Shoes</h2></div>
-            <br><br>
+            <div class="headof">
+                <h3>Filter Your Shoes</h3>
+            </div>
             <div class="filterofgender">
+                <br>
                 <div class="gendertype1">
-                <label for="men">MEN</label>
-                <input type="radio" name="shoegender" id="men">
+                    <label for="men">MEN</label>
+                    <input type="radio" name="shoegender" id="men">
                 </div>
                 <div class="gendertype2">
-                <label for=" men">Women</label>
-                <input type="radio" name="shoegender" id="women">
+                    <label for=" men">Women</label>
+                    <input type="radio" name="shoegender" id="women">
                 </div>
                 <div class="gendertype3">
-                <label for=" men">Unisex</label>
-                <input type="radio" name="shoegender" id="unisex">
+                    <label for=" men">Unisex</label>
+                    <input type="radio" name="shoegender" id="unisex">
                 </div>
             </div>
-            <div class="sizeofshoes"> 
-                Pick Size
+            <div class="sizeofshoes">
+                <h3>Size</h3>
                 <div class="boxofsizes">6</div>
                 <div class="boxofsizes">7</div>
                 <div class="boxofsizes">8</div>
@@ -55,39 +73,80 @@
                 <div class="boxofsizes">11</div>
             </div>
             <div class="typesofshoes">
-                <h2>Category</h2>
+                <h3>Category</h3>
                 Sneaker
                 <br>
                 Casual Shoes <br>
                 Sports & Outdoor Shoes
                 <br>
-                Formal Shoes
-                <br>
-                Safety Shoes 
+            <div class="tagofbrand">
+                <h3>Brand</h3> 
+                <div class="brandname">
+                    <div class="brandone"> 
+                    <input type="checkbox">
+                    <label for="nike">Nike</label>
+                    </div>
+                    <div>
+                        <input type="checkbox">
+                        <label for="adidas">Adidas</label> 
+                    </div>
+                </div>
+                <div class="brandname">
+                    <div class="brandone"> 
+                    <input type="checkbox">
+                    <label for="puma">Puma</label>
+                    </div>
+                    <div>
+                        <input type="checkbox">
+                        <label for="converse">Converse</label> 
+                    </div>
+                </div>
+                <div class="brandname">
+                    <div class="brandone"> 
+                    <input type="checkbox">
+                    <label for="Skechers">Skechers</label>
+                    </div>
+
+                    <!-- add more brand if you need  -->
+                    <!-- <div>
+                        <input type="checkbox">
+                        <label for="Adidas">Adidas</label> 
+                    </div> -->
+                </div>
+
+
+
+
+
+
             </div>
-            Select Price
+            </div>
+            <h3>Select Price</h3>
             <div class="slidecontainer">
-                <input type="range" min="500" max="3000" value="500" class="slider" id="myRange">
-                <p> Your Price: <span id="demo"></span></p>
+                <span>5000-10,000</span>
+                <br>
+                <span>10,00-15,000</span>
+                <br>
+                <span>15,000-20,000</span>
             </div>
         </div>
 
         <div class="productpage">
             <div class="outer">
-                
+
             </div>
         </div>
     </div>
     <script src="./allProduct.js"></script>
-    <script>  
-        
-        let slider=document.getElementById("myRange")
-        let output=document.getElementById("demo")
-            output.innerHTML=slider.value
-        
-        slider.oninput =function(){
-            output.innerHTML=slider.value
-        }    
+    <script>
+
+        let slider = document.getElementById("myRange")
+        let output = document.getElementById("demo")
+        output.innerHTML = slider.value
+
+        slider.oninput = function () {
+            output.innerHTML = slider.value
+        }
 
     </script>
 </body>

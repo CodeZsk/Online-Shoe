@@ -75,26 +75,26 @@ const renderAll = (product) => {
 
     const divDesCCard = document.createElement("div");
     divDesCCard.classList.add("desccard");
-    const h3 = document.createElement("h3");
-    h3.setAttribute("data-id", product[i]._id);
-    h3.textContent = product[i].name;
-    h3.addEventListener("click", () =>
-      singleProduct(h3.getAttribute("data-id"))
+    const h5 = document.createElement("h5");
+    h5.setAttribute("data-id", product[i]._id);
+    h5.textContent = product[i].name;
+    h5.addEventListener("click", () =>
+      singleProduct(h5.getAttribute("data-id"))
     );
     const br = document.createElement("br");
     const cartBtn = document.createElement("button");
     cartBtn.textContent = "ADD TO CART";
-    const span = document.createElement("span");
-    span.innerText = "heart";
+    // const span = document.createElement("span");
+    // span.innerText = "heart";
 
     outer.appendChild(divCard);
     divCard.appendChild(img);
     divCard.appendChild(divMiddle);
     divMiddle.appendChild(divHide);
     divCard.appendChild(divDesCCard);
-    divDesCCard.appendChild(h3);
+    divDesCCard.appendChild(h5);
     divDesCCard.appendChild(cartBtn);
-    divDesCCard.appendChild(span);
+    // divDesCCard.appendChild(span);
   }
   // return 0;
 };

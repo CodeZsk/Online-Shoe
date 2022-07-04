@@ -1,12 +1,12 @@
-from __future__ import unicode_literals
 import eel
 from util.utils import message
 from db.db_curd_function.insert import set_user
-from db.db_curd_function.find import checkSignInDb, checkAdmin, getAllProducts, getGenderProducts
+from db.db_curd_function.find import checkSignInDb, checkAdmin, getAllProducts, getGenderProducts, userInfo
 from db.db_curd_function.update import update_user_password
 
 
 eel.init('/home/zaid/Desktop/softwareDevProject/Online-Shoe')
+
 
 data = [None]
 
@@ -14,6 +14,10 @@ data = [None]
 @eel.expose
 def setPageData(prop):
     data[0] = (prop)
+    print(prop)
+    if data[0] == 'All':
+        data[0] = None
+        print(data[0])
     return data
 
 
