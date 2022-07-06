@@ -8,7 +8,7 @@ from db.db_curd_function.find import checkSignInDb, checkAdmin, getAllProducts, 
 from db.db_curd_function.update import update_user_password
 
 
-eel.init('C:\\Users\\krishna\\Desktop\\Online-Shoe')
+eel.init('C:\\Users\\user\\Desktop\\Online-Shoe')
 
 data = [None]
 
@@ -24,4 +24,4 @@ def getPageData():
     return data
 
 
-eel.start('./components/login-component/SignUpLogin.html',  size=(1500,1000))
+eel.start('./components/section-component/filterpage.html',  size=(1000, 600))

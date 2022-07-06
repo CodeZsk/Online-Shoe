@@ -75,11 +75,11 @@ const renderAll = (product) => {
 
     const divDesCCard = document.createElement("div");
     divDesCCard.classList.add("desccard");
-    const h5 = document.createElement("h5");
-    h5.setAttribute("data-id", product[i]._id);
-    h5.textContent = product[i].name;
-    h5.addEventListener("click", () =>
-      singleProduct(h5.getAttribute("data-id"))
+    const h6 = document.createElement("h6");
+    h6.setAttribute("data-id", product[i]._id);
+    h6.textContent = product[i].name;
+    h6.addEventListener("click", () =>
+      singleProduct(h6.getAttribute("data-id"))
     );
     const br = document.createElement("br");
     const cartBtn = document.createElement("button");
@@ -92,7 +92,7 @@ const renderAll = (product) => {
     divCard.appendChild(divMiddle);
     divMiddle.appendChild(divHide);
     divCard.appendChild(divDesCCard);
-    divDesCCard.appendChild(h5);
+    divDesCCard.appendChild(h6);
     divDesCCard.appendChild(cartBtn);
     // divDesCCard.appendChild(span);
   }
