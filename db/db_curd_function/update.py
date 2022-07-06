@@ -1,6 +1,6 @@
 import eel
 from connection import get_database
-
+from bson.objectid import ObjectId
 
 dbname = get_database()
 user_info_db = dbname["user_info_db"]
@@ -49,3 +49,23 @@ def update_user(id, name, dob, gender, phoneNo, address, email):
     }
     }
     user_info_db.update_one(searchValue, newValues)
+
+
+@eel.expose
+def update_user_cart_add(id, product_id):
+    searchValue = {"_id": ObjectId(id)}
+    setUserCart = {
+        "$addToSet": {"user_info.user_cart": ObjectId(product_id)}
+    }
+    user_info_db.update_one(searchValue, setUserCart)
+    pass
+
+
+@eel.expose
+def update_user_cart_remove(id, product_id):
+    searchValue = {"_id": id}
+    setUserCart = {
+        "$pull": {"user_cart": product_id}
+    }
+    user_info_db.update_one(searchValue, setUserCart)
+    pass

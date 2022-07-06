@@ -3,8 +3,13 @@ const userBtn = document.querySelector(".user");
 const cartBtn = document.querySelector(".cart");
 const orderBy = document.querySelector(".order");
 
+homeBtn.addEventListener("click", () => {
+  window.location.href = "../home-component/dashboard.html";
+});
 userBtn.addEventListener("click", userHTML);
 orderBy.addEventListener("click", orderHTML);
+cartBtn.addEventListener("click", cartHTML);
+
 let data = [];
 eel.getAllProducts()((product) => console.log(product));
 
@@ -18,6 +23,27 @@ function userHTML() {
   xhttp.open("GET", "./user.html");
   xhttp.send();
 }
+
+function cartHTML() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function () {
+    document.getElementById("main").innerHTML = this.responseText;
+    getCartProduct();
+  };
+  xhttp.open("GET", "./cart.html");
+  xhttp.send();
+}
+
+const getCartProduct = () => {
+  eel.get_user_ID()((id) => {
+    eel.userInfo(id)((user) => {
+      console.log(user[0]);
+      eel.getCartItems(user[0].user_info.user_cart)((productCart) =>
+        console.log(productCart)
+      );
+    });
+  });
+};
 
 function orderHTML() {
   const xhttp = new XMLHttpRequest();

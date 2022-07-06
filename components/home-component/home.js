@@ -74,3 +74,8 @@ function allProducts(gender) {
 const singleProduct = (id) => {
   window.location.href = "../section-component/filterpage.html";
 };
+
+const profileBtn = document.querySelector("#setting");
+profileBtn.addEventListener("click", () => {
+  window.location.href = "../setting-component/setting.html";
+});

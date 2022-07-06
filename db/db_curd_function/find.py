@@ -3,7 +3,7 @@ import eel
 from connection import get_database
 from bson.objectid import ObjectId
 import re
-
+import json
 
 dbname = get_database()
 user_info_db = dbname["user_info_db"]
@@ -16,9 +16,10 @@ jsGender = ''
 @eel.expose
 def checkSignInDb(username):
     user_info = user_info_db.find({"username": username})
-    if user_info is not None:
-        for i in user_info:
-            return i
+    if (user_info) is not None:
+        for i in (user_info):
+            i['_id'] = str(i['_id'])
+        return i
     return None
 
 
@@ -151,10 +152,29 @@ def userInfo(id):
         for i in user:
             data.append(i)
             data[j]['_id'] = str(data[j]['_id'])
+            data[j]['user_info']['user_cart'] = str(
+                data[j]['user_info']['user_cart'])
+            print(data[j]['user_info']['user_cart'])
             j += 1
         return data
     print("No user found")
     return
 
+
+@eel.expose
+def getCartItems(arr):
+    print(type(arr))
+    print(json.loads(arr))
+    cart = user_info_db.find({"_id": {"$in": json.loads(arr)}})
+    data = []
+    if cart is not None:
+        j = 0
+        for i in cart:
+            data.append(i)
+            data[j]['_id'] = str(data[j]['_id'])
+            j += 1
+        return data
+    print("No cart found")
+    return
 
 # userInfo("62b818cf1d0e763410d30734")

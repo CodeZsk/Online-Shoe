@@ -24,6 +24,7 @@ def set_user(username, password, email, securityQuestion):
             "user_phoneNo": "",
             "user_Add": "",
             "user_email": "",
+            "user_cart": [],
             "user_order": {
                 "order_status": {
                     "active_order": [{
@@ -36,7 +37,7 @@ def set_user(username, password, email, securityQuestion):
                             "cancal_product_id": "",
                             "cancal_order_id": "",
                         }],
-                        "order_deliverd":[ {
+                        "order_deliverd": [{
                             "order_product_id": "",
                             "deleverd_order_id": "",
                         }],

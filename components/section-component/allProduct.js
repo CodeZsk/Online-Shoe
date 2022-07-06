@@ -81,9 +81,17 @@ const renderAll = (product) => {
     h5.addEventListener("click", () =>
       singleProduct(h5.getAttribute("data-id"))
     );
-    const br = document.createElement("br");
+    // const br = document.createElement("br");
     const cartBtn = document.createElement("button");
     cartBtn.textContent = "ADD TO CART";
+    cartBtn.addEventListener("click", () => {
+      // console.log(id);
+      eel.get_user_ID()((id) => {
+        eel.update_user_cart_add(id, h5.getAttribute("data-id"));
+      });
+      console.log("updated cart");
+      return;
+    });
     // const span = document.createElement("span");
     // span.innerText = "heart";
 
