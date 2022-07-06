@@ -20,6 +20,14 @@ const sizeContainer = document.querySelector(".sizeofshoes");
 const description = document.querySelector(".shoedesc");
 
 
+const buynowpage=document.querySelector(".buynow")
+
+function buynow(){
+  window.location.href=`../UserInfo-component/userinfo.html`;
+}
+
+buynowpage.addEventListener("click",buynow)
+
 // krishna js lol
 const cartButton=document.querySelectorAll(".cart-button");
 

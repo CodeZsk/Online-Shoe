@@ -261,6 +261,7 @@ a {
   color:black;
   transition: 0.1s ease-in-out;
   overflow: hidden;
+  margin-bottom: 10px;
 }
 
 .cart-button span {
@@ -364,4 +365,19 @@ a {
   height: 30px;
   transform: rotateX(30deg)
 
+}
+
+.buynow{
+
+  margin-left: 100px;
+  padding: 10px;
+  width: 200px;
+  height: 60px;
+  border: 2px solid black;
+  outline: none;
+  border-radius: 10px;
+  background-color: white;
+  cursor: pointer;
+  color:black;
+  overflow: hidden;
 }
