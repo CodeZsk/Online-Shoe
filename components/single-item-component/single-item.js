@@ -1,17 +1,22 @@
+const home = document.querySelector(".brandimage");
+const search = document.querySelector(".search");
+const setting = document.querySelector(".setting");
+const cartBtn = document.querySelector(".cart");
+
 const img1 = document.querySelector(".img-1");
 const img2 = document.querySelector(".img-2");
 const img3 = document.querySelector(".img-3");
 const img4 = document.querySelector(".img-4");
 
-// const allproduct = document.querySelector(".allBtn");
-// allproduct.addEventListener("click", () => allProducts());
+const allproduct = document.querySelector(".all");
+allproduct.addEventListener("click", () => allProducts());
 
-// const menProducts = document.querySelector(".menBtn");
-// menProducts.addEventListener("click", () => allProducts("Men"));
-// const womenProducts = document.querySelector(".womenBtn");
-// womenProducts.addEventListener("click", () => allProducts("Women"));
-// const unisexProducts = document.querySelector(".unisexBtn");
-// unisexProducts.addEventListener("click", () => allProducts("Unisex"));
+const menProducts = document.querySelector(".men");
+menProducts.addEventListener("click", () => allProducts("Men"));
+const womenProducts = document.querySelector(".women");
+womenProducts.addEventListener("click", () => allProducts("Women"));
+const unisexProducts = document.querySelector(".unisex");
+unisexProducts.addEventListener("click", () => allProducts("Unisex"));
 
 const productName = document.querySelector(".name");
 const price = document.querySelector(".price-span");
@@ -31,7 +36,7 @@ function cartClicked() {
   button.classList.add("clicked");
 }
 
-eel.getPageData()((product) => {
+eel.getSinglePageData()((product) => {
   getProduct(product[0]);
 });
 
@@ -65,3 +70,24 @@ async function allProducts(gender) {
   await eel.setPageData(gender);
   window.location.href = `../section-component/filterpage.html`;
 }
+
+search.addEventListener("change", () => {
+  if (!search.value.trim()) {
+    return;
+  }
+  eel.setSearchPageData(search.value.trim());
+  window.location.href = "../section-component/filterpage.html";
+});
+
+home.addEventListener("click", () => {
+  window.location.href = "../home-component/dashboard.html";
+});
+
+cartBtn.addEventListener("click", () => {
+  eel.setPageData("cart");
+  window.location.href = "../setting-component/setting.html";
+});
+
+setting.addEventListener("click", () => {
+  window.location.href = "../setting-component/setting.html";
+});

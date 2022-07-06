@@ -4,6 +4,7 @@ from connection import get_database
 from bson.objectid import ObjectId
 import re
 import json
+from ast import literal_eval
 
 dbname = get_database()
 user_info_db = dbname["user_info_db"]
@@ -19,7 +20,7 @@ def checkSignInDb(username):
     if (user_info) is not None:
         for i in (user_info):
             i['_id'] = str(i['_id'])
-        return i
+            return i
     return None
 
 
@@ -74,8 +75,7 @@ def getSingleProduct(id):
 @eel.expose
 def searchByName(name):
     regx = re.compile(f"^.*{name}*.*$", re.IGNORECASE)
-    print(regx)
-    products = product_db.find({'name': {"$regex": "^.*Air*.*$"}})
+    products = product_db.find({'name': {"$regex": regx}})
     data = []
     if products is not None:
         j = 0
@@ -83,8 +83,7 @@ def searchByName(name):
             data.append(i)
             data[j]['_id'] = str(data[j]['_id'])
             j += 1
-            print(i)
-        return
+        return data
     print("No products found")
     return
 
@@ -100,7 +99,6 @@ def filterByPrice(low, high):
             data.append(i)
             data[j]['_id'] = str(data[j]['_id'])
             j += 1
-            print(i)
         return
     print("No products found")
     return
@@ -136,8 +134,6 @@ def filterByColor(color):
             data.append(i)
             data[j]['_id'] = str(data[j]['_id'])
             j += 1
-            print(i)
-        print(j)
         return
     print("No products found")
     return
@@ -154,7 +150,7 @@ def userInfo(id):
             data[j]['_id'] = str(data[j]['_id'])
             data[j]['user_info']['user_cart'] = str(
                 data[j]['user_info']['user_cart'])
-            print(data[j]['user_info']['user_cart'])
+            # print(data[j]['user_info']['user_cart'])
             j += 1
         return data
     print("No user found")
@@ -163,9 +159,11 @@ def userInfo(id):
 
 @eel.expose
 def getCartItems(arr):
-    print(type(arr))
-    print(json.loads(arr))
-    cart = user_info_db.find({"_id": {"$in": json.loads(arr)}})
+    cart_arr = literal_eval(arr)
+    cart_arr_obj_id = []
+    for i in cart_arr:
+        cart_arr_obj_id.append(ObjectId(i))
+    cart = product_db.find({"_id": {"$in": cart_arr_obj_id}})
     data = []
     if cart is not None:
         j = 0

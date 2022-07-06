@@ -14,7 +14,7 @@ def update_user_password(username, password):
 
 
 def update_user(id, name, dob, gender, phoneNo, address, email):
-    searchValue = {"_id": id}
+    searchValue = {"_id": ObjectId(id)}
     newValues = {"$set": {"user_info": {
         "user_name": name,
         "user_DOB": dob,
@@ -53,19 +53,19 @@ def update_user(id, name, dob, gender, phoneNo, address, email):
 
 @eel.expose
 def update_user_cart_add(id, product_id):
+    print(product_id)
     searchValue = {"_id": ObjectId(id)}
     setUserCart = {
-        "$addToSet": {"user_info.user_cart": ObjectId(product_id)}
+        "$addToSet": {"user_info.user_cart": product_id}
     }
-    user_info_db.update_one(searchValue, setUserCart)
-    pass
+    result = user_info_db.update_one(searchValue, setUserCart)
+    print(result)
 
 
 @eel.expose
 def update_user_cart_remove(id, product_id):
-    searchValue = {"_id": id}
+    searchValue = {"_id": ObjectId(id)}
     setUserCart = {
-        "$pull": {"user_cart": product_id}
+        "$pull": {"user_info.user_cart": product_id}
     }
     user_info_db.update_one(searchValue, setUserCart)
-    pass

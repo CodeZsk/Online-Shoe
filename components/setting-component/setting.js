@@ -2,6 +2,20 @@ const homeBtn = document.querySelector(".home");
 const userBtn = document.querySelector(".user");
 const cartBtn = document.querySelector(".cart");
 const orderBy = document.querySelector(".order");
+const logOutBtn = document.querySelector(".log-out");
+
+logOutBtn.addEventListener("click", () => {
+  window.location.href = "../login-component/SignUpLogin.html";
+});
+
+eel.getPageData()((data) => {
+  console.log(data);
+  if (data[0] === "cart") {
+    cartHTML();
+    return;
+  }
+  return;
+});
 
 homeBtn.addEventListener("click", () => {
   window.location.href = "../home-component/dashboard.html";
@@ -38,9 +52,10 @@ const getCartProduct = () => {
   eel.get_user_ID()((id) => {
     eel.userInfo(id)((user) => {
       console.log(user[0]);
-      eel.getCartItems(user[0].user_info.user_cart)((productCart) =>
-        console.log(productCart)
-      );
+      eel.getCartItems(user[0].user_info.user_cart)((productCart) => {
+        const outer = document.querySelector(".outer");
+        renderAll(productCart, outer);
+      });
     });
   });
 };
@@ -100,4 +115,53 @@ const getOrderDetails = (order) => {
   li.appendChild(cancelContainer);
 
   activeULList.appendChild(li);
+};
+
+const renderAll = (product, outer) => {
+  for (let i = 0; i < product.length; i++) {
+    const divCard = document.createElement("div");
+    divCard.classList.add("card");
+
+    const img = document.createElement("img");
+    img.setAttribute("src", product[i].img[0]);
+    const divMiddle = document.createElement("div");
+    divMiddle.classList.add("middle");
+    const divHide = document.createElement("div");
+    divHide.classList.add("hide");
+    divHide.textContent = `${product[i].price} ₹`;
+
+    const divDesCCard = document.createElement("div");
+    divDesCCard.classList.add("desccard");
+    const h5 = document.createElement("h5");
+    h5.setAttribute("data-id", product[i]._id);
+    h5.textContent = product[i].name;
+    h5.addEventListener("click", () =>
+      singleProduct(h5.getAttribute("data-id"))
+    );
+    // const br = document.createElement("br");
+    const cartBtn = document.createElement("button");
+    cartBtn.textContent = "ADD TO CART";
+    cartBtn.addEventListener("click", () => {
+      // console.log(id);
+      console.log("i was clicked");
+    });
+    // const span = document.createElement("span");
+    // span.innerText = "heart";
+
+    outer.appendChild(divCard);
+    divCard.appendChild(img);
+    divCard.appendChild(divMiddle);
+    divMiddle.appendChild(divHide);
+    divCard.appendChild(divDesCCard);
+    divDesCCard.appendChild(h5);
+    divDesCCard.appendChild(cartBtn);
+    // divDesCCard.appendChild(span);
+  }
+  // return 0;
+};
+
+const singleProduct = (id) => {
+  console.log(id);
+  eel.setPageData(id);
+  window.location.href = "../single-item-component/buynow.html";
 };

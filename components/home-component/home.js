@@ -9,21 +9,35 @@ const divContainerUnisex = document.querySelector(
   ".unisex-shoe-container .krishnagrid"
 );
 
+const cartBtn = document.querySelector(".cart");
+cartBtn.addEventListener("click", () => {
+  eel.setPageData("cart");
+  window.location.href = "../setting-component/setting.html";
+});
+
+const search = document.querySelector(".search");
+search.addEventListener("change", () => {
+  if (!search.value.trim()) {
+    return;
+  }
+  eel.setSearchPageData(search.value.trim());
+  window.location.href = "../section-component/filterpage.html";
+});
 // const allproduct = document.querySelector(".more");
 // allproduct.addEventListener("click", () => allProducts());
 
-eel.getAllProducts()((product) => renderAll3(product, allhotProduct, "All"));
+eel.getAllProducts()((product) => renderAll6(product, allhotProduct, "All"));
 eel.getGenderProducts("Men")((product) =>
-  renderAll3(product, divContainerMen, "Men")
+  renderAll6(product, divContainerMen, "Men")
 );
 eel.getGenderProducts("Women")((product) =>
-  renderAll3(product, divContainerWomen, "Women")
+  renderAll6(product, divContainerWomen, "Women")
 );
 eel.getGenderProducts("Unisex")((product) =>
-  renderAll3(product, divContainerUnisex, "Unisex")
+  renderAll6(product, divContainerUnisex, "Unisex")
 );
 
-const renderAll3 = (products, container, gender) => {
+const renderAll6 = (products, container, gender) => {
   console.log(products);
   for (let i = 0; i <= 4; i++) {
     let index = Math.floor(Math.random() * 4);
@@ -39,6 +53,12 @@ const renderAll3 = (products, container, gender) => {
     const div = document.createElement("div");
     const img = document.createElement("img");
     img.setAttribute("src", products[index].img[0]);
+
+    containerDiv.setAttribute("data-id", products[index]._id);
+    containerDiv.addEventListener("click", () => {
+      eel.setSinglePageData(containerDiv.getAttribute("data-id"));
+      window.location.href = "../single-item-component/buynow.html";
+    });
 
     container.appendChild(containerDiv);
     containerDiv.appendChild(imgrelative);

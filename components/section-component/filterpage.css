@@ -5,6 +5,8 @@ body {
   font-family: "Rock 3D",
     cursive;
   margin: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 a {
@@ -149,23 +151,25 @@ a {
   display: flex;
   flex-direction: row;
   background-color: white;
-  gap: 12px;
-  margin-top: 120px;
+  gap: 10px;
+  margin-top: 6%;
   align-items: center;
   justify-content: center;
 }
 
 .filtersearch {
-  margin-left: 50px;
+  margin-left: 10px;
   display: flex;
   flex-direction: column;
   width: 350px;
-  height: 650px;
+  height: 600px;
   background-color: white;
   position: sticky;
   border: 1px solid black;
   gap: 1px;
   padding-left: 20px;
+  margin-bottom: 20px;
+  position: static;
 }
 
 .headof {
@@ -265,12 +269,12 @@ a {
   display: grid;
   flex-direction: row;
   align-items: center;
-  width: 1200px;
-  height: 650px;
+  width: 80%;
+  height: 90vh;
   overflow-y: hidden;
   overflow-y: scroll;
   background-color: white;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 
 .outer {
@@ -280,7 +284,6 @@ a {
   justify-content: center;
   margin: 0px;
   padding: 0px;
-  /* width:1100px; */
   height: auto;
   background-color: white;
 }
@@ -288,21 +291,15 @@ a {
 .card {
   position: relative;
   margin: 20px;
-  width: 100%;
+  width: 400px;
   height: auto;
-  min-width: 300px;
-  max-width: 450px;
-  max-height: 600px;
   background-color: white;
   border: 2px solid black;
-  overflow: hidden;
 }
 
 .card img {
-  width: 100%;
-  max-width: 450px;
-  height: auto;
-  max-height: 500px;
+  width: 400px;
+  height: 400px;
   opacity: 1;
   display: block;
   transition: .5s ease;
@@ -342,8 +339,9 @@ a {
 }
 
 .desccard {
-  display: flex;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
   align-items: center;
   justify-content: center;
 }
