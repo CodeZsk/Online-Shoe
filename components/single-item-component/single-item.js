@@ -2,6 +2,7 @@ const home = document.querySelector(".brandimage");
 const search = document.querySelector(".search");
 const setting = document.querySelector(".setting");
 const cartBtn = document.querySelector(".cart");
+const addToCartBtn = document.querySelector(".cart-button");
 
 const img1 = document.querySelector(".img-1");
 const img2 = document.querySelector(".img-2");
@@ -45,12 +46,14 @@ const getProduct = async (id) => {
 };
 
 const renderProduct = (product) => {
+  console.log(product);
   img1.setAttribute("src", product.img[0]);
   img2.setAttribute("src", product.img[1]);
   img3.setAttribute("src", product.img[2]);
   img4.setAttribute("src", product.img[3]);
 
   productName.textContent = product.name;
+  productName.setAttribute("data-id", product._id);
   price.textContent = product.price;
   for (let i = 0; i < product.availability.color.length; i++) {
     const element = document.createElement("div");
@@ -90,4 +93,14 @@ cartBtn.addEventListener("click", () => {
 
 setting.addEventListener("click", () => {
   window.location.href = "../setting-component/setting.html";
+});
+
+addToCartBtn.addEventListener("click", () => {
+  eel.get_user_ID()((id) => {
+    console.log(id);
+    eel.update_user_cart_add(id, productName.getAttribute("data-id"));
+    alert("Added product");
+  });
+  console.log("updated cart");
+  return;
 });

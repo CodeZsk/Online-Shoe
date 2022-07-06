@@ -90,6 +90,7 @@ const getAllProducts = () => {
     return renderAll(product);
   });
 };
+
 const getGenderProducts = (gender) => {
   if (
     eel.getGenderProducts(gender)((product) => renderAll(product)) == undefined
@@ -131,6 +132,7 @@ const renderAll = (product) => {
       eel.get_user_ID()((id) => {
         console.log(id);
         eel.update_user_cart_add(id, h6.getAttribute("data-id"));
+        alert("product added successfully");
       });
       console.log("updated cart");
       return;
