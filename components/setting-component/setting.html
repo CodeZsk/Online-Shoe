@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Setting</title>
+    <link rel="stylesheet" href="./setting.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="user-pic">
+        <img src="../../assets/image/icons8-user-96.png" alt="" />
+      </div>
+      <div class="container">
+        <div class="settings">
+          <h3 class="home">Home</h3>
+          <h3 class="user">User</h3>
+          <h3 class="cart">Cart</h3>
+          <h3 class="order">Orders</h3>
+        </div>
+        <div class="about">
+          <h3 class="log-out">Log Out</h3>
+          <h3>Help</h3>
+          <h3>About us</h3>
+        </div>
+      </div>
+    </aside>
+    <section id="main">
+      <section class="user-profile">
+        <div class="user-info">
+          <div class="btn-container">
+            <button>Edit</button>
+          </div>
+          <div class="username">
+            <label for="name">
+              <h4>Name:</h4>
+            </label>
+            <input type="text" name="name" class="name-input" />
+          </div>
+          <div class="dob-container">
+            <label for="dob">
+              <h4>Date of Birth:</h4>
+            </label>
+            <input type="date" name="dob" class="dob-input" />
+          </div>
+          <div class="gender-container">
+            <label for="gender">
+              <h4>Gender:</h4>
+            </label>
+            <div class="radio-btn">
+              <input type="radio" name="gender" value="male" />
+              <span>Male</span>
+              <input type="radio" name="gender" value="female" />
+              <span>Female</span>
+            </div>
+          </div>
+          <div class="contact-details">
+            <label for="phone">
+              <h4>Phone:</h4>
+            </label>
+            <input type="number" name="phone" class="phone-input" />
+            <label for="email">
+              <h4>Email:</h4>
+            </label>
+            <input type="email" class="email-input" />
+          </div>
+          <div class="address-container">
+            <h3>Address</h3>
+            <label for="flat">
+              <h4>Flat, House no., Building, Company, Apartment</h4>
+            </label>
+            <input type="text" name="flat" class="flat-input" />
+            <label for="area">
+              <h4>Area, Street, Sector, Village</h4>
+            </label>
+            <input type="text" name="area" class="area-input" />
+            <label for="landmark">
+              <h4>Landmark</h4>
+            </label>
+            <input type="text" name="landmark" class="landmark-input" />
+            <label for="town">
+              <h4>Town/City</h4>
+            </label>
+            <input type="text" name="town" class="town-input" />
+            <label for="state">
+              <h4>State</h4>
+            </label>
+            <input type="text" name="state" class="state-input" />
+          </div>
+        </div>
+      </section>
+    </section>
+    <script src="../../eel.js"></script>
+    <script src="./setting.js"></script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 import eel
 import datetime
-from .connection import get_database
+from connection import get_database
 
 dbname = get_database()
 user_info_db = dbname["user_info_db"]
@@ -24,26 +24,27 @@ def set_user(username, password, email, securityQuestion):
             "user_phoneNo": "",
             "user_Add": "",
             "user_email": "",
+            "user_cart": [],
             "user_order": {
                 "order_status": {
-                    "active_order": {
+                    "active_order": [{
                         "active_order_id": "",
                         "product_id": "",
                         "active_state": "",
-                    },
+                    }],
                     "prev_order": {
-                        "orders_cancal": {
+                        "orders_cancal": [{
                             "cancal_product_id": "",
                             "cancal_order_id": "",
-                        },
-                        "order_deliverd": {
+                        }],
+                        "order_deliverd": [{
                             "order_product_id": "",
                             "deleverd_order_id": "",
-                        },
-                        "order_return": {
+                        }],
+                        "order_return": [{
                             "return_product_id": "",
                             "return_order_id": ""
-                        }
+                        }]
                     }
                 }
             }

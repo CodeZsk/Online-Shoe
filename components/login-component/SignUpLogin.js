@@ -114,6 +114,7 @@ checkSignIn = async (username, password) => {
     } else {
       if (user.username === signIn_username) {
         if (user.password === sign_In_password) {
+          eel.set_user_ID(user._id);
           alert("Welcome Back");
           username.value = "";
           password.value = "";

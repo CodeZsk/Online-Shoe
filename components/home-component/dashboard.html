@@ -97,11 +97,11 @@
 			<a class="et-hero-tab" href="#tab-first"><img src="https://cdn-icons-png.flaticon.com/512/2645/2645897.png"
 					alt="notification" class="notification"></a>
 			<div class="cartandpro">
-				<button class="profile">
+				<button class="profile cart">
 					<img src="https://cdn-icons-png.flaticon.com/128/609/609496.png" alt="shoppincart">
 				</button>
 				<!-- profile -->
-				<button class="profile"><img src="../../assets/image/profile-img.png" alt="profile">
+				<button class="profile" id="setting"><img src="../../assets/image/profile-img.png" alt="profile">
 				</button>
 			</div>
 			<span class="et-hero-tab-slider"></span>
@@ -115,100 +115,46 @@
 				<h1 class="offernew"> WHAT'S HOT!</h1>
 				<div class="l">
 					<div class="krishnagrid">
-						<div class="firstimage">
-
-							<div class="imgrelative">
-								<div class="h4relative">
-									<h4>Nike Cortez SP</h4>
-								</div>
-
-								<div>
-									<img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/53be5763-e552-44e0-97fb-6617579ab733/cortez-sp-shoes-v3L7vw.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-
-						<div class="secondimage">
-
-							<div class="imgrelative">
-								<div class="h4relative">
-									<h4>Air Jordan 1 Zoom Cmft</h4>
-								</div>
-
-								<div>
-									<img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/bd5c9b7d-b289-4e4f-a00d-8420438bff49/air-jordan-1-zoom-cmft-shoes-mDxHSk.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-						<div class="thirdimage">
-
-							<div class="imgrelative">
-								<div class="h4relative">
-									<h4>Nike Air Force 1 '07</h4>
-								</div>
-
-								<div>
-									<img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/4f37fca8-6bce-43e7-ad07-f57ae3c13142/air-force-1-07-shoe-WrLlWX.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-
-						<div class="fourthimage">
-
-							<div class="imgrelative">
-								<div class="h4relative">
-									<h4>Nike Dunk Low</h4>
-								</div>
-
-								<div>
-									<img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8a100b24-af30-4d23-adb0-beaf2a2799a3/dunk-low-shoes-R8Sn2r.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-						<div class="fifthimage">
-
-							<div class="imgrelative">
-								<div class="h4relative">
-									<h4>NikeCourt Zoom Vapor Cage 4 Rafa</h4>
-								</div>
-
-								<div>
-									<img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/5e5d9917-b79f-4281-bdcf-9f9dfe3cf461/nikecourt-zoom-vapor-cage-4-rafa-hard-court-tennis-shoes-cS7wct.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-						<div class="more">
+						
+						<!-- <div class="more">
 							<h4 class="textofmore">See More</h4>
-						</div>
+						</div> -->
 					</div>
-
-
-
-
-
-
 				</div>
 			</div>
 			</div>
 		</section>
 		<section class="et-slidemen" id="tab-Men">
-
+			<div class="man-shoe-container">
+				<div class="krishnagrid">
+							
+					<!-- <div class="more">
+						<h4 class="textofmore">See More</h4>
+					</div> -->
+				</div>
+			</div>
 
 		</section>
 
 		<section class="et-slidewomen" id="tab-Women">
-
-
+			<div class="women-shoe-container">
+				<div class="krishnagrid">
+							
+					<!-- <div class="more">
+						<h4 class="textofmore">See More</h4>
+					</div> -->
+				</div>
+			</div>
 		</section>
 
 		<section class="et-slideunisex" id="tab-Unisex">
-
-
+			<div class="unisex-shoe-container">
+				<div class="krishnagrid">
+					<!-- <div class="more">
+						<h4 class="textofmore">See More</h4>
+					</div> -->
+				</div>
+			</div>
 		</section>
 	</main>
 	<script src="./home.js"></script>
@@ -285,16 +231,15 @@
 				$('.et-hero-tab-slider').css('width', width);
 				$('.et-hero-tab-slider').css('left', left);
 			}
-
 		}
 
 		const krishna = document.querySelector(".lol")
 
-		// function k() {
-		// 	window.location.href = "../UserInfo-component/userinfo.html"
-		// 	console.log("krishna")
-		// 	console.log("working")
-		// }
+		function k() {
+			window.location.href = "../login-component/SignUpLogin.html"
+			console.log("krishna")
+			console.log("working")
+		}
 
 		new StickyNavigation();
 	</script>

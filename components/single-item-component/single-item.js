@@ -1,17 +1,23 @@
+const home = document.querySelector(".brandimage");
+const search = document.querySelector(".search");
+const setting = document.querySelector(".setting");
+const cartBtn = document.querySelector(".cart");
+const addToCartBtn = document.querySelector(".cart-button");
+
 const img1 = document.querySelector(".img-1");
 const img2 = document.querySelector(".img-2");
 const img3 = document.querySelector(".img-3");
 const img4 = document.querySelector(".img-4");
 
-// const allproduct = document.querySelector(".allBtn");
-// allproduct.addEventListener("click", () => allProducts());
+const allproduct = document.querySelector(".all");
+allproduct.addEventListener("click", () => allProducts());
 
-// const menProducts = document.querySelector(".menBtn");
-// menProducts.addEventListener("click", () => allProducts("Men"));
-// const womenProducts = document.querySelector(".womenBtn");
-// womenProducts.addEventListener("click", () => allProducts("Women"));
-// const unisexProducts = document.querySelector(".unisexBtn");
-// unisexProducts.addEventListener("click", () => allProducts("Unisex"));
+const menProducts = document.querySelector(".men");
+menProducts.addEventListener("click", () => allProducts("Men"));
+const womenProducts = document.querySelector(".women");
+womenProducts.addEventListener("click", () => allProducts("Women"));
+const unisexProducts = document.querySelector(".unisex");
+unisexProducts.addEventListener("click", () => allProducts("Unisex"));
 
 const productName = document.querySelector(".name");
 const price = document.querySelector(".price-span");
@@ -19,29 +25,19 @@ const colorContainer = document.querySelector(".coloroptions");
 const sizeContainer = document.querySelector(".sizeofshoes");
 const description = document.querySelector(".shoedesc");
 
-
-const buynowpage=document.querySelector(".buynow")
-
-function buynow(){
-  window.location.href=`../UserInfo-component/userinfo.html`;
-}
-
-buynowpage.addEventListener("click",buynow)
-
 // krishna js lol
-const cartButton=document.querySelectorAll(".cart-button");
+const cartButton = document.querySelectorAll(".cart-button");
 
-cartButton.forEach(button =>{
-  button.addEventListener('click',cartClicked);
+cartButton.forEach((button) => {
+  button.addEventListener("click", cartClicked);
 });
 
-function cartClicked(){
-  let button =this;
-  button.classList.add('clicked');
+function cartClicked() {
+  let button = this;
+  button.classList.add("clicked");
 }
 
-
-eel.getPageData()((product) => {
+eel.getSinglePageData()((product) => {
   getProduct(product[0]);
 });
 
@@ -50,12 +46,14 @@ const getProduct = async (id) => {
 };
 
 const renderProduct = (product) => {
+  console.log(product);
   img1.setAttribute("src", product.img[0]);
   img2.setAttribute("src", product.img[1]);
   img3.setAttribute("src", product.img[2]);
   img4.setAttribute("src", product.img[3]);
 
   productName.textContent = product.name;
+  productName.setAttribute("data-id", product._id);
   price.textContent = product.price;
   for (let i = 0; i < product.availability.color.length; i++) {
     const element = document.createElement("div");
@@ -75,3 +73,34 @@ async function allProducts(gender) {
   await eel.setPageData(gender);
   window.location.href = `../section-component/filterpage.html`;
 }
+
+search.addEventListener("change", () => {
+  if (!search.value.trim()) {
+    return;
+  }
+  eel.setSearchPageData(search.value.trim());
+  window.location.href = "../section-component/filterpage.html";
+});
+
+home.addEventListener("click", () => {
+  window.location.href = "../home-component/dashboard.html";
+});
+
+cartBtn.addEventListener("click", () => {
+  eel.setPageData("cart");
+  window.location.href = "../setting-component/setting.html";
+});
+
+setting.addEventListener("click", () => {
+  window.location.href = "../setting-component/setting.html";
+});
+
+addToCartBtn.addEventListener("click", () => {
+  eel.get_user_ID()((id) => {
+    console.log(id);
+    eel.update_user_cart_add(id, productName.getAttribute("data-id"));
+    alert("Added product");
+  });
+  console.log("updated cart");
+  return;
+});

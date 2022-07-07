@@ -3,13 +3,57 @@ const all = document.querySelector(".all");
 const men = document.querySelector(".men");
 const women = document.querySelector(".women");
 const unisex = document.querySelector(".unisex");
-const logOut = document.querySelector(".log-out");
 const home = document.querySelector(".brandimage");
+const search = document.querySelector(".search");
+const setting = document.querySelector(".setting");
+const cartBtn = document.querySelector(".cart");
 
 all.addEventListener("click", () => loadDoc("all"));
 men.addEventListener("click", () => loadDoc("Men"));
 women.addEventListener("click", () => loadDoc("Women"));
 unisex.addEventListener("click", () => loadDoc("Unisex"));
+search.addEventListener("change", () => searchName(search.value.trim()));
+
+cartBtn.addEventListener("click", () => {
+  eel.setPageData("cart");
+  window.location.href = "../setting-component/setting.html";
+});
+
+setting.addEventListener("click", () => {
+  window.location.href = "../setting-component/setting.html";
+});
+
+eel.getSearchPageData()((product) => {
+  console.log(product);
+  if (product) {
+    searchName(product);
+    return;
+  }
+  return;
+});
+
+function searchName(name) {
+  if (!name.trim()) {
+    loadDoc("all");
+    return;
+  }
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function () {
+    console.log("hello world");
+    outer.innerHTML = nameSearch(name);
+  };
+  xhttp.open("GET", "filterpage.html", true);
+  xhttp.send();
+}
+
+const nameSearch = (name) => {
+  if (eel.searchByName(name)((product) => renderAll(product)) == undefined) {
+    return null;
+  }
+  return eel.searchByName(name)((product) => {
+    return renderAll(product);
+  });
+};
 
 function loadDoc(gender) {
   const xhttp = new XMLHttpRequest();
@@ -20,7 +64,6 @@ function loadDoc(gender) {
     };
   } else {
     xhttp.onload = function () {
-      console.log("hello world");
       outer.innerHTML = getGenderProducts(gender);
     };
   }
@@ -31,7 +74,6 @@ function loadDoc(gender) {
 eel.getPageData()((product) => {
   console.log(product);
   if (product[0] == null) {
-    console.log("hello world");
     getAllProducts();
     return;
   }
@@ -48,6 +90,7 @@ const getAllProducts = () => {
     return renderAll(product);
   });
 };
+
 const getGenderProducts = (gender) => {
   if (
     eel.getGenderProducts(gender)((product) => renderAll(product)) == undefined
@@ -81,9 +124,19 @@ const renderAll = (product) => {
     h6.addEventListener("click", () =>
       singleProduct(h6.getAttribute("data-id"))
     );
-    const br = document.createElement("br");
+    // const br = document.createElement("br");
     const cartBtn = document.createElement("button");
     cartBtn.textContent = "ADD TO CART";
+    cartBtn.addEventListener("click", () => {
+      // console.log(id);
+      eel.get_user_ID()((id) => {
+        console.log(id);
+        eel.update_user_cart_add(id, h6.getAttribute("data-id"));
+        alert("product added successfully");
+      });
+      console.log("updated cart");
+      return;
+    });
     // const span = document.createElement("span");
     // span.innerText = "heart";
 
@@ -101,13 +154,9 @@ const renderAll = (product) => {
 
 const singleProduct = (id) => {
   console.log(id);
-  eel.setPageData(id);
+  eel.setSinglePageData(id);
   window.location.href = "../single-item-component/buynow.html";
 };
-
-logOut.addEventListener("click", () => {
-  window.location.href = "../login-component/SignUpLogin.html";
-});
 
 home.addEventListener("click", () => {
   window.location.href = "../home-component/dashboard.html";
