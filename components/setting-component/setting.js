@@ -132,17 +132,16 @@ const renderAll = (product, outer) => {
 
     const divDesCCard = document.createElement("div");
     divDesCCard.classList.add("desccard");
-    const h5 = document.createElement("h5");
-    h5.setAttribute("data-id", product[i]._id);
-    h5.textContent = product[i].name;
-    h5.addEventListener("click", () =>
-      singleProduct(h5.getAttribute("data-id"))
+    const h4 = document.createElement("h4");
+    h4.setAttribute("data-id", product[i]._id);
+    h4.textContent = product[i].name;
+    h4.addEventListener("click", () =>
+      singleProduct(h4.getAttribute("data-id"))
     );
     // const br = document.createElement("br");
     const cartBtn = document.createElement("button");
-    cartBtn.textContent = "ADD TO CART";
+    cartBtn.textContent = "REMOVE";
     cartBtn.addEventListener("click", () => {
-      // console.log(id);
       console.log("i was clicked");
     });
     // const span = document.createElement("span");
@@ -153,7 +152,7 @@ const renderAll = (product, outer) => {
     divCard.appendChild(divMiddle);
     divMiddle.appendChild(divHide);
     divCard.appendChild(divDesCCard);
-    divDesCCard.appendChild(h5);
+    divDesCCard.appendChild(h4);
     divDesCCard.appendChild(cartBtn);
     // divDesCCard.appendChild(span);
   }

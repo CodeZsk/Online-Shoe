@@ -216,7 +216,8 @@ a {
 
 
 .coloroptions div:hover {
-  box-shadow: 1px 1px 1px 1px black;
+  box-shadow: 1px 1px 1px 1px #555;
+
 }
 
 .sizeofshoes {
@@ -380,4 +381,5 @@ a {
   cursor: pointer;
   color:black;
   overflow: hidden;
+  font-size: 16px;
 }

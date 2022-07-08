@@ -6,8 +6,8 @@ from db.db_curd_function.find import checkSignInDb, checkAdmin, getAllProducts, 
 from db.db_curd_function.update import update_user_password, update_user_cart_add, update_user_cart_remove
 
 
-# eel.init('C:\\Users\\krishna\\Desktop\\Online-Shoe')
-eel.init('/home/zaid/Desktop/softwareDevProject/Online-Shoe')
+eel.init('C:\\Users\\krishna\\Desktop\\Online-Shoe')
+# eel.init('/home/zaid/Desktop/softwareDevProject/Online-Shoe')
 
 data = [None]
 
