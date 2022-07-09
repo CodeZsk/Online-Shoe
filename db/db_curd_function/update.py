@@ -13,38 +13,25 @@ def update_user_password(username, password):
     user_info_db.update_one(searchValue, newValues)
 
 
-def update_user(id, name, dob, gender, phoneNo, address, email):
+@eel.expose
+def update_user(id, name, dob, gender, phoneNo, email, flat_number, area_street, landmark, town_city, pincode, state_name):
+    print(id, name, dob, gender, phoneNo, email, flat_number,
+          area_street, landmark, town_city, state_name)
     searchValue = {"_id": ObjectId(id)}
     newValues = {"$set": {"user_info": {
         "user_name": name,
         "user_DOB": dob,
         "user_gender": gender,
         "user_phoneNo": phoneNo,
-        "user_Add": address,
         "user_email": email,
-        "user_order": {
-            "order_status": {
-                "active_order": {
-                    "active_order_id": "",
-                    "product_id": "",
-                    "active_state": "",
-                },
-                "prev_order": {
-                    "orders_cancal": {
-                        "cancal_product_id": "",
-                        "cancal_order_id": "",
-                    },
-                    "order_deliverd": {
-                        "order_product_id": "",
-                        "deleverd_order_id": "",
-                    },
-                    "order_return": {
-                        "return_product_id": "",
-                        "return_order_id": ""
-                    }
-                }
-            }
-        }
+        "user_Add": {
+            "flat_number": flat_number,
+            "area_street": area_street,
+            "landmark": landmark,
+            "town_city": town_city,
+            "pincode": pincode,
+            "state_name": state_name,
+        },
     }
     }
     }
@@ -56,7 +43,7 @@ def update_user_cart_add(id, product_id):
     print(product_id)
     searchValue = {"_id": ObjectId(id)}
     setUserCart = {
-        "$addToSet": {"user_info.user_cart": product_id}
+        "$addToSet": {"user_cart": product_id}
     }
     result = user_info_db.update_one(searchValue, setUserCart)
     print(result)
@@ -66,6 +53,6 @@ def update_user_cart_add(id, product_id):
 def update_user_cart_remove(id, product_id):
     searchValue = {"_id": ObjectId(id)}
     setUserCart = {
-        "$pull": {"user_info.user_cart": product_id}
+        "$pull": {"user_cart": product_id}
     }
     user_info_db.update_one(searchValue, setUserCart)

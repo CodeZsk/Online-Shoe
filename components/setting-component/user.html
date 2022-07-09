@@ -3,64 +3,116 @@
 </head>
 <section class="user-profile">
   <div class="user-info">
-    <div class="btn-container">
-      <button>Edit</button>
-    </div>
-    <div class="username">
-      <label for="name">
-        <h4>Name:</h4>
-      </label>
-      <input type="text" name="name" class="name-input" />
-    </div>
-    <div class="dob-container">
-      <label for="dob">
-        <h4>Date of Birth:</h4>
-      </label>
-      <input type="date" name="dob" class="dob-input" />
-    </div>
-    <div class="gender-container">
-      <label for="gender">
-        <h4>Gender:</h4>
-      </label>
-      <div class="radio-btn">
-        <input type="radio" name="gender" value="male" />
-        <span>Male</span>
-        <input type="radio" name="gender" value="female" />
-        <span>Female</span>
+    <form>
+      <div class="btn-container">
+        <button class="edit-btn edit" type="submit">Edit</button>
       </div>
-    </div>
-    <div class="contact-details">
-      <label for="phone">
-        <h4>Phone:</h4>
-      </label>
-      <input type="number" name="phone" class="phone-input" />
-      <label for="email">
-        <h4>Email:</h4>
-      </label>
-      <input type="email" class="email-input" />
-    </div>
-    <div class="address-container">
-      <h3>Address</h3>
-      <label for="flat">
-        <h4>Flat, House no., Building, Company, Apartment</h4>
-      </label>
-      <input type="text" name="flat" class="flat-input" />
-      <label for="area">
-        <h4>Area, Street, Sector, Village</h4>
-      </label>
-      <input type="text" name="area" class="area-input" />
-      <label for="landmark">
-        <h4>Landmark</h4>
-      </label>
-      <input type="text" name="landmark" class="landmark-input" />
-      <label for="town">
-        <h4>Town/City</h4>
-      </label>
-      <input type="text" name="town" class="town-input" />
-      <label for="state">
-        <h4>State</h4>
-      </label>
-      <input type="text" name="state" class="state-input" />
-    </div>
+      <div class="username">
+        <label for="name">
+          <h4>Name:</h4>
+        </label>
+        <input
+          type="text"
+          name="name"
+          class="name-input input- input-disable"
+          required
+        />
+      </div>
+      <div class="dob-container">
+        <label for="dob">
+          <h4>Date of Birth:</h4>
+        </label>
+        <input
+          type="date"
+          name="dob"
+          class="dob-input input- input-disable"
+          required
+        />
+      </div>
+      <div class="gender-container">
+        <label for="gender">
+          <h4>Gender:</h4>
+        </label>
+        <div class="radio-btn input- input-disable">
+          <input type="radio" id="male" name="gender" value="male" />
+          <span>Male</span>
+          <input type="radio" id="female" name="gender" value="female" />
+          <span>Female</span>
+        </div>
+      </div>
+      <div class="contact-details">
+        <label for="phone">
+          <h4>Phone:</h4>
+        </label>
+        <input
+          type="number"
+          name="phone"
+          class="phone-input input- input-disable"
+          required
+        />
+        <label for="email">
+          <h4>Email:</h4>
+        </label>
+        <input type="email" class="email-input input- input-disable" required />
+      </div>
+      <div class="address-container">
+        <h3>Address</h3>
+        <label for="flat">
+          <h4>Flat, House no., Building, Company, Apartment</h4>
+        </label>
+        <input
+          type="text"
+          name="flat"
+          class="flat-input input- input-disable"
+          required
+        />
+        <label for="area">
+          <h4>Area, Street, Sector, Village</h4>
+        </label>
+        <input
+          type="text"
+          name="area"
+          class="area-input input- input-disable"
+          required
+        />
+        <label for="landmark">
+          <h4>Landmark</h4>
+        </label>
+        <input
+          type="text"
+          name="landmark"
+          class="landmark-input input- input-disable"
+        />
+        <label for="town">
+          <h4>Town/City</h4>
+        </label>
+        <input
+          type="text"
+          name="town"
+          class="town-input input- input-disable"
+          required
+        />
+        <label for="Pincode">
+          <h4>Pincode</h4>
+        </label>
+        <input
+          type="number"
+          name="Pincode"
+          class="pincode-input input- input-disable"
+          required
+          minlength="6"
+          maxlength="6"
+        />
+        <label for="state">
+          <h4>State</h4>
+        </label>
+        <input
+          type="text"
+          name="state"
+          class="state-input input- input-disable"
+          required
+        />
+      </div>
+    </form>
   </div>
 </section>

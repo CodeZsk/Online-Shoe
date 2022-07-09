@@ -22,30 +22,37 @@ def set_user(username, password, email, securityQuestion):
             "user_DOB": "",
             "user_gender": "",
             "user_phoneNo": "",
-            "user_Add": "",
             "user_email": "",
-            "user_cart": [],
-            "user_order": {
-                "order_status": {
-                    "active_order": [{
-                        "active_order_id": "",
-                        "product_id": "",
-                        "active_state": "",
+            "user_Add": {
+                "flat_number": "",
+                "area_street": "",
+                "landmark": "",
+                "town_city": "",
+                "pincode": "",
+                "state_name": "",
+            },
+        },
+        "user_cart": [],
+        "user_order": {
+            "order_status": {
+                "active_order": [{
+                    "active_order_id": "",
+                    "product_id": "",
+                    "active_state": "",
+                }],
+                "prev_order": {
+                    "orders_cancal": [{
+                        "cancal_product_id": "",
+                        "cancal_order_id": "",
                     }],
-                    "prev_order": {
-                        "orders_cancal": [{
-                            "cancal_product_id": "",
-                            "cancal_order_id": "",
-                        }],
-                        "order_deliverd": [{
-                            "order_product_id": "",
-                            "deleverd_order_id": "",
-                        }],
-                        "order_return": [{
-                            "return_product_id": "",
-                            "return_order_id": ""
-                        }]
-                    }
+                    "order_deliverd": [{
+                        "order_product_id": "",
+                        "deleverd_order_id": "",
+                    }],
+                    "order_return": [{
+                        "return_product_id": "",
+                        "return_order_id": ""
+                    }]
                 }
             }
         }
