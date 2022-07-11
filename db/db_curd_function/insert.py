@@ -85,6 +85,7 @@ def set_product(productName, productImg, productDescription, productType, produc
     product_db.insert_one(product)
 
 
+@eel.expose
 def set_order(orderStatus, productId, productName, productPrice, productType, productGenderType, productColor, userId, userName, userGender, userAge):
     order = {
         "order": {

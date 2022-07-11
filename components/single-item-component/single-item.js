@@ -3,6 +3,7 @@ const search = document.querySelector(".search");
 const setting = document.querySelector(".setting");
 const cartBtn = document.querySelector(".cart");
 const addToCartBtn = document.querySelector(".cart-button");
+const buyBtn = document.querySelector(".buynow");
 
 const img1 = document.querySelector(".img-1");
 const img2 = document.querySelector(".img-2");
@@ -103,4 +104,50 @@ addToCartBtn.addEventListener("click", () => {
   });
   console.log("updated cart");
   return;
+});
+
+const displayContainer = document.querySelector(".displaypicturecont");
+
+function buy() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function () {
+    document.querySelector(".displaypicturecont").innerHTML = this.responseText;
+  };
+  xhttp.open("GET", "./buy.html");
+  xhttp.send();
+}
+
+buyBtn.addEventListener("click", () => {
+  eel.getSinglePageData()((id) => {
+    const productFn = () => {
+      eel.getSingleProduct(id[0])((product) => {
+        return product;
+      });
+    };
+    // let user = userFn();
+    // console.log(product, user);
+  });
+
+  let data = null;
+  const userFn = () => {
+    eel.get_user_ID()((id) => {
+      return eel.userInfo(id)((user) => {
+        data = user;
+        console.log(data);
+      });
+    });
+  };
+
+  console.log(data);
+  async function order() {
+    const user = await userFn();
+    console.log(data);
+  }
+
+  order();
+
+  // const order = (user, product) => {
+  //   console.log(user);
+  // };
+  // order(user, product);
 });

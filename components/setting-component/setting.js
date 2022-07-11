@@ -144,8 +144,12 @@ const renderAll = (product, outer) => {
     const cartBtn = document.createElement("button");
     cartBtn.textContent = "REMOVE";
     cartBtn.addEventListener("click", () => {
-      // console.log(id);
       console.log("i was clicked");
+      eel.get_user_ID()((id) => {
+        eel.update_user_cart_remove(id, h4.getAttribute("data-id"));
+        alert("Product removed successfully");
+        cartHTML();
+      });
     });
     // const span = document.createElement("span");
     // span.innerText = "heart";
