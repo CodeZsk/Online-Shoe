@@ -929,9 +929,7 @@ h1 {
   gap: 4rem;
 }
 
-.man-shoe-container,
-.women-shoe-container,
-.unisex-shoe-container {
+.man-shoe-container, .women-shoe-container, .unisex-shoe-container{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -943,12 +941,12 @@ h1 {
 
 
 
-.krishnagrid .firstimage {
+.krishnagrid .firstimage{
   background-color: transparent;
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: auto;
+  height: auto; 
   cursor: pointer;
   /* position: absolute; */
 }

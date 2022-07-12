@@ -33,6 +33,8 @@ function userHTML() {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function () {
     document.getElementById("main").innerHTML = this.responseText;
+    getUserData();
+    getUserFeald();
   };
   xhttp.open("GET", "./user.html");
   xhttp.send();
@@ -52,7 +54,7 @@ const getCartProduct = () => {
   eel.get_user_ID()((id) => {
     eel.userInfo(id)((user) => {
       console.log(user[0]);
-      eel.getCartItems(user[0].user_info.user_cart)((productCart) => {
+      eel.getCartItems(user[0].user_cart)((productCart) => {
         const outer = document.querySelector(".outer");
         renderAll(productCart, outer);
       });
@@ -143,6 +145,11 @@ const renderAll = (product, outer) => {
     cartBtn.textContent = "REMOVE";
     cartBtn.addEventListener("click", () => {
       console.log("i was clicked");
+      eel.get_user_ID()((id) => {
+        eel.update_user_cart_remove(id, h4.getAttribute("data-id"));
+        alert("Product removed successfully");
+        cartHTML();
+      });
     });
     // const span = document.createElement("span");
     // span.innerText = "heart";
@@ -164,3 +171,115 @@ const singleProduct = (id) => {
   eel.setPageData(id);
   window.location.href = "../single-item-component/buynow.html";
 };
+
+const getUserFeald = () => {
+  const editBtn = document.querySelector(".edit-btn");
+  const nameInput = document.querySelector(".name-input");
+  const DOBInput = document.querySelector(".dob-input");
+  let genderInput;
+  const phoneInput = document.querySelector(".phone-input");
+
+  const emailInput = document.querySelector(".email-input");
+  const flatInput = document.querySelector(".flat-input");
+  const areaInput = document.querySelector(".area-input");
+  const landmarkInput = document.querySelector(".landmark-input");
+  const townInput = document.querySelector(".town-input");
+  const pincodeInput = document.querySelector(".pincode-input");
+  const stateInput = document.querySelector(".state-input");
+
+  editBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const inputField = document.querySelectorAll(".input-");
+    if (editBtn.classList.contains("edit")) {
+      editBtn.textContent = "Save";
+      editBtn.classList.remove("edit");
+      inputField.forEach((input) => {
+        input.classList.remove("input-disable");
+      });
+    } else {
+      if (document.getElementById("male").checked) {
+        genderInput = document.getElementById("male");
+      }
+      if (document.getElementById("female").checked) {
+        genderInput = document.getElementById("female");
+      }
+
+      if (!nameInput.value.trim()) return;
+      if (!DOBInput.value.trim()) return;
+      if (!genderInput.value.trim()) return;
+      if (!phoneInput.value.trim()) return;
+      if (!emailInput.value.trim()) return;
+      if (!flatInput.value.trim()) return;
+      if (!areaInput.value.trim()) return;
+      if (!townInput.value.trim()) return;
+      if (!pincodeInput.value.trim()) return;
+      if (!stateInput.value.trim()) return;
+
+      editBtn.textContent = "Edit";
+      editBtn.classList.add("edit");
+      inputField.forEach((input) => {
+        input.classList.add("input-disable");
+      });
+
+      alert("Data Add Successfully");
+      eel.get_user_ID()((id) => {
+        eel.update_user(
+          id,
+          nameInput.value,
+          DOBInput.value,
+          genderInput.value,
+          phoneInput.value,
+          emailInput.value,
+          flatInput.value,
+          areaInput.value,
+          landmarkInput.value,
+          townInput.value,
+          pincodeInput.value,
+          stateInput.value
+        );
+      });
+    }
+  });
+};
+
+getUserFeald();
+
+const getUserData = () => {
+  eel.get_user_ID()((id) => {
+    eel.userInfo(id)((user) => {
+      console.log(user[0]);
+      const { user_info } = user[0];
+      console.log(user_info);
+      const editBtn = document.querySelector(".edit-btn");
+      const nameInput = document.querySelector(".name-input");
+      nameInput.value = user_info.user_name;
+      const DOBInput = document.querySelector(".dob-input");
+      DOBInput.value = user_info.user_DOB;
+      const phoneInput = document.querySelector(".phone-input");
+      phoneInput.value = user_info.user_phoneNo;
+      const emailInput = document.querySelector(".email-input");
+      emailInput.value = user_info.user_email;
+      const flatInput = document.querySelector(".flat-input");
+      flatInput.value = user_info.user_Add.flat_number;
+      const areaInput = document.querySelector(".area-input");
+      areaInput.value = user_info.user_Add.area_street;
+      const landmarkInput = document.querySelector(".landmark-input");
+      landmarkInput.value = user_info.user_Add.landmark;
+      const townInput = document.querySelector(".town-input");
+      townInput.value = user_info.user_Add.town_city;
+      const pincodeInput = document.querySelector(".pincode-input");
+      pincodeInput.value = user_info.user_Add.pincode;
+      const stateInput = document.querySelector(".state-input");
+      stateInput.value = user_info.user_Add.state_name;
+
+      if (user_info.user_gender == "male") {
+        document.getElementById("male").checked = true;
+      }
+      if (user_info.user_gender == "female") {
+        document.getElementById("female").checked = true;
+      }
+    });
+  });
+};
+
+getUserData();

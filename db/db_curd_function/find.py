@@ -148,8 +148,8 @@ def userInfo(id):
         for i in user:
             data.append(i)
             data[j]['_id'] = str(data[j]['_id'])
-            data[j]['user_info']['user_cart'] = str(
-                data[j]['user_info']['user_cart'])
+            data[j]['user_cart'] = str(
+                data[j]['user_cart'])
             # print(data[j]['user_info']['user_cart'])
             j += 1
         return data

@@ -131,6 +131,12 @@ a {
   align-items: center;
 }
 
+.cartandpro {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
 .displaypicturecont {
   display: flex;
   flex-direction: row;
@@ -140,7 +146,8 @@ a {
   margin-left: 2px;
   align-items: center;
 }
-.log-out{
+
+.log-out {
   background-color: white;
   width: 80px;
   height: 20px;
@@ -153,7 +160,7 @@ a {
   flex-direction: column;
   overflow-y: scroll;
   overflow-x: hidden;
-  width:1000px;
+  width: 1000px;
   height: 600px;
   background-color: transparent;
   border: 2px solid black;
@@ -259,7 +266,7 @@ a {
   border-radius: 10px;
   background-color: white;
   cursor: pointer;
-  color:black;
+  color: black;
   transition: 0.1s ease-in-out;
   overflow: hidden;
   margin-bottom: 10px;
@@ -270,7 +277,7 @@ a {
   z-index: 3;
   left: 50%;
   top: 60%;
-   transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 1.2em;
   color: black;
 }
@@ -321,18 +328,24 @@ a {
   0% {
     left: -10%;
   }
-  40%, 60% {
+
+  40%,
+  60% {
     left: 50%;
   }
+
   100% {
     left: 110%;
   }
 }
 
 @keyframes box {
-  0%, 40% {
+
+  0%,
+  40% {
     top: -20%;
   }
+
   60% {
     top: 40%;
     left: 52%;
@@ -347,28 +360,33 @@ a {
   0% {
     opacity: 1;
   }
-  20%, 100% {
+
+  20%,
+  100% {
     opacity: 0;
   }
 }
 
 @keyframes added {
-  0%, 80% {
+
+  0%,
+  80% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
-.cart-item img{
+
+.cart-item img {
 
   width: 30px;
   height: 30px;
   transform: rotateX(30deg)
-
 }
 
-.buynow{
+.buynow {
 
   margin-left: 100px;
   padding: 10px;
@@ -379,7 +397,7 @@ a {
   border-radius: 10px;
   background-color: white;
   cursor: pointer;
-  color:black;
+  color: black;
   overflow: hidden;
   font-size: 16px;
 }
