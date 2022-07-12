@@ -168,7 +168,7 @@ const renderAll = (product, outer) => {
 
 const singleProduct = (id) => {
   console.log(id);
-  eel.setPageData(id);
+  eel.setSinglePageData(id);
   window.location.href = "../single-item-component/buynow.html";
 };
 
