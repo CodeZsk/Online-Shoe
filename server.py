@@ -81,4 +81,6 @@ def getSearchPageData():
     return returnData
 
 
-eel.start('./components/login-component/SignUpLogin.html',  size=(1000, 600))
+# eel.start('./components/login-component/SignUpLogin.html',  size=(1000, 600))
+eel.start('./components/login-component/SignUpLogin.html',  size=(1400, 900))
+# eel.start('./components/admin-component/ordersAd.html',  size=(1400, 900))

@@ -17,8 +17,11 @@ const outQuestion = document.querySelector(".out-question");
 // targeting Btn
 const signInBtn = document.querySelector(".frontshoe");
 const signUpBtn = document.querySelector(".backshoe");
-
 const forgotPassword = document.querySelector(".forgot-password");
+
+// targeting admin modal
+// const admin=document.querySelector(".")
+
 
 // variable
 let list = [];
@@ -215,5 +218,6 @@ document.querySelector(".admin-login").addEventListener("click", () => {
     alert("wellcome sir");
     adminUsername.value = "";
     adminPassword.value = "";
+    window.location.href="../../components/admin-component/admin.html";
   });
 });

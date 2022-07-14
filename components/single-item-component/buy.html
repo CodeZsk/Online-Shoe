@@ -1,40 +1,95 @@
-<div class="parent">
-  <div class="cont">
-    <button class="go-back">Go Back</button>
-    <div class="product">
-      <label for="product"> Product Name </label>
-      <input type="text" class="product-input" disabled />
-    </div>
-    <div class="username">
-      <label for="username">Username</label>
-      <input type="text" class="username-input" disabled />
-    </div>
-    <div class="phonenumber">
-      <label for="phonenumber">Phone No</label>
-      <input type="tel" class="phone-input" disabled />
-    </div>
-    <div class="address">
-      <label for="address">Address</label>
-      <input type="text" />
-    </div>
-    <div class="payment">
-      <label for="payment"> Payment <br />Method </label>
-      <input type="text" value="Cash" disabled />
-    </div>
-    <div class="buynow-btn">
-      <button>Buy Now</button>
-    </div>
-  </div>
-  <div class="cont2">
-    <div class="lol">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="centerhoja"> 
+
+    <div class="parent">
+      <div class="cont">
+        <div class="placingbtn">  
+          <button class="go-back">
+            <img src="../../assets/image/backbutton.png" alt="">
+            Back</button>
+        </div>
+        <div class="product">
+          <label for="product"> Product Name </label>
+        <input type="text" class="product-input" disabled />
+      </div>
       <div class="username">
-        <label for="email">Email</label>
+        <label for="username">Username</label>
+        <input type="text" class="username-input" disabled />
+      </div>
+      <div class="phonenumber">
+        <label for="phonenumber">Phone No</label>
+        <input type="tel" class="phone-input" disabled />
+      </div>
+
+      <div class="email">
+        <label for="email">        Email</label>
         <input type="email" class="email-input" disabled />
       </div>
-      <div class="phonenumber2">
-        <label for="phonenumber">Phone No</label>
-        <input type="tel" />
+      
+      <div class="email">
+        <label for="email">State</label>
+        <input type="text" class="state-input" disabled />
+      </div>
+      <div class="payment">
+        <label for="payment">Payment</label>
+        <input type="text" value="Cash" disabled />
+      </div>
+      <div class="buynow-btn">
+        <button>
+          Confirm Order
+        </button>
       </div>
     </div>
-  </div>
+    <div class="cont2">
+      <div class="lol">
+        <div class="editbtn">
+          <button class="edit">
+            Edit
+            <img src="../../assets/image/editbuybutton.png" alt=""></button>
+        </div>        
+        <div class="Flatno">
+          <label for="address">Address,Flat<br>House.no</label>
+          <input type="address" />
+        </div>
+        <div class="address">
+          <label for="address">Area,Street<br>Sector</label>
+          <input type="address" />
+        </div>
+        <div class="landmark">
+          <label for="address">Landmark</label>
+          <input type="address" />
+        </div>
+        <div class="towncity">
+          <label for="address">Town/City</label>
+          <input type="address" />
+        </div>
+        <div class="pincode">
+          <label for="address">Pincode</label>
+          <input type="address" />
+        </div>
+
+      </div>
+    </div>
+  </div>  
 </div>
+
+<!-- not working -->
+<script>
+  const editbtn=document.querySelector(".editbtn")
+  function openeditpage(){
+    window.location.href="components\setting-component\setting.html"
+    // C:\Users\krishna\Desktop\Online-Shoe\components\setting-component\setting.html
+    console.log("working")
+  }
+  editbtn.addEventListener("click",openeditpage)
+</script>
+</body>
+</html>

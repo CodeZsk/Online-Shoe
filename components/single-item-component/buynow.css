@@ -1,9 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:wght@300&family=Roboto:wght@100&display=swap');
 
+
+/*     font-family: 'Cedarville Cursive', cursive;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-family: 'Roboto', sans-serif; */
+    
 body {
-  font-family: "Rock 3D",
-    cursive;
+    font-family: 'Poppins', sans-serif;
   margin: 0;
 }
 
@@ -56,6 +61,7 @@ a {
   flex: 1;
   /* text color */
   color: black;
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
   letter-spacing: 0.1rem;
   transition: all 0.5s ease;
@@ -68,13 +74,14 @@ a {
 
 .et-hero-tab:hover {
   color: black;
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
   background: white;
   /* background: rgba(102, 177, 241, 0.8); */
 
   /* box-shadow: 2px 2px 2px 2px black; */
-  width: 10px;
-  height: 40px;
+  /* width: 10px;
+  height: 40px; */
   transition: all 0.5s ease;
 }
 
@@ -129,6 +136,7 @@ a {
   display: flex;
   gap: 50px;
   align-items: center;
+  padding-right: 20px;
 }
 
 .cartandpro {
@@ -159,13 +167,11 @@ a {
   align-items: center;
   flex-direction: column;
   overflow-y: scroll;
-  overflow-x: hidden;
   width: 1000px;
   height: 600px;
-  background-color: transparent;
+  background-color: white;
   border: 2px solid black;
 }
-
 .shoesallimages img {
   width: auto;
   height: 600px;
@@ -190,6 +196,7 @@ a {
   background-color: white;
   border-radius: 10px;
   font-size: 24px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .price span {
@@ -199,11 +206,37 @@ a {
 
 .coloroptions {
   display: flex;
+  font-family: 'Poppins', sans-serif;
   font-size: 20px;
   gap: 10px;
+  padding-left: 20px;
   align-items: center;
   background-color: white;
 }
+
+.www{
+  display: flex;
+
+}
+.www input{
+  width: 60px;
+  height: 8px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+/* Chrome, Safari, Edge, Opera
+.www input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} */
+
+/* Firefox */
+/* .www input[type=number] {
+  -moz-appearance: textfield;
+} */
+
 
 .coloroptions div {
   width: 30px;
@@ -244,15 +277,39 @@ a {
 
 .boxofsizes:hover {
 
-  width: 30px;
-  height: 30px;
+  box-shadow: 1px 1px 1px 1px grey;
   border-radius: 30px;
 
 }
 
 .shoedesc {
   display: flex;
+  overflow-y: scroll;
   margin: 4px;
+  
+}
+/* width */
+.shoedesc::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+.shoedesc::-webkit-scrollbar-track {
+  background: transparent; 
+  border-radius: 10px;
+}
+
+/* Handle */
+.shoedesc::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 6px;
+  height: 2px;
+  background-color: #888;
+}
+
+/* Handle on hover */
+.shoedesc::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
 
 .cart-button {
@@ -278,6 +335,7 @@ a {
   left: 50%;
   top: 60%;
   transform: translate(-50%, -50%);
+  font-family: 'Poppins', sans-serif;
   font-size: 1.2em;
   color: black;
 }
@@ -296,6 +354,7 @@ a {
   top: 50%;
   left: -10%;
   transform: translate(-50%, -50%);
+  font-family: 'Poppins', sans-serif;
   font-size: 2em;
 }
 
@@ -305,6 +364,7 @@ a {
   top: -20%;
   left: 52%;
   transform: translate(-50%, -50%);
+  font-family: 'Poppins', sans-serif;
   font-size: 1.2em;
 }
 
@@ -399,5 +459,40 @@ a {
   cursor: pointer;
   color: black;
   overflow: hidden;
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
+}
+/*  scrool bar  */
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 6px;
+  height: 1px;
+  /* background-color: #86d6e8; */
+  background-color: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #86d6e8; 
+}
+
+.www{
+  display: flex;
+
+}
+.www input{
+  width: 30px;
+  height: 30px;
 }

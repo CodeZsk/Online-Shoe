@@ -1,9 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:wght@300&family=Roboto:wght@100&display=swap');
+
+
+/*     font-family: 'Cedarville Cursive', cursive;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-family: 'Roboto', sans-serif; */
 
 body {
-  font-family: "Rock 3D",
-    cursive;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -62,6 +67,7 @@ a {
   letter-spacing: 0.1rem;
   transition: all 0.5s ease;
   font-size: 0.8rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .et-hero-tab.tooltiptext {
@@ -69,11 +75,12 @@ a {
 }
 
 .et-hero-tab:hover {
+  font-family: 'Poppins', sans-serif;
   color: black;
   font-weight: bold;
   background: white;
-  width: 10px;
-  height: 40px;
+  /* width: 10px;
+  height: 40px; */
   transition: all 0.5s ease;
 }
 
@@ -116,6 +123,7 @@ a {
 .cartandpro {
   display: flex;
   gap: 50px;
+  padding-right: 20px;
   align-items: center;
 }
 
@@ -189,6 +197,7 @@ a {
 .gendertype2,
 .gendertype3 {
   display: flex;
+  font-family: 'Poppins', sans-serif;
   font-size: large;
   align-items: center;
   background-color: transparent;
@@ -196,20 +205,20 @@ a {
 }
 
 .gendertype1 input {
-  margin-left: 30px;
+  margin-left: 42px;
   width: 20px;
   height: 20px;
 }
 
 .gendertype2 input {
-  margin: 10px;
+  margin-left: 8px;
   width: 20px;
   height: 20px;
 
 }
 
 .gendertype3 input {
-  margin-left: 14px;
+  margin-left: 22px;
   width: 20px;
   height: 20px;
 }
@@ -334,6 +343,7 @@ a {
 .hide {
   background-color: transparent;
   color: black;
+  font-family: 'Poppins', sans-serif;
   font-size: 20px;
   padding: 16px 32px;
 }
@@ -347,10 +357,11 @@ a {
 }
 
 .desccard button {
-  border: 1px solid black;
+  border: 2px solid black;
   width: 200px;
   height: 40px;
   border-radius: 10px;
+  background-color: white;
 }
 
 .tagofbrand {
@@ -361,4 +372,29 @@ a {
 .brandname {
   display: flex;
   gap: 20px;
+}
+/*  scrool bar  */
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white; 
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white; 
+  border-radius: 106px;
+  height: 1px;
+  /* background-color: #86d6e8; */
+  background-color:#555;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #86d6e8; 
 }

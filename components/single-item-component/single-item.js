@@ -165,6 +165,8 @@ function buyPage(product, user) {
   phoneInput.value = user.user_info.user_phoneNo;
   emailInput.value = user.user_info.user_email;
 
+
+
   onBuyBtn.addEventListener("click", () => {
     console.log("hello world");
     let today = new Date();

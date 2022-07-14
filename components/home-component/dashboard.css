@@ -1,8 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:wght@300&family=Roboto:wght@100&display=swap');
+
+
+/*     font-family: 'Cedarville Cursive', cursive;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-family: 'Roboto', sans-serif; */
 
 body {
-  font-family: "Rock 3D", cursive;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
 }
 
@@ -12,6 +18,7 @@ a {
 
 
 h3 {
+  font-family: 'Poppins', sans-serif;
   font-size: large;
 }
 
@@ -27,7 +34,7 @@ h3 {
   background: white;
   text-align: center;
   padding: 0 2em;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .et-slidehome {
@@ -38,7 +45,7 @@ h3 {
   position: relative;
   background-color: white;
   padding: 0 2em;
-  border: 2px solid red;
+  border: 1px solid black;
 }
 
 .et-slidemen {
@@ -46,7 +53,7 @@ h3 {
   flex-direction: row;
   height: max-content;
   position: relative;
-  border: 2px solid black;
+  border: 1px solid black;
   background-color: white;
   padding: 0 2em;
 }
@@ -61,7 +68,7 @@ h3 {
   /* background: white; */
   /* text-align: center; */
   padding: 0 2em;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .et-slideunisex {
@@ -73,7 +80,7 @@ h3 {
   position: relative;
   /* text-align: center; */
   padding: 0 2em;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .et-hero-tabs-container {
@@ -106,6 +113,7 @@ h3 {
   letter-spacing: 0.1rem;
   transition: all 0.5s ease;
   font-size: 0.8rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .et-hero-tab.tooltiptext {
@@ -114,12 +122,13 @@ h3 {
 
 .et-hero-tab:hover {
   color: black;
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
   background: white;
   /* background: rgba(102, 177, 241, 0.8); */
   /* box-shadow: 2px 2px 2px 2px black; */
-  width: 10px;
-  height: 40px;
+  /* width: 10px;
+  height: 40px; */
   transition: all 0.5s ease;
 }
 
@@ -138,23 +147,25 @@ h3 {
   margin: 10px;
 
 }
-
-
 .searchicon {
-  border: 2px solid black;
+  border: 1px solid black;
   width: 20px;
   height: 20px;
   border-right-color: transparent;
 }
 
 .search {
-  border: 2px solid black;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid black;
   border-left-color: transparent;
   width: 200px;
   height: 18px;
-  /* border-radius: 20px; */
-
 }
+
+.search:focus{
+  border: 1px solid black;
+}
+
 
 .notification {
   width: 20px;
@@ -164,6 +175,7 @@ h3 {
 .cartandpro {
   display: flex;
   gap: 50px;
+  padding-right: 20px;
   /* justify-content: space-between; */
 }
 
@@ -192,6 +204,7 @@ h3 {
 }
 
 span {
+  font-family: 'Poppins', sans-serif;
   font-size: 48px;
   color: red;
 }
@@ -608,11 +621,13 @@ span {
 }
 
 .slider-label.left {
-  background-image: url("http://iconsineed.com/icons/faticons/arrow-left-01-128.png");
+  background-image: url("../../assets/image/sliderleftbutton.png");
+  background-size: 20px 20px;
 }
 
 .slider-label.right {
-  background-image: url("http://iconsineed.com/icons/faticons/arrow-right-01-128.png");
+  background-image: url("../../assets/image/sliderRighttbutton.png");
+    background-size: 20px 20px;
 }
 
 .slider-buttons-div {
@@ -806,10 +821,12 @@ span {
 }
 
 .ussize {
+  font-family: 'Poppins', sans-serif;
   font-size: 20px;
 }
 
 .shoesize .ks {
+  font-family: 'Poppins', sans-serif;
   font-size: 18px;
   width: 30px;
   height: 30px;
@@ -822,6 +839,7 @@ span {
   display: flex;
   position: absolute;
   background-color: transparent;
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   margin-top: 340px;
   margin-left: 20px;
@@ -902,7 +920,7 @@ h2 {
 
 
 h1 {
-  font-family: "Rock 3D";
+  font-family: 'Poppins', sans-serif;
   font-size: 40px;
   color: black;
 }
@@ -960,6 +978,7 @@ h1 {
 
 .h4relative {
   position: absolute;
+  font-family: 'Poppins', sans-serif;
   font-size: 2vh
 }
 
@@ -992,23 +1011,53 @@ h1 {
 .more {
   display: block;
   color: black;
-  border: 2px dashed black;
-  background-image: url("https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6d3cccec-e483-433d-a45d-45a49945100a/zion-2-pf-basketball-shoes-pwN2Q4.png");
+  /* border: 1px dashed black; */
+  /* background-image: url("https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6d3cccec-e483-433d-a45d-45a49945100a/zion-2-pf-basketball-shoes-pwN2Q4.png"); */
+  background-image: url("https://cdn.dribbble.com/users/1025917/screenshots/11589462/media/d1ff5e98a82d66e326f16e4c04520a12.jpg?compress=1&resize=1000x750&vertical=top");
   filter: alpha(Opacity=90);
   opacity: 0.5;
   background-repeat: no-repeat;
   background-size: 400px 300px;
+  background-position: 20px;
 }
 
 .textofmore {
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
   color: black;
   text-align: center;
   font-size: 40px;
   margin: 30px;
+  /* margin-top: 120px; */
 
 }
 
 h4 {
   margin: 8px;
+}
+
+/*  scrool bar  */
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white; 
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white; 
+  border-radius: 106px;
+  height: 0.01em;
+  /* background-color: #86d6e8; */
+  background-color:#555;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #86d6e8; 
 }
