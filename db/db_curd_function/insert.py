@@ -86,10 +86,11 @@ def set_product(productName, productImg, productDescription, productType, produc
 
 
 @eel.expose
-def set_order(orderStatus, productId, productName, productPrice, productType, productGenderType, productColor, userId, userName, userGender, userAge):
+def set_order(orderStatus, date,productId, productName, productPrice, productType, productGenderType, productColor, userId, userName, userGender, userAge):
     order = {
         "order": {
             "order_status": orderStatus,
+            "order_date": date
         },
         "product": {
             "product_id": productId,

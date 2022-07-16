@@ -23,6 +23,7 @@ function renderSingleProduct() {
   const buyBtn = document.querySelector(".buynow");
 
   const productName = document.querySelector(".name");
+  const quantity = document.querySelector(".quantity");
   const price = document.querySelector(".price-span");
   const colorContainer = document.querySelector(".coloroptions");
   const sizeContainer = document.querySelector(".sizeofshoes");
@@ -56,6 +57,7 @@ function renderSingleProduct() {
     img4.setAttribute("src", product.img[3]);
 
     productName.textContent = product.name;
+    quantity.value = product.availability.quantity;
     productName.setAttribute("data-id", product._id);
     price.textContent = product.price;
     for (let i = 0; i < product.availability.color.length; i++) {
@@ -133,6 +135,13 @@ function buy() {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function () {
     document.querySelector(".displaypicturecont").innerHTML = this.responseText;
+    const editbtn = document.querySelector(".edit");
+    console.log(editbtn);
+    editbtn.addEventListener("click", openeditpage);
+    function openeditpage() {
+      console.log("working..");
+      window.location.href = "../setting-component/setting.html";
+    }
     const goBackBtn = document.querySelector(".go-back");
     goBackBtn.addEventListener("click", () => {
       singleProduct();
@@ -157,34 +166,77 @@ function buyPage(product, user) {
   const usernameInput = document.querySelector(".username-input");
   const phoneInput = document.querySelector(".phone-input");
   const emailInput = document.querySelector(".email-input");
-
   const onBuyBtn = document.querySelector(".buynow-btn button");
+  const flatNo = document.querySelector(".flat-no");
+  const address = document.querySelector(".address-input");
+  const landmark = document.querySelector(".landmark-input");
+  const townCity = document.querySelector(".towncity-input");
+  const state = document.querySelector(".state-input");
+  const pincode = document.querySelector(".pincode-input");
+
+  const quantity = document.querySelector(".quantity-input");
+  const price = document.querySelector(".price-input");
+  quantity.setAttribute("max", product.availability.quantity);
+  price.value = product.price.split(",").join("");
+  quantity.addEventListener("change", () => {
+    let value = quantity.value;
+    let total = parseInt(product.price.split(",").join("")) * value;
+    console.log(total);
+    price.value = total;
+  });
 
   productInput.value = product.name;
   usernameInput.value = user.user_info.user_name;
   phoneInput.value = user.user_info.user_phoneNo;
   emailInput.value = user.user_info.user_email;
-
-
+  flatNo.value = user.user_info.user_Add.flat_number;
+  address.value = user.user_info.user_Add.area_street;
+  landmark.value = user.user_info.user_Add.landmark;
+  townCity.value = user.user_info.user_Add.town_city;
+  state.value = user.user_info.user_Add.state_name;
+  pincode.value = user.user_info.user_Add.pincode;
 
   onBuyBtn.addEventListener("click", () => {
     console.log("hello world");
-    let today = new Date();
-    const age = user.user_info.user_DOB - today.getDay();
-    console.log(age);
-    console.log(today);
-    // eel.set_order(
-    //   orderStatus,
-    //   product._id,
-    //   product.name,
-    //   product.price,
-    //   product.type,
-    //   product.gender_type,
-    //   product.availability.color,
-    //   user._id,
-    //   user.user_info.user_name,
-    //   user.user_info.user_gender,
-    //   age
-    // );
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const currentMonth = today.getMonth();
+    const bY = parseInt(user.user_info.user_DOB.split("-")[0]);
+    const bM = parseInt(user.user_info.user_DOB.split("-")[1]);
+    let age = null;
+
+    if (currentMonth > bM) {
+      age = currentYear - bY;
+    } else {
+      age = currentYear - bY - 1;
+    }
+
+    const orderDate = today.toLocaleDateString();
+
+    let confMess = prompt("Type 'CONFIRM' To Confirm Your Order");
+
+    console.log(confMess);
+
+    if (!confMess.trim()) return;
+
+    if (confMess === "CONFIRM") {
+      eel.set_order(
+        "Panding",
+        orderDate,
+        product._id,
+        product.name,
+        product.price,
+        product.type,
+        product.gender_type,
+        product.availability.color,
+        user._id,
+        user.user_info.user_name,
+        user.user_info.user_gender,
+        age
+      );
+      alert("Order Placed Successfully");
+    } else {
+      alert("CONFIRM do not match");
+    }
   });
 }
