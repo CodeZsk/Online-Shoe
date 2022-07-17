@@ -22,7 +22,6 @@ const forgotPassword = document.querySelector(".forgot-password");
 // targeting admin modal
 // const admin=document.querySelector(".")
 
-
 // variable
 let list = [];
 // eventlistener
@@ -218,6 +217,6 @@ document.querySelector(".admin-login").addEventListener("click", () => {
     alert("wellcome sir");
     adminUsername.value = "";
     adminPassword.value = "";
-    window.location.href="../../components/admin-component/admin.html";
+    window.location.href = "../../components/admin-component/ordersAd.html";
   });
 });

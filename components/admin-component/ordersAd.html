@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../eel.js"></script>
+    <script src="./admin.js" defer></script>
     <title>Admin Order</title>
 </head>
 <!-- CSS only -->
@@ -14,7 +15,7 @@
   <div class="sforflex">
     <div class="lolsearch">
       <input type="text" placeholder="search" class="search"></a>
-      <button>ADD</button>
+      <button class="add-product">ADD</button>
     </div>
   </div>
     <div class="pagecontainer">
@@ -24,16 +25,21 @@
             <div class="welcome">Welcome Back Dev</div>
             <br><br>
             <div class="admincontent">
-              <div> <a href="../../components/admin-component/admin.html">Products</a></div>
-              <div><select id="" name="" class="orderdetailsdropdown">
-                <option value="select">Order Details</option>
-                <option value="active">Active Detail</option>
-                <option value="prev">Prev Details</option>
-              </select></div>
+              <div class="product-btn"> 
+                <a>Products</a>
+              </div>
+              <div>
+                <select id="order" name="" class="orderdetailsdropdown">
+                  <option value="select" class="OrderD">Order Details</option>
+                  <option value="active">Active Detail</option>
+                  <option value="prev">Prev Details</option>
+                </select>
+              </div>
               <div> Daily Orders</div>
               <div> Leaderboards</div>
               <div> Order Management</div>
               <div> Customer Statics</div>
+              <div class="log-out"> LogOut</div>
             </div>
           </div>
         </div>
@@ -50,93 +56,14 @@
               <th>Product Name</th>
               <th>Product Quantity</th>
               <th>Product Price</th>
+              <th>Product Color</th>
               <th>Order Status</th>
-
-            </tr>
-            <tr>
-              <td>none</td>
-              <td>none</td>
-              <td>none</td>
-              <td>none</td>
-              <td>none</td>
-              <td>none</td>
-              <td><button  class="tablebutton">Add</button></td>
-            </tr>
-            <tr>
-              <td>none</td>
-              <td>none</td>
-              <td>none</td>
-              <td>none</td>
-              <td>none</td>
-              <td>none</td>
-              <td><button  class="tablebutton">Add</button></td>
-            </tr>
-            <tr>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td><button  class="tablebutton">Add</button></td>
-            </tr>
-            <tr>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td><button  class="tablebutton">Add</button></td>
-            </tr>
-            <tr>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td><button  class="tablebutton">Add</button></td>
-            </tr>
-            <tr>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td><button  class="tablebutton">Add</button></td>
-            </tr>
-            <tr>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td><button  class="tablebutton">Add</button></td>
-            </tr>
-            <tr>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td><button  class="tablebutton">Add</button></td>
-            </tr>
-            <tr>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td>none</td>
-                <td><button  class="tablebutton">Add</button></td>
+              <th>Edit</th>
             </tr>
           </table>
         </div>
       </div>
           
+      <!-- <script src="./rout.js"></script> -->
 </body>
 </html>

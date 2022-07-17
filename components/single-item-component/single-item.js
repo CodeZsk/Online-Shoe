@@ -60,11 +60,9 @@ function renderSingleProduct() {
     quantity.value = product.availability.quantity;
     productName.setAttribute("data-id", product._id);
     price.textContent = product.price;
-    for (let i = 0; i < product.availability.color.length; i++) {
-      const element = document.createElement("div");
-      element.style.backgroundColor = product.availability.color[i];
-      colorContainer.appendChild(element);
-    }
+    const element = document.createElement("div");
+    element.style.backgroundColor = product.availability.color;
+    colorContainer.appendChild(element);
     for (let i = 0; i < product.availability.size.length; i += 2) {
       const element = document.createElement("div");
       element.textContent = product.availability.size[i];
@@ -85,10 +83,14 @@ function renderSingleProduct() {
   });
 
   buyBtn.addEventListener("click", () => {
-    buy();
     eel.getSinglePageData()((id) => {
       eel.getSingleProduct(id[0])((product) => {
-        userFn(product);
+        if (product.availability.quantity <= 0) {
+          return;
+        } else {
+          buy();
+          userFn(product);
+        }
       });
     });
 
@@ -96,6 +98,8 @@ function renderSingleProduct() {
       eel.get_user_ID()((id) => {
         return eel.userInfo(id)((user) => {
           console.log(user);
+          const quantity = document.querySelector(".quantity-input");
+          quantity.addEventListener("keydown", (e) => e.preventDefault());
           buyPage(product, user[0]);
         });
       });
@@ -181,7 +185,6 @@ function buyPage(product, user) {
   quantity.addEventListener("change", () => {
     let value = quantity.value;
     let total = parseInt(product.price.split(",").join("")) * value;
-    console.log(total);
     price.value = total;
   });
 
@@ -225,7 +228,8 @@ function buyPage(product, user) {
         orderDate,
         product._id,
         product.name,
-        product.price,
+        price.value,
+        quantity.value,
         product.type,
         product.gender_type,
         product.availability.color,
@@ -233,8 +237,16 @@ function buyPage(product, user) {
         user.user_info.user_name,
         user.user_info.user_gender,
         age
-      );
+      )((res) => {
+        if (res.status === "ok") {
+          let newQuantity =
+            parseInt(product.availability.quantity) - quantity.value;
+          console.log(newQuantity);
+          eel.update_product_quantity(product._id, newQuantity);
+        }
+      });
       alert("Order Placed Successfully");
+      singleProduct();
     } else {
       alert("CONFIRM do not match");
     }

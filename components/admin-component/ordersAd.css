@@ -89,13 +89,15 @@ body{
       width: 500%;
       overflow-y: scroll;
     }
-    th{
-  
-      padding:2px;
-    }
     th,td{
-        border: 1px solid #dddddd;
+      border: 1px solid #dddddd;
       text-align: left;
+    }
+    th{
+      /* padding:2px; */
+      height: 4px;
+      width: 1px;
+      text-align: center;
     }
     tr:nth-child(even) {
       background-color: #dddddd;
@@ -137,4 +139,8 @@ body{
     font-size: 20px;
     border: none;
     background-color: transparent;
+  }
+
+  .hide-btn{
+    display: none;
   }

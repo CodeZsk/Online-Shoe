@@ -4,7 +4,7 @@ from connection import get_database
 
 dbname = get_database()
 user_info_db = dbname["user_info_db"]
-product_db = dbname["product_db"]
+product_db = dbname[" product_db"]
 order_db = dbname["order_db"]
 
 
@@ -61,32 +61,32 @@ def set_user(username, password, email, securityQuestion):
     return
 
 
-def set_product(productName, productImg, productDescription, productType, productGenderType, productColour, productSize, quantity, price, reviews):
-
+@eel.expose
+def set_product(productName, productPrice, productColor, productQuantity, genderType, productType, img1, img2, img3, img4, productDescription, productCompany):
     product = {
-        "product_name": productName,
-        "product_img": {
-            "productImg": productImg,
+        "name": productName,
+        "price": productPrice,
+        "reviews": {
+            "number_reviews": 0,
+            "reviews_star": 0
         },
-        "product_description": productDescription,
-        "product_type": productType,
-        "product_gender_type": productGenderType,
-        "product_colors": {
-            "productColour": productColour,
+        "availability": {
+            "color": productColor,
+            "size": ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5"],
+            "quantity": productQuantity
         },
-        "product_size": {
-            "size": productSize,
-        },
-        "product_quantity": quantity,
-        "product_price": price,
-        "product_reviews": reviews,
+        "gender_type": genderType,
+        "type": productType,
+        "img": [img1, img2, img3, img4],
+        "description": productDescription,
+        "company": productCompany
     }
 
     product_db.insert_one(product)
 
 
 @eel.expose
-def set_order(orderStatus, date,productId, productName, productPrice, productType, productGenderType, productColor, userId, userName, userGender, userAge):
+def set_order(orderStatus, date, productId, productName, productPrice, quantity, productType, productGenderType, productColor, userId, userName, userGender, userAge):
     order = {
         "order": {
             "order_status": orderStatus,
@@ -96,6 +96,7 @@ def set_order(orderStatus, date,productId, productName, productPrice, productTyp
             "product_id": productId,
             "product_name": productName,
             "product_price": productPrice,
+            "product_quantity": quantity,
             "product_type": productType,
             "product_gender_type": productGenderType,
             "product_color": productColor,
@@ -108,3 +109,4 @@ def set_order(orderStatus, date,productId, productName, productPrice, productTyp
         }
     }
     order_db.insert_one(order)
+    return {"status": "ok"}

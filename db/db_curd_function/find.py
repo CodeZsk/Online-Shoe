@@ -7,10 +7,10 @@ import json
 from ast import literal_eval
 
 dbname = get_database()
+order_db = dbname["order_db"]
 user_info_db = dbname["user_info_db"]
 admin_login = dbname["admin_login"]
 product_db = dbname[" product_db"]
-test = dbname["test"]
 jsGender = ''
 
 
@@ -40,6 +40,20 @@ def getAllProducts():
     if (allProducts) is not None:
         j = 0
         for i in (allProducts):
+            data.append(i)
+            data[j]['_id'] = str(data[j]['_id'])
+            j += 1
+        return data
+    return None
+
+
+@eel.expose
+def getAllOrders():
+    order = order_db.find({})
+    data = []
+    if (order) is not None:
+        j = 0
+        for i in (order):
             data.append(i)
             data[j]['_id'] = str(data[j]['_id'])
             j += 1

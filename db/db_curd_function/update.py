@@ -4,6 +4,8 @@ from bson.objectid import ObjectId
 
 dbname = get_database()
 user_info_db = dbname["user_info_db"]
+order_db = dbname["order_db"]
+product_db = dbname[" product_db"]
 
 
 @eel.expose
@@ -56,3 +58,17 @@ def update_user_cart_remove(id, product_id):
         "$pull": {"user_cart": product_id}
     }
     user_info_db.update_one(searchValue, setUserCart)
+
+
+@eel.expose
+def update_order_status(orderID, status):
+    searchValue = {"_id": ObjectId(orderID)}
+    newValues = {"$set": {"order.order_status": status}}
+    order_db.update_one(searchValue, newValues)
+
+
+@eel.expose
+def update_product_quantity(id, quantity):
+    searchValue = {"_id": ObjectId(id)}
+    newValues = {"$set": {"availability.quantity": quantity}}
+    product_db.update_one(searchValue, newValues)
