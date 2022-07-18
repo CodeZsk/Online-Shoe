@@ -59,7 +59,7 @@ function renderSingleProduct() {
     productName.textContent = product.name;
     quantity.value = product.availability.quantity;
     productName.setAttribute("data-id", product._id);
-    price.textContent = product.price;
+    price.textContent = `₹ ${product.price}`;
     const element = document.createElement("div");
     element.style.backgroundColor = product.availability.color;
     colorContainer.appendChild(element);
