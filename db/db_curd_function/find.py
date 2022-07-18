@@ -11,6 +11,7 @@ order_db = dbname["order_db"]
 user_info_db = dbname["user_info_db"]
 admin_login = dbname["admin_login"]
 product_db = dbname[" product_db"]
+test = dbname["test"]
 jsGender = ''
 
 
@@ -46,7 +47,6 @@ def getAllProducts():
         return data
     return None
 
-
 @eel.expose
 def getAllOrders():
     order = order_db.find({})
@@ -59,7 +59,6 @@ def getAllOrders():
             j += 1
         return data
     return None
-
 
 @eel.expose
 def getGenderProducts(gender):
@@ -188,5 +187,3 @@ def getCartItems(arr):
         return data
     print("No cart found")
     return
-
-# userInfo("62b818cf1d0e763410d30734")

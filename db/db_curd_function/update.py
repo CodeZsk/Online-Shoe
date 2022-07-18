@@ -72,3 +72,27 @@ def update_product_quantity(id, quantity):
     searchValue = {"_id": ObjectId(id)}
     newValues = {"$set": {"availability.quantity": quantity}}
     product_db.update_one(searchValue, newValues)
+
+
+@eel.expose
+def update_product(id, productName, productPrice, productColor, productQuantity, genderType, productType, img1, img2, img3, img4, productDescription, productCompany):
+    searchValue = {"_id": ObjectId(id)}
+    newValues = {"$set": {
+        "name": productName,
+        "price": productPrice,
+        "reviews": {
+            "number_reviews": 0,
+            "reviews_star": 0
+        },
+        "availability": {
+            "color": productColor,
+            "size": ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5"],
+            "quantity": productQuantity
+        },
+        "gender_type": genderType,
+        "type": productType,
+        "img": [img1, img2, img3, img4],
+        "description": productDescription,
+        "company": productCompany
+    }}
+    product_db.update_one(searchValue, newValues)

@@ -33,71 +33,182 @@ function addProductHtml() {
   xhttp.onload = function () {
     mainPage.innerHTML = this.responseText;
     addPageBtn.classList.add("hide-btn");
-
     const addProductBtn = document.querySelector(".btn");
-    addProductBtn.addEventListener("click", () => {
-      const productName = document.querySelector(".name-input");
-      const productType = document.querySelector("#product-type");
-      const type = productType.options[productType.selectedIndex];
-      const productGenderType = document.querySelector("#product-gender-type");
-      const genderType =
-        productGenderType.options[productGenderType.selectedIndex];
-      const description = document.querySelector(".desc-input");
-      const productPrice = document.querySelector(".price-input");
-      const quantity = document.querySelector(".quantity-input");
-      const color = document.querySelector(".color-input");
-      const productCompany = document.querySelector(".company-input");
-      const productImg1 = document.querySelector(".img1 input");
-      const productImg2 = document.querySelector(".img2 input");
-      const productImg3 = document.querySelector(".img3 input");
-      const productImg4 = document.querySelector(".img4 input");
-
-      console.log("Product");
-      console.log(type);
-      console.log(genderType);
-
-      if (!productName.value.trim()) return;
-      if (!productPrice.value.trim()) return;
-      if (!color.value.trim()) return;
-      if (!quantity.value.trim()) return;
-      if (!genderType) return;
-      if (!type) return;
-      if (!productImg1.value) return;
-      if (!productImg2.value) return;
-      if (!productImg3.value) return;
-      if (!productImg4.value) return;
-      if (!description.value.trim()) return;
-      if (!productCompany.value.trim()) return;
-
-      console.log("Product last");
-
-      let confMass = prompt(
-        "Do you want to Add a new product type 'YES' to Confirm"
-      );
-      if (confMass == "YES") {
-        eel.set_product(
-          productName.value,
-          productPrice.value,
-          color.value,
-          quantity.value,
-          genderType.value,
-          type.value,
-          productImg1.value,
-          productImg2.value,
-          productImg3.value,
-          productImg4.value,
-          description.value,
-          productCompany.value
-        );
-        alert("Product Added successfully");
-      } else {
-        return;
-      }
-    });
+    addProduct(addProductBtn);
   };
   xhttp.open("GET", "./productadmin.html");
   xhttp.send();
 }
+
+const addProduct = (addProductBtn) => {
+  addProductBtn.addEventListener("click", () => {
+    const productName = document.querySelector(".name-input");
+    const productType = document.querySelector("#product-type");
+    const type = productType.options[productType.selectedIndex];
+    const productGenderType = document.querySelector("#product-gender-type");
+    const genderType =
+      productGenderType.options[productGenderType.selectedIndex];
+    const description = document.querySelector(".desc-input");
+    const productPrice = document.querySelector(".price-input");
+    const quantity = document.querySelector(".quantity-input");
+    const color = document.querySelector(".color-input");
+    const productCompany = document.querySelector(".company-input");
+    const productImg1 = document.querySelector(".img1 input");
+    const productImg2 = document.querySelector(".img2 input");
+    const productImg3 = document.querySelector(".img3 input");
+    const productImg4 = document.querySelector(".img4 input");
+
+    console.log("Product");
+    console.log(type);
+    console.log(genderType);
+
+    if (!productName.value.trim()) return;
+    if (!productPrice.value.trim()) return;
+    if (!color.value.trim()) return;
+    if (!quantity.value.trim()) return;
+    if (!genderType) return;
+    if (!type) return;
+    if (!productImg1.value) return;
+    if (!productImg2.value) return;
+    if (!productImg3.value) return;
+    if (!productImg4.value) return;
+    if (!description.value.trim()) return;
+    if (!productCompany.value.trim()) return;
+
+    console.log("Product last");
+
+    let confMass = prompt(
+      "Do you want to Add a new product type 'YES' to Confirm"
+    );
+    if (confMass == "YES") {
+      eel.set_product(
+        productName.value,
+        productPrice.value,
+        color.value,
+        quantity.value,
+        genderType.value,
+        type.value,
+        productImg1.value,
+        productImg2.value,
+        productImg3.value,
+        productImg4.value,
+        description.value,
+        productCompany.value
+      );
+      alert("Product Added successfully");
+      adminHtml();
+    } else {
+      return;
+    }
+  });
+};
+
+function editProductHtml(product) {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function () {
+    mainPage.innerHTML = this.responseText;
+    addPageBtn.classList.add("hide-btn");
+    const editProductBtn = document.querySelector(".btn");
+    editProductBtn.textContent = "Update Product";
+    editProduct(editProductBtn, product);
+  };
+  xhttp.open("GET", "./productadmin.html");
+  xhttp.send();
+}
+
+const editProduct = (addProductBtn, product) => {
+  const productName = document.querySelector(".name-input");
+  const productType = document.querySelector("#product-type");
+  const productGenderType = document.querySelector("#product-gender-type");
+  const description = document.querySelector(".desc-input");
+  const productPrice = document.querySelector(".price-input");
+  const quantity = document.querySelector(".quantity-input");
+  const color = document.querySelector(".color-input");
+  const productCompany = document.querySelector(".company-input");
+  const productImg1 = document.querySelector(".img1 input");
+  const productImg2 = document.querySelector(".img2 input");
+  const productImg3 = document.querySelector(".img3 input");
+  const productImg4 = document.querySelector(".img4 input");
+
+  // genderType.value = product.gender_type;
+  // type.value = product.type;
+
+  if (product.type == "Sneaker") {
+    document.querySelector(".o1").selected = "Selected";
+  } else if (product.type == "Sports Shoes") {
+    document.querySelector(".o2").selected = "Selected";
+  } else {
+    document.querySelector(".o3").selected = "Selected";
+  }
+
+  if (product.gender_type == "Men") {
+    document.querySelector(".oMen").selected = "Selected";
+  } else if (product.genderType == "Women") {
+    document.querySelector(".oWomen").selected = "Selected";
+  } else {
+    document.querySelector(".oUnisex").selected = "Selected";
+  }
+  productName.value = product.name;
+  productPrice.value = product.price;
+  color.value = product.availability.color;
+  quantity.value = product.availability.quantity;
+  productImg1.value = product.img[0];
+  productImg2.value = product.img[1];
+  productImg3.value = product.img[2];
+  productImg4.value = product.img[3];
+  description.value = product.description;
+  productCompany.value = product.company;
+  addProductBtn.addEventListener("click", () => {
+    const type = productType.options[productType.selectedIndex];
+    const genderType =
+      productGenderType.options[productGenderType.selectedIndex];
+    console.log(product);
+
+    console.log("Product");
+    console.log(type);
+    console.log(genderType);
+
+    if (!productName.value.trim()) return;
+    if (!productPrice.value.trim()) return;
+    if (!color.value.trim()) return;
+    if (!quantity.value.trim()) return;
+    if (!genderType) return;
+    if (!type) return;
+    if (!productImg1.value) return;
+    if (!productImg2.value) return;
+    if (!productImg3.value) return;
+    if (!productImg4.value) return;
+    if (!description.value.trim()) return;
+    if (!productCompany.value.trim()) return;
+
+    console.log("Product last");
+
+    let confMass = prompt(
+      "Do you want to Update a product type 'YES' to Confirm"
+    );
+    if (confMass == "YES") {
+      eel.update_product(
+        product._id,
+        productName.value,
+        productPrice.value,
+        color.value,
+        quantity.value,
+        genderType.value,
+        type.value,
+        productImg1.value,
+        productImg2.value,
+        productImg3.value,
+        productImg4.value,
+        description.value,
+        productCompany.value
+      );
+      alert("Product Added successfully");
+      adminHtml();
+    } else {
+      return;
+    }
+  });
+};
 
 function adminHtml() {
   const xhttp = new XMLHttpRequest();
@@ -138,7 +249,27 @@ const renderProduct = () => {
       td_price.textContent = product.price;
       td_color.textContent = product.availability.color;
       td_edit.appendChild(editBtn);
+      td_edit.addEventListener("click", () => {
+        eel.getSingleProduct(product._id)((product) =>
+          editProductHtml(product)
+        );
+      });
       td_delete.appendChild(deleteBtn);
+      td_delete.addEventListener("click", () => {
+        eel.getSingleProduct(product._id)((product) => {
+          const isDeleteProduct = prompt(
+            `Do you want to delete a product \n ID: ${product._id}, Type 'YES'`
+          );
+          if (isDeleteProduct == "YES") {
+            eel.delete_single_product(id)((res) => {
+              if (res.status == "deleted") {
+                alert("Product deleted successfully");
+                adminHtml();
+              }
+            });
+          }
+        });
+      });
 
       tr.appendChild(td_id);
       tr.appendChild(td_name);
