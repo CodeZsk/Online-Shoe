@@ -22,7 +22,6 @@ def set_user(username, password, email, securityQuestion):
             "user_DOB": "",
             "user_gender": "",
             "user_phoneNo": "",
-            "user_email": "",
             "user_Add": {
                 "flat_number": "",
                 "area_street": "",
@@ -66,10 +65,7 @@ def set_product(productName, productPrice, productColor, productQuantity, gender
     product = {
         "name": productName,
         "price": productPrice,
-        "reviews": {
-            "number_reviews": 0,
-            "reviews_star": 0
-        },
+        "reviews": [],
         "availability": {
             "color": productColor,
             "size": ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5"],
@@ -86,11 +82,12 @@ def set_product(productName, productPrice, productColor, productQuantity, gender
 
 
 @eel.expose
-def set_order(orderStatus, date, productId, productName, productPrice, quantity, productType, productGenderType, productColor, userId, userName, userGender, userAge):
+def set_order(date, productId, productName, productPrice, quantity, productType, productGenderType, productColor, userId, userName, userGender, userAge):
     order = {
         "order": {
-            "order_status": orderStatus,
-            "order_date": date
+            "order_status": "Panding",
+            "order_date": date,
+            "is_reviewed": False
         },
         "product": {
             "product_id": productId,

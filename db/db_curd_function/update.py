@@ -16,8 +16,8 @@ def update_user_password(username, password):
 
 
 @eel.expose
-def update_user(id, name, dob, gender, phoneNo, email, flat_number, area_street, landmark, town_city, pincode, state_name):
-    print(id, name, dob, gender, phoneNo, email, flat_number,
+def update_user(id, name, dob, gender, phoneNo, flat_number, area_street, landmark, town_city, pincode, state_name):
+    print(id, name, dob, gender, phoneNo, flat_number,
           area_street, landmark, town_city, state_name)
     searchValue = {"_id": ObjectId(id)}
     newValues = {"$set": {"user_info": {
@@ -25,7 +25,6 @@ def update_user(id, name, dob, gender, phoneNo, email, flat_number, area_street,
         "user_DOB": dob,
         "user_gender": gender,
         "user_phoneNo": phoneNo,
-        "user_email": email,
         "user_Add": {
             "flat_number": flat_number,
             "area_street": area_street,
@@ -80,10 +79,7 @@ def update_product(id, productName, productPrice, productColor, productQuantity,
     newValues = {"$set": {
         "name": productName,
         "price": productPrice,
-        "reviews": {
-            "number_reviews": 0,
-            "reviews_star": 0
-        },
+        "reviews": [],
         "availability": {
             "color": productColor,
             "size": ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5"],
@@ -94,5 +90,28 @@ def update_product(id, productName, productPrice, productColor, productQuantity,
         "img": [img1, img2, img3, img4],
         "description": productDescription,
         "company": productCompany
+    }}
+    product_db.update_one(searchValue, newValues)
+
+
+@eel.expose
+def updateProductReview(id, userId, star, comment):
+    searchValue = {"_id": ObjectId(id)}
+    newValues = {"$addToSet": {
+        "reviews": {
+            "userId": userId,
+            "comment": comment,
+            "star": star
+        }
+    }}
+    product_db.update_one(searchValue, newValues)
+    return "Ok"
+
+
+@eel.expose
+def updateIsReview(id):
+    searchValue = {"_id": ObjectId(id)}
+    newValues = {"$set": {
+        "order.is_reviewed": True,
     }}
     product_db.update_one(searchValue, newValues)

@@ -1,8 +1,10 @@
+import random
 import eel
 from util.utils import message
 from db.db_curd_function.update import *
 from db.db_curd_function.find import *
 from db.db_curd_function.insert import *
+
 
 # eel.init('C:\\Users\\krishna\\Desktop\\Online-Shoe')
 eel.init('/home/zaid/Desktop/softwareDevProject/Online-Shoe')
@@ -78,6 +80,17 @@ def getSearchPageData():
     returnData = searchPageData
     searchPageData = ''
     return returnData
+
+
+@eel.expose
+def getVerificationCode():
+    code = ''
+    i = 0
+    while i < 6:
+        r = random.randint(0, 9)
+        code = code + str(r)
+        i += 1
+    return code
 
 
 eel.start('./components/login-component/SignUpLogin.html',  size=(1000, 600))

@@ -61,6 +61,19 @@ def getAllOrders():
     return None
 
 @eel.expose
+def getOrderByUserId(id):
+    order = order_db.find({"user.user_id":id})
+    data = []
+    if (order) is not None:
+        j = 0
+        for i in (order):
+            data.append(i)
+            data[j]['_id'] = str(data[j]['_id'])
+            j += 1
+        return data
+    return None
+
+@eel.expose
 def getGenderProducts(gender):
     manProducts = product_db.find({"gender_type": gender})
     data = []
