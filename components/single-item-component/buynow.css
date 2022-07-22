@@ -311,7 +311,10 @@ input::-webkit-inner-spin-button {
 .shoedesc::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
-
+/* .btncart{
+  width:10px;
+  height:10px;
+} */
 .cart-button {
   margin-left: 100px;
   position: relative;
@@ -348,7 +351,7 @@ input::-webkit-inner-spin-button {
   opacity: 0;
 }
 
-.cart-button .cart-icon {
+.cart-button .btncart {
   position: absolute;
   z-index: 2;
   top: 50%;
@@ -368,21 +371,22 @@ input::-webkit-inner-spin-button {
   font-size: 1.2em;
 }
 
-.cart-button.clicked .cart-icon {
-  animation: cart 3s ease-in-out forwards;
+.cart-button.clicked .btncart {
+  animation: cart 2s ease-in-out forwards;
 }
 
 .cart-button.clicked .cart-item {
-  animation: box 3s ease-in-out forwards;
+  animation: box 2s ease-in-out forwards;
 }
 
 .cart-button.clicked span.add-to-cart {
-  animation: add 3s ease-in-out forwards;
-}
+  animation: add 2s ease-in-out forwards;
+} 
 
 .cart-button.clicked span.added {
-  animation: added 3s ease-in-out forwards;
+  animation: added 2s ease-in-out forwards;
 }
+
 
 @keyframes cart {
   0% {
@@ -490,7 +494,13 @@ input::-webkit-inner-spin-button {
 
 .www{
   display: flex;
+  align-items: center;
 
+}
+.www div{
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 .www input{
   width: 30px;

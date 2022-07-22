@@ -214,7 +214,7 @@ document.querySelector(".admin-login").addEventListener("click", () => {
       adminPassword.value = "";
       return;
     }
-    alert("wellcome sir");
+    alert("Welcome Admin");
     adminUsername.value = "";
     adminPassword.value = "";
     window.location.href = "../../components/admin-component/ordersAd.html";
