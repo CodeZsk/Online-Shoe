@@ -15,8 +15,24 @@ body {
 a {
   text-decoration: none;
 }
-
-
+/* BOT KA BUTTON  */
+.mico{
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
+  /* position: absolute; */
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  border: none;
+}
+.mico img{
+  border: 1px solid black;
+  padding: 2px;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+}
 h3 {
   font-family: 'Poppins', sans-serif;
   font-size: large;
@@ -33,7 +49,7 @@ h3 {
   background-repeat: no-repeat;
   background: white;
   text-align: center;
-  padding: 0 2em;
+  padding: 0 1em;
   border: 1px solid black;
 }
 
