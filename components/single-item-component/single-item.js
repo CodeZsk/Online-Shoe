@@ -2,6 +2,7 @@ const home = document.querySelector(".brandimage");
 const search = document.querySelector(".search");
 const setting = document.querySelector(".setting");
 const cartBtn = document.querySelector(".cart");
+const notificationBtn = document.querySelector(".notification");
 
 renderSingleProduct();
 function renderSingleProduct() {
@@ -112,11 +113,11 @@ async function allProducts(gender) {
   window.location.href = `../section-component/filterpage.html`;
 }
 
-search.addEventListener("change", () => {
+search.addEventListener("change", async () => {
   if (!search.value.trim()) {
     return;
   }
-  eel.setSearchPageData(search.value.trim());
+  await eel.setSearchPageData(search.value.trim());
   window.location.href = "../section-component/filterpage.html";
 });
 
@@ -125,7 +126,12 @@ home.addEventListener("click", () => {
 });
 
 cartBtn.addEventListener("click", () => {
-  eel.setPageData("cart");
+  eel.setSettingPageData("cart");
+  window.location.href = "../setting-component/setting.html";
+});
+
+notificationBtn.addEventListener("click", () => {
+  eel.setSettingPageData("order");
   window.location.href = "../setting-component/setting.html";
 });
 
@@ -200,6 +206,7 @@ function buyPage(product, user) {
   pincode.value = user.user_info.user_Add.pincode;
 
   onBuyBtn.addEventListener("click", () => {
+    console.log("helow odl");
     if (!productInput.value.trim()) {
       alert(
         "Please fill Your information in User Setting to Place Your Orlder"

@@ -7,6 +7,7 @@ const home = document.querySelector(".brandimage");
 const search = document.querySelector(".search");
 const setting = document.querySelector(".setting");
 const cartBtn = document.querySelector(".cart");
+const notificationBtn = document.querySelector(".notification");
 
 all.addEventListener("click", () => loadDoc("All"));
 men.addEventListener("click", () => loadDoc("Men"));
@@ -15,7 +16,12 @@ unisex.addEventListener("click", () => loadDoc("Unisex"));
 search.addEventListener("change", () => searchName(search.value.trim()));
 
 cartBtn.addEventListener("click", () => {
-  eel.setPageData("cart");
+  eel.setSettingPageData("cart");
+  window.location.href = "../setting-component/setting.html";
+});
+
+notificationBtn.addEventListener("click", () => {
+  eel.setSettingPageData("order");
   window.location.href = "../setting-component/setting.html";
 });
 

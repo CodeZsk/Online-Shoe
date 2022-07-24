@@ -8,11 +8,13 @@ logOutBtn.addEventListener("click", () => {
   window.location.href = "../login-component/SignUpLogin.html";
 });
 
-eel.getPageData()((data) => {
+eel.getSettingPageData()((data) => {
   console.log(data);
   if (data[0] === "cart") {
     cartHTML();
     return;
+  } else if (data[0] === "order") {
+    orderHTML();
   }
   return;
 });
@@ -386,80 +388,68 @@ const getUserData = () => {
 getUserData();
 
 // krishna js lol
-var btn=document.getElementById("mybtn");
-var mod=document.getElementById("mymodal");
-var cut=document.getElementById("close");
+var btn = document.getElementById("mybtn");
+var mod = document.getElementById("mymodal");
+var cut = document.getElementById("close");
 
-btn.onclick=function(){
-  mod.style.display="block";
-}
+btn.onclick = function () {
+  mod.style.display = "block";
+};
 
-cut.onclick=function(){
-  mod.style.display="none";
-}
-window.onclick=function(event){
-  if(event.target == mod){
-    mod.style.display="none";
+cut.onclick = function () {
+  mod.style.display = "none";
+};
+window.onclick = function (event) {
+  if (event.target == mod) {
+    mod.style.display = "none";
   }
-  
-}
-var mb=document.querySelector(".modal-back");
+};
+var mb = document.querySelector(".modal-back");
 
-mb.onclick= function(){
-  
-  mod.style.display="none"
-  
-}
+mb.onclick = function () {
+  mod.style.display = "none";
+};
 
+var cbtn = document.getElementById("customer");
+var cmod = document.getElementById("customermodal");
+var ccut = document.getElementById("customerclose");
 
-var cbtn=document.getElementById("customer");
-var cmod=document.getElementById("customermodal");
-var ccut=document.getElementById("customerclose");
+cbtn.onclick = function () {
+  cmod.style.display = "block";
+};
 
-cbtn.onclick=function(){
-  cmod.style.display="block";
-}
-
-ccut.onclick=function(){
-  
-  cmod.style.display="none";
-}
-window.onclick=function(event){
-  if(event.target == cmod){
-    cmod.style.display="none";
+ccut.onclick = function () {
+  cmod.style.display = "none";
+};
+window.onclick = function (event) {
+  if (event.target == cmod) {
+    cmod.style.display = "none";
   }
-  
-}
-var mb=document.querySelector(".customermodal-back");
+};
+var mb = document.querySelector(".customermodal-back");
 
-mb.onclick= function(){
-  
-  cmod.style.display="none"
-  
-}
+mb.onclick = function () {
+  cmod.style.display = "none";
+};
 
-var fbtn=document.getElementById("faq");
-var fmod=document.querySelector(".faqmodal");
-var fcut=document.getElementById("faqclose");
+var fbtn = document.getElementById("faq");
+var fmod = document.querySelector(".faqmodal");
+var fcut = document.getElementById("faqclose");
 
-fbtn.onclick=function(){
-  fmod.style.display="block";
-}
+fbtn.onclick = function () {
+  fmod.style.display = "block";
+};
 
-fcut.onclick=function(){
-  
-  fmod.style.display="none";
-}
-window.onclick=function(event){
-  if(event.target == fmod){
-    fmod.style.display="none";
+fcut.onclick = function () {
+  fmod.style.display = "none";
+};
+window.onclick = function (event) {
+  if (event.target == fmod) {
+    fmod.style.display = "none";
   }
-  
-}
-var fmb=document.querySelector(".faqmodalback");
+};
+var fmb = document.querySelector(".faqmodalback");
 
-fmb.onclick= function(){
-  
-  fmod.style.display="none"
-  
-}
+fmb.onclick = function () {
+  fmod.style.display = "none";
+};

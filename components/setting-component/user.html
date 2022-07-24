@@ -1,133 +1,190 @@
-<head>
-  <script src="../../eel.js"></script>
-</head>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:wght@300&family=Roboto:wght@100&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:wght@300&family=Roboto:wght@100&display=swap");
 
-
-/*     font-family: 'Cedarville Cursive', cursive;
+  /*     font-family: 'Cedarville Cursive', cursive;
 
     font-family: 'Poppins', sans-serif;
 
     font-family: 'Roboto', sans-serif; */
-*{
+  /* *{
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-}
+} */
 </style>
 <section class="user-profile">
-  <div class="user-info">
-    <form>
-      <div class="btn-container">
-        <button class="edit-btn edit" type="submit">Edit</button>
-      </div>
-      <div class="username">
-        <label for="name">
-          <h4>Name:</h4>
-        </label>
-        <input
-          type="text"
-          name="name"
-          class="name-input input- input-disable"
-          required
-        />
-      </div>
-      <div class="dob-container">
-        <label for="dob">
-          <h4>Date of Birth:</h4>
-        </label>
-        <input
-          type="date"
-          name="dob"
-          class="dob-input input- input-disable"
-          required
-        />
-      </div>
-      <div class="gender-container">
-        <label for="gender">
-          <h4>Gender:</h4>
-        </label>
-        <div class="radio-btn input- input-disable">
-          <input type="radio" id="male" name="gender" value="male" />
-          <span>Male</span>
-          <input type="radio" id="female" name="gender" value="female" />
-          <span>Female</span>
+        <div class="user-info">
+          <form>
+            <div class="btn-container">
+              <button class="edit-btn edit" type="submit">Edit</button>
+            </div>
+            <div class="username">
+              <label for="name">
+                <h3>Name:</h3>
+              </label>
+              <input
+                type="text"
+                name="name"
+                class="name-input input- input-disable"
+                required
+              />
+            </div>
+            <div class="dob-container">
+              <label for="dob">
+                <h3>Date of Birth:</h3>
+              </label>
+              <input
+                type="date"
+                name="dob"
+                class="dob-input input- input-disable"
+                required
+              />
+            </div>
+            <div class="gender-container">
+              <label for="gender">
+                <h3>Gender:</h3>
+              </label>
+              <div class="radio-btn input- input-disable">
+                <input type="radio" id="male" name="gender" value="male" />
+                <span class="genderspan">Male</span>
+                <input type="radio" id="female" name="gender" value="female" />
+                <span class="genderspan">Female</span>
+              </div>
+            </div>
+            <div class="contact-details">
+              <label for="phone">
+                <h3>Phone:</h3>
+              </label>
+              <input
+                type="number"
+                name="phone"
+                class="phone-input input- input-disable"
+                required
+              />
+              <label for="email">
+                <h3>Email:</h3>
+              </label>
+              <input
+                type="email"
+                class="email-input input- input-disable"
+                disabled
+                required
+              />
+            </div>
+            <div class="address-container">
+              <h3>Address</h3>
+              <label for="flat">
+                <h5>Flat, House no., Building, Company, Apartment</h5>
+              </label>
+              <input
+                type="text"
+                name="flat"
+                class="flat-input input- input-disable"
+                required
+              />
+              <label for="area">
+                <h3>Area, Street, Sector, Village</h3>
+              </label>
+              <input
+                type="text"
+                name="area"
+                class="area-input input- input-disable"
+                required
+              />
+              <label for="landmark">
+                <h3>Landmark</h3>
+              </label>
+              <input
+                type="text"
+                name="landmark"
+                class="landmark-input input- input-disable"
+              />
+              <label for="town">
+                <h3>Town/City</h3>
+              </label>
+              <input
+                type="text"
+                name="town"
+                class="town-input input- input-disable"
+                required
+              />
+              <label for="Pincode">
+                <h3>Pincode</h3>
+              </label>
+              <input
+                type="number"
+                name="Pincode"
+                class="pincode-input input- input-disable"
+                required
+                minlength="6"
+                maxlength="6"
+              />
+              <label for="state">
+                <h3>State</h3>
+              </label>
+              <input
+                type="text"
+                name="state"
+                class="state-input input- input-disable"
+                required
+              />
+            </div>
+          </form>
         </div>
-      </div>
-      <div class="contact-details">
-        <label for="phone">
-          <h4>Phone:</h4>
-        </label>
-        <input
-          type="number"
-          name="phone"
-          class="phone-input input- input-disable"
-          required
-        />
-        <label for="email">
-          <h4>Email:</h4>
-        </label>
-        <input type="email" class="email-input input- input-disable" disabled required />
-      </div>
-      <div class="address-container">
-        <h3>Address</h3>
-        <label for="flat">
-          <h4>Flat, House no., Building, Company, Apartment</h4>
-        </label>
-        <input
-          type="text"
-          name="flat"
-          class="flat-input input- input-disable"
-          required
-        />
-        <label for="area">
-          <h4>Area, Street, Sector, Village</h4>
-        </label>
-        <input
-          type="text"
-          name="area"
-          class="area-input input- input-disable"
-          required
-        />
-        <label for="landmark">
-          <h4>Landmark</h4>
-        </label>
-        <input
-          type="text"
-          name="landmark"
-          class="landmark-input input- input-disable"
-        />
-        <label for="town">
-          <h4>Town/City</h4>
-        </label>
-        <input
-          type="text"
-          name="town"
-          class="town-input input- input-disable"
-          required
-        />
-        <label for="Pincode">
-          <h4>Pincode</h4>
-        </label>
-        <input
-          type="number"
-          name="Pincode"
-          class="pincode-input input- input-disable"
-          required
-          minlength="6"
-          maxlength="6"
-        />
-        <label for="state">
-          <h4>State</h4>
-        </label>
-        <input
-          type="text"
-          name="state"
-          class="state-input input- input-disable"
-          required
-        />
-      </div>
-    </form>
-  </div>
+        <div id="mymodal" class="modal">
+          <div class="modal-back"></div>
+          <div class="modal-content">
+            <span  id="close" class="close">&times</span>
+            <p>
+                <div class="aboutus"> 
+            <h1> About us  &#10084;</h1>
+            <br>
+            <h4>In 2022, we found ourselves stumbling upon a unique idea – taking a fashionable step towards a better future by selling stylish and comfortable footwear We dedicated our efforts towards fulfilling this purpose</h4>
+            <h4>
+        <br> <br>
+        © 2022 SneakerHeadHub • Powered by CS
+            </h4>
+          </div>
+            </p>
+          </div>
+        </div>
+        <!-- customer -->
+        <div  id= "customermodal"class="modal">
+          <div class="customermodal-back"></div>
+          <div class="customermodal-content">
+            <div class="contactus-cont">
+          <div class="contactus"> 
+            <div class="rofl">
+            <div class="CustomerService">
+            <h2>Customer Service</h2>
+            <img src="/assets/image/24hours.png" alt="" class="allday">
+            </div>
+              <div class=cut>
+                  <span  id="customerclose" class="close">&times</span>
+                 </div>
+              </div>
+            <h3>We are available from monday to  saturday to answer your questions.</h3>
+            <h3>
+              call us on :
+              <span>
+                9922379106
+              </span>
+            </h3>
+            <h3>We generally respond within 
+              
+              <u>
+              24 hours.
+                
+              </u>
+              to answer your questions.</h3>
+            <h3>
+              Email us on :
+              <span>
+                <a href="mailto:onlineshoes69@gmail.com"></a>
+                onlineshoes69@gmail.com
+              </span>
+            </h3>
+          </div>               
+        </div>
+        <!-- faq modal ok cool -->
 </section>

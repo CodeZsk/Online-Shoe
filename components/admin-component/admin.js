@@ -309,6 +309,9 @@ const renderOrder = () => {
       const optionOnProcess = document.createElement("option");
       optionOnProcess.setAttribute("value", "On Process");
       optionOnProcess.textContent = "On Process";
+      const optionOnCancel = document.createElement("option");
+      optionOnCancel.setAttribute("value", "Cancel");
+      optionOnCancel.textContent = "Cancel";
       const optionDelivered = document.createElement("option");
       optionDelivered.setAttribute("value", "Delivered");
       optionDelivered.textContent = "Delivered";
@@ -317,12 +320,15 @@ const renderOrder = () => {
         optionPandding.selected = "Selected";
       } else if (order.order.order_status == "On Process") {
         optionOnProcess.selected = "Selected";
+      } else if (order.order.order_status == "Cancel") {
+        optionOnCancel.selected = "Selected";
       } else {
         optionDelivered.selected = "Selected";
       }
 
       status.appendChild(optionPandding);
       status.appendChild(optionOnProcess);
+      status.appendChild(optionOnCancel);
       status.appendChild(optionDelivered);
 
       const editBtn = document.createElement("button");

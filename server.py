@@ -32,6 +32,24 @@ def getPageData():
     return returnData
 
 
+settingData = [None]
+
+
+@eel.expose
+def setSettingPageData(prop):
+    global settingData
+    settingData[0] = (prop)
+    return settingData
+
+
+@eel.expose
+def getSettingPageData():
+    global settingData
+    returnData = settingData
+    settingData = [None]
+    return returnData
+
+
 userID = ''
 
 
@@ -82,7 +100,6 @@ def getSearchPageData():
     return returnData
 
 
-
 @eel.expose
 def getVerificationCode():
     code = ''
@@ -96,4 +113,3 @@ def getVerificationCode():
 
 eel.start('./components/login-component/SignUpLogin.html',  size=(1000, 600))
 # eel.start('./components/login-component/SignUpLogin.html',  size=(1400, 900))
-
