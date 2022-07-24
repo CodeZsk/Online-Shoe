@@ -305,3 +305,210 @@ body {
   ::-webkit-scrollbar-thumb:hover {
     background: #86d6e8; 
   }
+
+/* modal */
+
+.modal{
+    display:none;
+    z-index:1;
+  padding: 2rem;
+  }
+  .modal-content{
+    font-family: 'Poppins', sans-serif;
+      display:block;
+    background-color:white;
+    border-radius:30px;
+    width:600px;
+    height:240px;
+    border:1px solid black;
+    padding:10px;
+    box-shadow:1px 1px 1px 1px black;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .close{
+    float:right;
+    width:30px;
+    height:30px;
+  }
+  .close:hover,close:focus{
+    color:red;
+    text-decoration:none;
+    cursor:pointer;
+  }
+  .modal-back{
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+     background-color: rgba(1, 1, 1, 0.8);
+  }
+
+  .contactus{
+    display:block;
+    background-color:white;
+    border-radius:30px;
+    width:600px;
+    height:240px;
+    border:1px solid black;
+    padding:1px;
+    box-shadow:2px 2px 2px 2px grey;
+  }
+
+
+  /* 
+  
+  customer
+  */
+
+
+  .contactus{
+    display:block;
+    background-color:white;
+    border-radius:30px;
+    width:600px;
+    height:240px;
+    border:1px solid black;
+    padding:1px;
+    box-shadow:2px 2px 2px 2px grey;
+  }
+  .customermodal{
+    display:none;
+    z-index:1;
+  padding: 4rem;
+  }
+  .customermodal-content{
+    margin: auto;
+    padding: 30px;
+  /*   border: 1px solid #888; */
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .close{
+    float:right;
+    width:10px;
+    height:30px;
+  }
+  .close:hover,close:focus{
+    color:red;
+    text-decoration:none;
+    cursor:pointer;
+  }
+  .customermodal-back{
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+     background-color: rgba(0, 0, 0, 0.6);
+  }
+  .rofl{
+    display:flex;
+    justify-content:space-between;
+    gap:60px;
+    border-radius:40px;
+  }
+  .cut{
+    display:flex;
+    margin:20px;
+  }
+  .CustomerService{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    border-radius:80px;
+    padding-left:200px;}
+  /* h2,h3{
+    text-align:center;
+  } */
+  span{
+    color:blue;
+    padding-left:10px;
+  }
+  .allday{
+    width:40px;
+    height:40px;
+  }
+  
+  .genderspan{
+    color: black;
+  }
+
+  /*  */
+  .faqmodal{
+    display:none;
+    z-index:1;
+  padding: 4rem;
+  }
+
+
+.faq{
+    display:block;
+  background-color:white;
+  width:400px;
+  height:600px;
+  /* border-radius:20px; */
+  border:1px solid black;
+  box-shadow:1px 1px 1px 1px grey;
+  padding:6px;
+  overflow-y:scroll;
+}
+.question{
+  display:flex;
+    overflow-y:scroll;
+  flex-direction:column;
+  
+}
+.okbhaihojaabhi{
+  display:flex;
+  gap: 10px;
+  
+}
+ .faqmodalback{
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+   background-color: rgba(0, 0, 0, 0.6);}
+  .faqmodalcontent{
+    margin: auto;
+    padding: 30px;
+  /*   border: 1px solid #888; */
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-40%,-50%);
+  }
+
+/*  scrool bar  */
+/* width */
+.faq::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+  /* Track */
+.faq::-webkit-scrollbar-track {
+    background: white; 
+    /* border-radius: 10px; */
+  }
+  
+  /* Handle */
+.faq::-webkit-scrollbar-thumb {
+    background: white; 
+    /* border-radius: 106px; */
+    /* height: 1px; */
+    /* background-color: #86d6e8; */
+    background-color:black;
+  }
+  
+  /* Handle on hover */
+.faq::-webkit-scrollbar-thumb:hover {
+    background: black; 
+  }

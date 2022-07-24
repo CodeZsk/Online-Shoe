@@ -47,68 +47,53 @@
         <option value="Unisex" class="oUnisex">Unisex</option>
       </select>
     </div>
-    <div class="desc">
-      <label for="Productdesc">Description</label>
-      <!-- <textarea type="text"> -->
-      <textarea
-        class="desc-input"
-        name="Productdesc"
-        cols="30"
-        rows="7"
-      ></textarea>
+
+    <!--  idhar  -->
+    <div class="company">
+      <label for="Productdesc">Company</label>
+      <input type="text" class="company-input" />
     </div>
+    <!-- idhar  -->
     <div class="price">
       <label for="Productdesc">Price</label>
-      <input
-        type="number"
-        min="1"
-        max="1000000"
-        value="1"
-        class="price-input"
-      />
+      <input type="number" min="1" max="1000000" value="1" class="price-input" />
     </div>
     <div class="quantity">
       <label for="quantity">Quantity</label>
-      <input
-        type="number"
-        min="1"
-        max="100000"
-        value="1"
-        class="quantity-input"
-      />
+      <input type="number" min="1" max="100000" value="1" class="quantity-input" />
     </div>
     <div class="color">
       <label for="Productdesc">Color</label>
       <input type="color" class="color-input" />
     </div>
-    <div class="company">
-      <label for="Productdesc">Company</label>
-      <input type="text" class="company-input" />
+
+    <div class="desc">
+      <label for="Productdesc">Description</label>
+      <!-- <textarea type="text"> -->
+      <textarea class="desc-input" name="Productdesc" cols="30" rows="5"></textarea>
     </div>
   </div>
 </div>
 <div class="conttwo">
   <div class="imageinpgrid">
     <div class="img1">
-      <input type="url" />
+      <input type="url" placeholder="    image url" />
     </div>
     <div class="img2">
-      <input type="url" />
+      <input type="url" placeholder="    image url" />
     </div>
     <div class="img3">
-      <input type="url" />
+      <input type="url" placeholder="    image url" />
     </div>
     <div class="img4">
-      <input type="url" />
+      <input type="url" placeholder="    image url" />
+    </div>
+    <div class="btn-container">
+      <button class="btn">Add Product</button>
     </div>
   </div>
-  <!-- <div class="shoechart">
-
-                    <img src="https://www.soleracks.com/wp-content/uploads/2016/10/adidas-shoes-size-chart-conversion-unisex-men-women.png" alt="">
-                </div> -->
-  <div class="btn-container">
-    <button class="btn">Add Product</button>
-  </div>
 </div>
+
+
 <!-- </div> -->
 <script src="./admin.js"></script>

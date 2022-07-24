@@ -50,31 +50,36 @@ input {
 .product {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 15px;
 }
 
 .username {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 52px;
 }
 
 .phonenumber {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 56px;
 }
 .email{
     display: flex;
     align-items: center;
-    gap: 70px;
+    gap: 86px;
+}
+.size{
+    display: flex;
+    align-items: center;
+    gap: 96px;
 }
 
 
 .address {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 44px;
 }
 
 .payment {
@@ -112,7 +117,7 @@ input {
 .landmark{
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 50px;
 }
 .Flatno{
     display: flex;
@@ -123,12 +128,12 @@ input {
 .towncity{
     display: flex;
     align-items: center;
-    gap: 55px;
+    gap: 50px;
 }
 .pincode{
     display: flex;
     align-items: center;
-    gap: 75px;
+    gap: 68px;
 }
 .lol {
     display: flex;
@@ -136,17 +141,22 @@ input {
     gap: 20px;
     /* margin-top:4px; */
 }
+.state{
+    display: flex;
+    align-items: center;
+    gap: 88px;
+}
 
 .buynow-btn {
     width: 250px;
     height: 20px;
-    margin: 30px;
+    margin: 10px;
 }
 
 .buynow-btn button {
-    margin-left: 250px;
-    margin-top: 50px;
-    padding: 10px;
+    margin-left: 300px;
+    margin-top: 40px;
+    padding: 8px;
     width: 200px;
     height: 60px;
     border: 2px solid black;
@@ -195,4 +205,8 @@ input {
 .edit img{
     width: 20px;
     height: 20px;
+}
+.quantity{
+    display: flex;
+    gap:58px;
 }

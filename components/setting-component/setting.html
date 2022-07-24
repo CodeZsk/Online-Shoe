@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Setting</title>
     <link rel="stylesheet" href="./setting.css" />
+    <link rel="shortcut icon" href="../../assets/image/Logo.png" type="image/x-icon">
   </head>
   <body>
     <aside class="sidebar">
@@ -26,12 +27,14 @@
           <div><h4 class="user">User</h4></div>
           <div><h4 class="cart">Cart</h4></div>
           <div><h4 class="order">Orders</h4></div>
-          <div><h4 class="log-out">Log Out</h4></div>
-          <div><h4 class="cart">Help</h3></div>
-          <div><h4 class="order">About us</h4></div>
+          
+          <div><h4 id="faq" class="cart">FAQ</h4></div>
+          
+          <div><h4 class="order" id="mybtn">About us</h4></div>
           <div class="about">
-            <h4>Contact us</h4>
+            <h4 id="customer">Contact us</h4>
           </div>
+          <div><h4 class="log-out">Log Out</h4></div>
         </div>
       </div>
     </aside>
@@ -70,9 +73,9 @@
               </label>
               <div class="radio-btn input- input-disable">
                 <input type="radio" id="male" name="gender" value="male" />
-                <span>Male</span>
+                <span class="genderspan">Male</span>
                 <input type="radio" id="female" name="gender" value="female" />
-                <span>Female</span>
+                <span class="genderspan">Female</span>
               </div>
             </div>
             <div class="contact-details">
@@ -155,9 +158,217 @@
             </div>
           </form>
         </div>
+        <div id="mymodal" class="modal">
+          <div class="modal-back"></div>
+          <div class="modal-content">
+            <span  id="close" class="close">&times</span>
+            <p>
+                <div class="aboutus"> 
+            <h1> About us  &#10084;</h1>
+            <br>
+            <h4>In 2022, we found ourselves stumbling upon a unique idea – taking a fashionable step towards a better future by selling stylish and comfortable footwear We dedicated our efforts towards fulfilling this purpose</h4>
+            <h4>
+        <br> <br>
+        © 2022 SneakerHeadHub • Powered by CS
+            </h4>
+          </div>
+            </p>
+          </div>
+        </div>
+        <!-- customer -->
+        <div  id= "customermodal"class="modal">
+          <div class="customermodal-back"></div>
+          <div class="customermodal-content">
+            <div class="contactus-cont">
+          <div class="contactus"> 
+            <div class="rofl">
+            <div class="CustomerService">
+            <h2>Customer Service</h2>
+            <img src="/assets/image/24hours.png" alt="" class="allday">
+            </div>
+              <div class=cut>
+                  <span  id="customerclose" class="close">&times</span>
+                 </div>
+              </div>
+            <h3>We are available from monday to  saturday to answer your questions.</h3>
+            <h3>
+              call us on :
+              <span>
+                9922379106
+              </span>
+            </h3>
+            <h3>We generally respond within 
+              
+              <u>
+              24 hours.
+                
+              </u>
+              to answer your questions.</h3>
+            <h3>
+              Email us on :
+              <span>
+                <a href="mailto:onlineshoes69@gmail.com"></a>
+                onlineshoes69@gmail.com
+              </span>
+            </h3>
+          </div>               
+        </div>
+        <!-- faq modal ok cool -->
+        
       </section>
+      <div id="faqmodal" class="faqmodal">
+        <div class="faqmodalback"></div>
+        <div class="faqmodalcontent">
+      
+          <div class="faq">
+            <div class="question">
+              <div class="okbhaihojaabhi">
+                
+              <h1>
+                FREQUENTLY ASKED QUESTIONS
+              </h1>
+          <span id="faqclose" class="close">&times</span>
+              </div>
+              <div>
+                <h4>
+      
+                  How long does delivery take?
+                </h4>
+                <p>
+                  The orders are normally shipped within 2-3 working days (Monday-Friday) from the order date. The order will be delivered to the customers within 7-10 working days from the date of shipment to serviceable locations.
+                </p>
+              </div>
+      
+              <div>
+                <h4>
+                  Which payment methods do you accept?
+                </h4>
+                <p>
+                  We accept Cash On Delivery. We may add/delete payment methods based on the usage by our customers.
+                </p>
+              </div>
+              <div>
+                <h4>
+                  How much will delivery cost?
+                </h4>
+                <p>
+                  Currently the delivery is free for you as the shipping charge is borne by us.
+                </p>
+              </div>
+      
+              <div>
+                <h4>
+                  How do I clean my Skechers shoes?</h4>
+                <p>
+                  Please follow below Do's & Don't to clean shoes
+                  <br><br>
+                  Do's
+                  <br>
+                  Remove excess dirt from the upper and outsole by using a soft brush or towel.
+                  <br>
+                  Remove the laces and insoles (wherever possible).
+                  <br>
+                  Create a soapy mixture by combining water at room temperature and a small amount of mild detergent.
+                  <br>
+                  Place the footwear in the mesh laundry bag to keep them from banging around in your washer. Close the bag and drop the bag into machine and Select low spin option.
+                  <br>
+                  Rinse washes the footwear properly.
+                  <br>
+                  <br>
+                  Dont's
+                  <br>
+                  Don't put footwear in the machine dryer.
+                  <br>
+                  Don’t use artificial means of drying.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
     </section>
     <script src="../../eel.js"></script>
     <script src="./setting.js"></script>
+    <script>
+var fbtn=document.getElementById("faq");
+var fmod=document.querySelector(".faqmodal");
+var fcut=document.getElementById("faqclose");
+
+fbtn.onclick=function(){
+  fmod.style.display="block";
+}
+
+fcut.onclick=function(){
+  
+  fmod.style.display="none";
+}
+window.onclick=function(event){
+  if(event.target == fmod){
+    fmod.style.display="none";
+  }
+  
+}
+var fmb=document.querySelector(".faqmodalback");
+
+fmb.onclick= function(){
+  
+  fmod.style.display="none"
+  
+}
+
+var btn=document.getElementById("mybtn");
+var mod=document.getElementById("mymodal");
+var cut=document.getElementById("close");
+
+btn.onclick=function(){
+  mod.style.display="block";
+}
+
+cut.onclick=function(){
+  mod.style.display="none";
+}
+window.onclick=function(event){
+  if(event.target == mod){
+    mod.style.display="none";
+  }
+  
+}
+var mb=document.querySelector(".modal-back");
+
+mb.onclick= function(){
+  
+  mod.style.display="none"
+  
+}
+
+
+var cbtn=document.getElementById("customer");
+var cmod=document.getElementById("customermodal");
+var ccut=document.getElementById("customerclose");
+
+cbtn.onclick=function(){
+  cmod.style.display="block";
+}
+
+ccut.onclick=function(){
+  
+  cmod.style.display="none";
+}
+window.onclick=function(event){
+  if(event.target == cmod){
+    cmod.style.display="none";
+  }
+  
+}
+var mb=document.querySelector(".customermodal-back");
+
+mb.onclick= function(){
+  
+  cmod.style.display="none"
+  
+}
+</script>
   </body>
 </html>

@@ -304,8 +304,8 @@ const renderOrder = () => {
       status.disabled = true;
 
       const optionPandding = document.createElement("option");
-      optionPandding.setAttribute("value", "Panding");
-      optionPandding.textContent = "Panding";
+      optionPandding.setAttribute("value", "Pending");
+      optionPandding.textContent = "Pending";
       const optionOnProcess = document.createElement("option");
       optionOnProcess.setAttribute("value", "On Process");
       optionOnProcess.textContent = "On Process";
@@ -313,7 +313,7 @@ const renderOrder = () => {
       optionDelivered.setAttribute("value", "Delivered");
       optionDelivered.textContent = "Delivered";
 
-      if (order.order.order_status == "Panding") {
+      if (order.order.order_status == "Pending") {
         optionPandding.selected = "Selected";
       } else if (order.order.order_status == "On Process") {
         optionOnProcess.selected = "Selected";
