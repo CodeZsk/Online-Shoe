@@ -18,9 +18,9 @@ def setPageData(prop):
     global data
     data[0] = (prop)
     print(prop)
-    if data[0] == 'All':
-        data[0] = None
-        print(data[0])
+    # if data[0] == 'All':
+    #     data[0] = None
+    #     print(data[0])
     return data
 
 
@@ -28,7 +28,7 @@ def setPageData(prop):
 def getPageData():
     global data
     returnData = data
-    data = [None]
+    # data = [None]
     return returnData
 
 

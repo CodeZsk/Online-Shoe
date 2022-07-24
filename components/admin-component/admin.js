@@ -83,7 +83,7 @@ const addProduct = (addProductBtn) => {
     if (confMass == "YES") {
       eel.set_product(
         productName.value,
-        productPrice.value,
+        parseInt(productPrice.value),
         color.value,
         quantity.value,
         genderType.value,

@@ -12,7 +12,7 @@ function renderSingleProduct() {
 
   const addToCartBtn = document.querySelector(".cart-button");
   const allproduct = document.querySelector(".all");
-  allproduct.addEventListener("click", () => allProducts());
+  allproduct.addEventListener("click", () => allProducts("All"));
 
   const menProducts = document.querySelector(".men");
   menProducts.addEventListener("click", () => allProducts("Men"));
@@ -181,7 +181,7 @@ function buyPage(product, user) {
   const quantity = document.querySelector(".quantity-input");
   const price = document.querySelector(".price-input");
   quantity.setAttribute("max", product.availability.quantity);
-  price.value = product.price.split(",").join("");
+  price.value = product.price;
   quantity.addEventListener("change", () => {
     let value = quantity.value;
     let total = parseInt(product.price.split(",").join("")) * value;

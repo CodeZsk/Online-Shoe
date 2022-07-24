@@ -48,49 +48,59 @@
             <div class="headof">
                 <h3>Filter Your Shoes</h3>
             </div>
-            <div class="filterofgender">
+            <!-- <div class="filterofgender">
                 <br>
                 <div class="gendertype1">
                     <label for="men">MEN</label>
-                    <input type="radio" name="shoegender" id="men">
+                    <input type="radio" name="shoegender" id="men" class="men-filter">
                 </div>
                 <div class="gendertype2">
                     <label for=" men">Women</label>
-                    <input type="radio" name="shoegender" id="women">
+                    <input type="radio" name="shoegender" id="women" class="women-filter">
                 </div>
                 <div class="gendertype3">
                     <label for=" men">Unisex</label>
-                    <input type="radio" name="shoegender" id="unisex">
+                    <input type="radio" name="shoegender" id="unisex" class="unisex-filter">
                 </div>
-            </div>
+            </div> -->
             <div class="sizeofshoes">
             </div>
             <div class="typesofshoes">
                 <h3>Category</h3>
-                Sneaker
+                <span class="Sneaker">
+                    Sneaker
+                </span>
                 <br>
-                Casual Shoes <br>
-                Sports & Outdoor Shoes
+                <span class="Casual-Shoes" value="Shoes">
+                    Shoes 
+                </span>
+                <br>
+                <span class="Sports-Shoes" value="Sports">
+                    Sports Shoes
+                </span>
                 <br>
                 <div class="tagofbrand">
                     <h3>Brand</h3>
                     <div class="brandname">
                         <div class="brandone">
-                            <input type="checkbox">
+                            <input type="checkbox" value="Nike" class="nike">
                             <label for="nike">Nike</label>
                         </div>
                         <div>
-                            <input type="checkbox">
+                            <input type="checkbox"
+                            value="Adidas" class="adidas">
                             <label for="adidas">Adidas</label>
                         </div>
                     </div>
                     <div class="brandname">
                         <div class="brandone">
-                            <input type="checkbox">
+                            <input type="checkbox"
+                            value="Puma" class="puma">
                             <label for="puma">Puma</label>
                         </div>
                         <div>
-                            <input type="checkbox">
+                            <input type="checkbox"
+                            value="Converse" class="converse">
                             <label for="converse">Converse</label>
                         </div>
                     </div>
@@ -116,11 +126,18 @@
             </div>
             <h3>Select Price</h3>
             <div class="slidecontainer">
-                <span>5000-10,000</span>
+                <span class="price-filter">5,000-10,000</span>
                 <br>
-                <span>10,00-15,000</span>
+                <span class="price-filter">10,000-15,000</span>
                 <br>
-                <span>15,000-20,000</span>
+                <span class="price-filter">15,000-20,000</span>
+                <br>
+                <div class="custom-price">
+                    <input type="number" class="price-filter-low" width="30" placeholder="min" />
+                    <input type="number" class="price-filter-high" width="30" placeholder="max" />
+                    <button class="price-filter-btn">Go</button>
+                </div>
+
             </div>
         </div>
 

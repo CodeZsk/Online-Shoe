@@ -84,53 +84,12 @@ function orderHTML() {
   xhttp.send();
 }
 
-const reviewBtnHandler = (productId, userId, productN, userN) => {
-
-  const modalBack = document.createElement("div");
-  modalBack.classList.add("modal-back");
-  const modalContent = document.createElement("div");
-  modalContent.classList.add("modal-content");
-  const close = document.createElement("span")
-  close.classList.add("close")
-  close.setAttribute("id", "close");
-  const MuserName = document.createElement("span")
-  
-  const MproductName = document.createElement("span")
-  const both = document.createElement("div")
-  const comment = document.createElement("div")
-  const label = document.createElement("label")
-  const star = document.createElement("div")
-  const img = document.createElement("img")
-  const select = document.createElement("select")
-  const option1 = document.createElement("option")
-  const option2 = document.createElement("option")
-  const option3 = document.createElement("option")
-  const option4 = document.createElement("option")
-  const option5 = document.createElement("option")
-  const textArea = document.createElement("textarea")
-  const subBtn = document.createElement("button")
-
-
-
-
-
-  const btn = document.getElementById("mybtn");
+const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
+  // const btns = document.querySelectorAll("#mybtn");
   const mod = document.getElementById("mymodal");
   const cut = document.getElementById("close");
   const selectStar = document.querySelector(".select-star");
-  const option = selectStar.options[selectStar.selectedIndex];
-  // const textArea = document.querySelector(".comment-area");
-  const submitBtn = document.querySelector(".review-btn-submit");
-
-  const userName = document.querySelector(".user-name");
-  userName.textContent = `User Name: ${userN}`;
-  const productName = document.querySelector(".product-name");
-  productName.textContent = `Product Name: ${productN}`;
-
-  btn.onclick = function () {
-    console.log("hello wold");
-    mod.style.display = "block";
-  };
+  mod.style.display = "block";
 
   cut.onclick = function () {
     mod.style.display = "none";
@@ -146,6 +105,15 @@ const reviewBtnHandler = (productId, userId, productN, userN) => {
     mod.style.display = "none";
   };
 
+  const option = selectStar.options[selectStar.selectedIndex];
+  const textArea = document.querySelector(".comment-area");
+  const submitBtn = document.querySelector(".review-btn-submit");
+
+  const userName = document.querySelector(".user-name");
+  userName.textContent = `User Name: ${userN}`;
+  const productName = document.querySelector(".product-name");
+  productName.textContent = `Product Name: ${productN}`;
+
   submitBtn.addEventListener("click", () => {
     if (!option.value.trim()) return;
     if (!textArea.value.trim()) return;
@@ -155,14 +123,17 @@ const reviewBtnHandler = (productId, userId, productN, userN) => {
       option.value,
       textArea.value
     )((res) => {
-      if (res == "Ok") {
-        eel.updateIsReview(productId);
+      if (res.status == "Ok") {
+        eel.updateIsReview(orderID)((res) => {
+          if (res.status == "Ok") {
+            alert("Thank you for your review");
+            orderHTML();
+          }
+        });
       } else {
         alert("something went wrong");
       }
     });
-    alert("Thank you for your review");
-    orderHTML();
   });
 };
 
@@ -194,21 +165,20 @@ const getOrderDetails = (orderDB) => {
       tr.appendChild(cancelStatus);
     } else if (order.is_reviewed) {
       const cancelStatus = document.createElement("td");
-      cancelStatus.textContent = "Reviewes";
+      cancelStatus.textContent = "Reviewed";
       tr.appendChild(cancelStatus);
     } else {
       const tdBtn = document.createElement("td");
       const reviewBtn = document.createElement("button");
       reviewBtn.textContent = "Review";
       reviewBtn.setAttribute("id", "mybtn");
-      reviewBtn.addEventListener("click", () =>
-        reviewBtnHandler(
-          product.product_id,
-          user.user_id,
-          product.product_name,
-          user.user_name
-        )
-      );
+      reviewBtn.classList.add("review-btn");
+      reviewBtn.setAttribute("data-id", product.product_id);
+      reviewBtn.setAttribute("data-user-id", user.user_id);
+      reviewBtn.setAttribute("data-product-name", product.product_name);
+      reviewBtn.setAttribute("data-user-name", user.user_name);
+      reviewBtn.setAttribute("data-order-id", orderDB._id);
+
       tdBtn.appendChild(reviewBtn);
       tr.appendChild(tdBtn);
     }
@@ -243,6 +213,20 @@ const getOrderDetails = (orderDB) => {
     tr.appendChild(tdBtn);
     activeTabel.appendChild(tr);
   }
+  const mybtn = document.querySelectorAll(".review-btn");
+  console.log(mybtn);
+  mybtn.forEach((reviewBtn) => {
+    reviewBtn.addEventListener("click", () => {
+      console.log(reviewBtn.getAttribute("data-id"));
+      reviewBtnHandler(
+        reviewBtn.getAttribute("data-id"),
+        reviewBtn.getAttribute("data-user-id"),
+        reviewBtn.getAttribute("data-product-name"),
+        (user_name = reviewBtn.getAttribute("data-user-name")),
+        reviewBtn.getAttribute("data-order-id")
+      );
+    });
+  });
 };
 
 const renderAll = (product, outer) => {
@@ -266,7 +250,6 @@ const renderAll = (product, outer) => {
     h4.addEventListener("click", () =>
       singleProduct(h4.getAttribute("data-id"))
     );
-    // const br = document.createElement("br");
     const cartBtn = document.createElement("button");
     cartBtn.textContent = "REMOVE";
     cartBtn.addEventListener("click", () => {
@@ -277,8 +260,6 @@ const renderAll = (product, outer) => {
         cartHTML();
       });
     });
-    // const span = document.createElement("span");
-    // span.innerText = "heart";
 
     outer.appendChild(divCard);
     divCard.appendChild(img);
@@ -287,9 +268,7 @@ const renderAll = (product, outer) => {
     divCard.appendChild(divDesCCard);
     divDesCCard.appendChild(h4);
     divDesCCard.appendChild(cartBtn);
-    // divDesCCard.appendChild(span);
   }
-  // return 0;
 };
 
 const singleProduct = (id) => {
@@ -304,8 +283,6 @@ const getUserFeald = () => {
   const DOBInput = document.querySelector(".dob-input");
   let genderInput;
   const phoneInput = document.querySelector(".phone-input");
-
-  // const emailInput = document.querySelector(".email-input");
   const flatInput = document.querySelector(".flat-input");
   const areaInput = document.querySelector(".area-input");
   const landmarkInput = document.querySelector(".landmark-input");
