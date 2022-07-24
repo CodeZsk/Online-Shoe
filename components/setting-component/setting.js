@@ -66,57 +66,167 @@ function orderHTML() {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function () {
     document.getElementById("main").innerHTML = this.responseText;
-    eel.userInfo("62b818cf1d0e763410d30734")((order) => {
-      getOrderDetails(order);
+
+    eel.get_user_ID()((id) => {
+      // eel.userInfo(id)((order) => {
+      //   console.log(order);
+      //   // getOrderDetails(order);
+      // });
+      eel.getOrderByUserId(id)((orders) => {
+        // console.log(order);
+        orders.map((order) => getOrderDetails(order));
+
+        // reviewBtn();
+      });
     });
   };
   xhttp.open("GET", "./order.html");
   xhttp.send();
 }
 
-// userInfo;
-const getOrderDetails = (order) => {
-  console.log(order[0].user_info.user_order.order_status);
+const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
+  // const btns = document.querySelectorAll("#mybtn");
+  const mod = document.getElementById("mymodal");
+  const cut = document.getElementById("close");
+  const selectStar = document.querySelector(".select-star");
+  mod.style.display = "block";
 
-  const { active_order, prev_order } = {
-    ...order[0].user_info.user_order.order_status,
+  cut.onclick = function () {
+    mod.style.display = "none";
   };
-  console.log(active_order, prev_order);
-  const activeULList = document.querySelector(".active-header ul");
-  const li = document.createElement("li");
-  const nameContainer = document.createElement("div");
-  nameContainer.classList.add("name-container");
-  const nameInput = document.createElement("input");
-  nameContainer.appendChild(nameInput);
+  window.onclick = function (event) {
+    if (event.target == mod) {
+      mod.style.display = "none";
+    }
+  };
+  var mb = document.querySelector(".modal-back");
 
-  const productIdContainer = document.createElement("div");
-  productIdContainer.classList.add("product-id-container");
-  const productId = document.createElement("input");
-  productIdContainer.appendChild(productId);
+  mb.onclick = function () {
+    mod.style.display = "none";
+  };
 
-  const idContainer = document.createElement("div");
-  idContainer.classList.add("id-container");
-  const orderId = document.createElement("input");
-  idContainer.appendChild(orderId);
+  const option = selectStar.options[selectStar.selectedIndex];
+  const textArea = document.querySelector(".comment-area");
+  const submitBtn = document.querySelector(".review-btn-submit");
 
-  const statusContainer = document.createElement("div");
-  statusContainer.classList.add("status-container");
-  const statusInput = document.createElement("input");
-  statusContainer.appendChild(statusInput);
+  const userName = document.querySelector(".user-name");
+  userName.textContent = `User Name: ${userN}`;
+  const productName = document.querySelector(".product-name");
+  productName.textContent = `Product Name: ${productN}`;
 
-  const cancelContainer = document.createElement("div");
-  cancelContainer.classList.add("cancel-container");
-  const cancelBtn = document.createElement("button");
-  cancelBtn.textContent = "Cancel Order";
-  cancelContainer.appendChild(cancelBtn);
+  submitBtn.addEventListener("click", () => {
+    if (!option.value.trim()) return;
+    if (!textArea.value.trim()) return;
+    eel.updateProductReview(
+      productId,
+      userId,
+      option.value,
+      textArea.value
+    )((res) => {
+      if (res.status == "Ok") {
+        eel.updateIsReview(orderID)((res) => {
+          if (res.status == "Ok") {
+            alert("Thank you for your review");
+            orderHTML();
+          }
+        });
+      } else {
+        alert("something went wrong");
+      }
+    });
+  });
+};
 
-  li.appendChild(nameContainer);
-  li.appendChild(productIdContainer);
-  li.appendChild(idContainer);
-  li.appendChild(statusContainer);
-  li.appendChild(cancelContainer);
+// userInfo;
+const getOrderDetails = (orderDB) => {
+  const { order, product, user } = orderDB;
+  console.log(product);
+  console.log(order);
+  const activeTabel = document.querySelector(".active-table");
+  const prevTabel = document.querySelector(".prev-table");
 
-  activeULList.appendChild(li);
+  if (order.order_status == "Delivered" || order.order_status == "Cancel") {
+    const tr = document.createElement("tr");
+    const productName = document.createElement("td");
+    const productId = document.createElement("td");
+    const orderID = document.createElement("td");
+    const orderStatus = document.createElement("td");
+    productName.textContent = product.product_name;
+    productId.textContent = product.product_id;
+    orderID.textContent = orderDB._id;
+    orderStatus.textContent = order.order_status;
+    tr.appendChild(productName);
+    tr.appendChild(productId);
+    tr.appendChild(orderID);
+    tr.appendChild(orderStatus);
+    if (order.order_status == "Cancel") {
+      const cancelStatus = document.createElement("td");
+      cancelStatus.textContent = "NA";
+      tr.appendChild(cancelStatus);
+    } else if (order.is_reviewed) {
+      const cancelStatus = document.createElement("td");
+      cancelStatus.textContent = "Reviewed";
+      tr.appendChild(cancelStatus);
+    } else {
+      const tdBtn = document.createElement("td");
+      const reviewBtn = document.createElement("button");
+      reviewBtn.textContent = "Review";
+      reviewBtn.setAttribute("id", "mybtn");
+      reviewBtn.classList.add("review-btn");
+      reviewBtn.setAttribute("data-id", product.product_id);
+      reviewBtn.setAttribute("data-user-id", user.user_id);
+      reviewBtn.setAttribute("data-product-name", product.product_name);
+      reviewBtn.setAttribute("data-user-name", user.user_name);
+      reviewBtn.setAttribute("data-order-id", orderDB._id);
+
+      tdBtn.appendChild(reviewBtn);
+      tr.appendChild(tdBtn);
+    }
+    prevTabel.appendChild(tr);
+  } else {
+    const tr = document.createElement("tr");
+    const productName = document.createElement("td");
+    const productId = document.createElement("td");
+    const orderID = document.createElement("td");
+    const orderStatus = document.createElement("td");
+
+    const tdBtn = document.createElement("td");
+    const cancelBtn = document.createElement("button");
+    cancelBtn.textContent = "Cancel";
+    cancelBtn.classList.add("reviewbtn");
+    cancelBtn.addEventListener("click", () => {
+      let isCancelled = confirm("Are you sure you want to cancel Your Order");
+      if (isCancelled) {
+        eel.update_order_status(orderDB._id, "Cancel");
+        orderHTML();
+      }
+    });
+    productName.textContent = product.product_name;
+    productId.textContent = product.product_id;
+    orderID.textContent = orderDB._id;
+    orderStatus.textContent = order.order_status;
+    tr.appendChild(productName);
+    tr.appendChild(productId);
+    tr.appendChild(orderID);
+    tr.appendChild(orderStatus);
+    tdBtn.appendChild(cancelBtn);
+    tr.appendChild(tdBtn);
+    activeTabel.appendChild(tr);
+  }
+  const mybtn = document.querySelectorAll(".review-btn");
+  console.log(mybtn);
+  mybtn.forEach((reviewBtn) => {
+    reviewBtn.addEventListener("click", () => {
+      console.log(reviewBtn.getAttribute("data-id"));
+      reviewBtnHandler(
+        reviewBtn.getAttribute("data-id"),
+        reviewBtn.getAttribute("data-user-id"),
+        reviewBtn.getAttribute("data-product-name"),
+        (user_name = reviewBtn.getAttribute("data-user-name")),
+        reviewBtn.getAttribute("data-order-id")
+      );
+    });
+  });
 };
 
 const renderAll = (product, outer) => {
@@ -140,7 +250,6 @@ const renderAll = (product, outer) => {
     h4.addEventListener("click", () =>
       singleProduct(h4.getAttribute("data-id"))
     );
-    // const br = document.createElement("br");
     const cartBtn = document.createElement("button");
     cartBtn.textContent = "REMOVE";
     cartBtn.addEventListener("click", () => {
@@ -151,8 +260,6 @@ const renderAll = (product, outer) => {
         cartHTML();
       });
     });
-    // const span = document.createElement("span");
-    // span.innerText = "heart";
 
     outer.appendChild(divCard);
     divCard.appendChild(img);
@@ -161,9 +268,7 @@ const renderAll = (product, outer) => {
     divCard.appendChild(divDesCCard);
     divDesCCard.appendChild(h4);
     divDesCCard.appendChild(cartBtn);
-    // divDesCCard.appendChild(span);
   }
-  // return 0;
 };
 
 const singleProduct = (id) => {
@@ -178,8 +283,6 @@ const getUserFeald = () => {
   const DOBInput = document.querySelector(".dob-input");
   let genderInput;
   const phoneInput = document.querySelector(".phone-input");
-
-  const emailInput = document.querySelector(".email-input");
   const flatInput = document.querySelector(".flat-input");
   const areaInput = document.querySelector(".area-input");
   const landmarkInput = document.querySelector(".landmark-input");
@@ -208,7 +311,6 @@ const getUserFeald = () => {
       if (!DOBInput.value.trim()) return;
       if (!genderInput.value.trim()) return;
       if (!phoneInput.value.trim()) return;
-      if (!emailInput.value.trim()) return;
       if (!flatInput.value.trim()) return;
       if (!areaInput.value.trim()) return;
       if (!townInput.value.trim()) return;
@@ -229,7 +331,6 @@ const getUserFeald = () => {
           DOBInput.value,
           genderInput.value,
           phoneInput.value,
-          emailInput.value,
           flatInput.value,
           areaInput.value,
           landmarkInput.value,
@@ -258,7 +359,7 @@ const getUserData = () => {
       const phoneInput = document.querySelector(".phone-input");
       phoneInput.value = user_info.user_phoneNo;
       const emailInput = document.querySelector(".email-input");
-      emailInput.value = user_info.user_email;
+      emailInput.value = user[0].email;
       const flatInput = document.querySelector(".flat-input");
       flatInput.value = user_info.user_Add.flat_number;
       const areaInput = document.querySelector(".area-input");

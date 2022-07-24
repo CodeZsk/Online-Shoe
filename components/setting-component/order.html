@@ -1,376 +1,188 @@
-<!-- <head> -->
-  <!-- <script src="../../eel.js"></script> -->
-  <!--
-      active  order
-    product name 
-      product id 
-      order id 
-      order status 
-      cancel order
-  -->
-  <!-- previus order 
-    product name
-    product id 
-    order id 
-    order status 
-    review 
-   -->
-<!-- </head> -->
-<!-- <section class="order-section">
-  <div class="active-order-section">
-    <h4>Active Order</h4>
-    <div class="active-table">
-      <div class="active-header">
-        <ul>
-          <li>
-            <div class="name-container">
-              <h4>Product Name</h4>
-            </div>
-            <div class="product-id-container">
-              <h4>Product Id</h4>
-            </div>
-            <div class="id-container">
-              <h4>Order Id</h4>
-            </div>
-            <div class="status-container">
-              <h4>Order Status</h4>
-            </div>
-            <div class="cancel-container">
-              <h4>Cancel Order</h4>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="prev-order-section">
-    <h4>Previous Order</h4>
-    <div class="active-table">
-      <div class="active-header">
-        <ul>
-          <li>
-            <div class="name-container">
-              <h4>Product Name</h4>
-            </div>
-            <div class="product-id-container">
-              <h4>Product Id</h4>
-            </div>
-            <div class="id-container">
-              <h4>Order Id</h4>
-            </div>
-            <div class="status-container">
-              <h4>Order Status</h4>
-            </div>
-            <div class="reveiw-container"><h4>Review</h4></div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="../../eel.js"></script>
-</head>
-<body>
-  <style>
-    .forthetable{
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      width:80rem;
-      height:90vh;
-    }
-    table{
-      width: 100%;
-      height: 200px;
-      border:1px solid black;
-      background-color:white;
-      border-collapse: collapse;
-      overflow-x: auto;
-      overflow-y: scroll;
-      border-radius: 10px;
-    }
-    .previoustable{
-      border: 1px solid black;
-      width: 100%;
-      height: 400px;
-      border:1px solid black;
-      background-color:white;
-      border-collapse: collapse;
-      overflow-x: auto;
-      overflow-y: scroll;
-      border-radius: 10px;
-    }
-    th,td{
-      border: 1px solid black;
-      text-align: center;
-      padding-left:2px ;
-      margin: 0px;
-    }
-
-    td{
-      margin: 0px;
-    }
-    th{
-      padding:2px;
-      height:2px;
-      width: 1px;
-      text-align: center;
-    }
-    tr:nth-child(even) {
-      background-color: #dddd;
-      border:1px solid black
-    }
-    button{
-      width: 80px;
-      background-color: yellow;
-      font-weight: bold;
-      border-top-right-radius: 10px;
-      border-bottom-left-radius:10px ;
-
-    }
-    .reviewbtn{
-      background-color: red;
-      font-size: 20px;
-    }
-/* modal */
-.modal{
-  display:none;
-  z-index:1;
-padding: 2rem;
-}
-.modal-content{
+<style>
+  .forthetable {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80rem;
+    height: 90vh;
+  }
+  table {
+    width: 100%;
+    height: 200px;
+    border: 1px solid black;
     background-color: white;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-}
-.close{
-  float:right;
-  width:10px;
-  height:30px;
-  position:absolute;
-  top:1px;
-  right:10px;
-  font-size:30px;
-}
-.close:hover,close:focus{
-  color:red;
-  text-decoration:none;
-  cursor:pointer;
-}
-.modal-back{
+    border-collapse: collapse;
+    overflow-x: auto;
+    overflow-y: scroll;
+    border-radius: 10px;
+  }
+  .previoustable {
+    border: 1px solid black;
+    width: 100%;
+    height: 400px;
+    border: 1px solid black;
+    background-color: white;
+    border-collapse: collapse;
+    overflow-x: auto;
+    overflow-y: scroll;
+    border-radius: 10px;
+  }
+  th,
+  td {
+    border: 1px solid black;
+    text-align: center;
+    padding-left: 2px;
+    margin: 0px;
+  }
+
+  td {
+    margin: 0px;
+  }
+  th {
+    padding: 2px;
+    height: 2px;
+    width: 1px;
+    text-align: center;
+  }
+  tr:nth-child(even) {
+    background-color: #dddd;
+    border: 1px solid black;
+  }
+  button {
+    width: 80px;
+    background-color: yellow;
+    font-weight: bold;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  .reviewbtn {
+    background-color: red;
+    font-size: 20px;
+  }
+  tr {
+    height: 20px;
+  }
+  /* modal */
+  .modal {
+    display: none;
+    z-index: 1;
+    padding: 2rem;
+  }
+  .modal-content {
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .close {
+    float: right;
+    width: 10px;
+    height: 30px;
+    position: absolute;
+    top: 1px;
+    right: 10px;
+    font-size: 30px;
+  }
+  .close:hover,
+  close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .modal-back {
     position: absolute;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
-   background-color: rgba(0, 0, 0, 0.6);
-}
-.star{
-  display:flex;
-}
-.both{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-   align-items:center;
-  justify-content:center;
-}
-img{
-  width:30px;
-  height:30px;
-  border:1px solid black;
-}
-select{
-  border:1px solid black;
-  width:300px;
-}
-.comment{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-}  
-  </style>
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .star {
+    display: flex;
+  }
+  .both {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  img {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+  }
+  select {
+    border: 1px solid black;
+    width: 100px;
+  }
+  .comment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+</style>
 
-  <div class="forthetable">
-    <div class="activeorder">
-      <h1>Active Order</h1>
-      <table>
-        <tr>
-          <th>Product Name </th>
-          <th>Product ID</th>
-          <th>Order ID</th>
-          <th> Order Status</th>
-          <th>Cancel Order</th>
-        </tr>
-        <tr>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            <button>Cancel</button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            <button>Cancel</button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            <button>Cancel</button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            <button>Cancel</button>
-          </td>
-        </tr>
-      </table>
-
-    </div>
-    <div class="activeorder">
-      <h1>Previous Order</h1>
-      <table class="previoustable">
-        <tr>
-          <th>Product Name </th>
-          <th>Product ID</th>
-          <th>Order ID</th>
-          <th>Order Status</th>
-          <th>Review</th>
-        </tr>
-        <tr>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            none
-          </td>
-          <td>
-            <button class="reviewbtn" id="mybtn"> Review</button>
-          </td>
-        </tr>
-      </table>
-    </div>
-
-    <div id="mymodal" class="modal">
-      <div class="modal-back"></div>
-      <div class="modal-content">
-        <span  id="close" class="close">&times</span>
-        <p>
-          <div class="both">
-            
-          <div class="star">
-             <img src="https://cdn-icons-png.flaticon.com/512/616/616490.png" alt="">
-            <select name="review" id="reviewstar">
-              <option value="5">5</option>
-              <option value="4">4</option>
-              <option value="3">3</option>
-              <option value="2">2</option>
-              <option value="1">1</option>
-            </select>
-          </div>
-            <div class="comment">
-              <label for="commment">
-                Comment </label>
-              <textarea name="" id="" cols="35" rows="1"></textarea>
-          </div>
-        </p>
-      </div>
-    </div>
-
+<div class="forthetable">
+  <div class="activeorder">
+    <h1>Active Order</h1>
+    <table class="active-table">
+      <tr class="active-table-header">
+        <th>Product Name</th>
+        <th>Product ID</th>
+        <th>Order ID</th>
+        <th>Order Status</th>
+        <th>Cancel Order</th>
+      </tr>
+    </table>
+  </div>
+  <div class="activeorder">
+    <h1>Previous Order</h1>
+    <table class="previoustable prev-table">
+      <tr>
+        <th>Product Name</th>
+        <th>Product ID</th>
+        <th>Order ID</th>
+        <th>Order Status</th>
+        <th>Review</th>
+      </tr>
+    </table>
 
   </div>
-<script>
-var btn=document.getElementById("mybtn");
-var mod=document.getElementById("mymodal");
-var cut=document.getElementById("close");
 
-btn.onclick=function(){
-  mod.style.display="block";
-}
-
-cut.onclick=function(){
-  mod.style.display="none";
-}
-window.onclick=function(event){
-  if(event.target == mod){
-    mod.style.display="none";
-  }
-  
-}
-var mb=document.querySelector(".modal-back");
-
-mb.onclick= function(){
-  
-  mod.style.display="none"
-  
-}
-</script>
-
-</body>
-</html>
+  <div id="mymodal" class="modal">
+    <div class="modal-back"></div>
+    <div class="modal-content">
+      <span id="close" class="close">&times</span>
+      <span class="user-name"></span>
+      <br />
+      <span class="product-name"></span>
+      <div class="both">
+        <div class="comment">
+          <label for="commment"> Comment </label>
+        </div>
+        <div class="star">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/616/616490.png"
+            alt=""
+          />
+          <select class="select-star" name="review" id="reviewstar">
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+          </select>
+        </div>
+      </div>
+      <textarea name="" id="" cols="35" rows="5" class="comment-area"></textarea>
+      <br>
+      <br>
+      <button class="review-btn-submit">Submit</button>
+    </div>
+  </div>

@@ -64,36 +64,68 @@ signUpBtn.addEventListener("click", () => {
 });
 
 forgotPassword.addEventListener("click", () => {
-  if (!inUsername.value.trim()) {
-    alert("Please enter your username");
+  let changePassword = confirm("Are you sure you want to change your password");
+  if (changePassword) {
+    if (!inUsername.value.trim()) {
+      alert("Please enter your username");
+      return;
+    }
+    eel.checkSignInDb(inUsername.value)((user) => {
+      if (!user) {
+        alert("user dose not exist");
+        return;
+      }
+      updatePassword(inUsername.value, user.email);
+    });
+  } else {
     return;
   }
-  eel.checkSignInDb(inUsername.value)((user) => {
-    if (!user) {
-      alert("user dose not exist");
-      return;
-    }
-    updatePassword(user.securityQuestion, inUsername.value);
-  });
 
-  function updatePassword(question, username) {
-    let securityAnswer = prompt("Which is Your favorite Shoe");
-    console.log(securityAnswer);
-    if (!securityAnswer) {
-      return;
-    }
-    if (securityAnswer !== question) {
-      alert("Security Answer do not match");
-      return;
-    }
-    newPasswordValue = prompt("Enter New password");
-    if (!newPasswordValue) return;
-    if (newPasswordValue.length < 8) {
-      alert("Password must be grater than 8 characters");
-      return;
-    }
-    eel.update_user_password(username, newPasswordValue);
-    alert("Successfully Updated Password");
+  function updatePassword(username, email) {
+    eel.getVerificationCode()((code) => {
+      Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "onlineshoes69@gmail.com",
+        Password: "0D17FC3473A6F7434D91FFEBF83CE82DF3C2",
+        To: email,
+        From: "onlineshoes69@gmail.com",
+        Subject: "Change Your Password",
+        Body: `
+        hey ${username}
+        ${(document.innerHTML = `<br>`)}
+        we have Received Password Change Request
+        ${(document.innerHTML = `<br>`)}
+        Here is Your Password Verification Code
+        ${(document.innerHTML = `<br>`)}
+        ${(document.innerHTML = `<h2>${code}</h2>`)}
+        `,
+      }).then((message) => {
+        if (message == "OK") {
+          let getPasswordCode = prompt(
+            "Enter Password Verification Code \nWhich has Sent to Your Email Address"
+          );
+          if (getPasswordCode == code) {
+            newPasswordValue = prompt("Enter New password");
+            if (!newPasswordValue) return;
+            if (newPasswordValue.length < 8) {
+              alert("Password must be grater than 8 characters");
+              return;
+            }
+            eel.update_user_password(username, newPasswordValue);
+            alert("Successfully Updated Password");
+          }
+        }
+      });
+    });
+    // let securityAnswer = prompt("Which is Your favorite Shoe");
+    // console.log(securityAnswer);
+    // if (!securityAnswer) {
+    //   return;
+    // }
+    // if (securityAnswer !== question) {
+    //   alert("Security Answer do not match");
+    //   return;
+    // }
   }
 });
 // checking user
@@ -172,10 +204,38 @@ checkSignUp = async (username, password, confPassword, email, question) => {
       return;
     }
 
-    eel.set_user(username, password, email, question);
-    eel.message("Successfully signUp in database");
-    alert("Successfully signUp");
-    signInBtn.click();
+    alert("Verify Your Email");
+    eel.getVerificationCode()((code) => {
+      console.log(code);
+      console.log(email);
+      Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "onlineshoes69@gmail.com",
+        Password: "0D17FC3473A6F7434D91FFEBF83CE82DF3C2",
+        To: email,
+        From: "onlineshoes69@gmail.com",
+        Subject: "Verify Your Email",
+        Body: `Your Verification Code is ${code}`,
+      }).then((message) => {
+        console.log("Verify Your" + code);
+        if (message == "OK") {
+          let getCode = prompt(
+            "Enter Verification Code \nWhich has Sent to Your Email Address"
+          );
+          if (!getCode.trim()) return;
+          if (getCode == code) {
+            eel.set_user(username, password, email, question);
+            eel.message("Successfully signUp in database");
+            alert("Successfully signUp");
+            signInBtn.click();
+          } else {
+            alert("Verification Code Invalid do not match");
+          }
+        } else {
+          alert("Email Not Found");
+        }
+      });
+    });
   }
 };
 

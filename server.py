@@ -1,11 +1,13 @@
+import random
 import eel
 from util.utils import message
 from db.db_curd_function.update import *
 from db.db_curd_function.find import *
 from db.db_curd_function.insert import *
 
-eel.init('C:\\Users\\krishna\\Desktop\\Online-Shoe')
-# eel.init('/home/zaid/Desktop/softwareDevProject/Online-Shoe')
+
+# eel.init('C:\\Users\\krishna\\Desktop\\Online-Shoe')
+eel.init('/home/zaid/Desktop/softwareDevProject/Online-Shoe')
 
 
 data = [None]
@@ -16,9 +18,9 @@ def setPageData(prop):
     global data
     data[0] = (prop)
     print(prop)
-    if data[0] == 'All':
-        data[0] = None
-        print(data[0])
+    # if data[0] == 'All':
+    #     data[0] = None
+    #     print(data[0])
     return data
 
 
@@ -26,7 +28,7 @@ def setPageData(prop):
 def getPageData():
     global data
     returnData = data
-    data = [None]
+    # data = [None]
     return returnData
 
 
@@ -81,6 +83,17 @@ def getSearchPageData():
 
 
 
-# eel.start('./components/login-component/SignUpLogin.html',  size=(1000, 600))
-eel.start('./components/login-component/SignUpLogin.html',  size=(1400, 900))
-# eel.start('./components/admin-component/ordersAd.html',  size=(1400, 900))
+@eel.expose
+def getVerificationCode():
+    code = ''
+    i = 0
+    while i < 6:
+        r = random.randint(0, 9)
+        code = code + str(r)
+        i += 1
+    return code
+
+
+eel.start('./components/login-component/SignUpLogin.html',  size=(1000, 600))
+# eel.start('./components/login-component/SignUpLogin.html',  size=(1400, 900))
+

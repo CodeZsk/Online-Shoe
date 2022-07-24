@@ -225,7 +225,7 @@ a {
 
 .sizeofshoes {
   display: flex;
-  margin-top: 100px;
+  margin-top: 10px;
   margin-left: 2px;
   align-items: center;
   gap: 10px;

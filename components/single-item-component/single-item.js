@@ -12,7 +12,7 @@ function renderSingleProduct() {
 
   const addToCartBtn = document.querySelector(".cart-button");
   const allproduct = document.querySelector(".all");
-  allproduct.addEventListener("click", () => allProducts());
+  allproduct.addEventListener("click", () => allProducts("All"));
 
   const menProducts = document.querySelector(".men");
   menProducts.addEventListener("click", () => allProducts("Men"));
@@ -181,7 +181,7 @@ function buyPage(product, user) {
   const quantity = document.querySelector(".quantity-input");
   const price = document.querySelector(".price-input");
   quantity.setAttribute("max", product.availability.quantity);
-  price.value = product.price.split(",").join("");
+  price.value = product.price;
   quantity.addEventListener("change", () => {
     let value = quantity.value;
     let total = parseInt(product.price.split(",").join("")) * value;
@@ -191,7 +191,7 @@ function buyPage(product, user) {
   productInput.value = product.name;
   usernameInput.value = user.user_info.user_name;
   phoneInput.value = user.user_info.user_phoneNo;
-  emailInput.value = user.user_info.user_email;
+  emailInput.value = user.email;
   flatNo.value = user.user_info.user_Add.flat_number;
   address.value = user.user_info.user_Add.area_street;
   landmark.value = user.user_info.user_Add.landmark;
@@ -200,7 +200,13 @@ function buyPage(product, user) {
   pincode.value = user.user_info.user_Add.pincode;
 
   onBuyBtn.addEventListener("click", () => {
-    console.log("hello world");
+    if (!productInput.value.trim()) {
+      alert(
+        "Please fill Your information in User Setting to Place Your Orlder"
+      );
+      return;
+    }
+
     const today = new Date();
     const currentYear = today.getFullYear();
     const currentMonth = today.getMonth();
@@ -216,39 +222,68 @@ function buyPage(product, user) {
 
     const orderDate = today.toLocaleDateString();
 
-    let confMess = prompt("Type 'CONFIRM' To Confirm Your Order");
+    let isConfirmed = confirm("Are you sure you want to Place this order");
 
-    console.log(confMess);
-
-    if (!confMess.trim()) return;
-
-    if (confMess === "CONFIRM") {
-      eel.set_order(
-        "Panding",
-        orderDate,
-        product._id,
-        product.name,
-        price.value,
-        quantity.value,
-        product.type,
-        product.gender_type,
-        product.availability.color,
-        user._id,
-        user.user_info.user_name,
-        user.user_info.user_gender,
-        age
-      )((res) => {
-        if (res.status === "ok") {
-          let newQuantity =
-            parseInt(product.availability.quantity) - quantity.value;
-          console.log(newQuantity);
-          eel.update_product_quantity(product._id, newQuantity);
-        }
+    if (isConfirmed) {
+      eel.getVerificationCode()((code) => {
+        Email.send({
+          Host: "smtp.elasticemail.com",
+          Username: "onlineshoes69@gmail.com",
+          Password: "0D17FC3473A6F7434D91FFEBF83CE82DF3C2",
+          To: emailInput.value,
+          From: "onlineshoes69@gmail.com",
+          Subject: "Confirm Your Order",
+          Body: `
+          hey ${usernameInput.value} 
+          ${(document.innerHTML = `<br>`)}
+          We Have resived Your Order for 
+          ${(document.innerHTML = `<br>`)}
+          Product Name: ${productInput.value} of Price: ${
+            price.value
+          } to Confirm Your Order here is Your Order Verification Code
+          \n
+          ${(document.innerHTML = `<h2>${code}</h2>`)}
+          `,
+        }).then((message) => {
+          if (message == "OK") {
+            let confOrder = prompt(
+              "Enter Order Verification Code \nWhich has Sent to Your Email Address"
+            );
+            if (!confOrder.trim()) return;
+            if (confOrder == code) {
+              eel.set_order(
+                orderDate,
+                product._id,
+                product.name,
+                price.value,
+                quantity.value,
+                product.type,
+                product.gender_type,
+                product.availability.color,
+                user._id,
+                user.user_info.user_name,
+                user.user_info.user_gender,
+                age
+              )((res) => {
+                if (res.status === "ok") {
+                  let newQuantity =
+                    parseInt(product.availability.quantity) - quantity.value;
+                  console.log(newQuantity);
+                  eel.update_product_quantity(product._id, newQuantity);
+                }
+              });
+              alert("Order Placed Successfully");
+              singleProduct();
+            } else {
+              alert("Confirmation Code Dose Not Match");
+            }
+          } else {
+            alert("Email Not Found");
+          }
+        });
       });
-      alert("Order Placed Successfully");
-      singleProduct();
     } else {
-      alert("CONFIRM do not match");
+      return;
     }
   });
 }
