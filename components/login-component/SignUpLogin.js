@@ -67,12 +67,12 @@ forgotPassword.addEventListener("click", () => {
   let changePassword = confirm("Are you sure you want to change your password");
   if (changePassword) {
     if (!inUsername.value.trim()) {
-      alert("Please enter your username");
+      alert("Please Enter Your Username");
       return;
     }
     eel.checkSignInDb(inUsername.value)((user) => {
       if (!user) {
-        alert("user dose not exist");
+        alert("user does not exist");
         return;
       }
       updatePassword(inUsername.value, user.email);
@@ -108,7 +108,7 @@ forgotPassword.addEventListener("click", () => {
             newPasswordValue = prompt("Enter New password");
             if (!newPasswordValue) return;
             if (newPasswordValue.length < 8) {
-              alert("Password must be grater than 8 characters");
+              alert("Password must be greater than 8 characters");
               return;
             }
             eel.update_user_password(username, newPasswordValue);
@@ -141,7 +141,7 @@ checkSignIn = async (username, password) => {
   }
   await eel.checkSignInDb(signIn_username)((user) => {
     if (!user) {
-      alert("Username dose not exists");
+      alert("Username does not exists");
       username.value = "";
       password.value = "";
       return;
@@ -155,7 +155,7 @@ checkSignIn = async (username, password) => {
           window.location.href = "../home-component/dashboard.html";
           return;
         } else {
-          alert("password do not match");
+          alert("Wrong password. Try again or click Forgot password to reset it.");
           password.value = "";
           return;
         }
@@ -200,7 +200,7 @@ checkSignUp = async (username, password, confPassword, email, question) => {
       return;
     }
     if (password !== confPassword) {
-      alert("Password do not match");
+      alert("Password  didn't match");
       return;
     }
 
@@ -264,13 +264,13 @@ document.querySelector(".admin-login").addEventListener("click", () => {
   console.log(adminUsername.value);
   eel.checkAdmin(adminUsername.value)((user) => {
     if (!user) {
-      alert("Please enter admin username");
+      alert("Please Enter Admin Username");
       adminUsername.value = "";
       adminPassword.value = "";
       return;
     }
     if (adminPassword.value !== user.password) {
-      alert("Please enter admin password");
+      alert("Please Enter Admin Password");
       adminPassword.value = "";
       return;
     }

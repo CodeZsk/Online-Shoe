@@ -7,7 +7,7 @@ const order = document.querySelector("#order");
 
 order.addEventListener("click", () => {
   const orderDetails = order.options[order.selectedIndex];
-  console.log("hello wrold");
+  console.log("hello world");
   if (orderDetails.value == "select") {
     orderHtml();
   }

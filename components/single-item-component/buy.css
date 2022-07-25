@@ -74,6 +74,10 @@ input {
     align-items: center;
     gap: 96px;
 }
+.size select{
+    width: 260px;
+    height: 18px;
+}
 
 
 .address {
@@ -165,6 +169,8 @@ input {
     background-color: white;
     cursor: pointer;
     color: black;
+    z-index: 5;
+    position: absolute;
 }
 .go-back img{
     width: 20px;

@@ -160,6 +160,79 @@
         </div>
       </section>
     </section>
+    <div id="faqmodal" class="faqmodal">
+      <div class="faqmodalback"></div>
+      <div class="faqmodalcontent">
+    
+        <div class="faq">
+          <div class="question">
+            <div class="okbhaihojaabhi">
+              
+            <h1>
+              FREQUENTLY ASKED QUESTIONS
+            </h1>
+        <span id="faqclose" class="close">&times</span>
+            </div>
+            <div>
+              <h4>
+    
+                How long does delivery take?
+              </h4>
+              <p>
+                The orders are normally shipped within 2-3 working days (Monday-Friday) from the order date. The order will be delivered to the customers within 7-10 working days from the date of shipment to serviceable locations.
+              </p>
+            </div>
+    
+            <div>
+              <h4>
+                Which payment methods do you accept?
+              </h4>
+              <p>
+                We accept Cash On Delivery. We may add/delete payment methods based on the usage by our customers.
+              </p>
+            </div>
+            <div>
+              <h4>
+                How much will delivery cost?
+              </h4>
+              <p>
+                Currently the delivery is free for you as the shipping charge is borne by us.
+              </p>
+            </div>
+    
+            <div>
+              <h4>
+                How do I clean my Skechers shoes?</h4>
+              <p>
+                Please follow below Do's & Don't to clean shoes
+                <br>
+                <br>
+                Do's
+                <br><br>
+                Remove excess dirt from the upper and outsole by using a soft brush or towel.
+                <br><br>
+                Remove the laces and insoles (wherever possible).
+                <br> <br>
+                Create a soapy mixture by combining water at room temperature and a small amount of mild detergent.
+                <br> <br>
+                Place the footwear in the mesh laundry bag to keep them from banging around in your washer. Close the bag and drop the bag into machine and Select low spin option.
+                <br> <br>
+                Rinse washes the footwear properly.
+                <br>
+                <br>
+                Dont's
+                <br> <br>
+                Don't put footwear in the machine dryer.
+                <br> <br>
+                Don’t use artificial means of drying.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
 
     <div id="mymodal" class="modal">
       <div class="modal-back"></div>
@@ -217,19 +290,18 @@
       </div>               
     </div>
       <!-- faq modal ok cool -->
-      
-    
-    <div id="faqmodal" class="faqmodal">
-      <div class="faqmodalback"></div>
-      <div class="faqmodalcontent">
-        <div class="faq">
+
+    <!-- <div id="lolqmodal" class="famodala">
+      <div class="qmodalback"></div>
+      <div  class="qqmodalcontent">
+        <div class="qqq">
           <div class="question">
             <div class="okbhaihojaabhi">
               
               <h1>
                 FREQUENTLY ASKED QUESTIONS
               </h1>
-              <span id="faqclose" class="close">&times</span>
+              <span id="faqclose" class="faqclose">&times</span>
             </div>
             <div>
               <h4>
@@ -287,37 +359,44 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
+
+    
+
+
+
+
     <script src="../../eel.js"></script>
     <script src="./setting.js"></script>
     <script>
-var fbtn=document.getElementById("faq");
-var fmod=document.querySelector(".faqmodal");
-var fcut=document.getElementById("faqclose");
+// var fbtn=document.getElementById("faq");
+// var fmod=document.getElementById("lolq");
+// var fcut=document.getElementById("faqclose");
 
-fbtn.onclick=function(){
-  console.log("hleowoe")
-  fmod.style.display="block";
-}
+// fbtn.onclick=function(){
+//   console.log("hleowoe")
+//   fmod.style.display="block";
+// }
 
-fcut.onclick=function(){
-  fmod.style.display="none";
-}
+// fcut.onclick=function(){
+//   fmod.style.display="none";
+// }
 
-window.onclick=function(event){
-  if(event.target == fmod){
-    fmod.style.display="none";
-  }
+// window.onclick=function(event){
+//   if(event.target == fmod){
+//     fmod.style.display="none";
+//   }
   
-}
+// }
 
-var fmb=document.querySelector(".faqmodalback");
+// var fmb=document.querySelector(".faqmodalback");
 
-fmb.onclick= function(){
+// fmb.onclick= function(){
   
-  fmod.style.display="none"
+//   fmod.style.display="none"
   
-}
+// }
+
 
 var btn=document.getElementById("mybtn");
 var mod=document.getElementById("mymodal");
@@ -370,6 +449,35 @@ mb.onclick= function(){
   cmod.style.display="none"
   
 }
+
+var fbtn=document.getElementById("faq");
+var fmod=document.querySelector(".faqmodal");
+var fcut=document.getElementById("faqclose");
+
+fbtn.onclick=function(){
+  fmod.style.display="block";
+}
+
+fcut.onclick=function(){
+  
+  fmod.style.display="none";
+}
+window.onclick=function(event){
+  if(event.target == fmod){
+    fmod.style.display="none";
+  }
+  
+}
+var fmb=document.querySelector(".faqmodalback");
+
+fmb.onclick= function(){
+  
+  fmod.style.display="none"
+  
+}
+
+
+
 </script>
   </body>
 </html>

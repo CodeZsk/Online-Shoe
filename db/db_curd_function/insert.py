@@ -75,7 +75,7 @@ def set_order(date, productId, productName, productPrice, quantity, productType,
     try:
         order = {
             "order": {
-                "order_status": "Panding",
+                "order_status": "Pending",
                 "order_date": date,
                 "is_reviewed": False
             },

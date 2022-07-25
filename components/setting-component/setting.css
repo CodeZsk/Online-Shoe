@@ -26,6 +26,8 @@ body {
     grid-template-columns: 230px auto;
     grid-template-rows: auto;
     /* gap: 10px; */
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 
@@ -315,10 +317,10 @@ body {
   }
   .modal-content{
     font-family: 'Poppins', sans-serif;
-      display:block;
+    display:block;
     background-color:white;
     border-radius:30px;
-    width:600px;
+    width:700px;
     height:240px;
     border:1px solid black;
     padding:10px;
@@ -332,6 +334,7 @@ body {
     float:right;
     width:30px;
     height:30px;
+    padding-right: 10px;
   }
   .close:hover,close:focus{
     color:red;
@@ -356,6 +359,7 @@ body {
     border:1px solid black;
     padding:1px;
     box-shadow:2px 2px 2px 2px grey;
+    /* box-shadow:1px 1px 1px 1px black; */
   }
 
 
@@ -370,10 +374,12 @@ body {
     background-color:white;
     border-radius:30px;
     width:600px;
-    height:240px;
+    height:260px;
     border:1px solid black;
     padding:1px;
     box-shadow:2px 2px 2px 2px grey;
+    /* box-shadow:1px 1px 1px 1px black; */
+
   }
   .customermodal{
     display:none;
@@ -381,8 +387,7 @@ body {
   padding: 4rem;
   }
   .customermodal-content{
-    margin: auto;
-    padding: 30px;
+    margin: 0px;
   /*   border: 1px solid #888; */
     position:absolute;
     top:50%;
@@ -410,12 +415,12 @@ body {
   .rofl{
     display:flex;
     justify-content:space-between;
-    gap:60px;
+    gap:10px;
     border-radius:40px;
   }
   .cut{
     display:flex;
-    margin:20px;
+    /* margin:10px; */
   }
   .CustomerService{
     display:flex;
@@ -432,6 +437,7 @@ body {
     padding-left:10px;
   }
   .allday{
+    border: none;
     width:40px;
     height:40px;
   }
@@ -441,19 +447,18 @@ body {
   }
 
   /*  */
-  .faqmodal{
+  /* .faqmodal{
     display:none;
     z-index:1;
   padding: 4rem;
-  }
+  } */
 
 
-.faq{
-    display:block;
+/* .faq{
+  display:block;
   background-color:white;
   width:400px;
   height:600px;
-  /* border-radius:20px; */
   border:1px solid black;
   box-shadow:1px 1px 1px 1px grey;
   padding:6px;
@@ -478,37 +483,169 @@ body {
       width: 100vw;
    background-color: rgba(0, 0, 0, 0.6);}
   .faqmodalcontent{
+    display: block;
     margin: auto;
-    padding: 30px;
-  /*   border: 1px solid #888; */
-    position:absolute;
+    padding: 30px; */
+    /* position:absolute;
     top:50%;
     left:50%;
     transform:translate(-40%,-50%);
-  }
+  } */
 
 /*  scrool bar  */
 /* width */
-.faq::-webkit-scrollbar {
+/* .faq::-webkit-scrollbar {
     width: 2px;
   }
-  
+   */
   /* Track */
-.faq::-webkit-scrollbar-track {
+/* .faq::-webkit-scrollbar-track {
     background: white; 
-    /* border-radius: 10px; */
+
   }
-  
+   */
   /* Handle */
-.faq::-webkit-scrollbar-thumb {
+/* .faq::-webkit-scrollbar-thumb {
     background: white; 
-    /* border-radius: 106px; */
-    /* height: 1px; */
-    /* background-color: #86d6e8; */
     background-color:black;
   }
-  
+   */
   /* Handle on hover */
-.faq::-webkit-scrollbar-thumb:hover {
+/* .faq::-webkit-scrollbar-thumb:hover {
     background: black; 
+  } */
+
+/* .famodal{
+  display: block;
+} */
+
+/* var btn=document.getElementById("mybtn"); */
+/* var mod=document.getElementById("mymodal"); */
+/* var cut=document.getElementById("close"); */
+/* .famodala{
+    display:none;
+    z-index:1;
+  padding: 2rem;
   }
+  .qqmodal-content{
+    font-family: 'Poppins', sans-serif;
+      display:block;
+    background-color:white;
+    border-radius:30px;
+    width:600px;
+    height:240px;
+    border:1px solid black;
+    padding:10px;
+    box-shadow:1px 1px 1px 1px black;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .faqclose{
+    float:right;
+    width:30px;
+    height:30px;
+  }
+  .faqclose:hover,close:focus{
+    color:red;
+    text-decoration:none;
+    cursor:pointer;
+  }
+  .qmodal-back{
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+     background-color: rgba(1, 1, 1, 0.8);
+  }
+
+  .qqq{
+    display:block;
+    background-color:white;
+    width:400px;
+    height:600px; 
+    border:1px solid black;
+    box-shadow:1px 1px 1px 1px grey;
+    padding:6px;
+    overflow-y:scroll;
+  }
+  .qqq::-webkit-scrollbar {
+    width: 2px;
+  }
+  .okbhaihojaabhi{
+    display:flex;
+    gap: 10px;
+    
+  } */
+
+
+
+
+  .faqmodal{
+    display:none;
+    z-index:1;
+  padding: 4rem;
+  }
+
+
+.faq{
+    display:block;
+  background-color:white;
+  width:700px;
+  height:600px;
+  border:1px solid black;
+  box-shadow:2px 2px 2px 2px grey;
+  /* box-shadow:1px 1px 1px 1px black; */
+  padding:6px;
+  overflow-y:scroll;
+}
+.question{
+  display:flex;
+    overflow-y:scroll;
+  flex-direction:column;
+  
+}
+.okbhaihojaabhi{
+  display:flex;
+  gap: 190px;
+}
+ .faqmodalback{
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+   background-color: rgba(0, 0, 0, 0.6);
+  }
+  .faqmodalcontent{
+    margin: 0px;
+  /*   border: 1px solid #888; */
+    position:absolute;
+    top:50%;
+    left:55%;
+    transform:translate(-50%,-50%);
+  }
+.close{
+  font-size:30px;
+}
+/* width */
+.faq::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+.faq::-webkit-scrollbar-track {
+  background: white; 
+}
+ 
+/* Handle */
+.faq::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+.faq::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
