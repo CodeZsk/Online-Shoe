@@ -89,22 +89,14 @@ function renderSingleProduct() {
         if (product.availability.quantity <= 0) {
           return;
         } else {
-          buy();
-          userFn(product);
+          if (product) {
+            buy(product);
+          } else {
+            return;
+          }
         }
       });
     });
-
-    const userFn = (product) => {
-      eel.get_user_ID()((id) => {
-        return eel.userInfo(id)((user) => {
-          console.log(user);
-          const quantity = document.querySelector(".quantity-input");
-          quantity.addEventListener("keydown", (e) => e.preventDefault());
-          buyPage(product, user[0]);
-        });
-      });
-    };
   });
 }
 
@@ -141,12 +133,12 @@ setting.addEventListener("click", () => {
 
 const displayContainer = document.querySelector(".displaypicturecont");
 
-function buy() {
+function buy(product) {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function () {
     document.querySelector(".displaypicturecont").innerHTML = this.responseText;
+    userFn(product);
     const editbtn = document.querySelector(".edit");
-    console.log(editbtn);
     editbtn.addEventListener("click", openeditpage);
     function openeditpage() {
       console.log("working..");
@@ -160,6 +152,16 @@ function buy() {
   xhttp.open("GET", "./buy.html");
   xhttp.send();
 }
+
+const userFn = (product) => {
+  eel.get_user_ID()((id) => {
+    eel.userInfo(id)((user) => {
+      const quantity = document.querySelector(".quantity-input");
+      quantity.addEventListener("keydown", (e) => e.preventDefault());
+      buyPage(product, user[0]);
+    });
+  });
+};
 
 function singleProduct() {
   const xhttp = new XMLHttpRequest();
@@ -190,7 +192,7 @@ function buyPage(product, user) {
   price.value = product.price;
   quantity.addEventListener("change", () => {
     let value = quantity.value;
-    let total = parseInt(product.price.split(",").join("")) * value;
+    let total = product.price * value;
     price.value = total;
   });
 
@@ -206,8 +208,55 @@ function buyPage(product, user) {
   pincode.value = user.user_info.user_Add.pincode;
 
   onBuyBtn.addEventListener("click", () => {
-    console.log("helow odl");
-    if (!productInput.value.trim()) {
+    if (!usernameInput.value.trim()) {
+      alert(
+        "Please fill Your information in User Setting to Place Your Orlder"
+      );
+      return;
+    }
+    if (!phoneInput.value.trim()) {
+      alert(
+        "Please fill Your information in User Setting to Place Your Orlder"
+      );
+      return;
+    }
+    if (!flatNo.value.trim()) {
+      alert(
+        "Please fill Your information in User Setting to Place Your Orlder"
+      );
+      return;
+    }
+    if (!address.value.trim()) {
+      alert(
+        "Please fill Your information in User Setting to Place Your Orlder"
+      );
+      return;
+    }
+    if (!landmark.value.trim()) {
+      alert(
+        "Please fill Your information in User Setting to Place Your Orlder"
+      );
+      return;
+    }
+    if (!townCity.value.trim()) {
+      alert(
+        "Please fill Your information in User Setting to Place Your Orlder"
+      );
+      return;
+    }
+    if (!state.value.trim()) {
+      alert(
+        "Please fill Your information in User Setting to Place Your Orlder"
+      );
+      return;
+    }
+    if (!pincode.value.trim()) {
+      alert(
+        "Please fill Your information in User Setting to Place Your Orlder"
+      );
+      return;
+    }
+    if (!usernameInput.value.trim()) {
       alert(
         "Please fill Your information in User Setting to Place Your Orlder"
       );
@@ -269,10 +318,11 @@ function buyPage(product, user) {
                 product.availability.color,
                 user._id,
                 user.user_info.user_name,
+                emailInput.value,
                 user.user_info.user_gender,
                 age
               )((res) => {
-                if (res.status === "ok") {
+                if (res.status === "Ok") {
                   let newQuantity =
                     parseInt(product.availability.quantity) - quantity.value;
                   console.log(newQuantity);

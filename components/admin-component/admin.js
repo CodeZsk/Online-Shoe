@@ -8,8 +8,12 @@ const order = document.querySelector("#order");
 order.addEventListener("click", () => {
   const orderDetails = order.options[order.selectedIndex];
   console.log("hello wrold");
-  if (orderDetails.value == "select") {
-    orderHtml();
+  if (orderDetails.value == "active") {
+    orderHtml("active");
+  } else if (orderDetails.value == "prev") {
+    orderHtml("prev");
+  } else if (orderDetails.value == "cancel") {
+    orderHtml("cancel");
   }
 });
 
@@ -17,11 +21,11 @@ productadminBtn.addEventListener("click", adminHtml);
 
 addPageBtn.addEventListener("click", addProductHtml);
 
-function orderHtml() {
+function orderHtml(option) {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function () {
     mainPage.innerHTML = this.responseText;
-    renderOrder();
+    renderOrder(option);
     addPageBtn.classList.add("hide-btn");
   };
   xhttp.open("GET", "./order.html");
@@ -284,101 +288,293 @@ const renderProduct = () => {
   });
 };
 
-const renderOrder = () => {
+const renderOrder = (option) => {
   const table = document.querySelector(".detailspage table");
   eel.getAllOrders()((orders) => {
-    orders.map((order) => {
-      console.log(order);
-      const tr = document.createElement("tr");
-      const td_Oid = document.createElement("td");
-      const td_Cid = document.createElement("td");
-      const td_Pid = document.createElement("td");
-      const td_productName = document.createElement("td");
-      const td_productQuantity = document.createElement("td");
-      const td_productPrice = document.createElement("td");
-      const td_productColor = document.createElement("td");
-      const td_Oedit = document.createElement("td");
-      const td_status = document.createElement("td");
+    console.log(order);
+    if (option == "prev") {
+      orders.map((order) => {
+        if (order.order.order_status == "Delivered") {
+          const tr = document.createElement("tr");
+          const td_Oid = document.createElement("td");
+          const td_Cid = document.createElement("td");
+          const td_Pid = document.createElement("td");
+          const td_productName = document.createElement("td");
+          const td_productQuantity = document.createElement("td");
+          const td_productPrice = document.createElement("td");
+          const td_productColor = document.createElement("td");
+          const td_Oedit = document.createElement("td");
+          const td_status = document.createElement("td");
 
-      const status = document.createElement("select");
-      status.disabled = true;
-
-      const optionPandding = document.createElement("option");
-      optionPandding.setAttribute("value", "Pending");
-      optionPandding.textContent = "Pending";
-      const optionOnProcess = document.createElement("option");
-      optionOnProcess.setAttribute("value", "On Process");
-      optionOnProcess.textContent = "On Process";
-      const optionOnCancel = document.createElement("option");
-      optionOnCancel.setAttribute("value", "Cancel");
-      optionOnCancel.textContent = "Cancel";
-      const optionDelivered = document.createElement("option");
-      optionDelivered.setAttribute("value", "Delivered");
-      optionDelivered.textContent = "Delivered";
-
-      if (order.order.order_status == "Pending") {
-        optionPandding.selected = "Selected";
-      } else if (order.order.order_status == "On Process") {
-        optionOnProcess.selected = "Selected";
-      } else if (order.order.order_status == "Cancel") {
-        optionOnCancel.selected = "Selected";
-      } else {
-        optionDelivered.selected = "Selected";
-      }
-
-      status.appendChild(optionPandding);
-      status.appendChild(optionOnProcess);
-      status.appendChild(optionOnCancel);
-      status.appendChild(optionDelivered);
-
-      const editBtn = document.createElement("button");
-      editBtn.textContent = "Edit";
-      editBtn.addEventListener("click", () => {
-        if (status.disabled) {
-          status.disabled = false;
-          editBtn.textContent = "Cancel";
-          status.addEventListener("change", () => {
-            editBtn.textContent = "Save";
-          });
-        } else {
-          var value = status.options[status.selectedIndex].value;
-          if (editBtn.textContent == "Save") {
-            console.log(order._id);
-            eel.update_order_status(order._id, value);
-            console.log(value);
-          }
+          const status = document.createElement("select");
           status.disabled = true;
+
+          // const optionPandding = document.createElement("option");
+          // optionPandding.setAttribute("value", "Pending");
+          // optionPandding.textContent = "Pending";
+          // const optionOnProcess = document.createElement("option");
+          // optionOnProcess.setAttribute("value", "On Process");
+          // optionOnProcess.textContent = "On Process";
+          // const optionOnCancel = document.createElement("option");
+          // optionOnCancel.setAttribute("value", "Cancel");
+          // optionOnCancel.textContent = "Cancel";
+          const optionDelivered = document.createElement("option");
+          optionDelivered.setAttribute("value", "Delivered");
+          optionDelivered.textContent = "Delivered";
+
+          // if (order.order.order_status == "Pending") {
+          //   optionPandding.selected = "Selected";
+          // } else if (order.order.order_status == "On Process") {
+          //   optionOnProcess.selected = "Selected";
+          // } else if (order.order.order_status == "Cancel") {
+          //   optionOnCancel.selected = "Selected";
+          // } else {
+          // }
+          optionDelivered.selected = "Selected";
+
+          // status.appendChild(optionPandding);
+          // status.appendChild(optionOnProcess);
+          // status.appendChild(optionOnCancel);
+          status.appendChild(optionDelivered);
+
+          const editBtn = document.createElement("button");
+          editBtn.disabled = true;
           editBtn.textContent = "Edit";
+          editBtn.addEventListener("click", () => {
+            if (status.disabled) {
+              status.disabled = false;
+              editBtn.textContent = "Cancel";
+              status.addEventListener("change", () => {
+                editBtn.textContent = "Save";
+              });
+            } else {
+              var value = status.options[status.selectedIndex].value;
+              if (editBtn.textContent == "Save") {
+                console.log(order._id);
+                eel.update_order_status(order._id, value);
+                console.log(value);
+              }
+              status.disabled = true;
+              editBtn.textContent = "Edit";
+            }
+          });
+
+          tr.setAttribute("data-id", order._id);
+          td_Oid.textContent = order._id;
+          td_Cid.textContent = order.user.user_id;
+          td_Pid.textContent = order.product.product_id;
+          td_productName.textContent = order.product.product_name;
+          td_productQuantity.textContent = order.product.product_quantity;
+          td_productPrice.textContent = order.product.product_price;
+          td_productColor.textContent = order.product.product_color;
+
+          td_status.appendChild(status);
+          td_Oedit.appendChild(editBtn);
+
+          tr.appendChild(td_Oid);
+          tr.appendChild(td_Cid);
+          tr.appendChild(td_Pid);
+          tr.appendChild(td_productName);
+          tr.appendChild(td_productQuantity);
+          tr.appendChild(td_productPrice);
+          tr.appendChild(td_productColor);
+          tr.appendChild(td_status);
+          tr.appendChild(td_Oedit);
+          table.appendChild(tr);
         }
       });
+    } else if (option == "cancel") {
+      orders.map((order) => {
+        if (order.order.order_status == "Cancel") {
+          const tr = document.createElement("tr");
+          const td_Oid = document.createElement("td");
+          const td_Cid = document.createElement("td");
+          const td_Pid = document.createElement("td");
+          const td_productName = document.createElement("td");
+          const td_productQuantity = document.createElement("td");
+          const td_productPrice = document.createElement("td");
+          const td_productColor = document.createElement("td");
+          const td_Oedit = document.createElement("td");
+          const td_status = document.createElement("td");
 
-      tr.setAttribute("data-id", order._id);
-      td_Oid.textContent = order._id;
-      td_Cid.textContent = order.user.user_id;
-      td_Pid.textContent = order.product.product_id;
-      td_productName.textContent = order.product.product_name;
-      td_productQuantity.textContent = order.product.product_quantity;
-      td_productPrice.textContent = order.product.product_price;
-      td_productColor.textContent = order.product.product_color;
+          const status = document.createElement("select");
+          status.disabled = true;
 
-      td_status.appendChild(status);
-      td_Oedit.appendChild(editBtn);
+          // const optionPandding = document.createElement("option");
+          // optionPandding.setAttribute("value", "Pending");
+          // optionPandding.textContent = "Pending";
+          // const optionOnProcess = document.createElement("option");
+          // optionOnProcess.setAttribute("value", "On Process");
+          // optionOnProcess.textContent = "On Process";
+          const optionOnCancel = document.createElement("option");
+          optionOnCancel.setAttribute("value", "Cancel");
+          optionOnCancel.textContent = "Cancel";
+          // const optionDelivered = document.createElement("option");
+          // optionDelivered.setAttribute("value", "Delivered");
+          // optionDelivered.textContent = "Delivered";
 
-      tr.appendChild(td_Oid);
-      tr.appendChild(td_Cid);
-      tr.appendChild(td_Pid);
-      tr.appendChild(td_productName);
-      tr.appendChild(td_productQuantity);
-      tr.appendChild(td_productPrice);
-      tr.appendChild(td_productColor);
-      tr.appendChild(td_status);
-      tr.appendChild(td_Oedit);
-      table.appendChild(tr);
-    });
+          // if (order.order.order_status == "Pending") {
+          //   optionPandding.selected = "Selected";
+          // } else if (order.order.order_status == "On Process") {
+          //   optionOnProcess.selected = "Selected";
+          // } else if (order.order.order_status == "Cancel") {
+          // } else {
+          //   optionDelivered.selected = "Selected";
+          // }
+          optionOnCancel.selected = "Selected";
+
+          // status.appendChild(optionPandding);
+          // status.appendChild(optionOnProcess);
+          status.appendChild(optionOnCancel);
+          // status.appendChild(optionDelivered);
+
+          const editBtn = document.createElement("button");
+          editBtn.disabled = true;
+          editBtn.textContent = "Edit";
+          editBtn.addEventListener("click", () => {
+            if (status.disabled) {
+              status.disabled = false;
+              editBtn.textContent = "Cancel";
+              status.addEventListener("change", () => {
+                editBtn.textContent = "Save";
+              });
+            } else {
+              var value = status.options[status.selectedIndex].value;
+              if (editBtn.textContent == "Save") {
+                console.log(order._id);
+                eel.update_order_status(order._id, value);
+                console.log(value);
+              }
+              status.disabled = true;
+              editBtn.textContent = "Edit";
+            }
+          });
+
+          tr.setAttribute("data-id", order._id);
+          td_Oid.textContent = order._id;
+          td_Cid.textContent = order.user.user_id;
+          td_Pid.textContent = order.product.product_id;
+          td_productName.textContent = order.product.product_name;
+          td_productQuantity.textContent = order.product.product_quantity;
+          td_productPrice.textContent = order.product.product_price;
+          td_productColor.textContent = order.product.product_color;
+
+          td_status.appendChild(status);
+          td_Oedit.appendChild(editBtn);
+
+          tr.appendChild(td_Oid);
+          tr.appendChild(td_Cid);
+          tr.appendChild(td_Pid);
+          tr.appendChild(td_productName);
+          tr.appendChild(td_productQuantity);
+          tr.appendChild(td_productPrice);
+          tr.appendChild(td_productColor);
+          tr.appendChild(td_status);
+          tr.appendChild(td_Oedit);
+          table.appendChild(tr);
+        }
+      });
+    } else if (option == "active") {
+      orders.map((order) => {
+        if (
+          order.order.order_status == "Pending" ||
+          order.order.order_status == "On Process"
+        ) {
+          const tr = document.createElement("tr");
+          const td_Oid = document.createElement("td");
+          const td_Cid = document.createElement("td");
+          const td_Pid = document.createElement("td");
+          const td_productName = document.createElement("td");
+          const td_productQuantity = document.createElement("td");
+          const td_productPrice = document.createElement("td");
+          const td_productColor = document.createElement("td");
+          const td_Oedit = document.createElement("td");
+          const td_status = document.createElement("td");
+
+          const status = document.createElement("select");
+          status.disabled = true;
+
+          const optionPandding = document.createElement("option");
+          optionPandding.setAttribute("value", "Pending");
+          optionPandding.textContent = "Pending";
+          const optionOnProcess = document.createElement("option");
+          optionOnProcess.setAttribute("value", "On Process");
+          optionOnProcess.textContent = "On Process";
+          // const optionOnCancel = document.createElement("option");
+          // optionOnCancel.setAttribute("value", "Cancel");
+          // optionOnCancel.textContent = "Cancel";
+          const optionDelivered = document.createElement("option");
+          optionDelivered.setAttribute("value", "Delivered");
+          optionDelivered.textContent = "Delivered";
+
+          if (order.order.order_status == "Pending") {
+            optionPandding.selected = "Selected";
+          } else if (order.order.order_status == "On Process") {
+            optionOnProcess.selected = "Selected";
+          } else {
+            optionDelivered.selected = "Selected";
+          }
+
+          status.appendChild(optionPandding);
+          status.appendChild(optionOnProcess);
+          // status.appendChild(optionOnCancel);
+          status.appendChild(optionDelivered);
+
+          const editBtn = document.createElement("button");
+          editBtn.textContent = "Edit";
+          editBtn.addEventListener("click", () => {
+            if (status.disabled) {
+              status.disabled = false;
+              editBtn.textContent = "Cancel";
+              status.addEventListener("change", () => {
+                editBtn.textContent = "Save";
+              });
+            } else {
+              var value = status.options[status.selectedIndex].value;
+              if (editBtn.textContent == "Save") {
+                console.log(order._id);
+                eel.update_order_status(
+                  order._id,
+                  value
+                )(() => {
+                  orderHtml("active");
+                });
+                console.log(value);
+              }
+              status.disabled = true;
+              editBtn.textContent = "Edit";
+            }
+          });
+
+          tr.setAttribute("data-id", order._id);
+          td_Oid.textContent = order._id;
+          td_Cid.textContent = order.user.user_id;
+          td_Pid.textContent = order.product.product_id;
+          td_productName.textContent = order.product.product_name;
+          td_productQuantity.textContent = order.product.product_quantity;
+          td_productPrice.textContent = order.product.product_price;
+          td_productColor.textContent = order.product.product_color;
+
+          td_status.appendChild(status);
+          td_Oedit.appendChild(editBtn);
+
+          tr.appendChild(td_Oid);
+          tr.appendChild(td_Cid);
+          tr.appendChild(td_Pid);
+          tr.appendChild(td_productName);
+          tr.appendChild(td_productQuantity);
+          tr.appendChild(td_productPrice);
+          tr.appendChild(td_productColor);
+          tr.appendChild(td_status);
+          tr.appendChild(td_Oedit);
+          table.appendChild(tr);
+        }
+      });
+    }
   });
 };
 
-renderOrder();
+renderOrder("active");
 
 logOutBtn.addEventListener("click", () => {
   window.location.href = "../login-component/SignUpLogin.html";

@@ -1,4 +1,5 @@
 import random
+import time
 import eel
 from util.utils import message
 from db.db_curd_function.update import *
@@ -111,5 +112,14 @@ def getVerificationCode():
     return code
 
 
-eel.start('./components/login-component/SignUpLogin.html',  size=(1000, 600))
+# def on_close(page, websockets):
+#     print(page)
+#     changedPage = False
+#     if changedPage:
+#         print(page, 'closed')
+#         print('Still have websockets open to', websockets)
+
+
+eel.start('./components/login-component/SignUpLogin.html',
+          size=(1000, 600))
 # eel.start('./components/login-component/SignUpLogin.html',  size=(1400, 900))

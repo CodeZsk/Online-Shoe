@@ -36,7 +36,7 @@ def set_user(username, password, email, securityQuestion):
                 },
             },
             "user_cart": [],
-            
+
         }
         user_info_db.insert_one(user)
         return {"status": "Ok"}
@@ -71,11 +71,11 @@ def set_product(productName, productPrice, productColor, productQuantity, gender
 
 
 @eel.expose
-def set_order(date, productId, productName, productPrice, quantity, productType, productGenderType, productColor, userId, userName, userGender, userAge):
+def set_order(date, productId, productName, productPrice, quantity, productType, productGenderType, productColor, userId, userName, email, userGender, userAge):
     try:
         order = {
             "order": {
-                "order_status": "Panding",
+                "order_status": "Pending",
                 "order_date": date,
                 "is_reviewed": False
             },
@@ -91,6 +91,7 @@ def set_order(date, productId, productName, productPrice, quantity, productType,
             "user": {
                 "user_id": userId,
                 "user_name": userName,
+                "user_email": email,
                 "user_gender": userGender,
                 "user_age": userAge,
             }
