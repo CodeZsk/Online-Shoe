@@ -398,3 +398,18 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: #86d6e8; 
 }
+
+.custom-price{
+
+  display: flex;
+  gap:10px;
+}
+.custom-price input{
+  width: 80px;
+
+}
+.price-filter-btn{
+
+  width: 50px;
+
+}

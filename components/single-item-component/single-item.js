@@ -258,7 +258,7 @@ function buyPage(product, user) {
     }
     if (!usernameInput.value.trim()) {
       alert(
-        "Please fill Your information in User Setting to Place Your Orlder"
+        "Please fill Your information in User Setting to Place Your Order"
       );
       return;
     }
@@ -332,7 +332,7 @@ function buyPage(product, user) {
               alert("Order Placed Successfully");
               singleProduct();
             } else {
-              alert("Confirmation Code Dose Not Match");
+              alert("Confirmation Code does not Match");
             }
           } else {
             alert("Email Not Found");

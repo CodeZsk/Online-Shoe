@@ -151,6 +151,7 @@ function determineWords(speech, words) {
   }
   if (words.includes("show me shoe")) {
     speech.text = "showing shoe";
+    eel.setPageData("All");
     window.location.href = `../section-component/filterpage.html`;
   }
   if (words.includes("show men shoes")) {
@@ -223,9 +224,11 @@ function determineWords(speech, words) {
   if (words.includes("i have question")) {
     speech.text = "click on FAQ which is frequently asked question";
     window.location.href = `../setting-component/setting.html`;
-  } else {
-    speech.text = "Please try again later";
   }
+  if (words.includes("who made you")) {
+    speech.text = "krishna created me and he is my god Thanks to him";
+  }
+
 }
 
 mic.addEventListener("click", () => {

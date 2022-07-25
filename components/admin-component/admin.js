@@ -7,6 +7,7 @@ const order = document.querySelector("#order");
 
 order.addEventListener("click", () => {
   const orderDetails = order.options[order.selectedIndex];
+
   console.log("hello wrold");
   if (orderDetails.value == "active") {
     orderHtml("active");
@@ -14,6 +15,7 @@ order.addEventListener("click", () => {
     orderHtml("prev");
   } else if (orderDetails.value == "cancel") {
     orderHtml("cancel");
+
   }
 });
 
