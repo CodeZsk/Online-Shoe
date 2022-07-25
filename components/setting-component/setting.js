@@ -5,6 +5,7 @@ const orderBy = document.querySelector(".order");
 const logOutBtn = document.querySelector(".log-out");
 
 logOutBtn.addEventListener("click", () => {
+  localStorage.removeItem("user");
   window.location.href = "../login-component/SignUpLogin.html";
 });
 
@@ -198,9 +199,88 @@ const getOrderDetails = (orderDB) => {
     cancelBtn.classList.add("reviewbtn");
     cancelBtn.addEventListener("click", () => {
       let isCancelled = confirm("Are you sure you want to cancel Your Order");
+      console.log(order.order_status);
       if (isCancelled) {
-        eel.update_order_status(orderDB._id, "Cancel");
-        orderHTML();
+        if (order.order_status === "Pending") {
+          eel.update_order_status(
+            orderDB._id,
+            "Cancel"
+          )((res) => {
+            if (res.status == "Ok") {
+              eel.getSingleProduct(product.product_id)((data) => {
+                let newQuantity =
+                  parseInt(data.availability.quantity) +
+                  parseInt(product.product_quantity);
+                console.log(newQuantity);
+                eel.update_product_quantity(
+                  data._id,
+                  newQuantity
+                )((res) => {
+                  if (res.status == "Ok") {
+                    alert("Order Cancel Successfully");
+                    orderHTML();
+                  }
+                });
+              });
+            }
+          });
+        } else {
+          eel.getVerificationCode()((code) => {
+            Email.send({
+              Host: "smtp.elasticemail.com",
+              Username: "onlineshoes69@gmail.com",
+              Password: "0D17FC3473A6F7434D91FFEBF83CE82DF3C2",
+              To: user.user_email,
+              From: "onlineshoes69@gmail.com",
+              Subject: "Cancel Your Order",
+              Body: `
+                hey ${user.user_name} 
+                ${(document.innerHTML = `<br>`)}
+                We Have received cancellation request from your order 
+                ${(document.innerHTML = `<br>`)}
+                " Product Name: ${product.product_name} of Price: ${
+                product.product_price
+              } " to Confirm Your cancellation request here is Your Cancel Verification Code
+                \n
+                ${(document.innerHTML = `<h2>${code}</h2>`)}
+              `,
+            }).then((message) => {
+              if (message == "OK") {
+                let confCancel = prompt(
+                  "Enter Cancel Verification Code \nWhich has Sent to Your Email Address"
+                );
+                if (!confCancel.trim()) return;
+                if (confCancel == code) {
+                  eel.update_order_status(
+                    orderDB._id,
+                    "Cancel"
+                  )((res) => {
+                    if (res.status == "Ok") {
+                      eel.getSingleProduct(product.product_id)((data) => {
+                        let newQuantity =
+                          parseInt(data.availability.quantity) +
+                          parseInt(product.product_quantity);
+                        eel.update_product_quantity(
+                          data._id,
+                          newQuantity
+                        )((res) => {
+                          if (res.status == "Ok") {
+                            alert("Order Cancel Successfully");
+                            orderHTML();
+                          }
+                        });
+                      });
+                    }
+                  });
+                } else {
+                  alert("Confirmation Code Dose Not Match");
+                }
+              } else {
+                alert("Email Not Found");
+              }
+            });
+          });
+        }
       }
     });
     productName.textContent = product.product_name;

@@ -22,6 +22,8 @@ const forgotPassword = document.querySelector(".forgot-password");
 // targeting admin modal
 // const admin=document.querySelector(".")
 
+// auto login
+
 // variable
 let list = [];
 // eventlistener
@@ -149,6 +151,11 @@ checkSignIn = async (username, password) => {
       if (user.username === signIn_username) {
         if (user.password === sign_In_password) {
           eel.set_user_ID(user._id);
+          let userInfo = {
+            username: user.username,
+            password: user.password,
+          };
+          localStorage.setItem("user", JSON.stringify(userInfo));
           alert("Welcome Back");
           username.value = "";
           password.value = "";
@@ -280,3 +287,18 @@ document.querySelector(".admin-login").addEventListener("click", () => {
     window.location.href = "../../components/admin-component/ordersAd.html";
   });
 });
+
+userData = localStorage.getItem("user");
+if (userData) {
+  data = JSON.parse(userData);
+  console.log(data);
+  eel.checkSignInDb(data.username)((user) => {
+    console.log(user);
+    if (user) {
+      eel.set_user_ID(user._id);
+      window.location.href = "../home-component/dashboard.html";
+    } else {
+      return;
+    }
+  });
+}
