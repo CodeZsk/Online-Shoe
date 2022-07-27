@@ -143,7 +143,7 @@ function determineWords(speech, words) {
     speech.text = "I am Fine, Thank you";
   }
   if (words.includes("who am I")) {
-    speech.text = "I think you are member of sneakerheadhub";
+    speech.text = "you are member of sneakerheadhub";
   }
   if (words.includes("you will work right")) {
     speech.text =
@@ -174,6 +174,10 @@ function determineWords(speech, words) {
     window.location.href = `../section-component/filterpage.html`;
   }
   if (words.includes("show shoes")) {
+    speech.text = "showing shoes";
+    window.location.href = `../section-component/filterpage.html`;
+  }
+  if (words.includes("show me your shoes")) {
     speech.text = "showing shoes";
     window.location.href = `../section-component/filterpage.html`;
   }
@@ -209,14 +213,6 @@ function determineWords(speech, words) {
     speech.text = "opening faq";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("open FAQ")) {
-    speech.text = "click on FAQ";
-    window.location.href = `../setting-component/setting.html`;
-  }
-  if (words.includes("show FAQ")) {
-    speech.text = "click on FAQ";
-    window.location.href = `../setting-component/setting.html`;
-  }
   if (words.includes("I have question")) {
     speech.text = "click on FAQ which is frequently asked question";
     window.location.href = `../setting-component/setting.html`;
@@ -227,6 +223,47 @@ function determineWords(speech, words) {
   }
   if (words.includes("who made you")) {
     speech.text = "krishna created me and he is my god Thanks to him";
+  }
+  if (words.includes("open FAQ")) {
+    speech.text = "click on FAQ";
+    window.location.href = `../setting-component/setting.html`;
+  }
+  if (words.includes("show FAQ")) {
+    speech.text = "click on FAQ";
+    window.location.href = `../setting-component/setting.html`;
+  }
+  if (words.includes("where is FAQ")) {
+    speech.text = "click on FAQ";
+    window.location.href = `../setting-component/setting.html`;
+  }
+  if (words.includes("where is faq")) {
+    speech.text = "click on FAQ";
+    window.location.href = `../setting-component/setting.html`;
+  }
+  if (words.includes("what is FAQ")) {
+    speech.text = "click on FAQ to know more";
+    window.location.href = `../setting-component/setting.html`;
+  }
+  // about us 
+  if (words.includes("open about us")) {
+    speech.text = "click on about us";
+    window.location.href = `../setting-component/setting.html`;
+  }
+  if (words.includes("show about us")) {
+    speech.text = "click on about us";
+    window.location.href = `../setting-component/setting.html`;
+  }
+  if (words.includes("where is about us")) {
+    speech.text = "click on about us";
+    window.location.href = `../setting-component/setting.html`;
+  }
+  if (words.includes("where is about us")) {
+    speech.text = "click on about us";
+    window.location.href = `../setting-component/setting.html`;
+  }
+  if (words.includes("what is about us")) {
+    speech.text = "click on about us to know more";
+    window.location.href = `../setting-component/setting.html`;
   }
 
 }
