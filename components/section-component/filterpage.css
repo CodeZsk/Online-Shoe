@@ -293,8 +293,9 @@ a {
   justify-content: center;
   margin: 0px;
   padding: 0px;
-  height: auto;
+  height: 100%;
   background-color: white;
+  /* min-height: 50%; */
 }
 
 .card {

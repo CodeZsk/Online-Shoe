@@ -123,6 +123,7 @@ const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
     eel.updateProductReview(
       productId,
       userId,
+      userN,
       option.value,
       textArea.value
     )((res) => {
@@ -304,7 +305,7 @@ const getOrderDetails = (orderDB) => {
         reviewBtn.getAttribute("data-id"),
         reviewBtn.getAttribute("data-user-id"),
         reviewBtn.getAttribute("data-product-name"),
-        (user_name = reviewBtn.getAttribute("data-user-name")),
+        reviewBtn.getAttribute("data-user-name"),
         reviewBtn.getAttribute("data-order-id")
       );
     });

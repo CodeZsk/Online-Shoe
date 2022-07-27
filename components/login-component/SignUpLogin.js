@@ -22,7 +22,20 @@ const forgotPassword = document.querySelector(".forgot-password");
 // targeting admin modal
 // const admin=document.querySelector(".")
 
-// auto login
+// connection
+
+window.addEventListener("load", (event) => {
+  let result = navigator.onLine;
+  console.log(result ? "onLine" : "ofLine");
+});
+
+window.addEventListener("offline", (event) => {
+  console.log("ofLine");
+});
+
+window.addEventListener("online", (event) => {
+  console.log("onLine");
+});
 
 // variable
 let list = [];
@@ -162,7 +175,9 @@ checkSignIn = async (username, password) => {
           window.location.href = "../home-component/dashboard.html";
           return;
         } else {
-          alert("Wrong password. Try again or click Forgot password to reset it.");
+          alert(
+            "Wrong password. Try again or click Forgot password to reset it."
+          );
           password.value = "";
           return;
         }

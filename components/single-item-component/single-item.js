@@ -71,6 +71,7 @@ function renderSingleProduct() {
       sizeContainer.appendChild(element);
     }
     description.textContent = product.description;
+    renderReview(product);
   };
 
   addToCartBtn.addEventListener("click", () => {
@@ -98,6 +99,43 @@ function renderSingleProduct() {
       });
     });
   });
+
+  // review
+
+  function renderReview(product) {
+    const reviewContainer = document.querySelector(".review-container");
+    if (!product.reviews) {
+      return;
+    }
+    for (let i = 0; i < product.reviews.length; i++) {
+      const reviewBox = document.createElement("div");
+      reviewBox.classList.add("review-box");
+      const userStar = document.createElement("div");
+      userStar.classList.add("user-star");
+      const username = document.createElement("h3");
+      const spanStar = document.createElement("span");
+      spanStar.classList.add("star-container");
+      const reviewParagraph = document.createElement("p");
+
+      username.textContent = product.reviews[i].username;
+      console.log(product.reviews.star);
+      for (let j = 0; j < parseInt(product.reviews[i].star); j++) {
+        const star = document.createElement("i");
+        star.classList.add("fa-solid");
+        star.classList.add("fa-star");
+        spanStar.appendChild(star);
+      }
+
+      userStar.appendChild(username);
+      userStar.appendChild(spanStar);
+
+      reviewParagraph.textContent = product.reviews[i].comment;
+      reviewBox.appendChild(userStar);
+      reviewBox.appendChild(reviewParagraph);
+
+      reviewContainer.appendChild(reviewBox);
+    }
+  }
 }
 
 async function allProducts(gender) {
@@ -196,6 +234,9 @@ function buyPage(product, user) {
     price.value = total;
   });
 
+  const sizeSelecter = document.querySelector(".size-input");
+  let size = sizeSelecter.options[sizeSelecter.selectedIndex].value;
+
   productInput.value = product.name;
   usernameInput.value = user.user_info.user_name;
   phoneInput.value = user.user_info.user_phoneNo;
@@ -257,9 +298,7 @@ function buyPage(product, user) {
       return;
     }
     if (!usernameInput.value.trim()) {
-      alert(
-        "Please fill Your information in User Setting to Place Your Order"
-      );
+      alert("Please fill Your information in User Setting to Place Your Order");
       return;
     }
 
@@ -313,6 +352,7 @@ function buyPage(product, user) {
                 product.name,
                 price.value,
                 quantity.value,
+                size,
                 product.type,
                 product.gender_type,
                 product.availability.color,

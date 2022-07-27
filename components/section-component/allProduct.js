@@ -91,7 +91,10 @@ function filterHtml() {
   xhttp.onload = function () {
     console.log("hello world");
     document.querySelector(".filtersearch").innerHTML = this.responseText;
-    getFilterProduct();
+    brand = [];
+    type = null;
+    price = {};
+
     filterType();
     filterBrand();
     filterPrice();
@@ -109,6 +112,18 @@ function loadFilter() {
     // filter();
   };
   xhttp.open("GET", "filterpage.html", true);
+  xhttp.send();
+}
+
+function noResultHtml() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function () {
+    console.log("hello world");
+    outer.innerHTML = this.responseText;
+    // filterHtml();
+    // filter();
+  };
+  xhttp.open("GET", "noResult.html", true);
   xhttp.send();
 }
 
@@ -134,17 +149,23 @@ const getAllProducts = () => {
 
 const getGenderProducts = (gender) => {
   if (
-    eel.getGenderProducts(gender)((product) => renderAll(product)) == undefined
+    eel.getGenderProducts(gender)((product) => {
+      renderAll(product);
+    }) == undefined
   ) {
     return null;
   }
   return eel.getGenderProducts(gender)((product) => {
-    console.log(product);
     return renderAll(product);
   });
 };
 
 const renderAll = (product) => {
+  console.log(product);
+  if (product.length == 0) {
+    console.log("Product in not fonr");
+    return noResultHtml();
+  }
   for (let i = 0; i < product.length; i++) {
     const divCard = document.createElement("div");
     divCard.classList.add("card");
@@ -193,24 +214,6 @@ const renderAll = (product) => {
   // return 0;
 };
 
-// filter option
-
-// const menFilter = document.querySelector(".men-filter");
-// const womenFilter = document.querySelector(".women-filter");
-// const unisexFilter = document.querySelector(".unisex-filter");
-
-// menFilter.addEventListener("click", () => {
-//   loadDoc("Men");
-// });
-
-// womenFilter.addEventListener("click", () => {
-//   loadDoc("Women");
-// });
-
-// unisexFilter.addEventListener("click", () => {
-//   loadDoc("Unisex");
-// });
-
 let brand = [];
 let type = null;
 let price = {};
@@ -223,13 +226,22 @@ function getFilterProduct() {
         gender[0],
         brand,
         price
-      )((product) => renderAll(product));
+      )((product) => {
+        renderAll(product);
+      });
     }) == undefined
   ) {
     return null;
   }
-  return eel.getPageData()((gender) => {
-    eel.filterBy(type, gender[0], brand)((product) => renderAll(product));
+  eel.getPageData()((gender) => {
+    eel.filterBy(
+      type,
+      gender[0],
+      brand
+    )((product) => {
+      console.log("helo woflds");
+      renderAll(product);
+    });
   });
 }
 
@@ -237,7 +249,6 @@ function filterType() {
   const typeSelecter = document.querySelectorAll(
     ".Sneaker, .Casual-Shoes, .Sports-Shoes"
   );
-  console.log(typeSelecter);
   typeSelecter.forEach((typeTag) => {
     typeTag.addEventListener("click", () => {
       type = typeTag.innerText;

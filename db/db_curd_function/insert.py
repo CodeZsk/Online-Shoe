@@ -71,7 +71,7 @@ def set_product(productName, productPrice, productColor, productQuantity, gender
 
 
 @eel.expose
-def set_order(date, productId, productName, productPrice, quantity, productType, productGenderType, productColor, userId, userName, email, userGender, userAge):
+def set_order(date, productId, productName, productPrice, quantity, size, productType, productGenderType, productColor, userId, userName, email, userGender, userAge):
     try:
         order = {
             "order": {
@@ -84,6 +84,7 @@ def set_order(date, productId, productName, productPrice, quantity, productType,
                 "product_name": productName,
                 "product_price": productPrice,
                 "product_quantity": quantity,
+                "product_size": size,
                 "product_type": productType,
                 "product_gender_type": productGenderType,
                 "product_color": productColor,

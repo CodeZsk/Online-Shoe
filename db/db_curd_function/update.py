@@ -129,12 +129,13 @@ def update_product(id, productName, productPrice, productColor, productQuantity,
 
 
 @eel.expose
-def updateProductReview(id, userId, star, comment):
+def updateProductReview(id, userId, name, star, comment):
     try:
         searchValue = {"_id": ObjectId(id)}
         newValues = {"$addToSet": {
             "reviews": {
                 "userId": userId,
+                "username": name,
                 "comment": comment,
                 "star": star
             }
