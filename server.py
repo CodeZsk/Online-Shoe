@@ -5,10 +5,11 @@ from util.utils import message
 from db.db_curd_function.update import *
 from db.db_curd_function.find import *
 from db.db_curd_function.insert import *
+from db.db_curd_function.delete import *
 
 
-eel.init('C:\\Users\\krishna\\Desktop\\Online-Shoe')
-# eel.init('/home/zaid/Desktop/softwareDevProject/Online-Shoe')
+# eel.init('C:\\Users\\krishna\\Desktop\\Online-Shoe')
+eel.init('/home/zaid/Desktop/softwareDevProject/Online-Shoe')
 
 
 data = [None]

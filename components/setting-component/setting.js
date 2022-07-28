@@ -78,7 +78,7 @@ function orderHTML() {
       eel.getOrderByUserId(id)((orders) => {
         // console.log(order);
         orders.map((order) => {
-          getOrderDetails(order)
+          getOrderDetails(order);
         });
         const mybtn = document.querySelectorAll(".review-btn");
         console.log(mybtn);
@@ -94,7 +94,7 @@ function orderHTML() {
             );
           });
         });
-        
+
         // reviewBtn();
       });
     });
@@ -102,7 +102,6 @@ function orderHTML() {
   xhttp.open("GET", "./order.html");
   xhttp.send();
 }
-
 
 const getReviewData = () => {
   const mod = document.getElementById("review");
@@ -125,45 +124,55 @@ const getReviewData = () => {
   mb.onclick = function () {
     mod.style.display = "none";
   };
-}
+};
 
 const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
   const mod = document.getElementById("review");
   const cut = document.getElementById("close-review");
   const selectStar = document.querySelector(".select-star");
+  console.log(productId, userId, productN);
   // const btns = document.querySelectorAll("#mybtn");
   let option = null;
   mod.style.display = "block";
 
   cut.onclick = function () {
     mod.style.display = "none";
+    selectStar.removeEventListener("change", handelSelectStar);
+    submitBtn.removeEventListener("click", submitBtnHandler);
   };
   window.onclick = function (event) {
     if (event.target == mod) {
       mod.style.display = "none";
+      selectStar.removeEventListener("change", handelSelectStar);
+      submitBtn.removeEventListener("click", submitBtnHandler);
     }
   };
   var mb = document.querySelector(".modal-back");
 
   mb.onclick = function () {
     mod.style.display = "none";
+    selectStar.removeEventListener("change", handelSelectStar);
+    submitBtn.removeEventListener("click", submitBtnHandler);
   };
 
   const textArea = document.querySelector(".comment-area");
   const submitBtn = document.querySelector(".review-btn-submit");
 
-  selectStar.addEventListener("change", () => {
+  function handelSelectStar() {
     option = selectStar.options[selectStar.selectedIndex];
     console.log(option);
-    console.log(textArea.value)
-  });
+    console.log("hello world");
+    console.log(textArea.value);
+  }
+
+  selectStar.addEventListener("change", handelSelectStar);
 
   const userName = document.querySelector(".user-name");
   userName.textContent = `User Name: ${userN}`;
   const productName = document.querySelector(".product-name");
   productName.textContent = `Product Name: ${productN}`;
 
-  submitBtn.addEventListener("click", () => {
+  function submitBtnHandler() {
     if (!option.value.trim()) return;
     if (!textArea.value.trim()) return;
     console.log(option.value);
@@ -185,7 +194,9 @@ const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
         alert("something went wrong");
       }
     });
-  });
+  }
+
+  submitBtn.addEventListener("click", submitBtnHandler);
 };
 
 // userInfo;
@@ -216,7 +227,7 @@ const getOrderDetails = (orderDB) => {
       const cancelStatus = document.createElement("td");
       cancelStatus.textContent = "Reviewed";
       tr.appendChild(cancelStatus);
-    } else if (order.order_status == "Delivered" && !order.is_reviewed){
+    } else if (order.order_status == "Delivered" && !order.is_reviewed) {
       const tdBtn = document.createElement("td");
       const reviewBtn = document.createElement("button");
       reviewBtn.textContent = "Review";
@@ -227,7 +238,6 @@ const getOrderDetails = (orderDB) => {
       reviewBtn.setAttribute("data-product-name", product.product_name);
       reviewBtn.setAttribute("data-user-name", user.user_name);
       reviewBtn.setAttribute("data-order-id", orderDB._id);
-
 
       tdBtn.appendChild(reviewBtn);
       tr.appendChild(tdBtn);
@@ -342,7 +352,6 @@ const getOrderDetails = (orderDB) => {
     tr.appendChild(tdBtn);
     activeTabel.appendChild(tr);
   }
-  
 };
 
 const renderAll = (product, outer) => {
