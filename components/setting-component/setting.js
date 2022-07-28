@@ -77,8 +77,24 @@ function orderHTML() {
       // });
       eel.getOrderByUserId(id)((orders) => {
         // console.log(order);
-        orders.map((order) => getOrderDetails(order));
-
+        orders.map((order) => {
+          getOrderDetails(order)
+        });
+        const mybtn = document.querySelectorAll(".review-btn");
+        console.log(mybtn);
+        mybtn.forEach((reviewBtn) => {
+          reviewBtn.addEventListener("click", () => {
+            // console.log(reviewBtn.getAttribute("data-id"));
+            reviewBtnHandler(
+              reviewBtn.getAttribute("data-id"),
+              reviewBtn.getAttribute("data-user-id"),
+              reviewBtn.getAttribute("data-product-name"),
+              reviewBtn.getAttribute("data-user-name"),
+              reviewBtn.getAttribute("data-order-id")
+            );
+          });
+        });
+        
         // reviewBtn();
       });
     });
@@ -86,6 +102,31 @@ function orderHTML() {
   xhttp.open("GET", "./order.html");
   xhttp.send();
 }
+
+
+const getReviewData = () => {
+  const mod = document.getElementById("review");
+  const cut = document.getElementById("close-review");
+  const selectStar = document.querySelector(".select-star");
+  // const btns = document.querySelectorAll("#mybtn");
+  let option = null;
+  mod.style.display = "block";
+
+  cut.onclick = function () {
+    mod.style.display = "none";
+  };
+  window.onclick = function (event) {
+    if (event.target == mod) {
+      mod.style.display = "none";
+    }
+  };
+  var mb = document.querySelector(".modal-back");
+
+  mb.onclick = function () {
+    mod.style.display = "none";
+  };
+}
+
 const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
   const mod = document.getElementById("review");
   const cut = document.getElementById("close-review");
@@ -114,6 +155,7 @@ const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
   selectStar.addEventListener("change", () => {
     option = selectStar.options[selectStar.selectedIndex];
     console.log(option);
+    console.log(textArea.value)
   });
 
   const userName = document.querySelector(".user-name");
@@ -149,8 +191,6 @@ const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
 // userInfo;
 const getOrderDetails = (orderDB) => {
   const { order, product, user } = orderDB;
-  console.log(product);
-  console.log(order);
   const activeTabel = document.querySelector(".active-table");
   const prevTabel = document.querySelector(".prev-table");
 
@@ -172,11 +212,11 @@ const getOrderDetails = (orderDB) => {
       const cancelStatus = document.createElement("td");
       cancelStatus.textContent = "NA";
       tr.appendChild(cancelStatus);
-    } else if (order.is_reviewed) {
+    } else if (order.order_status == "Delivered" && order.is_reviewed) {
       const cancelStatus = document.createElement("td");
       cancelStatus.textContent = "Reviewed";
       tr.appendChild(cancelStatus);
-    } else {
+    } else if (order.order_status == "Delivered" && !order.is_reviewed){
       const tdBtn = document.createElement("td");
       const reviewBtn = document.createElement("button");
       reviewBtn.textContent = "Review";
@@ -187,6 +227,7 @@ const getOrderDetails = (orderDB) => {
       reviewBtn.setAttribute("data-product-name", product.product_name);
       reviewBtn.setAttribute("data-user-name", user.user_name);
       reviewBtn.setAttribute("data-order-id", orderDB._id);
+
 
       tdBtn.appendChild(reviewBtn);
       tr.appendChild(tdBtn);
@@ -301,20 +342,7 @@ const getOrderDetails = (orderDB) => {
     tr.appendChild(tdBtn);
     activeTabel.appendChild(tr);
   }
-  const mybtn = document.querySelectorAll(".review-btn");
-  console.log(mybtn);
-  mybtn.forEach((reviewBtn) => {
-    reviewBtn.addEventListener("click", () => {
-      console.log(reviewBtn.getAttribute("data-id"));
-      reviewBtnHandler(
-        reviewBtn.getAttribute("data-id"),
-        reviewBtn.getAttribute("data-user-id"),
-        reviewBtn.getAttribute("data-product-name"),
-        reviewBtn.getAttribute("data-user-name"),
-        reviewBtn.getAttribute("data-order-id")
-      );
-    });
-  });
+  
 };
 
 const renderAll = (product, outer) => {
