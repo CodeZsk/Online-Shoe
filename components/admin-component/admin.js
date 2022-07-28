@@ -15,7 +15,6 @@ order.addEventListener("click", () => {
     orderHtml("prev");
   } else if (orderDetails.value == "cancel") {
     orderHtml("cancel");
-
   }
 });
 
@@ -267,7 +266,7 @@ const renderProduct = () => {
             `Do you want to delete a product \n ID: ${product._id}, Type 'YES'`
           );
           if (isDeleteProduct == "YES") {
-            eel.delete_single_product(id)((res) => {
+            eel.delete_single_product(product._id)((res) => {
               if (res.status == "deleted") {
                 alert("Product deleted successfully");
                 adminHtml();

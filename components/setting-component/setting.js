@@ -77,7 +77,23 @@ function orderHTML() {
       // });
       eel.getOrderByUserId(id)((orders) => {
         // console.log(order);
-        orders.map((order) => getOrderDetails(order));
+        orders.map((order) => {
+          getOrderDetails(order);
+        });
+        const mybtn = document.querySelectorAll(".review-btn");
+        console.log(mybtn);
+        mybtn.forEach((reviewBtn) => {
+          reviewBtn.addEventListener("click", () => {
+            // console.log(reviewBtn.getAttribute("data-id"));
+            reviewBtnHandler(
+              reviewBtn.getAttribute("data-id"),
+              reviewBtn.getAttribute("data-user-id"),
+              reviewBtn.getAttribute("data-product-name"),
+              reviewBtn.getAttribute("data-user-name"),
+              reviewBtn.getAttribute("data-order-id")
+            );
+          });
+        });
 
         // reviewBtn();
       });
@@ -87,11 +103,12 @@ function orderHTML() {
   xhttp.send();
 }
 
-const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
-  // const btns = document.querySelectorAll("#mybtn");
-  const mod = document.getElementById("mymodal");
-  const cut = document.getElementById("close");
+const getReviewData = () => {
+  const mod = document.getElementById("review");
+  const cut = document.getElementById("close-review");
   const selectStar = document.querySelector(".select-star");
+  // const btns = document.querySelectorAll("#mybtn");
+  let option = null;
   mod.style.display = "block";
 
   cut.onclick = function () {
@@ -107,19 +124,58 @@ const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
   mb.onclick = function () {
     mod.style.display = "none";
   };
+};
 
-  const option = selectStar.options[selectStar.selectedIndex];
+const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
+  const mod = document.getElementById("review");
+  const cut = document.getElementById("close-review");
+  const selectStar = document.querySelector(".select-star");
+  console.log(productId, userId, productN);
+  // const btns = document.querySelectorAll("#mybtn");
+  let option = null;
+  mod.style.display = "block";
+
+  cut.onclick = function () {
+    mod.style.display = "none";
+    selectStar.removeEventListener("change", handelSelectStar);
+    submitBtn.removeEventListener("click", submitBtnHandler);
+  };
+  window.onclick = function (event) {
+    if (event.target == mod) {
+      mod.style.display = "none";
+      selectStar.removeEventListener("change", handelSelectStar);
+      submitBtn.removeEventListener("click", submitBtnHandler);
+    }
+  };
+  var mb = document.querySelector(".modal-back");
+
+  mb.onclick = function () {
+    mod.style.display = "none";
+    selectStar.removeEventListener("change", handelSelectStar);
+    submitBtn.removeEventListener("click", submitBtnHandler);
+  };
+
   const textArea = document.querySelector(".comment-area");
   const submitBtn = document.querySelector(".review-btn-submit");
+
+  function handelSelectStar() {
+    option = selectStar.options[selectStar.selectedIndex];
+    console.log(option);
+    console.log("hello world");
+    console.log(textArea.value);
+  }
+
+  selectStar.addEventListener("change", handelSelectStar);
 
   const userName = document.querySelector(".user-name");
   userName.textContent = `User Name: ${userN}`;
   const productName = document.querySelector(".product-name");
   productName.textContent = `Product Name: ${productN}`;
 
-  submitBtn.addEventListener("click", () => {
+  function submitBtnHandler() {
     if (!option.value.trim()) return;
     if (!textArea.value.trim()) return;
+    console.log(option.value);
     eel.updateProductReview(
       productId,
       userId,
@@ -138,14 +194,14 @@ const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
         alert("something went wrong");
       }
     });
-  });
+  }
+
+  submitBtn.addEventListener("click", submitBtnHandler);
 };
 
 // userInfo;
 const getOrderDetails = (orderDB) => {
   const { order, product, user } = orderDB;
-  console.log(product);
-  console.log(order);
   const activeTabel = document.querySelector(".active-table");
   const prevTabel = document.querySelector(".prev-table");
 
@@ -167,11 +223,11 @@ const getOrderDetails = (orderDB) => {
       const cancelStatus = document.createElement("td");
       cancelStatus.textContent = "NA";
       tr.appendChild(cancelStatus);
-    } else if (order.is_reviewed) {
+    } else if (order.order_status == "Delivered" && order.is_reviewed) {
       const cancelStatus = document.createElement("td");
       cancelStatus.textContent = "Reviewed";
       tr.appendChild(cancelStatus);
-    } else {
+    } else if (order.order_status == "Delivered" && !order.is_reviewed) {
       const tdBtn = document.createElement("td");
       const reviewBtn = document.createElement("button");
       reviewBtn.textContent = "Review";
@@ -296,20 +352,6 @@ const getOrderDetails = (orderDB) => {
     tr.appendChild(tdBtn);
     activeTabel.appendChild(tr);
   }
-  const mybtn = document.querySelectorAll(".review-btn");
-  console.log(mybtn);
-  mybtn.forEach((reviewBtn) => {
-    reviewBtn.addEventListener("click", () => {
-      console.log(reviewBtn.getAttribute("data-id"));
-      reviewBtnHandler(
-        reviewBtn.getAttribute("data-id"),
-        reviewBtn.getAttribute("data-user-id"),
-        reviewBtn.getAttribute("data-product-name"),
-        reviewBtn.getAttribute("data-user-name"),
-        reviewBtn.getAttribute("data-order-id")
-      );
-    });
-  });
 };
 
 const renderAll = (product, outer) => {
@@ -470,25 +512,25 @@ getUserData();
 
 // krishna js lol
 var btn = document.getElementById("mybtn");
-var mod = document.getElementById("mymodal");
-var cut = document.getElementById("close");
+var moda = document.getElementById("mymodal");
+var cutt = document.getElementById("close");
 
 btn.onclick = function () {
-  mod.style.display = "block";
+  moda.style.display = "block";
 };
 
-cut.onclick = function () {
-  mod.style.display = "none";
+cutt.onclick = function () {
+  moda.style.display = "none";
 };
 window.onclick = function (event) {
-  if (event.target == mod) {
-    mod.style.display = "none";
+  if (event.target == moda) {
+    moda.style.display = "none";
   }
 };
 var mb = document.querySelector(".modal-back");
 
 mb.onclick = function () {
-  mod.style.display = "none";
+  moda.style.display = "none";
 };
 
 var cbtn = document.getElementById("customer");

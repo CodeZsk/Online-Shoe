@@ -103,7 +103,9 @@ function renderSingleProduct() {
   // review
 
   function renderReview(product) {
-    const reviewContainer = document.querySelector(".review-container");
+    const reviewContainer = document.querySelector(".review-container-html");
+    const review = document.createElement("div");
+    review.classList.add("review-container");
     if (!product.reviews) {
       return;
     }
@@ -133,7 +135,8 @@ function renderSingleProduct() {
       reviewBox.appendChild(userStar);
       reviewBox.appendChild(reviewParagraph);
 
-      reviewContainer.appendChild(reviewBox);
+      review.appendChild(reviewBox);
+      reviewContainer.appendChild(review);
     }
   }
 }
