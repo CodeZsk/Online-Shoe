@@ -303,17 +303,17 @@ document.querySelector(".admin-login").addEventListener("click", () => {
   });
 });
 
-userData = localStorage.getItem("user");
-if (userData) {
-  data = JSON.parse(userData);
-  console.log(data);
-  eel.checkSignInDb(data.username)((user) => {
-    console.log(user);
-    if (user) {
-      eel.set_user_ID(user._id);
-      window.location.href = "../home-component/dashboard.html";
-    } else {
-      return;
-    }
-  });
-}
+// userData = localStorage.getItem("user");
+// if (userData) {
+//   data = JSON.parse(userData);
+//   console.log(data);
+//   eel.checkSignInDb(data.username)((user) => {
+//     console.log(user);
+//     if (user) {
+//       eel.set_user_ID(user._id);
+//       window.location.href = "../home-component/dashboard.html";
+//     } else {
+//       return;
+//     }
+//   });
+// }

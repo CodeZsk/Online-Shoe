@@ -147,6 +147,9 @@ a {
 
 .displaypicturecont {
   display: flex;
+  padding: 0%;
+  margin: 0%;
+  margin-left: 1%;
   flex-direction: column;
 
 }
@@ -155,7 +158,7 @@ a {
   display: flex;
   flex-direction: row;
   background-color: white;
-  gap: 10px;
+  gap:30px;
   margin-top: 120px;
   margin-left: 2px;
   align-items: center;
@@ -178,25 +181,33 @@ a {
   margin-right: 4px;
 }
 .shoesallimages {
-  margin-left: 30px;
+  margin-left: 10px;
   display: flex;
-  align-items: center;
+  padding: 0%;
+  margin: 0%;
+  /* grid-template-columns: auto auto; */
   flex-direction: column;
   overflow-y: scroll;
-  width: 1000px;
-  height: 600px;
+  width: 65%;
+  height: 550px;
   background-color: white;
   border: 2px solid black;
 }
+/* .shoesallimages div{
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 10px;
+} */
 .shoesallimages img {
   width: auto;
-  height: 600px;
+  height: 560px;
+  margin-left: 20px;
 }
 
 .productinformation {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 30%;
   height: 550px;
   background-color: white;
   border: 2px solid black;
@@ -340,7 +351,8 @@ input::-webkit-inner-spin-button {
   border: 2px solid black;
   outline: none;
   border-radius: 10px;
-  background-color: white;
+  box-shadow: 2px 2px 2px 2px grey;
+  /* background-color: ; */
   cursor: pointer;
   color: black;
   transition: 0.1s ease-in-out;
@@ -475,7 +487,9 @@ input::-webkit-inner-spin-button {
   border: 2px solid black;
   outline: none;
   border-radius: 10px;
-  background-color: white;
+  background-color:  white;
+  box-shadow: 2px 2px 2px 2px grey;
+  /* background-image: linear-gradient(50deg,lightblue,#86d6e8,white); */
   cursor: pointer;
   color: black;
   overflow: hidden;
@@ -484,18 +498,18 @@ input::-webkit-inner-spin-button {
 }
 /*  scrool bar  */
 /* width */
-::-webkit-scrollbar {
+.shoesallimages::-webkit-scrollbar {
   width: 6px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+.shoesallimages::-webkit-scrollbar-track {
   background: transparent; 
   border-radius: 10px;
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+.shoesallimages::-webkit-scrollbar-thumb {
   background: #888; 
   border-radius: 6px;
   height: 1px;
@@ -504,7 +518,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+.shoesallimages::-webkit-scrollbar-thumb:hover {
   background: #86d6e8; 
 }
 
@@ -546,4 +560,27 @@ input::-webkit-inner-spin-button {
 
 .review-box p{
   padding: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white; 
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 6px;
+  height: 2px;
+  background-color: #86d6e8;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white; 
 }

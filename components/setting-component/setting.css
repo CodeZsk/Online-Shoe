@@ -376,7 +376,7 @@ body {
     width:600px;
     height:260px;
     border:1px solid black;
-    padding:1px;
+    padding:10px;
     box-shadow:2px 2px 2px 2px grey;
     /* box-shadow:1px 1px 1px 1px black; */
 
@@ -648,4 +648,9 @@ body {
 /* Handle on hover */
 .faq::-webkit-scrollbar-thumb:hover {
   background: #555; 
+}
+#genderwithid{
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
 }
