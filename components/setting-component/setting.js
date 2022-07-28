@@ -86,12 +86,12 @@ function orderHTML() {
   xhttp.open("GET", "./order.html");
   xhttp.send();
 }
-
 const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
-  // const btns = document.querySelectorAll("#mybtn");
-  const mod = document.getElementById("mymodal");
-  const cut = document.getElementById("close");
+  const mod = document.getElementById("review");
+  const cut = document.getElementById("close-review");
   const selectStar = document.querySelector(".select-star");
+  // const btns = document.querySelectorAll("#mybtn");
+  let option = null;
   mod.style.display = "block";
 
   cut.onclick = function () {
@@ -108,9 +108,13 @@ const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
     mod.style.display = "none";
   };
 
-  const option = selectStar.options[selectStar.selectedIndex];
   const textArea = document.querySelector(".comment-area");
   const submitBtn = document.querySelector(".review-btn-submit");
+
+  selectStar.addEventListener("change", () => {
+    option = selectStar.options[selectStar.selectedIndex];
+    console.log(option);
+  });
 
   const userName = document.querySelector(".user-name");
   userName.textContent = `User Name: ${userN}`;
@@ -120,6 +124,7 @@ const reviewBtnHandler = (productId, userId, productN, userN, orderID) => {
   submitBtn.addEventListener("click", () => {
     if (!option.value.trim()) return;
     if (!textArea.value.trim()) return;
+    console.log(option.value);
     eel.updateProductReview(
       productId,
       userId,
@@ -470,25 +475,25 @@ getUserData();
 
 // krishna js lol
 var btn = document.getElementById("mybtn");
-var mod = document.getElementById("mymodal");
-var cut = document.getElementById("close");
+var moda = document.getElementById("mymodal");
+var cutt = document.getElementById("close");
 
 btn.onclick = function () {
-  mod.style.display = "block";
+  moda.style.display = "block";
 };
 
-cut.onclick = function () {
-  mod.style.display = "none";
+cutt.onclick = function () {
+  moda.style.display = "none";
 };
 window.onclick = function (event) {
-  if (event.target == mod) {
-    mod.style.display = "none";
+  if (event.target == moda) {
+    moda.style.display = "none";
   }
 };
 var mb = document.querySelector(".modal-back");
 
 mb.onclick = function () {
-  mod.style.display = "none";
+  moda.style.display = "none";
 };
 
 var cbtn = document.getElementById("customer");
