@@ -533,7 +533,28 @@ const renderOrder = (option) => {
             } else {
               var value = status.options[status.selectedIndex].value;
               if (editBtn.textContent == "Save") {
-                console.log(order._id);
+                if (value == "Delivered") {
+                  Email.send({
+                    Host: "smtp.elasticemail.com",
+                    Username: "onlineshoes69@gmail.com",
+                    Password: "0D17FC3473A6F7434D91FFEBF83CE82DF3C2",
+                    To: order.user.user_email,
+                    From: "onlineshoes69@gmail.com",
+                    Subject: "Order Delivered",
+                    Body: `
+                    hey ${order.user.user_name} 
+                    ${(document.innerHTML = `<br>`)}
+                    Your Order has been Delivered Successfully! 
+                    ${(document.innerHTML = `<br>`)}
+                    " Product Name: ${order.product.product_name} of Price: ${
+                      order.product.product_price
+                    } " To Your Delivery Place
+                    ${(document.innerHTML = `<br>`)}
+                    Thank You For Buying Product From SneakerHeadsHub
+                    `,
+                  });
+                }
+                console.log(order.user.user_email);
                 eel.update_order_status(
                   order._id,
                   value
