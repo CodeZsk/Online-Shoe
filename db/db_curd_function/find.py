@@ -122,7 +122,22 @@ def getSingleProduct(id):
             j = 0
             for i in (product):
                 i['_id'] = str(i['_id'])
-                return i
+            return i
+        return None
+    except:
+        print("Oops! Something went wrong")
+        return {"status": "error"}
+
+
+@eel.expose
+def getOrderById(id):
+    try:
+        order = order_db.find({"_id": ObjectId(id)})
+        if (order) is not None:
+            j = 0
+            for i in (order):
+                i['_id'] = str(i['_id'])
+            return i
         return None
     except:
         print("Oops! Something went wrong")
@@ -357,5 +372,3 @@ def getCartItems(arr):
     except:
         print("Oops! Something went wrong")
         return {"status": "error"}
-
-
