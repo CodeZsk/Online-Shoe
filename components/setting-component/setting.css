@@ -94,6 +94,16 @@ body {
     cursor: pointer;
 }
 
+.back {
+  font-size: 20px;
+  cursor: pointer;
+  color: #000;
+}
+
+.back span{
+  color: #000;
+}
+
 .about{
     width: 100%;
 }

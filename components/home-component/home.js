@@ -20,6 +20,7 @@ function oflineHtml() {
 
 window.addEventListener("online", (event) => {
   onLineHtml();
+  // window.location.href = "./dashboard.html";
 });
 
 function onLineHtml() {
@@ -28,10 +29,10 @@ function onLineHtml() {
     main.innerHTML = this.responseText;
     onlineContainer();
   };
-  xhttp.open("GET", "./dash.html");
+  xhttp.open("GET", "./main.html");
   xhttp.send();
 }
-// onlineContainer();
+onlineContainer();
 
 function onlineContainer() {
   const allhotProduct = document.querySelector(".krishnagrid");

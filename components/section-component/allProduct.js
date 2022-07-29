@@ -79,6 +79,14 @@ function onlineContainer() {
       searchName(product);
       return;
     }
+    eel.getPageData()((product) => {
+      console.log(product[0]);
+      if (product[0] == "All") {
+        getAllProducts();
+        return;
+      }
+      getGenderProducts(product[0]);
+    });
     return;
   });
 
@@ -170,15 +178,6 @@ function onlineContainer() {
     xhttp.open("GET", "../utils-Html/noResult.html", true);
     xhttp.send();
   }
-
-  eel.getPageData()((product) => {
-    console.log(product[0]);
-    if (product[0] == "All") {
-      getAllProducts();
-      return;
-    }
-    getGenderProducts(product[0]);
-  });
 
   const getAllProducts = () => {
     // console.log(eel.getAllProducts()((product) => renderAll(product)));

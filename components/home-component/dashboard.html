@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      rel="shortcut icon"
+      href="../../assets/image/Logo.png"
+      type="image/x-icon"
+    />
+    <script src="../../eel.js"></script>
+    <script src="./home.js" defer></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Dashboard</title>
-	<link rel="shortcut icon" href="../../assets/image/Logo.png" type="image/x-icon">
-	<script src="../../eel.js"></script>
-</head>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-	crossorigin="anonymous"></script>
-<link rel="stylesheet" href="dashboard.css">
-
-<body>
-	
+  <body class="main">
+    <!-- 	
 	<section class="et-hero-tabs" id="tab-first">
-		<!-- <button class="mico"> MIC ON </button> -->
+		
 		<div class="container">
 			<div class="slider-container">
 				<div class="slider">
@@ -61,21 +68,7 @@
 					</div>
 				</div>
 			</div>
-			<!-- <div class="threesixtycontainer">
-				<div class="carousel">
-					<div class="carouselfrontface">
-						<span> now sale</span>
-					</div>
-					<div class="carouselfrontface"></div>
-					<div class="carouselfrontface"></div>
-					<div class="carouselfrontface"></div>
-					<div class="carouselfrontface"></div>
-					<div class="carouselfrontface"></div>
-					<div class="carouselfrontface"></div>
-					<div class="carouselfrontface"></div>
-					<div class="carouselfrontface"></div>
-				</div> -->
-			<!-- </div>  -->
+			
 		</div>
 
 		<div class="et-hero-tabs-container">
@@ -93,11 +86,12 @@
 			<a class="et-hero-tab" href="#tab-Unisex">
 				<h3>Unisex</h3>
 			</a>
-			<!-- search -->
-			<a class="et-hero-tab" href="#tab-Home">
+			
+			<a class="search-section">
 				<img src="../../assets/image/searchicon.png"
 					alt="search" class="searchicon">
-					<input type="text" placeholder="search" class="search"></a>
+					<input type="text" placeholder="search" class="search">
+			</a>
 			
 				<a class="et-hero-tab" href="#tab-first"><img src="../../assets/image/notification.png"
 					alt="notification" class="notification"></a>
@@ -105,19 +99,18 @@
 				<button class="profile cart">
 					<img src="../../assets/image/navbarcartimage.png" alt="shoppincart">
 				</button>
-				<!-- profile -->
+				
 				<button class="profile" id="setting"><img src="../../assets/image/profile-img.png" alt="profile">
 				</button>
 			</div>
 			<span class="et-hero-tab-slider"></span>
 			<button class="mico">
 			<img src="https://cdn-icons-png.flaticon.com/512/7719/7719929.png" alt="mic">
-				<!-- MIC -->
+				
 			</button>
 		</div>
 	</section>
 
-	<!-- Main -->
 	<main class="et-main">
 		<section class="et-slidehome" id="tab-Home">
 			<div class="hot">
@@ -125,9 +118,6 @@
 				<div class="l">
 					<div class="krishnagrid">
 						
-						<!-- <div class="more">
-							<h4 class="textofmore">See More</h4>
-						</div> -->
 					</div>
 				</div>
 			</div>
@@ -136,10 +126,7 @@
 		<section class="et-slidemen" id="tab-Men">
 			<div class="man-shoe-container">
 				<div class="krishnagrid">
-							
-					<!-- <div class="more">
-						<h4 class="textofmore">See More</h4>
-					</div> -->
+				
 				</div>
 			</div>
 
@@ -148,10 +135,7 @@
 		<section class="et-slidewomen" id="tab-Women">
 			<div class="women-shoe-container">
 				<div class="krishnagrid">
-							
-					<!-- <div class="more">
-						<h4 class="textofmore">See More</h4>
-					</div> -->
+					
 				</div>
 			</div>
 		</section>
@@ -159,14 +143,12 @@
 		<section class="et-slideunisex" id="tab-Unisex">
 			<div class="unisex-shoe-container">
 				<div class="krishnagrid">
-					<!-- <div class="more">
-						<h4 class="textofmore">See More</h4>
-					</div> -->
+					
 				</div>
 			</div>
 		</section>
 	</main>
-	<script src="./home.js"></script>
+	
 	<script>
 
 		class StickyNavigation {
@@ -251,7 +233,102 @@
 		}
 
 		new StickyNavigation();
-	</script>
-</body>
+	</script> -->
+  </body>
+  <script>
+    class StickyNavigation {
+      constructor() {
+        this.currentId = null;
+        this.currentTab = null;
+        this.tabContainerHeight = 70;
+        let self = this;
+        $(".et-hero-tab").click(function () {
+          self.onTabClick(event, $(this));
+        });
+        $(window).scroll(() => {
+          this.onScroll();
+        });
+        $(window).resize(() => {
+          this.onResize();
+        });
+      }
 
+      onTabClick(event, element) {
+        event.preventDefault();
+        let scrollTop =
+          $(element.attr("href")).offset().top - this.tabContainerHeight + 1;
+        $("html, body").animate({ scrollTop: scrollTop }, 600);
+      }
+
+      onScroll() {
+        this.checkTabContainerPosition();
+        this.findCurrentTabSelector();
+      }
+
+      onResize() {
+        if (this.currentId) {
+          this.setSliderCss();
+        }
+      }
+
+      checkTabContainerPosition() {
+        let offset =
+          $(".et-hero-tabs").offset().top +
+          $(".et-hero-tabs").height() -
+          this.tabContainerHeight;
+        if ($(window).scrollTop() > offset) {
+          $(".et-hero-tabs-container").addClass("et-hero-tabs-container--top");
+        } else {
+          $(".et-hero-tabs-container").removeClass(
+            "et-hero-tabs-container--top"
+          );
+        }
+      }
+
+      findCurrentTabSelector(element) {
+        let newCurrentId;
+        let newCurrentTab;
+        let self = this;
+        $(".et-hero-tab").each(function () {
+          let id = $(this).attr("href");
+          let offsetTop = $(id).offset().top - self.tabContainerHeight;
+          let offsetBottom =
+            $(id).offset().top + $(id).height() - self.tabContainerHeight;
+          if (
+            $(window).scrollTop() > offsetTop &&
+            $(window).scrollTop() < offsetBottom
+          ) {
+            newCurrentId = id;
+            newCurrentTab = $(this);
+          }
+        });
+        if (this.currentId != newCurrentId || this.currentId === null) {
+          this.currentId = newCurrentId;
+          this.currentTab = newCurrentTab;
+          this.setSliderCss();
+        }
+      }
+
+      setSliderCss() {
+        let width = 0;
+        let left = 0;
+        if (this.currentTab) {
+          width = this.currentTab.css("width");
+          left = this.currentTab.offset().left;
+        }
+        $(".et-hero-tab-slider").css("width", width);
+        $(".et-hero-tab-slider").css("left", left);
+      }
+    }
+
+    const krishna = document.querySelector(".lol");
+
+    function k() {
+      window.location.href = "../login-component/SignUpLogin.html";
+      console.log("krishna");
+      console.log("working");
+    }
+
+    new StickyNavigation();
+  </script>
 </html>
