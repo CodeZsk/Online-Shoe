@@ -140,6 +140,7 @@ h3 {
   height: 30px;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .profile img {
@@ -151,12 +152,14 @@ h3 {
   gap: 80px;
   align-items: center;
   padding-right: 20px;
+  cursor: pointer;
 }
 
 .cartandpro {
   display: flex;
-  gap: 50px;
+  gap: 80px;
   align-items: center;
+  cursor: pointer;
 }
 
 .displaypicturecont {
@@ -366,7 +369,7 @@ input::-webkit-inner-spin-button {
   border: 2px solid black;
   outline: none;
   border-radius: 10px;
-  box-shadow: 2px 2px 2px 2px grey;
+  /* box-shadow: 2px 2px 2px 2px grey; */
   /* background-color: ; */
   cursor: pointer;
   color: black;
@@ -503,13 +506,18 @@ input::-webkit-inner-spin-button {
   outline: none;
   border-radius: 10px;
   background-color:  white;
-  box-shadow: 2px 2px 2px 2px grey;
+  /* box-shadow: 2px 2px 2px 2px grey; */
   /* background-image: linear-gradient(50deg,lightblue,#86d6e8,white); */
   cursor: pointer;
-  color: black;
+  background-color: black;
+  color: white;
   overflow: hidden;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
+}
+.buynow:hover{
+  /* box-shadow: 0.5rem 0.5rem #86d6e8, -0.5rem -0.5rem white; */
+  opacity: 80%;
 }
 /*  scrool bar  */
 /* width */

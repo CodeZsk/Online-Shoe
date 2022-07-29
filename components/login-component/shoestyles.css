@@ -14,6 +14,7 @@ body {
   background-image: url("../../assets/image/shoesbackground.jpg");
   background-size:400px ;
   /* background-repeat: no-repeat; */
+  cursor: default;
 }
 
 .hide {
@@ -69,7 +70,7 @@ h2 {
 }
 
 .infocontainer input:hover {
-  box-shadow: 2px 2px 1px 1px black;
+  box-shadow: 1px 1px 1px 1px black;
 }
 
 .usernameicon {
@@ -112,6 +113,7 @@ h2 {
   height: 40px;
   border-radius: 12px;
   border: none;
+  cursor: pointer;
 }
 
 .twobutton img {
@@ -121,7 +123,7 @@ h2 {
 }
 
 .twobutton button:hover {
-  box-shadow: 2px 2px 1px 1px black;
+  box-shadow: 1px 1px 1px 1px black;
 
 }
 
@@ -361,4 +363,7 @@ button {
   .imgcontainer {
     display: none;
   }
+}
+.forgot-password{
+  cursor: pointer;
 }
