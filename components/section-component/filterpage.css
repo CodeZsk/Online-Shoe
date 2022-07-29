@@ -106,10 +106,11 @@ h3 {
 }
 
 .brandimage {
-  width: 70px;
-  height: 70px;
-  margin: 12px;
-  margin-bottom: 2px;
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  margin-bottom: 1px;
+  cursor: pointer;
 
 }
 

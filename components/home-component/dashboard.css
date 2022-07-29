@@ -55,7 +55,6 @@ h3 {
 h3:hover{
   color: #86d6e8;
   font-weight: bold;
-
 }
 .et-hero-tabs,
 .et-slide {
@@ -186,9 +185,12 @@ h3:hover{
   position: absolute;
   bottom: 0;
   width: 0;
-  height: 6px;
-  background: #86d6e8;
+  height: 5px;
+  background: black;
+  /* background: #86d6e8; */
   transition: left 0.3s ease;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 150px;
 }
 
 .brandimage {
@@ -627,19 +629,26 @@ span {
 }
 
 #image1 {
-  background: url("https://cdn.dribbble.com/users/2502549/screenshots/15563256/media/4e0b175d1ca81060cfdbf49d36022ca6.png?compress=1&resize=1000x750&vertical=top");
+  background-image: url("../../assets/image/sliderfirstimage.jpg");
+  /* background: url("https://cdn.dribbble.com/users/2502549/screenshots/15563256/media/4e0b175d1ca81060cfdbf49d36022ca6.png?compress=1&resize=1000x750&vertical=top"); */
 }
 
 #image2 {
-  background: url("https://cdn.dribbble.com/users/730703/screenshots/17515984/media/4dd92322fb915b00e6a0f0f3b1d4bf6c.jpg?compress=1&resize=800x600&vertical=top");
+  background-image: url("../../assets/image/nikeeshoesslideeee.webp");
+  background-position: center;
 }
 
 #image3 {
+  /* background-image: url(""); */
+  /* background-position: center; */
+  /* background-size: 100px 100px; */
+
   background: url("https://cdn.dribbble.com/users/914722/screenshots/11592937/media/3b542a8e2a97af2fb308cc5b4fd14f67.png?compress=1&resize=1000x750&vertical=top");
 }
 
 #image4 {
-  background: url("https://cdn.dribbble.com/users/1174720/screenshots/6187664/media/bd16558d7111dd1664d6dc3914660da0.png?compress=1&resize=1000x750&vertical=top");
+  background: url("https://cdn.dribbble.com/users/730703/screenshots/17515984/media/4dd92322fb915b00e6a0f0f3b1d4bf6c.jpg?compress=1&resize=800x600&vertical=top");
+  /* background: url("https://cdn.dribbble.com/users/1174720/screenshots/6187664/media/bd16558d7111dd1664d6dc3914660da0.png?compress=1&resize=1000x750&vertical=top"); */
 }
 
 #image5 {
@@ -647,10 +656,13 @@ span {
 }
 
 #image6 {
+  /* background-image: url("../../assets/image/sliderthirdimage.jpgresize=1000x750&vertical=top"); */
+  background-size: 300px 300px;
   background: url("https://cdn.dribbble.com/users/1548856/screenshots/9388183/media/fafd357907eac02e392e1e42ddc17847.png?compress=1&resize=1000x750&vertical=top");
 }
 
 #image7 {
+  /* background-image: url("../../assets/image/slidersecondimage.jpg"); */
   background: url("https://cdn.dribbble.com/users/52758/screenshots/3832733/media/9030f1f57cfb7e83544d67d0e17f951c.jpg");
 }
 
@@ -1122,23 +1134,24 @@ padding-top: 25%;
 
 /*  */
 .krishnaani{
-  font-size:1rem;
+  font-size:1.2rem;
   color: black;
   position: absolute;
-  left: 1px;
+  z-index: 5px;
+  left: 0px;
   bottom: 1px;
   cursor: default;
 }
 .blueofbrand{
-  font-size:1.2rem;
+  font-size:1.3rem;
   animation: colorchange 10s ease-in-out infinite;
 }
 .yellowofbrand{
-  font-size:1.2rem;
+  font-size:1.3rem;
 animation: colorchange 10s ease-in-out infinite;
 }
 .blackofbrand{
-  font-size:1.2rem;
+  font-size:1.3rem;
   animation: colorchange 10s ease-in-out infinite;
 }
 
