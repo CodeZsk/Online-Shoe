@@ -5,6 +5,230 @@ const mainPage = document.querySelector(".detailspage");
 const productadminBtn = document.querySelector(".product-btn");
 const order = document.querySelector("#order");
 
+let state = "Order";
+
+const search = document.querySelector(".search");
+search.addEventListener("change", () => {
+  let id = search.value;
+  renderSearchProduct(id);
+});
+
+function searchAdminHtml(id) {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function () {
+    mainPage.innerHTML = this.responseText;
+    // addPageBtn.classList.remove("hide-btn");
+    const table = document.querySelector(".detailspage table");
+    eel.getSingleProduct(id)((product) => {
+      console.log(product);
+      const tr = document.createElement("tr");
+      const td_id = document.createElement("td");
+      const td_name = document.createElement("td");
+      const td_type = document.createElement("td");
+      const td_quantity = document.createElement("td");
+      const td_price = document.createElement("td");
+      const td_color = document.createElement("td");
+      const td_edit = document.createElement("td");
+      const td_delete = document.createElement("td");
+
+      const editBtn = document.createElement("button");
+      editBtn.textContent = "Edit";
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "Delete";
+
+      tr.setAttribute("data-id", product._id);
+      td_id.textContent = product._id;
+      td_name.textContent = product.name;
+      td_type.textContent = product.type;
+      td_quantity.textContent = product.availability.quantity;
+      td_price.textContent = product.price;
+      td_color.textContent = product.availability.color;
+      td_edit.appendChild(editBtn);
+      td_edit.addEventListener("click", () => {
+        eel.getSingleProduct(product._id)((product) =>
+          editProductHtml(product)
+        );
+      });
+      td_delete.appendChild(deleteBtn);
+      td_delete.addEventListener("click", () => {
+        eel.getSingleProduct(product._id)((product) => {
+          const isDeleteProduct = prompt(
+            `Do you want to delete a product \n ID: ${product._id}, Type 'YES'`
+          );
+          if (isDeleteProduct == "YES") {
+            eel.delete_single_product(product._id)((res) => {
+              if (res.status == "deleted") {
+                alert("Product deleted successfully");
+                adminHtml();
+              }
+            });
+          }
+        });
+      });
+
+      tr.appendChild(td_id);
+      tr.appendChild(td_name);
+      tr.appendChild(td_type);
+      tr.appendChild(td_quantity);
+      tr.appendChild(td_price);
+      tr.appendChild(td_color);
+      tr.appendChild(td_edit);
+      tr.appendChild(td_delete);
+      table.appendChild(tr);
+    });
+  };
+
+  xhttp.open("GET", "./admin.html");
+  xhttp.send();
+}
+
+function searchOrderHtml(id) {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function () {
+    mainPage.innerHTML = this.responseText;
+    state = "Order";
+    addPageBtn.classList.add("hide-btn");
+    const table = document.querySelector(".detailspage table");
+    eel.getOrderById(id)((order) => {
+      const tr = document.createElement("tr");
+      const td_Oid = document.createElement("td");
+      const td_Cid = document.createElement("td");
+      const td_Pid = document.createElement("td");
+      const td_productName = document.createElement("td");
+      const td_productQuantity = document.createElement("td");
+      const td_productPrice = document.createElement("td");
+      const td_productColor = document.createElement("td");
+      const td_Oedit = document.createElement("td");
+      const td_status = document.createElement("td");
+
+      const status = document.createElement("select");
+      status.disabled = true;
+
+      const optionPandding = document.createElement("option");
+      optionPandding.setAttribute("value", "Pending");
+      optionPandding.textContent = "Pending";
+      const optionOnProcess = document.createElement("option");
+      optionOnProcess.setAttribute("value", "On Process");
+      optionOnProcess.textContent = "On Process";
+      const optionDelivered = document.createElement("option");
+      optionDelivered.setAttribute("value", "Delivered");
+      optionDelivered.textContent = "Delivered";
+
+      const editBtn = document.createElement("button");
+      editBtn.disabled = true;
+      editBtn.textContent = "Edit";
+
+      if (order.order.order_status == "Pending") {
+        optionPandding.selected = "Selected";
+        editBtn.disabled = false;
+      } else if (order.order.order_status == "On Process") {
+        optionOnProcess.selected = "Selected";
+        editBtn.disabled = false;
+      } else if (order.order.order_status == "Cancel") {
+        const optionOnCancel = document.createElement("option");
+        optionOnCancel.setAttribute("value", "Cancel");
+        optionOnCancel.textContent = "Cancel";
+        optionOnCancel.selected = "Selected";
+        status.appendChild(optionOnCancel);
+      } else {
+        optionDelivered.selected = "Selected";
+      }
+
+      status.appendChild(optionPandding);
+      status.appendChild(optionOnProcess);
+      status.appendChild(optionDelivered);
+
+      editBtn.addEventListener("click", () => {
+        if (status.disabled) {
+          status.disabled = false;
+          editBtn.textContent = "Cancel";
+          status.addEventListener("change", () => {
+            editBtn.textContent = "Save";
+          });
+        } else {
+          var value = status.options[status.selectedIndex].value;
+          if (editBtn.textContent == "Save") {
+            if (value == "Delivered") {
+              Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "onlineshoes69@gmail.com",
+                Password: "0D17FC3473A6F7434D91FFEBF83CE82DF3C2",
+                To: order.user.user_email,
+                From: "onlineshoes69@gmail.com",
+                Subject: "Order Delivered",
+                Body: `
+                    hey ${order.user.user_name} 
+                    ${(document.innerHTML = `<br>`)}
+                    Your Order has been Delivered Successfully! 
+                    ${(document.innerHTML = `<br>`)}
+                    " Product Name: ${order.product.product_name} of Price: ${
+                  order.product.product_price
+                } " To Your Delivery Place
+                    ${(document.innerHTML = `<br>`)}
+                    Thank You For Buying Product From SneakerHeadsHub
+                    `,
+              });
+            }
+            eel.update_order_status(order._id, value);
+            console.log(value);
+          }
+          status.disabled = true;
+          editBtn.textContent = "Edit";
+        }
+      });
+
+      tr.setAttribute("data-id", order._id);
+      td_Oid.textContent = order._id;
+      td_Cid.textContent = order.user.user_id;
+      td_Pid.textContent = order.product.product_id;
+      td_productName.textContent = order.product.product_name;
+      td_productQuantity.textContent = order.product.product_quantity;
+      td_productPrice.textContent = order.product.product_price;
+      td_productColor.textContent = order.product.product_color;
+
+      td_status.appendChild(status);
+      td_Oedit.appendChild(editBtn);
+
+      tr.appendChild(td_Oid);
+      tr.appendChild(td_Cid);
+      tr.appendChild(td_Pid);
+      tr.appendChild(td_productName);
+      tr.appendChild(td_productQuantity);
+      tr.appendChild(td_productPrice);
+      tr.appendChild(td_productColor);
+      tr.appendChild(td_status);
+      tr.appendChild(td_Oedit);
+      table.appendChild(tr);
+    });
+  };
+  xhttp.open("GET", "./order.html");
+  xhttp.send();
+}
+
+function renderSearchProduct(id) {
+  if (state == "Product") {
+    if (!id) {
+      adminHtml();
+      return;
+    }
+    if (!id.trim()) {
+      adminHtml();
+      return;
+    }
+    searchAdminHtml(id);
+  } else if (state == "Order") {
+    if (!id) {
+      orderHtml("active");
+      return;
+    }
+    if (!id.trim()) {
+      orderHtml("active");
+      return;
+    }
+    searchOrderHtml(id);
+  }
+}
+
 order.addEventListener("click", () => {
   const orderDetails = order.options[order.selectedIndex];
 
@@ -26,6 +250,7 @@ function orderHtml(option) {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function () {
     mainPage.innerHTML = this.responseText;
+    state = "Order";
     renderOrder(option);
     addPageBtn.classList.add("hide-btn");
   };
@@ -220,6 +445,7 @@ function adminHtml() {
   xhttp.onload = function () {
     mainPage.innerHTML = this.responseText;
     addPageBtn.classList.remove("hide-btn");
+    state = "Product";
     renderProduct();
   };
 
