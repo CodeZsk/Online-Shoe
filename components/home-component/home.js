@@ -84,8 +84,25 @@ function onlineContainer() {
 
   const renderAll6 = (products, container, gender) => {
     console.log(products);
-    for (let i = 0; i <= 4; i++) {
-      let index = Math.floor(Math.random() * 4);
+    for (let i = 0; i <= 5; i++) {
+      let index = Math.floor(Math.random() * 5);
+      if (i == 5) {
+        const divMore = document.createElement("div");
+        divMore.classList.add("more");
+        divMore.style.backgroundImage = `url(${products[index].img[0]})`;
+        const moreH4 = document.createElement("h4");
+        moreH4.classList.add("textofmore");
+        moreH4.textContent = "See More";
+        moreH4.setAttribute("data-gender", gender);
+        moreH4.addEventListener("click", () =>
+          allProducts(moreH4.getAttribute("data-gender"))
+        );
+
+        container.appendChild(divMore);
+        divMore.appendChild(moreH4);
+        break;
+      }
+
       const containerDiv = document.createElement("div");
       containerDiv.classList.add("firstimage");
       containerDiv.setAttribute("data-id", products[index]._id);
@@ -112,21 +129,6 @@ function onlineContainer() {
       imgrelative.appendChild(div);
       h4relative.appendChild(h4);
       div.appendChild(img);
-
-      if (i == 4) {
-        const divMore = document.createElement("div");
-        divMore.classList.add("more");
-        const moreH4 = document.createElement("h4");
-        moreH4.classList.add("textofmore");
-        moreH4.textContent = "See More";
-        moreH4.setAttribute("data-gender", gender);
-        moreH4.addEventListener("click", () =>
-          allProducts(moreH4.getAttribute("data-gender"))
-        );
-
-        container.appendChild(divMore);
-        divMore.appendChild(moreH4);
-      }
     }
   };
 

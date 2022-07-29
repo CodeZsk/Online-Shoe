@@ -1069,11 +1069,11 @@ h1 {
   /* border: 1px dashed black; */
   /* background-image: url("https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6d3cccec-e483-433d-a45d-45a49945100a/zion-2-pf-basketball-shoes-pwN2Q4.png"); */
   /* more shoe wala shoe */
-  background-image: url("https://cdn.dribbble.com/users/1025917/screenshots/11589462/media/d1ff5e98a82d66e326f16e4c04520a12.jpg?compress=1&resize=1000x750&vertical=top");
+  /* background-image: url("https://cdn.dribbble.com/users/1025917/screenshots/11589462/media/d1ff5e98a82d66e326f16e4c04520a12.jpg?compress=1&resize=1000x750&vertical=top"); */
   filter: alpha(Opacity=90);
   opacity: 0.5;
   background-repeat: no-repeat;
-  background-size: 400px 300px;
+  background-size: cover;
   background-position: 20px;
   /* border: 1px solid #555; */
 }
