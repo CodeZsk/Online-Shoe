@@ -10,7 +10,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  cursor: default;
+  /* cursor: pointer; */
   /* background-color: #ffffff; */
 }
 
@@ -36,11 +36,13 @@ a {
   /* border-bottom-right-radius: 20px; */
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
-.mico:active {
+.mico img:active {
   /* border-bottom-left-radius: 30px; */
   /* border-bottom-right-radius:30px; */
   border-radius: 100px;
+  /* border-radius: 2px 2px 2px 2px red; */
   background-color:#86d6e8;
   padding: 0%;
   margin: 0%;
@@ -211,6 +213,7 @@ h3:hover{
   display: flex;
   gap: 80px;
   padding-right: 20px;
+  cursor: pointer;
   /* justify-content: space-between; */
 }
 
@@ -231,6 +234,7 @@ h3:hover{
   height: 30px;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .profile img {
@@ -637,6 +641,7 @@ span {
 
 #image8 {
   background: url("https://cdn.dribbble.com/users/77553/screenshots/11547223/media/595aef422e069d99d014bb713d0f531a.jpg?compress=1&resize=1000x750&vertical=top");
+  /* background-image: url("../../assets/image/Screenshot\ 2022-07-29\ 182823.png"); */
 }
 
 .slider-label {
@@ -907,7 +912,7 @@ span {
   height: 40px;
   margin-top: 335px;
   margin-left: 325px;
-
+  cursor: pointer;
 }
 
 .nextbtn {
@@ -1048,6 +1053,7 @@ h1 {
   color: black;
   /* border: 1px dashed black; */
   /* background-image: url("https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6d3cccec-e483-433d-a45d-45a49945100a/zion-2-pf-basketball-shoes-pwN2Q4.png"); */
+  /* more shoe wala shoe */
   background-image: url("https://cdn.dribbble.com/users/1025917/screenshots/11589462/media/d1ff5e98a82d66e326f16e4c04520a12.jpg?compress=1&resize=1000x750&vertical=top");
   filter: alpha(Opacity=90);
   opacity: 0.5;
@@ -1064,6 +1070,7 @@ h1 {
   text-align: center;
   font-size: 40px;
   margin: 30px;
+  cursor: pointer;
 
 }
 
@@ -1096,4 +1103,92 @@ padding-top: 25%;
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #86d6e8; 
+}
+
+/*  */
+.krishnaani{
+  font-size:1rem;
+  color: black;
+  position: absolute;
+  left: 1px;
+  bottom: 1px;
+  cursor: default;
+}
+.blueofbrand{
+  font-size:1.2rem;
+  animation: colorchange 10s ease-in-out infinite;
+}
+.yellowofbrand{
+  font-size:1.2rem;
+animation: colorchange 10s ease-in-out infinite;
+}
+.blackofbrand{
+  font-size:1.2rem;
+  animation: colorchange 10s ease-in-out infinite;
+}
+
+@keyframes colorchange {
+  10% {
+    color: #ff00ed;
+  }
+
+  20% {
+    color: #ff00ed;
+  }
+
+  30% {
+    color: #ff00ed;
+  }
+
+  40% {
+    color: #6cadff;
+  }
+
+  50% {
+    color: #6cadff;
+  }
+
+  60% {
+    color: #6cadff;
+  }
+
+  70% {
+    color: #ff5500;
+  }
+
+  80% {
+    color: #ff5500;
+  }
+
+  90% {
+    color: #ff5500;
+  }
+
+  100% {
+    color: #b8998d;
+  }
+
+  110% {
+    color: #b8998d;
+  }
+
+  120% {
+    color: #b8998d;
+  }
+
+  130% {
+    color: #b8998d;
+  }
+
+  140% {
+    color: #ffbd00;
+  }
+
+  150% {
+    color: #ffbd00;
+  }
+
+  160% {
+    color: #ffbd00;
+  }
 }

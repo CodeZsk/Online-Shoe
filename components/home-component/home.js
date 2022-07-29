@@ -142,130 +142,153 @@ function determineWords(speech, words) {
   if (words.includes("how are you")) {
     speech.text = "I am Fine, Thank you";
   }
-  if (words.includes("who am I")) {
+   else if  (words.includes("who am I")) {
     speech.text = "you are member of sneakerheadhub";
   }
-  if (words.includes("you will work right")) {
+   else if  (words.includes("you will work right")) {
     speech.text =
       "i think this will work in your app okay cool dont be  scared lol lmao krishna";
   }
-  if (words.includes("show me shoe")) {
-    speech.text = "showing shoe";
+   else if  (words.includes("show me shoe")) {
+    speech.text = "showing shoes";
     eel.setPageData("All");
     window.location.href = `../section-component/filterpage.html`;
   }
-  if (words.includes("show men shoes")) {
+  else if  (words.includes("show me shoes")) {
+    speech.text = "showing shoes";
+    eel.setPageData("All");
+    window.location.href = `../section-component/filterpage.html`;
+  }
+   else if  (words.includes("show men shoes")) {
     speech.text = "showing men shoe";
     eel.setPageData("Men");
     window.location.href = `../section-component/filterpage.html`;
   }
-  if (words.includes("show women shoe")) {
+   else if  (words.includes("show women shoe")) {
     speech.text = "showing women shoe";
     eel.setPageData("Women");
     window.location.href = `../section-component/filterpage.html`;
   }
-  if (words.includes("show unisex shoes")) {
+   else if  (words.includes("show unisex shoes")) {
     speech.text = "showing unisex shoe";
     eel.setPageData("Unisex");
     window.location.href = `../section-component/filterpage.html`;
   }
-  if (words.includes("show shoes")) {
+   else if  (words.includes("show shoes")) {
     speech.text = "showing shoes";
     window.location.href = `../section-component/filterpage.html`;
   }
-  if (words.includes("show shoes")) {
+   else if  (words.includes("show shoes")) {
     speech.text = "showing shoes";
     window.location.href = `../section-component/filterpage.html`;
   }
-  if (words.includes("show me your shoes")) {
+   else if  (words.includes("show me your shoes")) {
     speech.text = "showing shoes";
     window.location.href = `../section-component/filterpage.html`;
   }
-  if (words.includes("opencart")) {
+   else if  (words.includes("opencart")) {
     speech.text = "opening cart";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("opencard")) {
+   else if  (words.includes("opencard")) {
     speech.text = "opening cart";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("open cart")) {
+   else if  (words.includes("open cart")) {
     speech.text = "opening cart";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("open card")) {
+   else if  (words.includes("open card")) {
     speech.text = "click on cart to see,what's in your cart ";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("open profile")) {
+   else if  (words.includes("open profile")) {
     speech.text = "opening profile";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("open profiles")) {
+   else if  (words.includes("open profiles")) {
     speech.text = "opening profile";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("openprofile")) {
+   else if  (words.includes("openprofile")) {
     speech.text = "opening profile";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("open faq")) {
+   else if  (words.includes("open faq")) {
     speech.text = "opening faq";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("I have question")) {
+   else if  (words.includes("I have question")) {
     speech.text = "click on FAQ which is frequently asked question";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("i have question")) {
+   else if  (words.includes("i have question")) {
     speech.text = "click on FAQ which is frequently asked question";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("who made you")) {
+   else if  (words.includes("who made you")) {
     speech.text = "krishna created me and he is my god Thanks to him";
   }
-  if (words.includes("open FAQ")) {
+   else if  (words.includes("open FAQ")) {
     speech.text = "click on FAQ";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("show FAQ")) {
+   else if  (words.includes("show FAQ")) {
     speech.text = "click on FAQ";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("where is FAQ")) {
+   else if  (words.includes("where is FAQ")) {
     speech.text = "click on FAQ";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("where is faq")) {
+   else if  (words.includes("where is faq")) {
     speech.text = "click on FAQ";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("what is FAQ")) {
+   else if  (words.includes("what is FAQ")) {
     speech.text = "click on FAQ to know more";
     window.location.href = `../setting-component/setting.html`;
   }
   // about us 
-  if (words.includes("open about us")) {
+   else if  (words.includes("open about us")) {
     speech.text = "click on about us";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("show about us")) {
+   else if  (words.includes("show about us")) {
     speech.text = "click on about us";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("where is about us")) {
+  
+   else if  (words.includes("where is about us")) {
     speech.text = "click on about us";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("where is about us")) {
+   else if  (words.includes("where is about us")) {
     speech.text = "click on about us";
     window.location.href = `../setting-component/setting.html`;
   }
-  if (words.includes("what is about us")) {
+   else if  (words.includes("what is about us")) {
     speech.text = "click on about us to know more";
     window.location.href = `../setting-component/setting.html`;
   }
+  // ordersssssssss
+  else if  (words.includes("show orders")) {
+    speech.text = "click on  order to know more";
+    window.location.href = `../setting-component/setting.html`;
+  }
+  else if  (words.includes("show orders")) {
+    speech.text = "click on order to know more";
+    window.location.href = `../setting-component/setting.html`;
+  }
+  else if  (words.includes("show order")) {
+    speech.text = "click on order to know more";
+    window.location.href = `../setting-component/setting.html`;
+  }
+  
 
+  else {
+    speech.text = " sorry try again"
+  }
 }
 
 mic.addEventListener("click", () => {
