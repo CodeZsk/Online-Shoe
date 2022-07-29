@@ -43,6 +43,7 @@ function renderSingleProduct() {
   }
 
   eel.getSinglePageData()((product) => {
+    console.log(product);
     getProduct(product[0]);
   });
 
@@ -160,15 +161,24 @@ home.addEventListener("click", () => {
 
 cartBtn.addEventListener("click", () => {
   eel.setSettingPageData("cart");
+  eel.getSinglePageData()((product) => {
+    eel.setBackPageData(product[0]);
+  });
   window.location.href = "../setting-component/setting.html";
 });
 
 notificationBtn.addEventListener("click", () => {
   eel.setSettingPageData("order");
+  eel.getSinglePageData()((product) => {
+    eel.setBackPageData(product[0]);
+  });
   window.location.href = "../setting-component/setting.html";
 });
 
 setting.addEventListener("click", () => {
+  eel.getSinglePageData()((product) => {
+    eel.setBackPageData(product[0]);
+  });
   window.location.href = "../setting-component/setting.html";
 });
 
