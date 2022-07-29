@@ -6,8 +6,9 @@
     font-family: 'Poppins', sans-serif;
 
     font-family: 'Roboto', sans-serif; */
-body{
+body {
   font-family: 'Poppins', sans-serif;
+
     margin: 10px;
     overflow-y: hidden;
     cursor: pointer;

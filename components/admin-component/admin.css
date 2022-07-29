@@ -6,25 +6,28 @@
     font-family: 'Poppins', sans-serif;
 
     font-family: 'Roboto', sans-serif; */
-body{
+body {
   font-family: 'Poppins', sans-serif;
   margin: 10px;
   overflow-y: hidden;
 }
-.sforflex{
+
+.sforflex {
   display: flex;
   background-color: white;
   justify-content: end;
   align-items: center;
   margin-right: 80px;
-  gap:20px;
-  padding-bottom:8px;
+  gap: 20px;
+  padding-bottom: 8px;
 }
-.lolsearch{
+
+.lolsearch {
   display: center;
   align-items: center;
   justify-content: center;
 }
+
 .search {
   border: 1px solid black;
   width: 200px;
@@ -32,16 +35,18 @@ body{
   border-radius: 6px;
 }
 
-.search:focus{
+.search:focus {
   border: 1px solid black;
 }
-.sforflex button{
+
+.sforflex button {
   background-color: white;
   border: 1px solid black;
   width: 40px;
   height: 30px;
   border-radius: 6px;
 }
+
 .pagecontainer{
     display:flex;
     gap:10px;
@@ -118,6 +123,7 @@ body{
     background-color: #86d6e8;
   }
   /*  scrool bar  */
+
 /* width */
 .detailspage::-webkit-scrollbar {
   width: 6px;
@@ -125,25 +131,25 @@ body{
 
 /* Track */
 .detailspage::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
   border-radius: 10px;
 }
 
 /* Handle */
 .detailspage::-webkit-scrollbar-thumb {
-  background: white; 
+  background: white;
   border-radius: 6px;
   height: 2px;
   /* background-color: #86d6e8; */
-  background-color:lightgreen;
+  background-color: lightgreen;
 }
 
 /* Handle on hover */
 .detailspage::-webkit-scrollbar-thumb:hover {
-  background: #86d6e8; 
+  background: #86d6e8;
 }
 
-.orderdetailsdropdown{
+.orderdetailsdropdown {
   font-size: 20px;
   border: none;
   background-color: transparent;

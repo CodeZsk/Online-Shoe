@@ -1,5 +1,6 @@
 import random
 import time
+from turtle import back
 import eel
 from util.utils import message
 from db.db_curd_function.update import *
@@ -8,8 +9,8 @@ from db.db_curd_function.insert import *
 from db.db_curd_function.delete import *
 
 
-eel.init('C:\\Users\\krishna\\Desktop\\Online-Shoe')
-# eel.init('/home/zaid/Desktop/softwareDevProject/Online-Shoe')
+# eel.init('C:\\Users\\krishna\\Desktop\\Online-Shoe')
+eel.init('/home/zaid/Desktop/softwareDevProject/Online-Shoe')
 
 
 data = [None]
@@ -30,6 +31,7 @@ def setPageData(prop):
 def getPageData():
     global data
     returnData = data
+    print("get page data", returnData)
     # data = [None]
     return returnData
 
@@ -113,13 +115,27 @@ def getVerificationCode():
     return code
 
 
+backPage = ''
+
+
+@eel.expose
+def setBackPageData(data):
+    global backPage
+    backPage = data
+
+
+@eel.expose
+def getBackPage():
+    print(backPage)
+    return backPage
+
+
 # def on_close(page, websockets):
 #     print(page)
 #     changedPage = False
 #     if changedPage:
 #         print(page, 'closed')
 #         print('Still have websockets open to', websockets)
-
 
 eel.start('./components/login-component/SignUpLogin.html',
           size=(1000, 600))

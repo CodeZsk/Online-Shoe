@@ -151,6 +151,21 @@ h3:hover{
   font-family: 'Poppins', sans-serif;
 }
 
+.search-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  /* text color */
+  color: black;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+  font-family: 'Poppins',
+  sans-serif;
+}
+
 .et-hero-tab.tooltiptext {
   visibility: hidden;
 }

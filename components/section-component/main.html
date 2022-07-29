@@ -1,30 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SneakerHeadHub</title>
-    <script src="../../eel.js"></script>
-    <link
-      rel="shortcut icon"
-      href="../../assets/image/Logo.png"
-      type="image/x-icon"
-    />
-  </head>
-
-  <body>
-    <div class="main">
-      <!-- <link rel="stylesheet" href="filterpage.css">
+<link rel="stylesheet" href="filterpage.css">
     <div class="et-hero-tabs-container">
         <span><img src="../../assets/image/Logo.png" alt="icon"
                 class="brandimage"></a></span>
-                <!-- <span class="krishnaani">
-                    <span class="blueofbrand">S</span>neaker<span 
-                    class="yellowofbrand">H</span>ead<span class="blackofbrand">H</span>ub
-                    </span> -->
         <a class="et-hero-tab all" href="#tab-Home">
             <h3>All</h3>
         </a>
@@ -46,10 +23,10 @@
             <button class="profile cart">
                 <img src="../../assets/image/navbarcartimage.png" alt="shoppincart">
             </button>
-            
+            <!-- profile -->
             <button class="profile setting" ><img src="../../assets/image/profile-img.png" alt="profile">
             </button>
-            
+            <!-- <button class="log-out">Log-Out</button> -->
         </div>
 
         <span class="et-hero-tab-slider"></span>
@@ -59,6 +36,21 @@
             <div class="headof">
                 <h3>Filter Your Shoes</h3>
             </div>
+            <!-- <div class="filterofgender">
+                <br>
+                <div class="gendertype1">
+                    <label for="men">MEN</label>
+                    <input type="radio" name="shoegender" id="men" class="men-filter">
+                </div>
+                <div class="gendertype2">
+                    <label for=" men">Women</label>
+                    <input type="radio" name="shoegender" id="women" class="women-filter">
+                </div>
+                <div class="gendertype3">
+                    <label for=" men">Unisex</label>
+                    <input type="radio" name="shoegender" id="unisex" class="unisex-filter">
+                </div>
+            </div> -->
             <div class="sizeofshoes">
             </div>
             <div class="typesofshoes">
@@ -105,6 +97,12 @@
                             <input type="checkbox">
                             <label for="Skechers">Skechers</label>
                         </div>
+
+                        <!-- add more brand if you need  -->
+                        <!-- <div>
+                        <input type="checkbox">
+                        <label for="Adidas">Adidas</label> 
+                    </div> -->
                     </div>
 
 
@@ -136,17 +134,4 @@
 
             </div>
         </div>
-    </div> -->
     </div>
-    <script src="./allProduct.js"></script>
-    <script>
-      let slider = document.getElementById("myRange");
-      let output = document.getElementById("demo");
-      output.innerHTML = slider.value;
-
-      slider.oninput = function () {
-        output.innerHTML = slider.value;
-      };
-    </script>
-  </body>
-</html>
