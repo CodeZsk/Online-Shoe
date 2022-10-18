@@ -4,96 +4,302 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Setting</title>
+    <title>SneakerHeadHub</title>
     <link rel="stylesheet" href="./setting.css" />
+    <link rel="shortcut icon" href="../../assets/image/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
-  <body>
-    <aside class="sidebar">
+  <body class="main-body">
+    <!-- <aside class="sidebar">
       <div class="user-pic">
-        <video src="https://cdn-icons-mp4.flaticon.com/512/6172/6172524.mp4" width="180" height="100" autoplay loop muted></video>
-        <!-- <img src="https://cdn-icons-mp4.flaticon.com/512/6172/6172524.mp4" alt="lol" /> -->
+
+        <div><i class="fa-solid fa-chevron-left back"></i></div>
+        <video
+
+          src="https://cdn-icons-mp4.flaticon.com/512/6172/6172524.mp4"
+          width="180"
+          height="100"
+          autoplay
+          loop
+          muted
+        ></video>
+        
+
       </div>
       <div class="container">
-       <div class="settings"> 
-          <div><h3 class="home">Home</h3></div>
-          <div><h3 class="user">User</h3></div>
-          <div><h3 class="cart">Cart</h3></div>
-          <div><h3 class="order">Orders</h3></div>
-          <div><h3 class="log-out">Log Out</h3></div>
-          <div><h3>Help</h3></div>
-          <div><h3>About us</h3></div>
+        <div class="settings">
+          <div><h4 class="home">Home</h4></div>
+          <div><h4 class="user">User</h4></div>
+          <div><h4 class="cart">Cart</h4></div>
+          <div><h4 class="order">Orders</h4></div>
+          
+          <div><h4 id="faq" class="cart">FAQ</h4></div>
+          
+          <div><h4 class="order" id="mybtn">About us</h4></div>
           <div class="about">
-          <h3>Contact us </h3>
+            <h4 id="customer">Contact us</h4>
           </div>
+          <div><h4 class="log-out">Log Out</h4></div>
         </div>
       </div>
     </aside>
     <section id="main">
       <section class="user-profile">
         <div class="user-info">
-          <div class="btn-container">
-            <button>Edit</button>
-          </div>
-          <div class="username">
-            <label for="name">
-              <h4>Name:</h4>
-            </label>
-            <input type="text" name="name" class="name-input" />
-          </div>
-          <div class="dob-container">
-            <label for="dob">
-              <h4>Date of Birth:</h4>
-            </label>
-            <input type="date" name="dob" class="dob-input" />
-          </div>
-          <div class="gender-container">
-            <label for="gender">
-              <h4>Gender:</h4>
-            </label>
-            <div class="radio-btn">
-              <input type="radio" name="gender" value="male" />
-              <span>Male</span>
-              <input type="radio" name="gender" value="female" />
-              <span>Female</span>
+          <form>
+            <div class="btn-container">
+              <button class="edit-btn edit" type="submit">Edit</button>
             </div>
-          </div>
-          <div class="contact-details">
-            <label for="phone">
-              <h4>Phone:</h4>
-            </label>
-            <input type="number" name="phone" class="phone-input" />
-            <label for="email">
-              <h4>Email:</h4>
-            </label>
-            <input type="email" class="email-input" />
-          </div>
-          <div class="address-container">
-            <h3>Address</h3>
-            <label for="flat">
-              <h4>Flat, House no., Building, Company, Apartment</h4>
-            </label>
-            <input type="text" name="flat" class="flat-input" />
-            <label for="area">
-              <h4>Area, Street, Sector, Village</h4>
-            </label>
-            <input type="text" name="area" class="area-input" />
-            <label for="landmark">
-              <h4>Landmark</h4>
-            </label>
-            <input type="text" name="landmark" class="landmark-input" />
-            <label for="town">
-              <h4>Town/City</h4>
-            </label>
-            <input type="text" name="town" class="town-input" />
-            <label for="state">
-              <h4>State</h4>
-            </label>
-            <input type="text" name="state" class="state-input" />
-          </div>
+            <div class="username">
+              <label for="name">
+                <h3>Name:</h3>
+              </label>
+              <input
+                type="text"
+                name="name"
+                class="name-input input- input-disable"
+                required
+              />
+            </div>
+            <div class="dob-container">
+              <label for="dob">
+                <h3>Date of Birth:</h3>
+              </label>
+              <input
+                type="date"
+                name="dob"
+                class="dob-input input- input-disable"
+                required
+              />
+            </div>
+            <div class="gender-container">
+              <label for="gender">
+                <h3>Gender:</h3>
+              </label>
+              <div id="genderwithid" class="radio-btn input- input-disable">
+                <input type="radio" id="male" name="gender" value="male" />
+                <span class="genderspan">Male</span>
+                <input type="radio" id="female" name="gender" value="female" />
+                <span class="genderspan">Female</span>
+              </div>
+            </div>
+            <div class="contact-details">
+              <label for="phone">
+                <h3>Phone:</h3>
+              </label>
+              <input
+                type="number"
+                name="phone"
+                class="phone-input input- input-disable"
+                required
+              />
+              <label for="email">
+                <h3>Email:</h3>
+              </label>
+              <input
+                type="email"
+                class="email-input input- input-disable"
+                disabled
+                required
+              />
+            </div>
+            <div class="address-container">
+              <h3>Address</h3>
+              <label for="flat">
+                <h5>Flat, House no., Building, Company, Apartment</h5>
+              </label>
+              <input
+                type="text"
+                name="flat"
+                class="flat-input input- input-disable"
+                required
+              />
+              <label for="area">
+                <h3>Area, Street, Sector, Village</h3>
+              </label>
+              <input
+                type="text"
+                name="area"
+                class="area-input input- input-disable"
+                required
+              />
+              <label for="landmark">
+                <h3>Landmark</h3>
+              </label>
+              <input
+                type="text"
+                name="landmark"
+                class="landmark-input input- input-disable"
+              />
+              <label for="town">
+                <h3>Town/City</h3>
+              </label>
+              <input
+                type="text"
+                name="town"
+                class="town-input input- input-disable"
+                required
+              />
+              <label for="Pincode">
+                <h3>Pincode</h3>
+              </label>
+              <input
+                type="number"
+                name="Pincode"
+                class="pincode-input input- input-disable"
+                required
+                minlength="6"
+                maxlength="6"
+              />
+              <label for="state">
+                <h3>State</h3>
+              </label>
+              <input
+                type="text"
+                name="state"
+                class="state-input input- input-disable"
+                required
+              />
+            </div>
+          </form>
         </div>
       </section>
     </section>
+    <div id="faqmodal" class="faqmodal">
+      <div class="faqmodalback"></div>
+      <div class="faqmodalcontent">
+    
+        <div class="faq">
+          <div class="question">
+            <div class="okbhaihojaabhi">
+              
+            <h1>
+              FREQUENTLY ASKED QUESTIONS
+            </h1>
+        <span id="faqclose" class="close">&times</span>
+            </div>
+            <div>
+              <h4>
+    
+                How long does delivery take?
+              </h4>
+              <p>
+                The orders are normally shipped within 2-3 working days (Monday-Friday) from the order date. The order will be delivered to the customers within 7-10 working days from the date of shipment to serviceable locations.
+              </p>
+            </div>
+    
+            <div>
+              <h4>
+                Which payment methods do you accept?
+              </h4>
+              <p>
+                We accept Cash On Delivery. We may add/delete payment methods based on the usage by our customers.
+              </p>
+            </div>
+            <div>
+              <h4>
+                How much will delivery cost?
+              </h4>
+              <p>
+                Currently the delivery is free for you as the shipping charge is borne by us.
+              </p>
+            </div>
+    
+            <div>
+              <h4>
+                How do I clean my Skechers shoes?</h4>
+              <p>
+                Please follow below Do's & Don't to clean shoes
+                <br>
+                <br>
+                Do's
+                <br><br>
+                Remove excess dirt from the upper and outsole by using a soft brush or towel.
+                <br><br>
+                Remove the laces and insoles (wherever possible).
+                <br> <br>
+                Create a soapy mixture by combining water at room temperature and a small amount of mild detergent.
+                <br> <br>
+                Place the footwear in the mesh laundry bag to keep them from banging around in your washer. Close the bag and drop the bag into machine and Select low spin option.
+                <br> <br>
+                Rinse washes the footwear properly.
+                <br>
+                <br>
+                Dont's
+                <br> <br>
+                Don't put footwear in the machine dryer.
+                <br> <br>
+                Don’t use artificial means of drying.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mymodal" class="modal">
+      <div class="modal-back"></div>
+      <div class="modal-content">
+        <span  id="close" class="close">&times</span>
+        <p>
+        <div class="aboutus"> 
+          <h1> About us </h1>
+          <br>
+          <h4>In 2022, we found ourselves stumbling upon a unique idea – taking a fashionable step towards a better future by selling stylish and comfortable footwear.We dedicated our efforts towards fulfilling this purpose.</h4>
+          <h4>
+            <br> <br>
+            © 2022 SneakerHeadHub • All rights reserved
+          </h4>
+        </div>
+        </p>
+      </div>
+    </div>
+    
+    <div  id= "customermodal"class="modal">
+      <div class="customermodal-back"></div>
+      <div class="customermodal-content">
+        <div class="contactus-cont">
+          <div class="contactus"> 
+            <div class="rofl">
+              <div class="CustomerService">
+                <h2>Customer Service</h2>
+                <img src="/assets/image/24hours.png" alt="" class="allday">
+              </div>
+                <div class=cut>
+                  <span  id="customerclose" class="close">&times</span>
+                </div>
+            </div>
+              <h3>We are available from monday to  saturday to answer your questions.</h3>
+              <h3>
+                Call us on :
+                <span>
+                  9922379106
+                </span>
+              </h3>
+              <br>
+              <h3>We generally respond within 
+                
+                <b>
+                24 hours
+                  
+                </b>
+                to answer your questions.</h3>
+              <h3>
+                Email us on :
+                <span>
+                  <a href="mailto:onlineshoes69@gmail.com">
+
+                    onlineshoes69@gmail.com
+                  </a>
+                </span>
+              </h3>
+      </div>                -->
+    </div>
+      
+    </div>
     <script src="../../eel.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
     <script src="./setting.js"></script>
   </body>
 </html>

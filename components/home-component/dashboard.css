@@ -1,20 +1,62 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:wght@300&family=Roboto:wght@100&display=swap');
+
+
+/*     font-family: 'Cedarville Cursive', cursive;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-family: 'Roboto', sans-serif; */
 
 body {
-  font-family: "Rock 3D", cursive;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
+  /* cursor: pointer; */
+  /* background-color: #ffffff; */
 }
 
 a {
   text-decoration: none;
 }
-
-
+/* BOT KA BUTTON  */
+.mico{
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
+  /* position: absolute; */
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  border: none;
+}
+.mico img{
+  border: 1px solid black;
+  padding: 2px;
+  border-radius: 20px;
+  /* border-bottom-left-radius: 20px; */
+  /* border-bottom-right-radius: 20px; */
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.mico img:active {
+  /* border-bottom-left-radius: 30px; */
+  /* border-bottom-right-radius:30px; */
+  border-radius: 100px;
+  /* border-radius: 2px 2px 2px 2px red; */
+  background-color:#86d6e8;
+  padding: 0%;
+  margin: 0%;
+}
 h3 {
+  font-family: 'Poppins', sans-serif;
   font-size: large;
 }
 
+h3:hover{
+  color: #86d6e8;
+  font-weight: bold;
+
+}
 .et-hero-tabs,
 .et-slide {
   display: flex;
@@ -26,8 +68,8 @@ h3 {
   background-repeat: no-repeat;
   background: white;
   text-align: center;
-  padding: 0 2em;
-  border: 2px solid black;
+  padding: 0 1em;
+  border: 1px solid black;
 }
 
 .et-slidehome {
@@ -38,7 +80,7 @@ h3 {
   position: relative;
   background-color: white;
   padding: 0 2em;
-  border: 2px solid red;
+  border: 1px solid black;
 }
 
 .et-slidemen {
@@ -46,7 +88,7 @@ h3 {
   flex-direction: row;
   height: max-content;
   position: relative;
-  border: 2px solid black;
+  border: 1px solid black;
   background-color: white;
   padding: 0 2em;
 }
@@ -61,7 +103,7 @@ h3 {
   /* background: white; */
   /* text-align: center; */
   padding: 0 2em;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .et-slideunisex {
@@ -73,7 +115,7 @@ h3 {
   position: relative;
   /* text-align: center; */
   padding: 0 2em;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .et-hero-tabs-container {
@@ -106,6 +148,22 @@ h3 {
   letter-spacing: 0.1rem;
   transition: all 0.5s ease;
   font-size: 0.8rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.search-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  /* text color */
+  color: black;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+  font-family: 'Poppins',
+  sans-serif;
 }
 
 .et-hero-tab.tooltiptext {
@@ -114,12 +172,13 @@ h3 {
 
 .et-hero-tab:hover {
   color: black;
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
   background: white;
   /* background: rgba(102, 177, 241, 0.8); */
   /* box-shadow: 2px 2px 2px 2px black; */
-  width: 10px;
-  height: 40px;
+  /* width: 10px;
+  height: 40px; */
   transition: all 0.5s ease;
 }
 
@@ -133,28 +192,32 @@ h3 {
 }
 
 .brandimage {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   margin: 10px;
 
 }
-
-
 .searchicon {
-  border: 2px solid black;
+  border: 1px solid black;
   width: 20px;
   height: 20px;
   border-right-color: transparent;
+  padding-top: 2px;
 }
 
 .search {
-  border: 2px solid black;
+  padding-top: 3px;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid black;
   border-left-color: transparent;
   width: 200px;
   height: 18px;
-  /* border-radius: 20px; */
-
 }
+
+.search:focus{
+  border: 1px solid black;
+}
+
 
 .notification {
   width: 20px;
@@ -163,7 +226,9 @@ h3 {
 
 .cartandpro {
   display: flex;
-  gap: 50px;
+  gap: 80px;
+  padding-right: 20px;
+  cursor: pointer;
   /* justify-content: space-between; */
 }
 
@@ -184,6 +249,7 @@ h3 {
   height: 30px;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .profile img {
@@ -192,6 +258,7 @@ h3 {
 }
 
 span {
+  font-family: 'Poppins', sans-serif;
   font-size: 48px;
   color: red;
 }
@@ -589,6 +656,7 @@ span {
 
 #image8 {
   background: url("https://cdn.dribbble.com/users/77553/screenshots/11547223/media/595aef422e069d99d014bb713d0f531a.jpg?compress=1&resize=1000x750&vertical=top");
+  /* background-image: url("../../assets/image/Screenshot\ 2022-07-29\ 182823.png"); */
 }
 
 .slider-label {
@@ -608,11 +676,13 @@ span {
 }
 
 .slider-label.left {
-  background-image: url("http://iconsineed.com/icons/faticons/arrow-left-01-128.png");
+  background-image: url("../../assets/image/sliderleftbutton.png");
+  background-size: 20px 20px;
 }
 
 .slider-label.right {
-  background-image: url("http://iconsineed.com/icons/faticons/arrow-right-01-128.png");
+  background-image: url("../../assets/image/sliderRighttbutton.png");
+    background-size: 20px 20px;
 }
 
 .slider-buttons-div {
@@ -806,10 +876,12 @@ span {
 }
 
 .ussize {
+  font-family: 'Poppins', sans-serif;
   font-size: 20px;
 }
 
 .shoesize .ks {
+  font-family: 'Poppins', sans-serif;
   font-size: 18px;
   width: 30px;
   height: 30px;
@@ -822,6 +894,7 @@ span {
   display: flex;
   position: absolute;
   background-color: transparent;
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   margin-top: 340px;
   margin-left: 20px;
@@ -854,7 +927,7 @@ span {
   height: 40px;
   margin-top: 335px;
   margin-left: 325px;
-
+  cursor: pointer;
 }
 
 .nextbtn {
@@ -902,7 +975,7 @@ h2 {
 
 
 h1 {
-  font-family: "Rock 3D";
+  font-family: 'Poppins', sans-serif;
   font-size: 40px;
   color: black;
 }
@@ -929,9 +1002,7 @@ h1 {
   gap: 4rem;
 }
 
-.man-shoe-container,
-.women-shoe-container,
-.unisex-shoe-container {
+.man-shoe-container, .women-shoe-container, .unisex-shoe-container{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -943,12 +1014,12 @@ h1 {
 
 
 
-.krishnagrid .firstimage {
+.krishnagrid .firstimage{
   background-color: transparent;
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: auto;
+  height: auto; 
   cursor: pointer;
   /* position: absolute; */
 }
@@ -962,6 +1033,7 @@ h1 {
 
 .h4relative {
   position: absolute;
+  font-family: 'Poppins', sans-serif;
   font-size: 2vh
 }
 
@@ -994,23 +1066,144 @@ h1 {
 .more {
   display: block;
   color: black;
-  border: 2px dashed black;
-  background-image: url("https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6d3cccec-e483-433d-a45d-45a49945100a/zion-2-pf-basketball-shoes-pwN2Q4.png");
+  /* border: 1px dashed black; */
+  /* background-image: url("https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6d3cccec-e483-433d-a45d-45a49945100a/zion-2-pf-basketball-shoes-pwN2Q4.png"); */
+  /* more shoe wala shoe */
+  /* background-image: url("https://cdn.dribbble.com/users/1025917/screenshots/11589462/media/d1ff5e98a82d66e326f16e4c04520a12.jpg?compress=1&resize=1000x750&vertical=top"); */
   filter: alpha(Opacity=90);
   opacity: 0.5;
   background-repeat: no-repeat;
-  background-size: 400px 300px;
+  background-size: cover;
+  background-position: 20px;
+  /* border: 1px solid #555; */
 }
 
 .textofmore {
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
   color: black;
   text-align: center;
   font-size: 40px;
   margin: 30px;
+  cursor: pointer;
 
 }
 
 h4 {
-  margin: 8px;
+  margin: 15px;
+padding-top: 25%;
+}
+
+/*  scrool bar  */
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white; 
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white; 
+  border-radius: 106px;
+  height: 0.01em;
+  /* background-color: #86d6e8; */
+  background-color:#555;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #86d6e8; 
+}
+
+/*  */
+.krishnaani{
+  font-size:1rem;
+  color: black;
+  position: absolute;
+  left: 1px;
+  bottom: 1px;
+  cursor: default;
+}
+.blueofbrand{
+  font-size:1.2rem;
+  animation: colorchange 10s ease-in-out infinite;
+}
+.yellowofbrand{
+  font-size:1.2rem;
+animation: colorchange 10s ease-in-out infinite;
+}
+.blackofbrand{
+  font-size:1.2rem;
+  animation: colorchange 10s ease-in-out infinite;
+}
+
+@keyframes colorchange {
+  10% {
+    color: #ff00ed;
+  }
+
+  20% {
+    color: #ff00ed;
+  }
+
+  30% {
+    color: #ff00ed;
+  }
+
+  40% {
+    color: #6cadff;
+  }
+
+  50% {
+    color: #6cadff;
+  }
+
+  60% {
+    color: #6cadff;
+  }
+
+  70% {
+    color: #ff5500;
+  }
+
+  80% {
+    color: #ff5500;
+  }
+
+  90% {
+    color: #ff5500;
+  }
+
+  100% {
+    color: #b8998d;
+  }
+
+  110% {
+    color: #b8998d;
+  }
+
+  120% {
+    color: #b8998d;
+  }
+
+  130% {
+    color: #b8998d;
+  }
+
+  140% {
+    color: #ffbd00;
+  }
+
+  150% {
+    color: #ffbd00;
+  }
+
+  160% {
+    color: #ffbd00;
+  }
 }

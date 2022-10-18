@@ -1,27 +1,41 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:wght@300&family=Roboto:wght@100&display=swap');
+
+
+/*     font-family: 'Cedarville Cursive', cursive;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-family: 'Roboto', sans-serif; */
+
 body {
-  font-family: "Rock 3D",
-  cursive;
+  font-family: 'Poppins', sans-serif;
+
   background-color: black;
   background-image: url("../../assets/image/shoesbackground.jpg");
-  background-size: 600px;
+  background-size:400px ;
+  /* background-repeat: no-repeat; */
+  cursor: default;
 }
-.hide{
+
+.hide {
   display: none;
 }
+
 .container {
   margin: 30px;
   display: flex;
   gap: 20px;
 }
+
 .imgcontainer {
   display: flex;
   flex-direction: column;
 }
+
 .imgcontainer img {
   box-shadow: 3px 2px 3px 4px grey;
 }
+
 .login {
   display: flex;
   flex-direction: column;
@@ -35,50 +49,61 @@ body {
   /* animation: colorchange 10s ease-in-out infinite; */
   background-image: url("../../assets/animation/oie_3dMREpXbNmML.gif");
 }
+
 h1,
 h2 {
-  font-family: "Rock 3D", cursive;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
 }
+
 .infocontainer {
   display: flex;
   flex-direction: column;
 }
+
 .infocontainer input {
-  font-family: "Rock 3D", cursive;
+  font-family: 'Poppins', sans-serif;
   width: 200px;
   height: 30px;
   border-radius: 12px;
   border: 1px solid transparent;
 }
+
 .infocontainer input:hover {
-  box-shadow: 2px 2px 2px 3px black;
+  box-shadow: 1px 1px 1px 1px black;
 }
+
 .usernameicon {
   width: 50px;
   height: 46px;
   margin-left: 3px;
   margin-bottom: 3px;
 }
+
 .passwordicon {
   width: 50px;
   height: 50px;
   margin-left: 3px;
 }
+
 .emailicon {
   width: 50px;
   height: 50px;
   margin-left: 3px;
 }
-.signUp, .signIn {
-    width: 320px;
-    height: 320px;
+
+.signUp,
+.signIn {
+  width: 320px;
+  height: 320px;
 }
+
 .twobutton {
   display: flex;
   flex-direction: row;
   gap: 20px;
 }
+
 .twobutton button {
   display: flex;
   align-items: center;
@@ -88,33 +113,42 @@ h2 {
   height: 40px;
   border-radius: 12px;
   border: none;
+  cursor: pointer;
 }
+
 .twobutton img {
   width: 30px;
   height: 30px;
-  border-radius: 12px;
+  border-radius: 10px;
 }
+
 .twobutton button:hover {
-  box-shadow: 2px 2px 2px 3px black;
+  box-shadow: 1px 1px 1px 1px black;
+
 }
+
 .twobutton .frontshoe img:hover {
   animation: shoesmove 5s ease-in-out infinite;
 }
 
 @keyframes shoesmove {
   10% {
-    transform: translateX(-40px);
+    transform: translateX(-35px);
   }
+
   20% {
     transform: translateX(-30px);
   }
+
   30% {
     transform: translateX(-20px);
   }
+
   40% {
     transform: translateX(1px);
   }
 }
+
 .twobutton .backshoe img:hover {
   animation: shoesback 5s ease-in-out infinite;
 }
@@ -123,12 +157,15 @@ h2 {
   10% {
     transform: translateX(36px);
   }
+
   20% {
     transform: translateX(30px);
   }
+
   30% {
     transform: translateX(20px);
   }
+
   40% {
     transform: translateX(5px);
   }
@@ -138,70 +175,92 @@ h2 {
   10% {
     background-color: #ff00ed;
   }
+
   20% {
     background-color: #ff00ed;
   }
+
   30% {
     background-color: #ff00ed;
   }
+
   40% {
     background-color: #6cadff;
   }
+
   50% {
     background-color: #6cadff;
   }
+
   60% {
     background-color: #6cadff;
   }
+
   70% {
     background-color: #ff5500;
   }
+
   80% {
     background-color: #ff5500;
   }
+
   90% {
     background-color: #ff5500;
   }
+
   100% {
     background-color: #b8998d;
   }
+
   110% {
     background-color: #b8998d;
   }
+
   120% {
     background-color: #b8998d;
   }
+
   130% {
     background-color: #b8998d;
   }
+
   140% {
     background-color: #ffbd00;
   }
+
   150% {
     background-color: #ffbd00;
   }
+
   160% {
     background-color: #ffbd00;
   }
 }
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-.adminmodal{
+
+.adminmodal {
   display: flex;
   flex: end;
   justify-content: end;
 }
-.modal{
+
+.modal {
   display: none;
 }
+
 .container {
   margin-bottom: 1em;
 }
 
 .modal-content {
+  /* ----------------------------------------------------font added in modal of admin newwwwwwwww font  */
+  font-family: 'Poppins', sans-serif;
+  
   width: 400px;
   font-size: medium;
   display: flex;
@@ -222,63 +281,76 @@ h2 {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.modal-title{
+.modal-title {
   background-image: url("https://wallpaperaccess.com/full/16668.jpg");
   padding: 1em;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.modal-title p{
+
+.modal-title p {
   font-weight: bold;
   font-size: 30px;
+  /* -------------------------new font                            */
+  font-family: 'Poppins', sans-serif;
+  
   color: white;
 }
 
 .modal-title span {
   font-size: 1.4rem;
+  font-family: 'Poppins', sans-serif;
 }
 
-.modalbody{
+.modalbody {
   display: flex;
   background-image: url("https://wallpaperaccess.com/full/16668.jpg");
   gap: 50px;
 }
-.holder1{
+
+.holder1 {
   display: flex;
   flex-direction: column;
 }
-.holder2{
+
+.holder2 {
   display: flex;
 }
-.holder2 img{
-  width:100px;
+
+.holder2 img {
+  width: 100px;
   height: auto;
 }
-.modalbody input{
-  font-family: "Rock 3D", cursive;
+
+.modalbody input {
+  /* --------------------------newwwwwwwwwwwwwww font                ------------------ */
+  font-family: 'Poppins', sans-serif;
   width: 200px;
   height: 30px;
   border-radius: 12px;
   border: 1px solid transparent;
   margin-left: 12px;
 }
-.action{
+
+.action {
   background-image: url("https://wallpaperaccess.com/full/16668.jpg");
   padding: 1em;
   display: flex;
   gap: 10px;
 }
-button{
+
+button {
   border: 1px solid black;
 }
+
 /*  admin   dont change main button  */
-.toggle img{
-width:22px;
-height:22px;
+.toggle img {
+  width: 22px;
+  height: 22px;
 }
 
-.action button{
+.action button {
   background-color: white;
   width: 160px;
   height: 40px;
@@ -286,9 +358,12 @@ height:22px;
   border: none;
 }
 
-@media only screen and (max-width: 800px){
-     
+@media only screen and (max-width: 800px) {
+
   .imgcontainer {
     display: none;
   }
+}
+.forgot-password{
+  cursor: pointer;
 }
