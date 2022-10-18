@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../../eel.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboards</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<style> 
+body{
+    margin:30px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+canvas{
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px grey;
+    border-top-right-radius: 80px;
+    border-bottom-left-radius:80px ;
+    padding: 20px;
+}
+.piechart{
+    margin-top:20px ;
+    width: auto;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div{
+        margin: 20px;
+        border-radius: 20px ;
+        padding: 10px;
+}
+button{
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px 2px black;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+</style>
+<body>
+    <button id="btn">
+        Back
+    </button>
+    <div class="piechart">
+        <div>
+            <canvas id="myChart" style="width:300px; height: 300px;border: 1px solid black;"></canvas>
+        </div>        
+        
+        <div>
+            <canvas id="lol" style="width:700px; height: 390px;border: 1px solid black;"></canvas>
+        </div>
+        
+    </div>
+
+    <script>
+
+const btn=document.getElementById("btn");
+
+function openpage(){
+
+  window.location.href="../admin-component/ordersAd.html"
+}
+
+btn.addEventListener("click",openpage)
+
+var xValues = ["Open","Bound","Unsubscribe"];
+var yValues = [55, 49, 44];
+var barColors = [
+  "#1dc7ea",
+  "#fa3f4a",
+  "#fea432",
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Email Statics"
+    }
+  }
+});
+
+
+var xValues = ["Nike","Adidas","Puma"];
+var yValues = [150, 10, 30];
+
+var barColors = [
+  "#1dc7ea",
+  "#fa3f4a",
+  "#fea432",
+];
+
+new Chart("lol", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+        label: 'Nike',
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Max Brand Sold"
+    }
+  }
+});
+
+
+
+
+</script>
+
+</body>
+</html>

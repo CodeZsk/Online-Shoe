@@ -1,0 +1,609 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:wght@300&family=Roboto:wght@100&display=swap');
+
+
+/*     font-family: 'Cedarville Cursive', cursive;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-family: 'Roboto', sans-serif; */
+    
+body {
+    font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.lol {
+  display: flex;
+}
+
+.et-hero-tabs,
+.et-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  background-repeat: no-repeat;
+  background: whitesmoke;
+  text-align: center;
+  padding: 0 2em;
+  border: 2px solid black;
+}
+
+.et-hero-tabs-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: white;
+  z-index: 10;
+  border-bottom: 1px double black;
+}
+
+.et-hero-tabs-container--top {
+  position: fixed;
+  top: 0;
+}
+
+.et-hero-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  /* text color */
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+}
+
+.et-hero-tab.tooltiptext {
+  visibility: hidden;
+}
+
+.et-hero-tab:hover {
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  background: white;
+  /* background: rgba(102, 177, 241, 0.8); */
+
+  /* box-shadow: 2px 2px 2px 2px black; */
+  /* width: 10px;
+  height: 40px; */
+  transition: all 0.5s ease;
+}
+
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: large;
+}
+
+.et-hero-tabs-container h3:hover{
+  color: #86d6e8;
+  font-weight: bold;
+
+}
+
+
+.et-hero-tab-slider {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 6px;
+  background: #86d6e8;
+  transition: left 0.3s ease;
+}
+
+.brandimage {
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+}
+
+
+.searchicon {
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+  border-right-color: transparent;
+  padding-top: 2px;
+
+}
+
+.search {
+  padding-top: 3px;
+  border: 1px solid black;
+  border-left-color: transparent;
+  width: 200px;
+  height: 18px;
+}
+
+.notification {
+  width: 20px;
+  height: 20px;
+}
+
+.profile {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.profile img {
+  width: 20px;
+  height: 20px;
+}
+.cartandpro{
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.cartandpro {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.displaypicturecont {
+  display: flex;
+  padding: 0%;
+  margin: 0%;
+  margin-left: 1%;
+  flex-direction: column;
+
+}
+
+.product-container-info{
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  gap:30px;
+  margin-top: 120px;
+  margin-left: 2px;
+  align-items: center;
+}
+
+.centerhoja{
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  gap: 10px;
+  margin-top: 120px;
+  margin-left: 2px;
+  align-items: center;
+}
+
+.log-out {
+  background-color: white;
+  width: 80px;
+  height: 20px;
+  margin-right: 4px;
+}
+.shoesallimages {
+  margin-left: 10px;
+  display: flex;
+  padding: 0%;
+  margin: 0%;
+  /* grid-template-columns: auto auto; */
+  flex-direction: column;
+  overflow-y: scroll;
+  width: 65%;
+  height: 550px;
+  background-color: white;
+  border: 2px solid black;
+}
+/* .shoesallimages div{
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 10px;
+} */
+.shoesallimages img {
+  width: auto;
+  height: 560px;
+  margin-left: 20px;
+}
+
+.productinformation {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 544px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 6px;
+  gap: 30px;
+  padding: 4px;
+}
+
+.nameoftheshoe {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 50px;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.price span {
+
+  font-size: 24px;
+}
+
+.coloroptions {
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  gap: 10px;
+  padding-left: 20px;
+  align-items: center;
+  background-color: white;
+}
+
+.www{
+  display: flex;
+
+}
+.www input{
+  width: 60px;
+  height: 8px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+/* Chrome, Safari, Edge, Opera
+.www input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} */
+
+/* Firefox */
+/* .www input[type=number] {
+  -moz-appearance: textfield;
+} */
+
+
+.coloroptions div {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.coloroptions .orange {
+  background-color: #ff8d17;
+}
+
+.coloroptions .darkblue {
+  background-color: #294158;
+}
+
+
+.coloroptions div:hover {
+  box-shadow: 1px 1px 1px 1px #555;
+
+}
+
+.sizeofshoes {
+  display: flex;
+  margin-left: 2px;
+  align-items: center;
+  gap: 10px;
+}
+
+.boxofsizes {
+  border: 2px solid black;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.boxofsizes:hover {
+
+  box-shadow: 1px 1px 1px 1px grey;
+  border-radius: 30px;
+
+}
+
+.shoedesc {
+  display: flex;
+  overflow-y: scroll;
+  margin: 4px;
+  
+}
+/* width */
+.shoedesc::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+.shoedesc::-webkit-scrollbar-track {
+  background: transparent; 
+  border-radius: 10px;
+}
+
+/* Handle */
+.shoedesc::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 6px;
+  height: 2px;
+  background-color: #888;
+}
+
+/* Handle on hover */
+.shoedesc::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+/* .btncart{
+  width:10px;
+  height:10px;
+} */
+.cart-button {
+  margin-left: 100px;
+  position: relative;
+  padding: 10px;
+  width: 200px;
+  height: 60px;
+  border: 2px solid black;
+  outline: none;
+  border-radius: 10px;
+  /* box-shadow: 2px 2px 2px 2px grey; */
+  /* background-color: ; */
+  cursor: pointer;
+  color: black;
+  transition: 0.1s ease-in-out;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.cart-button span {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2em;
+  color: black;
+}
+
+.cart-button span.add-to-cart {
+  opacity: 1;
+}
+
+.cart-button span.added {
+  opacity: 0;
+}
+
+.cart-button .btncart {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: -10%;
+  transform: translate(-50%, -50%);
+  font-family: 'Poppins', sans-serif;
+  font-size: 2em;
+}
+
+.cart-button .cart-item {
+  position: absolute;
+  z-index: 3;
+  top: -20%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2em;
+}
+
+.cart-button.clicked .btncart {
+  animation: cart 2s ease-in-out forwards;
+}
+
+.cart-button.clicked .cart-item {
+  animation: box 2s ease-in-out forwards;
+}
+
+.cart-button.clicked span.add-to-cart {
+  animation: add 2s ease-in-out forwards;
+} 
+
+.cart-button.clicked span.added {
+  animation: added 2s ease-in-out forwards;
+}
+
+
+@keyframes cart {
+  0% {
+    left: -10%;
+  }
+
+  40%,
+  60% {
+    left: 50%;
+  }
+
+  100% {
+    left: 110%;
+  }
+}
+
+@keyframes box {
+
+  0%,
+  40% {
+    top: -20%;
+  }
+
+  60% {
+    top: 40%;
+    left: 52%;
+  }
+  100% {
+    top: 40%;
+    left: 112%;
+  }
+}
+
+@keyframes add {
+  0% {
+    opacity: 1;
+  }
+
+  20%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes added {
+
+  0%,
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.cart-item img {
+
+  width: 30px;
+  height: 30px;
+  transform: rotateX(30deg)
+}
+
+.buynow {
+
+  margin-left: 100px;
+  padding: 10px;
+  width: 200px;
+  height: 60px;
+  border: 2px solid black;
+  outline: none;
+  border-radius: 10px;
+  background-color:  white;
+  /* box-shadow: 2px 2px 2px 2px grey; */
+  /* background-image: linear-gradient(50deg,lightblue,#86d6e8,white); */
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+.buynow:hover{
+  /* box-shadow: 0.5rem 0.5rem #86d6e8, -0.5rem -0.5rem white; */
+  opacity: 80%;
+}
+/*  scrool bar  */
+/* width */
+.shoesallimages::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+.shoesallimages::-webkit-scrollbar-track {
+  background: transparent; 
+  border-radius: 10px;
+}
+
+/* Handle */
+.shoesallimages::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 6px;
+  height: 1px;
+  /* background-color: #86d6e8; */
+  background-color: #888;
+}
+
+/* Handle on hover */
+.shoesallimages::-webkit-scrollbar-thumb:hover {
+  background: #86d6e8; 
+}
+
+.www{
+  display: flex;
+  align-items: center;
+
+}
+.www div{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.www input{
+  width: 30px;
+  height: 30px;
+}
+
+.review-container{
+  margin: 10%;
+}
+
+.review-box{
+  padding: 10px;
+  border-bottom: 1px solid rgb(212, 212, 212)
+}
+
+.user-star{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.user-star span{
+  margin-right: 10px;
+}
+
+.review-box p{
+  padding: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white; 
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 6px;
+  height: 2px;
+  background-color: #86d6e8;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white; 
+}

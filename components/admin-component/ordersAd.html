@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../eel.js"></script>
+    <script src="./admin.js" defer></script>
+    <title>Admin Order</title>
+    <link rel="shortcut icon" href="../../assets/image/newADMIN.png" type="image/x-icon">
+</head>
+<!-- CSS only -->
+
+<body>  
+  <link rel="stylesheet" href="ordersAd.css">
+  <div class="sforflex">
+    <div class="lolsearch">
+      <input type="text" placeholder="search" class="search"></a>
+      <button class="add-product hide-btn">ADD</button>
+    </div>
+  </div>
+    <div class="pagecontainer">
+      <div class="adminboard">
+          <div class="profile">
+            <img src="../../assets/image/newADMIN.png" alt="admin">
+            <div class="welcome">Welcome Back </div>
+            <br><br>
+            <div class="admincontent">
+              <div class="product-btn"> 
+                <a>Products</a>
+              </div>
+              <div>
+                <select id="order" name="" class="orderdetailsdropdown">
+                  <!-- <option value="select" class="OrderD">Order Details</option> -->
+                  <option value="active">Active Detail</option>
+                  <option value="cancel">Cancel Details</option>
+                  <option value="prev">Prev Details</option>
+                </select>
+              </div>
+              <div> 
+              <a href="../admin-component/ChartDailyOrder.html">
+
+                Daily Orders
+              </a>
+              
+              </div>
+              <div> 
+                <a href="../admin-component/leaderboards.html">
+
+                  Leaderboard
+                </a>
+              </div>
+              <div> 
+              <a href="../admin-component/customerStatics.html">
+
+                Customer Statics
+              </a>
+              </div>
+              <div class="log-out"> LogOut</div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="detailspage">
+          <table>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer ID</th>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Product Quantity</th>
+              <th>Product Price</th>
+              <th>Product Color</th>
+              <th>Order Status</th>
+              <th>Edit</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+          
+      <!-- <script src="./rout.js"></script> -->
+      <script src="https://smtpjs.com/v3/smtp.js"></script>
+</body>
+</html>
