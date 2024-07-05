@@ -7,8 +7,6 @@ from db.db_curd_function.update import *
 from db.db_curd_function.find import *
 from db.db_curd_function.insert import *
 from db.db_curd_function.delete import *
-
-
 eel.init('C:\\Users\\krishna\\Desktop\\Online-Shoe')
 # eel.init('/home/zaid/Desktop/softwareDevProject/Online-Shoe')
 
@@ -138,5 +136,5 @@ def getBackPage():
 #         print('Still have websockets open to', websockets)
 
 eel.start('./components/login-component/SignUpLogin.html',
-          size=(1000, 600))
+          size=(1400, 900))
 # eel.start('./components/login-component/SignUpLogin.html',  size=(1400, 900))

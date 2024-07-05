@@ -652,22 +652,23 @@ span {
 }
 
 #image5 {
-  background: url("https://cdn.dribbble.com/users/1279240/screenshots/6858359/shot_pablo_vargas_dribbble_4x.png?compress=1&resize=1000x550&vertical=bottom");
+  background-image: url("https://static.nike.com/a/images/t_prod/w_1920,c_limit,f_auto,q_auto/e75f1a1b-cf25-4e3c-95be-fd3a96d85339/image.jpg");
+  /* background: url("https://cdn.dribbble.com/users/1279240/screenshots/6858359/shot_pablo_vargas_dribbble_4x.png?compress=1&resize=1000x550&vertical=bottom"); */
 }
 
 #image6 {
   /* background-image: url("../../assets/image/sliderthirdimage.jpgresize=1000x750&vertical=top"); */
-  background-size: 300px 300px;
   background: url("https://cdn.dribbble.com/users/1548856/screenshots/9388183/media/fafd357907eac02e392e1e42ddc17847.png?compress=1&resize=1000x750&vertical=top");
 }
 
 #image7 {
-  /* background-image: url("../../assets/image/slidersecondimage.jpg"); */
-  background: url("https://cdn.dribbble.com/users/52758/screenshots/3832733/media/9030f1f57cfb7e83544d67d0e17f951c.jpg");
+  background-image: url("https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3882cfc554fb4e6da5f2ae30010aa513_9366/Quickflow_M_Grey_EY2944_01_standard.jpg");
+  /* background: url("https://cdn.dribbble.com/users/52758/screenshots/3832733/media/9030f1f57cfb7e83544d67d0e17f951c.jpg"); */
 }
 
 #image8 {
-  background: url("https://cdn.dribbble.com/users/77553/screenshots/11547223/media/595aef422e069d99d014bb713d0f531a.jpg?compress=1&resize=1000x750&vertical=top");
+  background-image: url("https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/15d16a5877dc49d59b17ae30010aa344_9366/Quickflow_M_Grey_EY2944_05_standard.jpg");
+  /* background: url("https://cdn.dribbble.com/users/77553/screenshots/11547223/media/595aef422e069d99d014bb713d0f531a.jpg?compress=1&resize=1000x750&vertical=top"); */
   /* background-image: url("../../assets/image/Screenshot\ 2022-07-29\ 182823.png"); */
 }
 

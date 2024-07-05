@@ -47,6 +47,7 @@ function onlineContainer() {
 
   backBtn.addEventListener("click", () => {
     eel.getBackPage()((data) => {
+      console.log(data)
       if (
         data == "All" ||
         data == "Men" ||
@@ -500,6 +501,15 @@ function onlineContainer() {
         if (!townInput.value.trim()) return;
         if (!pincodeInput.value.trim()) return;
         if (!stateInput.value.trim()) return;
+
+        if(phoneInput.value.length < 10 || phoneInput.value.length > 10){
+          alert("Enter valid Phone Number")
+          return
+        }
+        if(pincodeInput.value.length < 6 || pincodeInput.value.length > 6){
+          alert("Enter valid Pincode")
+          return
+        }
 
         editBtn.textContent = "Edit";
         editBtn.classList.add("edit");

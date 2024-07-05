@@ -249,8 +249,8 @@ function onlineContainer() {
 
       alert("Verify Your Email");
       eel.getVerificationCode()((code) => {
-        console.log(code);
-        console.log(email);
+        // console.log(code);
+        // console.log(email);
         Email.send({
           Host: "smtp.elasticemail.com",
           Username: "onlineshoes69@gmail.com",
@@ -258,7 +258,10 @@ function onlineContainer() {
           To: email,
           From: "onlineshoes69@gmail.com",
           Subject: "Verify Your Email",
-          Body: `Your Verification Code is ${code}`,
+          Body: `Your Verification Code is
+          ${(document.innerHTML = `<br>`)}
+          ${(document.innerHTML = `<h2>${code}</h2>`)}
+          `,
         }).then((message) => {
           console.log("Verify Your" + code);
           if (message == "OK") {
